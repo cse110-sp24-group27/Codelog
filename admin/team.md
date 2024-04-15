@@ -1,6 +1,6 @@
 # Team Name
 
-*insert logo here*
+![Logo](/admin/branding/logo.png)
 
 ## Roster:
 
