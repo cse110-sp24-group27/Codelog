@@ -1,4 +1,4 @@
-# Team Name
+# 27 Wayfarers
 
 ![Logo](/admin/branding/logo.png)
 
