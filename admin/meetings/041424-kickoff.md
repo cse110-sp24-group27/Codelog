@@ -1,5 +1,5 @@
 > Make copy and rename to actualDate-topic.md
-# Meeting Topic
+# Kickoff
 
 ## Meeting Logistics
 - 4/14
@@ -19,7 +19,7 @@
 -  [x] Daniel
 
 ## Content Overview
-- [Meeting Topic](#meeting-topic)
+- [Kickoff](#kickoff)
   - [Meeting Logistics](#meeting-logistics)
   - [Attendance](#attendance)
   - [Content Overview](#content-overview)
@@ -35,14 +35,13 @@
 
 ### Meeting Schedule
 * Two meetings per week, meeting time undecided
-* Tuesday: 
-* Wednesday: doesn't work with Spencer, Josh 
-* Friday: short check-in
+  * Tuesday
+  * Wednesday 
+  * Friday
 
 ### Logistics
 * Remember to join organization
 * Introduction
-* 
 
 ### Team Roles
 * ```Note taker```
@@ -62,9 +61,11 @@
   * Brand: 27 Wayfarers
     * Team name using our internationality
     * Using AI assistance
-    * 
 
 ### Intro Video
-
+* Introduce ourselves and the team.
+* Coming up with an interesting video
 
 ## Plan of Action
+* Team leads will turn in assignments.
+* Do group contract on Wednesday.
