@@ -15,6 +15,8 @@
 -  [ ] Timothy
 -  [ ] Fiona
 -  [ ] Selina
+-  [ ] Devan
+-  [ ] Daniel
 
 ## Content Overview
 - [Meeting Topic](#meeting-topic)
