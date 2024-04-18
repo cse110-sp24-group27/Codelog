@@ -1,6 +1,8 @@
-# 27 Wayfarers
+# 27 Wayfarers 
 
 ![Logo](/admin/branding/logo.png)
+
+### Team Values: Communication, Respect, Trust
 
 ## Roster:
 
