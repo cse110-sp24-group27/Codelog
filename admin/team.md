@@ -1,6 +1,8 @@
-# Team Name
+# 27 Wayfarers 
 
-*insert logo here*
+![Logo](/admin/branding/logo.png)
+
+### Team Values: Communication, Respect, Trust
 
 ## Roster:
 
