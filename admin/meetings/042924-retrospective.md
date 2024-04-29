@@ -52,4 +52,4 @@
 - Use more comments in code to make it easier for others to understand
 
 ## Plan of Action
-- Let Smruthi know about sprint review completion
+- Let Smruthi know about retrospective completion
