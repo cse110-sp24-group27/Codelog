@@ -1,4 +1,4 @@
-# Project Planning
+# Project Brainstorm
 
 ## Meeting Logistics
 - 5/1
