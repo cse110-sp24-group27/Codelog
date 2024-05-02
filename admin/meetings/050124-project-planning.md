@@ -49,20 +49,8 @@
 - We will schedule a time to present the pitch to our mentor
 
 ### Brainstorm
+- Held a brainstorm meeting for the project
 - Brainstorm meeting notes will be stored in `/admin/meetings/mmddyy-brainstorm.md`
-- We will be brainstorming using Miro remotely
-- Miro board will be stored in `/specs/brainstorm`
-- Brainstorming agenda:
-  - Think of problem
-  - Think of current solutions
-  - Think of our solution
-  - Survey completion
-  - Begin selecting features, developing flowchart
-- Discussed potential purposes that our app can serve
-- Researched other dev journals
-- Decided on an overarching concept for our project
-- Came up with a very rough flow chart for the app
-- Drew a sketch of the interface for the app
 
 ## Plan of Action
 - Research how plausible it is to build the app we have brainstormed, and how we would go about doing it
