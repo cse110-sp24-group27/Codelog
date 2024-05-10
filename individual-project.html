@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--This HTML file is a page for an individual project.-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Page</title>
+        <!--<link rel="stylesheet" href="styles.css">-->
+    </head>
+    <body id="individual-project">
+        <header>
+            <!--Project header; includes project name, description, and table of contents-->
+            <div class="project-header">
+                <h1 id="project-name">Project name</h1>
+                <p id="project-description">Project description</p>
+                <nav>
+                    <h4 id="table-header">Table of Contents:</h4>
+                    <ol id="table-of-contents">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ol>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <!--Section for journal entries-->
+            <section id="journal-entries">
+                <!--Display each journal entry in a box-->
+                <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
+                <!--Journal entries can be added/deleted using a JS function-->
+                <div class="journal-entry">
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button class="drag-btn" onclick="drag_project()">...</button>
+                    <h2 class="entry-name">Journal entry name</h2>
+                    <h4 class="entry-tag">Journal entry tag</h4>
+                    <p class="entry-text">Journal entry text</p>
+                </div>
+
+                <div class="journal-entry">
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button class="drag-btn" onclick="drag_project()">...</button>
+                    <h2 class="entry-name">Journal entry label</h2>
+                    <h4 class="entry-tag">Journal entry tag</h4>
+                    <p class="entry-text">Journal entry text</p>
+                </div>
+            </section>
+
+            <!--Button to add a new journal entry-->
+            <!--Need to implement JS function new_journal_entry()-->
+            <button id="entry-create-btn" onclick="new_journal_entry()">+</button>
+        </main>
+
+        <!--Footer for copyright-->
+        <footer>
+            <p>Copyright</p>
+        </footer>
+    </body>
+</html>
+
+<!--Temporary JS just to outline behaviors we might want-->
+<script>
+    // Attach event listeners to each journal entry (replace with actual selector)
+    // This code is temporary, just to see how hovering, single click, and doubleclick might function
+    const journalEntries = document.querySelectorAll(".journal-entry");
+    journalEntries.forEach(entry => {
+        entry.addEventListener("mouseover", () => console.log('show preview'));  //handleJournalEntryHover(entry)
+        entry.addEventListener("click", () => console.log('expand journal entry'));  //handleJournalEntryClick(entry)
+        entry.addEventListener("dblclick", () => console.log('edit journal')); //handleJournalEntryDoubleClick(entry)
+    });
+    function drag_project() {
+        console.log('drag a project');
+    }
+    function new_journal_entry() {
+        console.log('add new journal entry');
+    }
+</script>
