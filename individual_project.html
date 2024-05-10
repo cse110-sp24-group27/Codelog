@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Project</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+  <header>
+    <div class="profile">
+      <img id="profile-picture" src="" alt="Profile Picture" />
+      <h4 id="name">Name</h4>
+      </div>
+    <h1 id="project-name">Project Name</h1>
+  </header>
+  <main>
+    <div class="journal-entries">
+      <div class="journal-entry">
+        <h2 class="entry-name">Journal Entry 1</h2>
+        <p>Date: <span id="entry-date">05/09/2024</span></p>
+        <p>Tags: <span id="entry-tags" value="tag_name">bugs</span></p>
+          <!-- <p>preview: <span id="entry-excerpt">summary of journal entry</span></p> --> 
+        </div>
+        
+       <div class="journal-entry">
+        <h2 class="entry-name">Journal Entry 2</h2>
+        <p>Date: <span id="entry-date">05/10/2024</span></p>
+        <p>Tags: <span id="entry-tags" value="bugs">bugs</span></p>
+          <!-- <p>preview: <span id="entry-excerpt">summary of journal entry</span></p> --> 
+        </div>
+    </div>
+    <button onclick="add_journal_entry()">Add Journal Entry</button>
+  </main>
+  <footer id="footer">
+    <p>copyright</p>
+  </footer>
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>
+
+<script>
+
+// Attach event listeners to each journal entry (replace with actual selector)
+// This code is temporary, just to see how hovering, single click, and doubleclick might function
+const journalEntries = document.querySelectorAll(".journal-entry");
+journalEntries.forEach(entry => {
+  entry.addEventListener("mouseover", () => console.log('show preview'));  //handleJournalEntryHover(entry)
+  entry.addEventListener("click", () => console.log('exapnd journal entry'));  //handleJournalEntryClick(entry)
+  entry.addEventListener("dblclick", () => console.log('edit journal')); //handleJournalEntryDoubleClick(entry)
+});
+function add_journal_entry() {
+    console.log('add new journal entry')
+}
+</script>
