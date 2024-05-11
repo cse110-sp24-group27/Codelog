@@ -23,10 +23,10 @@ jobs:
         uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./source/assets
-          output_dir: ./out
+          output_dir: .
           recurse: true
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ./out
+          folder: .
