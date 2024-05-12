@@ -5,15 +5,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project Page</title>
-        <!--<link rel="stylesheet" href="styles.css">-->
+        <link rel="stylesheet" href="source/assets/styles/styles.css">
     </head>
     <body id="individual-project">
         <header>
             <!--Project header; includes project name, description, and table of contents-->
             <div class="project-header">
-                <h1 id="project-name">Project name</h1>
+                <h1 id="project-name">Project name name name name</h1>
                 <p id="project-description">Project description</p>
-                <nav>
+                <nav id="project-nav">
                     <h4 id="table-header">Table of Contents:</h4>
                     <ol id="table-of-contents">
                         <li>Item 1</li>
@@ -24,28 +24,46 @@
             </div>
         </header>
 
-        <main>
+        <main class="container">
             <!--Section for journal entries-->
             <section id="journal-entries">
                 <!--Display each journal entry in a box-->
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
                 <div class="journal-entry">
-                    <!--Drag button to reorder the projects-->
-                    <!--Need to implement JS function drag_project()-->
-                    <button class="drag-btn" onclick="drag_project()">...</button>
                     <h2 class="entry-name">Journal entry name</h2>
                     <h4 class="entry-tag">Journal entry tag</h4>
                     <p class="entry-text">Journal entry text</p>
-                </div>
-
-                <div class="journal-entry">
                     <!--Drag button to reorder the projects-->
                     <!--Need to implement JS function drag_project()-->
                     <button class="drag-btn" onclick="drag_project()">...</button>
-                    <h2 class="entry-name">Journal entry label</h2>
+                </div>
+
+                <div class="journal-entry">
+                    <h2 class="entry-name">Journal entry name</h2>
                     <h4 class="entry-tag">Journal entry tag</h4>
                     <p class="entry-text">Journal entry text</p>
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button class="drag-btn" onclick="drag_project()">...</button>
+                </div>
+                
+                <div class="journal-entry">
+                    <h2 class="entry-name">Journal entry name</h2>
+                    <h4 class="entry-tag">Journal entry tag</h4>
+                    <p class="entry-text">Journal entry text</p>
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button class="drag-btn" onclick="drag_project()">...</button>
+                </div>
+
+                <div class="journal-entry">
+                    <h2 class="entry-name">Journal entry name</h2>
+                    <h4 class="entry-tag">Journal entry tag</h4>
+                    <p class="entry-text">Journal entry text</p>
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button class="drag-btn" onclick="drag_project()">...</button>
                 </div>
             </section>
 
