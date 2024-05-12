@@ -1,4 +1,5 @@
 # CI Pipeline Status
+![diagram](phase1.drawio.png)
 
 ## In progress
 ### Code Linter
