@@ -39,6 +39,12 @@ function Book(title, author) {
 function test(x) {}
 
 /**
+ * @param {Bar} y
+ */
+
+function test2(y) {}
+
+/**
  * @type {number}
  */
 var FOO = 1
