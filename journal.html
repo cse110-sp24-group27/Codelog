@@ -5,40 +5,55 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Journal Page</title>
-        <!--<link rel="stylesheet" href="styles.css">-->
+        <link rel="stylesheet" href="source/assets/styles/styles.css">
     </head>
-    <body id="journal">
-        <header>
+    <body id="journal-page">
+        <header class="btn">
             <!--Project header; includes  journal title, and go back button-->
             <div class="journal-header">
-                <button class="back-btn">Back</button>
-                <h1 id="title"> Journal title</h1>
+                <button id="back-btn" onclick="go_back()">Back</button>
             </div>
         </header>
 
-        <main>
+        <main id="j-main">
+            <section id="journal-show">
+                <div class="wed" id="title">
+                    <h2 id="journal-title"> Journal title name name name</h2>
+                </div>
+                <div class="wed" id="tags">
+                    <!--Showing the tags in  push here--->
+                    <p id="tag1">tag1</p>
+                    <p class="tag" id="tag2">tag2</p>
+                    <p class="tag" id="tag3">tag3</p>
+                </div>
+                <div class="wed" id="template">
+                    <!--Showing the information in push here--->
+                    <p>template</p>
+                </div>
+            </section>
+
             <!--Section for journal entries-->
-            <section id="template">
-                <h2>Type:</h2>
-                <!--Showing the information in template-->
-                    <p>The template type</p>
+            <section id="markdown">
+                <!--Showing the markdown in push here-->
+                <p>markdown file</p>
             </section>
 
-            <section id="tags">
-                <!--Showing the tags in a box-->
-                <h2>Tags:</h2>
-                    <p>Show the tags</p>
-            </section>
-
+            <button id="edit-emtrty-btn" onclick="edit_journal_entry()">edit</button>
         </main>
 
         <!--Footer for copyright-->
         <footer>
-            <section id="markdown">
-                <h2>ournal content:</h2>
-                <!--Showing the markdown in a box-->
-                <p>Show the markdown</p>
-            </section>
+            <p>Copyright</p>
         </footer>
     </body>
 </html>
+
+<script>
+    function edit_journal_entry() {
+        console.log('Edit journal entry');
+    }
+    function go_back(){
+        console.log('Go back');
+    }
+</script>
+
