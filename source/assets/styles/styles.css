@@ -92,6 +92,7 @@ footer {
   font-weight: 400;
   font-style: normal;
 }
+
 /* Style the back button color */
 #back-btn {
   background-color: #9bbeda;
@@ -103,6 +104,7 @@ footer {
   flex-direction: column;
   justify-content: center;
 }
+
 /* Style the back button hover color and active */
 #back-btn:hover {
   background-color: #5095ce;
@@ -110,17 +112,20 @@ footer {
 #back-btn:active {
   box-shadow: 2px 2px 5px #9BBEDA;
 }
+
 /* Style the whole title, tag, template, and .MD file location */
 #j-main {
   width: 65%;
   margin: auto;
 }
+
 /* Style the whole title, tag, and templat. So that they can be side by side */
 #journal-show {
   padding-top: 8px;
   display: flex;
   flex-wrap: wrap;
 }
+
 /* If tags are more than one, put them side by side */
 #tags {
   padding-top: 8px;
@@ -128,10 +133,12 @@ footer {
   display: flex;
   flex-wrap: wrap;
 }
+
 /* Make places between each tags */
 .tag {
   padding-left: 12px;
 }
+
 /* Make places between tags and template */
 #template {
   padding-top: 8px;
