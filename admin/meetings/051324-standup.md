@@ -5,26 +5,25 @@
 - 3:00pm
 
 ## Attendance
--  [x] David
--  [x] Hayden
--  [x] Joshua
--  [x] Kristhian
--  [x] Sang
--  [x] Spencer
--  [x] Timothy
--  [x] Fiona
--  [x] Selina
--  [x] Devan
+- [x] David
+- [x] Hayden
+- [x] Joshua
+- [x] Kristhian
+- [x] Sang
+- [x] Spencer
+- [x] Timothy
+- [x] Fiona
+- [x] Selina
+- [x] Devan
 
 ## Content Overview
-- [Meeting Topic](#meeting-topic)
-  - [Meeting Logistics](#meeting-logistics)
-  - [Attendance](#attendance)
-  - [Content Overview](#content-overview)
-  - [Stand Up](#stand-up)
-  - [Content](#content)
-    - [Reassignment of Tasks](#reassignment-of-tasks)
-  - [Plan of Action](#plan-of-action)
+- [Meeting Logistics](#meeting-logistics)
+- [Attendance](#attendance)
+- [Content Overview](#content-overview)
+- [Stand Up](#stand-up)
+- [Content](#content)
+  - [Reassignment of Tasks](#reassignment-of-tasks)
+- [Plan of Action](#plan-of-action)
 
 ## Stand Up
 | Name | Progress | Priorities | Problems |
