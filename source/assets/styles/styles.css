@@ -1,0 +1,85 @@
+/* CSS for the individual project page */
+
+/* Style the whole individual project page */
+#individual-project {
+  background-color: #2a2a2e;
+  color: #9bbeda;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Position the project header in the top-left */
+.project-header {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(20vw);
+}
+
+/* Style the table of contents */
+#project-nav {
+  border: solid white;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+/* Style the table of contents header */
+#table-header {
+  text-align: center;
+}
+
+/* Center the main elements */
+.container {
+  width: 50%;
+  margin: auto;
+}
+
+/* Display the journal entries in a column using a flex container */
+#journal-entries {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 40px;
+}
+
+/* Style each individual journal entry */
+.journal-entry {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid white;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.entry-tag {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+/* Style the drag buttons within each journal entry */
+.drag-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: grab;
+}
+
+/* Style the journal entry add button */
+#entry-create-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+}
