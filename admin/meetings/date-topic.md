@@ -1,5 +1,5 @@
-> Make copy and rename to actualDate-topic.md
 # Meeting Topic
+> Make copy and rename to actualDate-topic.md
 
 ## Meeting Logistics
 - Date
