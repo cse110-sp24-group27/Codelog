@@ -94,8 +94,8 @@ footer {
 }
 /* Style the back button color */
 #back-btn {
-  background-color: #9BBEDA;
-  color:azure;
+  background-color: #9bbeda;
+  color: azure;
   position: absolute;
   top: 40px;
   right: 85%;
@@ -106,9 +106,9 @@ footer {
 /* Style the back button hover color and active */
 #back-btn:hover {
   background-color: #5095ce;
-  &:active {
-      box-shadow: 2px 2px 5px #9BBEDA;
-  }
+}
+#back-btn:active {
+  box-shadow: 2px 2px 5px #9BBEDA;
 }
 /* Style the whole title, tag, template, and .MD file location */
 #j-main {
