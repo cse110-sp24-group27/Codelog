@@ -90,7 +90,7 @@
 /* Style the back button color */
 #back-btn {
   background-color: #9bbeda;
-  color: #ffffff;
+  color: #fff;
   position: absolute;
   top: 40px;
   right: 78%;
@@ -138,7 +138,7 @@
   right: 40px;
   cursor: pointer;
   background-color: #9bbeda;
-  color: #ffffff;
+  color: #fff;
 }
 
 #edit-emtrty-btn:hover {
