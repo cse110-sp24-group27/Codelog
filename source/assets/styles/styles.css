@@ -100,13 +100,17 @@
 
 /* End of individual project page styling */
 
+
 /* Style the whole Journal page */
 #journal-page {
-  background-color: #222225;
+  background-color: #2a2a2e;
   color: #9bbeda;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 /* Style the back button color */
@@ -120,6 +124,7 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 50%;
+  margin-top: 6px;
 }
 
 /* Style the back button hover color and active */
@@ -138,11 +143,6 @@
   padding-left: 20px;
 }
 
-/* Style the whole title, tag, and templat. So that they can be side by side */
-#journal-title {
-  padding-top: 14px;
-}
-
 /* If tags are more than one, put them side by side */
 #tags {
   display: flex;
@@ -154,9 +154,117 @@
   padding-left: 12px;
 }
 
+#markdown{
+  text-align: center;
+}
+
 footer {
   margin-left: 10%;
   position: fixed;
   bottom: 5px;
   left: 5px;
 }
+
+/* End of journal page styling */
+
+
+/* Style the whole ceation page */
+#creation_page {
+  background-color: #2a2a2e;
+  color: #9bbeda;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Style the "Template: Project Name" in center */
+#tpn {
+  text-align: center;
+}
+
+/* Style the tag, privacy, and text location */
+#top {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* If tags are more than one, put them side by side */
+#cTages {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  padding-right: 25%;
+  position: relative;
+}
+
+/* Make places between each tags */
+.cTag {
+  padding-left: 20px;
+}
+
+/* Style all button */
+.c_btn {
+  background-color: #9bbeda;
+  color: #fff;
+  position: relative;
+}
+/* Style all button hover color and active */
+.c_btn:hover {
+  background-color: #426d96;
+}
+  
+.c_btn:active {
+  box-shadow: 2px 2px 5px #9bbeda;
+}
+
+/* Style add button location and size */
+#add_btn {
+  left: 30px;
+  width: 55px; 
+  height: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Style privacy location */
+#privacy {
+  position: absolute;
+  right: 10%;
+}
+
+.pub:active {
+  color: #4a801b;
+}
+
+.pri:active {
+  color: #4a801b;
+}
+
+/* Style all text box size */
+.text {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  margin-bottom: 20px;
+}
+
+/* Style more entries button location and size */
+#more_entries-btn {
+  left: 50%;
+  width: 30px; 
+  height: 25px;
+}
+
+/* Style done button location and size */
+#done-btn {
+  left:95%;
+  width: 50px; 
+  height: 25px;
+  margin-top: 20px;
+
+}
+
+/* End of creation page styling */
