@@ -78,8 +78,6 @@ header {
   display: none; /* Hide by default */
   padding: 20px;
   border: 1px solid #ddd;
-  
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   border-radius: 5px;
   margin-top: 20px;
 }
