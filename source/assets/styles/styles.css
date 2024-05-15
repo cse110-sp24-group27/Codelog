@@ -100,7 +100,6 @@
 
 /* End of individual project page styling */
 
-
 /* Style the whole Journal page */
 #journal-page {
   background-color: #2a2a2e;
@@ -154,7 +153,7 @@
   padding-left: 12px;
 }
 
-#markdown{
+#markdown {
   text-align: center;
 }
 
@@ -167,9 +166,8 @@ footer {
 
 /* End of journal page styling */
 
-
 /* Style the whole ceation page */
-#creation_page {
+#creation-page {
   background-color: #2a2a2e;
   color: #9bbeda;
   font-family: Roboto, sans-serif;
@@ -192,7 +190,7 @@ footer {
 }
 
 /* If tags are more than one, put them side by side */
-#cTages {
+#c-tages {
   display: flex;
   flex-wrap: wrap;
   padding-top: 25px;
@@ -201,29 +199,30 @@ footer {
 }
 
 /* Make places between each tags */
-.cTag {
+.c-tag {
   padding-left: 20px;
 }
 
 /* Style all button */
-.c_btn {
+.c-btn {
   background-color: #9bbeda;
   color: #fff;
   position: relative;
 }
+
 /* Style all button hover color and active */
-.c_btn:hover {
+.c-btn:hover {
   background-color: #426d96;
 }
-  
-.c_btn:active {
+
+.c-btn:active {
   box-shadow: 2px 2px 5px #9bbeda;
 }
 
 /* Style add button location and size */
-#add_btn {
+#add-btn {
   left: 30px;
-  width: 55px; 
+  width: 55px;
   height: 25px;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -252,19 +251,18 @@ footer {
 }
 
 /* Style more entries button location and size */
-#more_entries-btn {
+#more-entries-btn {
   left: 50%;
-  width: 30px; 
+  width: 30px;
   height: 25px;
 }
 
 /* Style done button location and size */
 #done-btn {
-  left:95%;
-  width: 50px; 
+  left: 95%;
+  width: 50px;
   height: 25px;
   margin-top: 20px;
-
 }
 
 /* End of creation page styling */
