@@ -19,7 +19,7 @@ header {
 
 /* Style the buttons in the header section */
 .but {
-  padding-right: 5%;
+  padding-left: 40%;
   display: flex;
   gap: 100px;
 }
@@ -38,6 +38,7 @@ header {
 .profile {
   flex: 0 0 200px; /* Fixed width for the profile section */
   padding: 20px;
+
   /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); */
   position: fixed;
   padding-left: 100px;
@@ -58,8 +59,9 @@ header {
 
 /* Style each specific project */
 .project {
-  width: 400px;
+  width: 40%; /* Width of each project box is 40% */
   border: 1px solid grey;
+
   /* box-shadow: 0 2px 4px var(--shadow-color); */
   border-radius: 50px;
   border-radius: 1px;
@@ -76,6 +78,7 @@ header {
   display: none; /* Hide by default */
   padding: 20px;
   border: 1px solid #ddd;
+  
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   border-radius: 5px;
   margin-top: 20px;
