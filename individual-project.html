@@ -9,6 +9,9 @@
     </head>
     <body id="individual-project">
         <header>
+            <!--Button to go back to the project homepage-->
+            <!--Need to implement JS function go_back()-->
+            <button id="project-page-back-btn" onclick="go_back()">Back</button>
             <!--Project header; includes project name, description, and table of contents-->
             <div class="project-header">
                 <h1 id="project-name">Project name name name name</h1>
@@ -30,6 +33,15 @@
                 <!--Display each journal entry in a box-->
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
+                <div class="journal-entry">
+                    <h2 class="entry-name">Journal entry name</h2>
+                    <h4 class="entry-tag">Journal entry tag</h4>
+                    <p class="entry-text">Journal entry text</p>
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button class="drag-btn" onclick="drag_project()">...</button>
+                </div>
+
                 <div class="journal-entry">
                     <h2 class="entry-name">Journal entry name</h2>
                     <h4 class="entry-tag">Journal entry tag</h4>

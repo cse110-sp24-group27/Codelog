@@ -1,5 +1,13 @@
 /* CSS for the individual project page */
 
+/* Consistency features:
+ * Margin: 10% on the left and right, 40px on the top
+ * Footer: see footer styling
+ * Font: Roboto
+ * Backgrund color: #2a2a2e
+ * Font color: #9bbeda
+ */
+
 /* Style the whole individual project page */
 #individual-project {
   background-color: #2a2a2e;
@@ -7,17 +15,27 @@
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin-top: 40px;
 }
 
 /* Position the project header in the top-left */
 .project-header {
+  margin-left: 10%;
+  margin-top: -20px;
   position: absolute;
-  top: 40px;
-  left: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: calc(20vw);
+}
+
+/* Style the back button */
+#project-page-back-btn {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  cursor: pointer;
+  font-size: calc(1vw);
 }
 
 /* Style the table of contents */
@@ -34,7 +52,7 @@
 
 /* Center the main elements */
 .container {
-  width: 50%;
+  width: 100%;
   margin: auto;
 }
 
@@ -43,19 +61,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 40px;
+  margin-left: 40%;
+  margin-right: 10%;
 }
 
 /* Style each individual journal entry */
 .journal-entry {
   position: relative;
-  margin-top: 20px;
   margin-bottom: 20px;
   border: solid white;
   border-radius: 10px;
   padding: 5px 10px;
 }
 
+/* Style the entry tag */
 .entry-tag {
   position: absolute;
   top: 5px;
@@ -73,10 +92,14 @@
 /* Style the journal entry add button */
 #entry-create-btn {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  top: 40px;
+  right: 5%;
   cursor: pointer;
+  font-size: calc(1vw);
 }
+
+
+
 
 /* Style the whole Journal page */
 #journal-page {
@@ -150,6 +173,7 @@
 }
 
 footer {
+  margin-left: 10%;
   position: fixed;
   bottom: 5px;
   left: 5px;
