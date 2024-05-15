@@ -1,0 +1,89 @@
+ 
+/* Style the whole project home page */
+body {
+    background-color: #2a2a2e;
+    color: #9bbeda;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* Style the header section */
+header {
+    padding-left: 5%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc; /* Adds a grey line under the header */
+  }
+
+/* Style the buttons in the header section */
+.but {
+    padding-right: 5%;
+    display: flex;
+    gap: 100px;
+}
+
+.but button {
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.profile {
+    flex: 0 0 200px; /* Fixed width for the profile section */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+
+    padding-left: 100px;
+}
+
+#proj-title{
+    padding-left: 400px;
+}
+
+.project-collection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    padding-left: 400px;
+}
+
+.project {
+    width: 400px;
+    border: 1px solid grey;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    border-radius: 1px;
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+}
+
+.new-project {
+    display: none; /* Hide by default */
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#create-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightskyblue;
+}
+
+#footer {
+    padding-left: 100px;
+    height: 350px;
+    display: flex;
+    align-items: flex-end;
+}

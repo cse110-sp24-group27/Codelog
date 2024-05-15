@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Page</title>
     <!--Uncomment the below line when editing CSS file-->
-    <!--<link rel="stylesheet" href="styles.css">-->
+    <link rel="stylesheet" href="source/assets/styles/project_styles.css">
 </head>
 <body>
     <header>
@@ -13,22 +13,25 @@
         <img id="codelog-pic" src="admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
         <h1>CodeLog</h1>
 
-        <!--Buttons to jump to other pages-->
-        <!--Add JS function to reload the page when click the home button-->
-        <button id="home">Home</button>
+        <div class="but">
+            <!--Buttons to jump to other pages-->
+            <!--Add JS function to reload the page when click the home button-->
+            <button id="home">Home</button>
 
-        <!--Add JS function to jump to the setting page to edit dev bar when click on this button-->
-        <button id="setting">Settings</button>
+            <!--Add JS function to jump to the setting page to edit dev bar when click on this button-->
+            <button id="setting">Settings</button>
 
-        <!--Add JS function to jump to the tag editor page to edit tags when click on this button-->
-        <button id="tag-editor">Tag Editor</button>
+            <!--Add JS function to jump to the tag editor page to edit tags when click on this button-->
+            <button id="tag-editor">Tag Editor</button>
+        </div>
+       
     </header>
     <main>
         <!--User's profile-->
         <!--Delete this class after implementing the JS function to load user's profile (from the database or somewehere else)-->
         <div class="profile">
             <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture"/>
-            <h4 id="name">Name</h4>
+            <h2 id="name">Name</h2>
             <p id="description">User description</p>
 
             <!--User's sublinks-->
@@ -39,32 +42,42 @@
             </div>
         </div>
 
-        <!--Display projects as a box-->
-        <div class="project">
-            <!--The drag button to reorder the projects-->
-            <!--Need to implement JS function drag_project()-->
-            <button id="drag-btn" onclick="drag_project()">...</button>
+        <h1 id="proj-title">Projects</h1>
 
-            <!--Project details-->
-            <!--Delete this after implementing "importing project details" function-->
-            <p>Project Name</p>
-            <p>Project Description</p>
-            <select>
-                <option value="Public">Public</option>
-                <option value="Private">Private</option>
-            </select>
+        <div class="project-collection">
+            <!--Display project as a box-->
+            <div class="project">
+                <!--The drag button to reorder the projects-->
+                <!--Need to implement JS function drag_project()-->
+                <button id="drag-btn" onclick="drag_project()">...</button>
 
-            <!--Class for tags-->
-            <div class="tags">
-                <p>Tag 1</p>
-                <p>Tag 2</p>
-                <p>Tag 3</p>
+                <!--Project details-->
+                <!--Delete this after implementing "importing project details" function-->
+                <h3>Project Name</h3>
+
+                <select>
+                    <option value="Public">Public</option>
+                    <option value="Private">Private</option>
+                </select>
+
+                <p>Project Description</p>
+                
+
+                <!--Class for tags-->
+                <div class="tags">
+                    <p>Tag 1</p>
+                    <p>Tag 2</p>
+                    <p>Tag 3</p>
+                </div>
             </div>
+
+            <!--The + button to add new project-->
+            <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
+            <button id="create-btn" onclick="new_project()">+</button>
         </div>
         
-        <!--The + button to add new project-->
-        <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
-        <button id="create-btn" onclick="new_project()">+</button>
+        
+        
 
         <!--Manual project creation-->
         <!--Hide this until the + button is clicked-->
