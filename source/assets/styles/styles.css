@@ -26,13 +26,13 @@
 
 /* Apply font colors small text */
 #individual-project p,
-                    li {
+li {
   color: #cbcbcb;
 }
 
 /* Apply font colors to headers */
 #individual-project h1,
-                    h2 {
+h2 {
   color: white;
 }
 
