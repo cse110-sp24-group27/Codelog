@@ -25,12 +25,14 @@
 }
 
 /* Apply font colors small text */
-#individual-project p, li {
-  color: #cbcbcb
+#individual-project p,
+                    li {
+  color: #cbcbcb;
 }
 
 /* Apply font colors to headers */
-#individual-project h1, h2 {
+#individual-project h1,
+                    h2 {
   color: white;
 }
 
