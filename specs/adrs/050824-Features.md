@@ -4,7 +4,7 @@
 
 ## Decision Outcome
 
-Chosen options: 
+Chosen options:
 * main page containing all projects
 * ability to add project and journal entry on main page
 * ability to view project in detail, that showcases a list of all journal entries
