@@ -57,7 +57,7 @@ main {
   margin-left: 10%;
   margin-right: 5%;
   border: solid yellow;
-  width: 50%
+  width: 50%;
 }
 
 /* Style each specific project */
@@ -92,7 +92,7 @@ main {
 
 /* Style the copyright footer */
 #footer {
-  font-size:smaller;
+  font-size: smaller;
   margin-top: 10%;
   display: flex;
   align-items: flex-end;
