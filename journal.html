@@ -11,10 +11,10 @@
         <header class="btn">
             <!--Project header; includes  journal title, and go back button-->
             <div class="journal-header">
-                <button id="back-btn" onclick="go_back()">Back</button>
+                <button id="back-btn">Back</button>
             </div>
         </header>
-
+        
         <main id="j-main">
             <section id="journal-show">
                 <div class="wed" id="title">
@@ -39,19 +39,13 @@
             </section>
         </main>
 
+        <!-- Journal js file -->
+        <script src="journal.js"></script>
+
         <!--Footer for copyright-->
         <footer>
             <p>Copyright</p>
         </footer>
     </body>
 </html>
-
-<script>
-    function edit_journal_entry() {
-        console.log('Edit journal entry');
-    }
-    function go_back(){
-        console.log('Go back');
-    }
-</script>
 
