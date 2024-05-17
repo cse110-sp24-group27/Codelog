@@ -3,7 +3,7 @@
 /* Style the whole project home page */
 body {
   background-color: #2a2a2e;
-  color: #9bbeda;
+  color: white;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -11,10 +11,18 @@ body {
 
 /* Style the header section */
 header {
-  padding-left: 5%;
+  height: 70px;
+  margin-left: 10%;
+  margin-right: 10%;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc; /* Adds a grey line under the header */
+}
+
+/* Style the CodeLog title */
+#codelog {
+  font-size: 50px;
+  color: #9bbeda;
 }
 
 /* Style the buttons in the header section */
@@ -37,40 +45,135 @@ header {
 /* Style the main body */
 main {
   display: flex;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 5%;
 }
 
 /* Style the user profile */
 .profile {
   display: block;
-  width: 15%;
-  margin-top: 5%;
-  margin-left: 5%;
+  width: 20%;
+}
 
-  /* Delete the below line later on */
-  border: solid white;
+/* Style the profile picture */
+#profile-picture {
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100%
+}
+
+/* Style the profile name */
+#name {
+  margin-top: 5%;
+  margin-bottom: 0%;
+  text-align: center;
+  color: white;
+  font: bold;
+}
+
+/* Style for username and pronoun */
+.user-info {
+  display: flex; /* Use flexbox to align items */
+  gap: 10px; /* Add space between username and pronoun */
+  font-size: small;
+  color: lightgrey;
+  margin-bottom: 0%;
+}
+
+/* Style the user description */
+#description {
+  /* text-align: center; */
+  color: white;
+  font-size: small;
+  margin-top: 0%;
+  height: auto;
+}
+
+/* Style the sublinks */
+.sublinks {
+  /* text-align: center; */
+  font-size: small;
+}
+
+.sublinks a {
+  color: white;
 }
 
 /* Style the whole project-collection class */
 .project-collection {
   flex-direction: column;
-  margin-top: 5%;
+  position: relative;
+
+  /* border: solid yellow; */
+  width: 75%;
   margin-left: 10%;
-  margin-right: 5%;
-  border: solid yellow;
-  width: 50%;
+}
+
+/* Style the Project title above the projects */ 
+#proj-title {
+  font-size: 40px;
 }
 
 /* Style each specific project */
 .project {
-  width: 40%; /* Width of each project box is 40% of the screen */
+  width: 45%; /* Width of each project box is 40% of the screen */
   border: solid grey;
   border-radius: 10px;
+  position: relative;
+}
+
+/* Style for both project name and public/ private status */
+#project-name, #status {
+  display: inline-block;
+  gap: 50px;
+}
+
+/* Style for project name */
+#project-name {
+  margin-left: 5%;
+  margin-right: 5px;
+}
+
+/* Style for project status */
+#status {
+  color: #EAEAEA;
+}
+
+/* Style for project description */
+#project-description {
+  margin-top: 0%;
+  font-size: 10px;
+  margin-left: 5%;
+  margin-right: 10%;
+}
+
+/* Style the drag button */
+#drag-btn {
+  position: absolute;
+  display: flex;
+  background: none;
+  /* margin-left: 18.5%; */
+  top: 5%;
+  right: 5%;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 5px;
+}
+
+#drag-btn:hover {
+  background-color: grey;
 }
 
 /* Style the tags of each project */
 .tags {
   display: flex;
   gap: 10px;
+  margin-left: 5%;
 }
 
 /* Style the class of creating new project */
@@ -84,14 +187,18 @@ main {
 
 /* Style the + button to create project */
 #create-btn {
+  position: absolute;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background-color: lightskyblue;
+  right: 5px;
+  bottom: 5px;
 }
 
 /* Style the copyright footer */
 #footer {
+  margin-left: 10%;
   font-size: smaller;
   margin-top: 10%;
   display: flex;
