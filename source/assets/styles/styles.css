@@ -1,21 +1,39 @@
 /* CSS for the individual project page */
 
+/* TODO:
+ * Make table of contents link to journal entries (HTML)
+ * Make the tags display horizontally inline
+ * Find a better back button image so that the background doesn't have to be white
+ * Get a higher-res favicon?
+ */
+
 /* Consistency features:
  * Margin: 10% on the left and right, 40px on the top
  * Footer: see footer styling
  * Font: Roboto
  * Backgrund color: #2a2a2e
- * Font color: #9bbeda
+ * Font color: matches Figma design
  */
 
 /* Style the whole individual project page */
 #individual-project {
   background-color: #2a2a2e;
-  color: #9bbeda;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
   margin-top: 40px;
+}
+
+/* Apply font colors small text */
+#individual-project p,
+li {
+  color: #cbcbcb;
+}
+
+/* Apply font colors to headers */
+#individual-project h1,
+h2 {
+  color: white;
 }
 
 /* Position the project header in the top-left */
@@ -35,7 +53,17 @@
   top: 40px;
   left: 5%;
   cursor: pointer;
-  font-size: calc(1vw);
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the back arrow image */
+#back-arrow {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: white;
 }
 
 /* Style the table of contents */
@@ -72,20 +100,36 @@
   border: solid white;
   border-radius: 10px;
   padding: 5px 10px;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+/* Style the entry name */
+.entry-name {
+  color: #b6b6b6;
 }
 
 /* Style the entry tag */
-.entry-tag {
+.entry-template {
+  color: #f24822;
   position: absolute;
-  top: 5px;
+  top: 15px;
   right: 10px;
+}
+
+/* Style the drag button container */
+.drag-btn-container {
+  /* Use absolute position to place the button container correctly */
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  height: 100%;
 }
 
 /* Style the drag buttons within each journal entry */
 .drag-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  /* Use fixed position to keep the button visible while scrolling */
+  position: fixed;
   cursor: grab;
 }
 
