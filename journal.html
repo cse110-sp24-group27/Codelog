@@ -6,15 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Journal Page</title>
         <link rel="stylesheet" href="source/assets/styles/styles.css">
+        <script src="journal.js"></script>
     </head>
     <body id="journal-page">
         <header class="btn">
             <!--Project header; includes  journal title, and go back button-->
             <div class="journal-header">
-                <button id="back-btn" onclick="go_back()">Back</button>
+                <button id="back-btn">Back</button>
             </div>
         </header>
-
+        
         <main id="j-main">
             <section id="journal-show">
                 <div class="wed" id="title">
@@ -45,13 +46,4 @@
         </footer>
     </body>
 </html>
-
-<script>
-    function edit_journal_entry() {
-        console.log('Edit journal entry');
-    }
-    function go_back(){
-        console.log('Go back');
-    }
-</script>
 
