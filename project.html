@@ -11,7 +11,7 @@
     <header>
         <!--Logo for the website-->
         <img id="codelog-pic" src="admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
-        <h1>CodeLog</h1>
+        <h1 id="codelog">CodeLog</h1>
 
         <div class="but">
             <!--Buttons to jump to other pages-->
@@ -32,17 +32,21 @@
         <div class="profile">
             <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture"/>
             <h2 id="name">Name</h2>
+            <div class="user-info">
+                <p id="username">Username</p>
+                <p id="pronoun">Pronoun</p>
+            </div>
             <p id="description">User description</p>
 
             <!--User's sublinks-->
             <div class="sublinks">
-                <a id="github" href="https://github.com/">Github</a> <br>
-                <a id="linked-in" href="https://www.linkedin.com/feed/">LinkedIn</a>
+                <a id="github" href="https://github.com/">Link to Github</a> <br>
+                <a id="linked-in" href="https://www.linkedin.com/feed/">Link to LinkedIn</a>
                 <!--Add line to add more links-->
             </div>
         </div>
 
-        <!-- Projects section -->
+        <!-- Projects section-->
         <div class="project-collection">
             <h1 id="proj-title">Projects</h1>
 
@@ -54,14 +58,20 @@
 
                 <!--Project details-->
                 <!--Delete this after implementing "importing project details" function-->
-                <h3>Project Name</h3>
 
-                <select>
+                <!--Name of the project-->
+                <h3 id="project-name">Project Name</h3>
+
+                <!--Public/ private status of the project-->
+                <p id="status">Public</p>
+                
+                <!-- <select id="privacy">
                     <option value="Public">Public</option>
                     <option value="Private">Private</option>
-                </select>
+                </select> -->
 
-                <p>Project Description</p>
+                <!--Description for the project-->
+                <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
                 
 
                 <!--Class for tags-->
@@ -96,8 +106,8 @@
             <!--Option to let users choose their project to be public or private-->
             <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
             <select id="public-private">
-                <option value="Public">Public</option>
-                <option value="Private">Private</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
             </select>
 
             <input type="text" id="new-entry" placeholder="Enter Entry content.">
