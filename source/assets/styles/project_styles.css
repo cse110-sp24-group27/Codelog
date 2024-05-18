@@ -12,8 +12,10 @@ body {
 /* Style the header section */
 header {
   height: 70px;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding-left: 10%;
+  padding-right: 10%;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc; /* Adds a grey line under the header */
@@ -62,7 +64,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 100%
+  width: 100%;
 }
 
 /* Style the profile name */
@@ -85,8 +87,6 @@ main {
 
 /* Style the user description */
 #description {
-  /* text-align: center; */
-  color: white;
   font-size: small;
   margin-top: 0%;
   height: auto;
@@ -94,7 +94,6 @@ main {
 
 /* Style the sublinks */
 .sublinks {
-  /* text-align: center; */
   font-size: small;
 }
 
@@ -139,7 +138,7 @@ main {
 
 /* Style for project status */
 #status {
-  color: #EAEAEA;
+  color: #eaeaea;
 }
 
 /* Style for project description */
@@ -155,7 +154,6 @@ main {
   position: absolute;
   display: flex;
   background: none;
-  /* margin-left: 18.5%; */
   top: 5%;
   right: 5%;
   color: inherit;
