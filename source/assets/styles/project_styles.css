@@ -111,7 +111,7 @@ main {
   margin-left: 10%;
 }
 
-/* Style the Project title above the projects */ 
+/* Style the Project title above the projects */
 #proj-title {
   font-size: 40px;
 }
@@ -125,7 +125,8 @@ main {
 }
 
 /* Style for both project name and public/ private status */
-#project-name, #status {
+#project-name,
+#status {
   display: inline-block;
   gap: 50px;
 }
