@@ -6,14 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project Page</title>
         <link rel="stylesheet" href="./source/assets/styles/styles.css">
-        <link rel="icon" type="image/x-icon" href="./source/assets/images/icons/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="./source/assets/images/icons/logo.ico">
     </head>
     <body id="individual-project">
         <header>
             <!--Button to go back to the project homepage-->
-            <!--Need to implement JS function go_back()-->
-            <button id="project-page-back-btn" onclick="go_back()">
-                <img src="./source/assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+            <button id="project-page-back-btn">
+                <a href="./project.html">
+                    <img src="./source/assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+                </a>
             </button>
             <!--Project header; includes project name, description, and table of contents-->
             <div class="project-header">
@@ -22,9 +23,9 @@
                 <nav id="project-nav">
                     <h2 id="table-header">Table of Contents:</h2>
                     <ol id="table-of-contents">
-                        <li>Journal entry name</li>
-                        <li>Journal entry name 2</li>
-                        <li>Journal entry name 3</li>
+                        <li><a href="#entry1">Journal entry name</a></li>
+                        <li><a href="#entry2">Journal entry name 2</a></li>
+                        <li><a href="#entry3">Journal entry name 3</a></li>
                     </ol>
                 </nav>
             </div>
@@ -37,7 +38,7 @@
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
                 <div class="journal-entry">
-                    <h2 class="entry-name">Journal entry name</h2>
+                    <h2 class="entry-name" id="entry1">Journal entry name</h2>
                     <h4 class="entry-template">Journal entry template</h4>
                     <p class="entry-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
@@ -69,7 +70,9 @@
                     <!--Drag button to reorder the projects-->
                     <!--Need to implement JS function drag_project()-->
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">...</button>
+                        <button class="drag-btn" onclick="drag_project()">
+                            <img src="./source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
                     </div>
                     <!--Journal entry tags-->
                     <div class="entry-tags">
@@ -78,9 +81,12 @@
                     </div>
                 </div>
 
+                <!--Down arrow between journal entries-->
                 <!--
+                <img src="./source/assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
                 <div class="journal-entry">
-                    <h2 class="entry-name">Journal entry name 2</h2>
+                    <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
@@ -89,7 +95,9 @@
                         Cras nulla libero, fermentum vitae sem at, efficitur blandit velit.
                     </p>
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">...</button>
+                        <button class="drag-btn" onclick="drag_project()">
+                            <img src="./source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
                     </div>
                     <div class="entry-tags">
                         <p>Tag 1</p>
@@ -97,8 +105,10 @@
                     </div>
                 </div>
 
+                <img src="./source/assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
                 <div class="journal-entry">
-                    <h2 class="entry-name">Journal entry name 3</h2>
+                    <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
                         Ut ultrices justo a nibh egestas, sit 
@@ -108,7 +118,9 @@
                         vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
                     </p>
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">...</button>
+                        <button class="drag-btn" onclick="drag_project()">
+                            <img src="./source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
                     </div>
                     <div class="entry-tags">
                         <p>Tag 1</p>

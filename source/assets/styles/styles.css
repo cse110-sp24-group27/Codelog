@@ -2,8 +2,6 @@
 
 /* TODO:
  * Configure sizes for different window sizes
- * Make table of contents link to journal entries (HTML)
- * Get a higher-res favicon?
  */
 
 /* Consistency features:
@@ -81,7 +79,7 @@
 .journal-entry {
   position: relative;
   margin-bottom: 20px;
-  border: solid white;
+  border: solid #434345;
   border-radius: 10px;
   padding: 5px 10px;
   height: 250px;
@@ -124,11 +122,23 @@
   position: absolute;
   top: 10px;
   right: 10px;
+  width: 3%;
+  height: auto;
 }
 
 /* Style the drag buttons within each journal entry */
 .drag-btn {
   cursor: grab;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the drag button image */
+.drag-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 /* Style the journal entry add button */
@@ -138,6 +148,15 @@
   right: 5%;
   cursor: pointer;
   font-size: calc(1vw);
+}
+
+/* Style the down arrow between entries */
+.down-arrow {
+  width: 10%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
 }
 
 /* Apply font colors small text */
