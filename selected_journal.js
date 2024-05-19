@@ -3,12 +3,6 @@ function goBack () {
   window.history.back()
 }
 
-// Wait for the DOM content to be loaded before attaching the event listener to the back button
-document.addEventListener('DOMContentLoaded', function () {
-  // Attach an event listener to the go back button to execute the function go_back
-  document.getElementById('back-btn').addEventListener('click', goBack)
-})
-
 // Fetch Journal Data from localStorage (onLoad) & Display it in The Selected Journal Page //
 /**
 // Fetch journal title
@@ -18,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
 //   // Assign it to the selected journal page for display
 //   document.getElementById("journal-title").innerHTML = "put the title here using textTitle"
 // }
-*/
 
 // Fetch tags
 function getTagsToDisplay () {
@@ -43,3 +36,10 @@ function getEntryTextToDisplay () {
   // Assign it to the selected journal page for display
   document.getElementById("markdown").innerHTML = entryText
 }
+*/
+
+// Wait for the DOM content to be loaded before attaching the event listener to the back button
+document.addEventListener('DOMContentLoaded', function () {
+  // Attach an event listener to the go back button to execute the function go_back
+  document.getElementById('back-btn').addEventListener('click', goBack)
+})
