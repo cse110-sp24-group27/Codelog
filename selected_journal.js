@@ -10,14 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 // Fetch Journal Data from localStorage (onLoad) & Display it in The Selected Journal Page //
-
+/**
 // Fetch journal title
-function getTitleToDisplay () {
-  // Fetch title from localStorage
-  var textTitle = localStorage.getItem("journal-title");
-  // Assign it to the selected journal page for display
-  document.getElementById("journal-title").innerHTML = "put the title here using textTitle"
-}
+// function getTitleToDisplay () {
+//   // Fetch title from localStorage
+//   var textTitle = localStorage.getItem("journal-title");
+//   // Assign it to the selected journal page for display
+//   document.getElementById("journal-title").innerHTML = "put the title here using textTitle"
+// }
+*/
 
 // Fetch tags
 function getTagsToDisplay () {
