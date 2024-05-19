@@ -6,14 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project Page</title>
         <link rel="stylesheet" href="./source/assets/styles/styles.css">
-        <link rel="icon" type="image/x-icon" href="./source/assets/images/icons/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="./source/assets/images/icons/logo.ico">
     </head>
     <body id="individual-project">
         <header>
             <!--Button to go back to the project homepage-->
-            <!--Need to implement JS function go_back()-->
-            <button id="project-page-back-btn" onclick="go_back()">
-                <img src="./source/assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+            <button id="project-page-back-btn">
+                <a href="./project.html">
+                    <img src="./source/assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+                </a>
             </button>
             <!--Project header; includes project name, description, and table of contents-->
             <div class="project-header">
@@ -22,9 +23,9 @@
                 <nav id="project-nav">
                     <h2 id="table-header">Table of Contents:</h2>
                     <ol id="table-of-contents">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
+                        <li><a href="#entry1">Journal entry name</a></li>
+                        <li><a href="#entry2">Journal entry name 2</a></li>
+                        <li><a href="#entry3">Journal entry name 3</a></li>
                     </ol>
                 </nav>
             </div>
@@ -37,22 +38,41 @@
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
                 <div class="journal-entry">
-                    <h2 class="entry-name">Journal entry name</h2>
+                    <h2 class="entry-name" id="entry1">Journal entry name</h2>
                     <h4 class="entry-template">Journal entry template</h4>
                     <p class="entry-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Lobortis elementum nibh tellus molestie nunc. 
-                        Ultricies lacus sed turpis tincidunt id aliquet risus. Velit ut tortor pretium viverra 
-                        suspendisse potenti nullam. Feugiat nibh sed pulvinar proin gravida hendrerit lectus. 
-                        Netus et malesuada fames ac turpis egestas maecenas pharetra convallis. Felis bibendum ut 
-                        tristique et egestas quis. Sodales neque sodales ut etiam sit amet nisl. Proin sed libero 
-                        enim sed faucibus turpis. Sit amet justo donec enim. Lacus viverra vitae congue eu consequat 
-                        ac felis donec. Quis viverra nibh cras pulvinar mattis nunc sed blandit.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
+                        dolor rhoncus malesuada dapibus ut nisi. Nullam eu felis ut erat efficitur vehicula 
+                        quis ut turpis. Donec nisi diam, efficitur in aliquet ultricies, mollis sed dui. 
+                        Cras nulla libero, fermentum vitae sem at, efficitur blandit velit. Pellentesque 
+                        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                        Donec fermentum arcu et purus ornare, vel feugiat ex pulvinar. Suspendisse ornare 
+                        risus vel tellus egestas, auctor tristique risus porta. Duis a fermentum orci. 
+                        Proin molestie risus vitae sem tincidunt malesuada. Phasellus laoreet urna vel 
+                        facilisis rutrum. Phasellus finibus mi sit amet felis congue imperdiet. Aliquam 
+                        vehicula ante eu nibh molestie feugiat. Sed sodales est nunc, at scelerisque mauris 
+                        ultrices sit amet. Aliquam dapibus nibh sit amet urna fringilla egestas. Integer 
+                        facilisis mauris dui. Morbi venenatis venenatis erat, nec tristique lectus eleifend 
+                        quis. Morbi sit amet facilisis velit, et eleifend purus. Interdum et malesuada 
+                        fames ac ante ipsum primis in faucibus. Phasellus ligula lorem, dignissim non 
+                        vestibulum at, pellentesque eget magna. In et vulputate sapien. Curabitur finibus 
+                        convallis maximus. Aliquam erat volutpat. Etiam eros tortor, maximus at tortor vel, 
+                        tincidunt suscipit dolor. Praesent non lobortis felis. Mauris non est id neque 
+                        suscipit ultrices in sit amet est. Pellentesque habitant morbi tristique senectus 
+                        et netus et malesuada fames ac turpis egestas. Proin et euismod velit. Pellentesque 
+                        nec molestie nunc. Mauris ornare, enim nec auctor viverra, risus felis fringilla 
+                        odio, eget ornare nibh nisi vestibulum dui. Ut ultrices justo a nibh egestas, sit 
+                        amet porttitor risus pulvinar. Phasellus non lacus a magna aliquam placerat. 
+                        Pellentesque a metus sed risus ultricies interdum. Phasellus et risus et odio 
+                        varius mollis id eu nisl. Maecenas vitae massa id massa pellentesque convallis. Ut 
+                        vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
                     </p>
                     <!--Drag button to reorder the projects-->
                     <!--Need to implement JS function drag_project()-->
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">...</button>
+                        <button class="drag-btn" onclick="drag_project()">
+                            <img src="./source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
                     </div>
                     <!--Journal entry tags-->
                     <div class="entry-tags">
@@ -60,6 +80,54 @@
                         <p>Tag 2</p>
                     </div>
                 </div>
+
+                <!--Down arrow between journal entries-->
+                <!--
+                <img src="./source/assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
+                <div class="journal-entry">
+                    <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
+                    <h4 class="entry-template">Template</h4>
+                    <p class="entry-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
+                        dolor rhoncus malesuada dapibus ut nisi. Nullam eu felis ut erat efficitur vehicula 
+                        quis ut turpis. Donec nisi diam, efficitur in aliquet ultricies, mollis sed dui. 
+                        Cras nulla libero, fermentum vitae sem at, efficitur blandit velit.
+                    </p>
+                    <div class="drag-btn-container">
+                        <button class="drag-btn" onclick="drag_project()">
+                            <img src="./source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+
+                <img src="./source/assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
+                <div class="journal-entry">
+                    <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
+                    <h4 class="entry-template">Template</h4>
+                    <p class="entry-text">
+                        Ut ultrices justo a nibh egestas, sit 
+                        amet porttitor risus pulvinar. Phasellus non lacus a magna aliquam placerat. 
+                        Pellentesque a metus sed risus ultricies interdum. Phasellus et risus et odio 
+                        varius mollis id eu nisl. Maecenas vitae massa id massa pellentesque convallis. Ut 
+                        vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
+                    </p>
+                    <div class="drag-btn-container">
+                        <button class="drag-btn" onclick="drag_project()">
+                            <img src="./source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+                -->
             </section>
 
             <!--Button to add a new journal entry-->
