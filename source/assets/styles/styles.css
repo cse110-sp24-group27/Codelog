@@ -12,7 +12,7 @@
  * Font color: matches Figma design
  */
 
-/* Style the whole individual project page */
+/* Style the whole selected_project_page */
 #individual-project {
   background-color: #2a2a2e;
   font-family: Roboto, sans-serif;
@@ -171,9 +171,9 @@ h2 {
   color: white;
 }
 
-/* End of individual project page styling */
+/* // // End of selected_project_page styling // // */
 
-/* Style the whole Journal page */
+/* Style the whole selected_journal_page */
 #journal-page {
   background-color: #2a2a2e;
   color: #9bbeda;
@@ -237,9 +237,9 @@ footer {
   left: 5px;
 }
 
-/* End of journal page styling */
+/* // // End of selected_journal_page styling // // */
 
-/* Style the whole ceation page */
+/* Style the whole create_new_project_page */
 #creation-page {
   background-color: #2a2a2e;
   color: #9bbeda;
@@ -338,4 +338,4 @@ footer {
   margin-top: 20px;
 }
 
-/* End of creation page styling */
+/* // // // End of create_new_project_page styling // // */
