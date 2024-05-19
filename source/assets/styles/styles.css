@@ -23,18 +23,6 @@
   margin-top: 40px;
 }
 
-/* Apply font colors small text */
-#individual-project p,
-li {
-  color: #cbcbcb;
-}
-
-/* Apply font colors to headers */
-#individual-project h1,
-h2 {
-  color: white;
-}
-
 /* Position the project header in the top-left */
 .project-header {
   margin-left: 10%;
@@ -116,8 +104,7 @@ h2 {
 .entry-text {
   max-height: 120px;
   height: 120px;
-  /* If the text exceeds the max height, allow scrolling */
-  overflow-y: scroll;
+  overflow-y: scroll; /* If the text exceeds the max height, allow scrolling */
 }
 
 /* Style the entry tag container */
@@ -151,6 +138,18 @@ h2 {
   right: 5%;
   cursor: pointer;
   font-size: calc(1vw);
+}
+
+/* Apply font colors small text */
+#individual-project p,
+li {
+  color: #cbcbcb;
+}
+
+/* Apply font colors to headers */
+#individual-project h1,
+h2 {
+  color: white;
 }
 
 /* End of individual project page styling */
