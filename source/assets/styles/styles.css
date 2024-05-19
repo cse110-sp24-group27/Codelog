@@ -1,9 +1,8 @@
 /* CSS for the individual project page */
 
 /* TODO:
+ * Configure sizes for different window sizes
  * Make table of contents link to journal entries (HTML)
- * Make the tags display horizontally inline
- * Find a better back button image so that the background doesn't have to be white
  * Get a higher-res favicon?
  */
 
@@ -47,6 +46,16 @@ h2 {
   width: calc(20vw);
 }
 
+/* Style the project description */
+#project-description {
+  margin-top: -10px;
+}
+
+/* Style the table of contents */
+#project-nav {
+  margin-top: 10px;
+}
+
 /* Style the back button */
 #project-page-back-btn {
   position: absolute;
@@ -63,19 +72,6 @@ h2 {
   position: relative;
   width: 30px;
   height: 30px;
-  background-color: white;
-}
-
-/* Style the table of contents */
-#project-nav {
-  border: solid white;
-  border-radius: 10px;
-  margin-top: 30px;
-}
-
-/* Style the table of contents header */
-#table-header {
-  text-align: center;
 }
 
 /* Center the main elements */
@@ -100,8 +96,7 @@ h2 {
   border: solid white;
   border-radius: 10px;
   padding: 5px 10px;
-  overflow-y: scroll;
-  height: 200px;
+  height: 250px;
 }
 
 /* Style the entry name */
@@ -109,7 +104,7 @@ h2 {
   color: #b6b6b6;
 }
 
-/* Style the entry tag */
+/* Style the entry template name */
 .entry-template {
   color: #f24822;
   position: absolute;
@@ -117,19 +112,35 @@ h2 {
   right: 10px;
 }
 
+/* Style the entry text */
+.entry-text {
+  max-height: 120px;
+  height: 120px;
+  /* If the text exceeds the max height, allow scrolling */
+  overflow-y: scroll;
+}
+
+/* Style the entry tag container */
+.entry-tags {
+  position: absolute;
+}
+
+/* Style the entry tag text */
+.entry-tags p {
+  display: inline-block;
+  padding-right: 15px;
+}
+
 /* Style the drag button container */
 .drag-btn-container {
   /* Use absolute position to place the button container correctly */
   position: absolute;
   top: 10px;
-  right: 40px;
-  height: 100%;
+  right: 10px;
 }
 
 /* Style the drag buttons within each journal entry */
 .drag-btn {
-  /* Use fixed position to keep the button visible while scrolling */
-  position: fixed;
   cursor: grab;
 }
 
