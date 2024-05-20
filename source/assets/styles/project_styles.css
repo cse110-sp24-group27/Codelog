@@ -167,11 +167,8 @@ main {
 
 /* Style for project description */
 #project-description {
-  margin-top: 0%;
   font-size: 10px;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 10%;
+  margin: 0% 5% 10% 5%;
 }
 
 /* Style the drag button */
@@ -216,7 +213,6 @@ main {
   background-color: darkred; /* change this as needed */
   margin-right: 5px;
 }
-
 
 /* Style the class of creating new project */
 .new-project {
