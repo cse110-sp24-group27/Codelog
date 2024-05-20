@@ -12,7 +12,7 @@
  * Font color: matches Figma design
  */
 
-/* Style the whole individual project page */
+/* Style the whole selected_project_page */
 #individual-project {
   background-color: #2a2a2e;
   font-family: Roboto, sans-serif;
@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: calc(20vw);
+  width: 20vw;
 }
 
 /* Style the project description */
@@ -40,6 +40,12 @@
 /* Style the table of contents */
 #project-nav {
   margin-top: 10px;
+}
+
+/* List within table of contents */
+#table-of-contents {
+  width: 15vw;
+  height: 30vh;
 }
 
 /* Style the back button */
@@ -56,8 +62,8 @@
 /* Style the back arrow image */
 #back-arrow {
   position: relative;
-  width: 30px;
-  height: 30px;
+  width: 3.5vw;
+  height: 4.5vh;
 }
 
 /* Center the main elements */
@@ -82,12 +88,13 @@
   border: solid #434345;
   border-radius: 10px;
   padding: 5px 10px;
-  height: 250px;
+  height: 36.5vh;
 }
 
 /* Style the entry name */
 .entry-name {
   color: #b6b6b6;
+  width: 30vw;
 }
 
 /* Style the entry template name */
@@ -96,18 +103,20 @@
   position: absolute;
   top: 15px;
   right: 10px;
+  width: 13vw;
 }
 
 /* Style the entry text */
 .entry-text {
-  max-height: 120px;
-  height: 120px;
+  height: 15vh;
   overflow-y: scroll; /* If the text exceeds the max height, allow scrolling */
 }
 
 /* Style the entry tag container */
 .entry-tags {
-  position: absolute;
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 /* Style the entry tag text */
@@ -122,7 +131,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 3%;
+  width: 2vw;
   height: auto;
 }
 
@@ -147,12 +156,12 @@
   top: 40px;
   right: 5%;
   cursor: pointer;
-  font-size: calc(1vw);
+  font-size: 1vw;
 }
 
 /* Style the down arrow between entries */
 .down-arrow {
-  width: 10%;
+  width: 100%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -171,9 +180,9 @@ h2 {
   color: white;
 }
 
-/* End of individual project page styling */
+/* // // End of selected_project_page styling // // */
 
-/* Style the whole Journal page */
+/* Style the whole selected_journal_page */
 #journal-page {
   background-color: #2a2a2e;
   color: #9bbeda;
@@ -237,9 +246,9 @@ footer {
   left: 5px;
 }
 
-/* End of journal page styling */
+/* // // End of selected_journal_page styling // // */
 
-/* Style the whole ceation page */
+/* Style the whole create_new_project_page */
 #creation-page {
   background-color: #2a2a2e;
   color: #9bbeda;
@@ -338,4 +347,4 @@ footer {
   margin-top: 20px;
 }
 
-/* End of creation page styling */
+/* // // // End of create_new_project_page styling // // */
