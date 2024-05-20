@@ -116,11 +116,7 @@ main {
 /* Style the whole project-collection class */
 .project-collection {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: auto;
+  width: 100%;
   margin-left: 5%;
 }
 
@@ -129,7 +125,17 @@ main {
   font-size: 40px;
   width: 100%;
   color: #fff;
-  margin-bottom: 0;
+  margin-bottom: 5%;
+}
+
+/* Style of Project Boxes */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
 }
 
 /* Style each specific project */
@@ -140,7 +146,7 @@ main {
   border: solid #434345;
   border-radius: 10px;
   position: relative;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* Style for both project name and public/ private status */
