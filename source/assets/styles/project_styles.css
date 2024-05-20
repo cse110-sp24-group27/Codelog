@@ -23,14 +23,13 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ccc;
-  /* Adds a grey line under the header */
 }
 
 /* Style the CodeLog title */
 #codelog {
   font-size: 64px;
   color: #9bbeda;
-  font-family: "Merriweather", serif;
+  font-family: Merriweather, serif;
 }
 
 /* Style the menu buttons in the header section */
@@ -89,9 +88,7 @@ main {
 /* Style for username and pronoun */
 .user-info {
   display: flex;
-  /* Use flexbox to align items */
   gap: 10px;
-  /* Add space between username and pronoun */
   font-size: 24px;
   color: #797979;
   margin-bottom: 0%;
@@ -140,7 +137,6 @@ main {
   margin-right: auto;
   margin-bottom: 20px;
   width: 45%;
-  /* Width of each project box is 45% of the screen */
   border: solid #434345;
   border-radius: 10px;
   position: relative;
@@ -200,7 +196,6 @@ main {
 /* Style the class of creating new project */
 .new-project {
   display: none;
-  /* Hide by default */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
