@@ -214,9 +214,7 @@ main {
   width: 15px;
   border-radius: 50%;
   background-color: darkred; /* change this as needed */
-  display: inline-block;
   margin-right: 5px;
-  vertical-align: middle;
 }
 
 
