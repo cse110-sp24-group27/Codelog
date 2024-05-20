@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", init);
 
 // Starts the program, all function calls trace back here
 function init() {
-    fetchExamplejsonToStorage();
+    fetchExamplejsonToStorage();		//update this to asynchronous
 	// Get the projects from localStorage
 	let projects = getProjectsFromStorage();
 	// Add each project to the <main> element
