@@ -43,7 +43,7 @@
 
 ### Project Updates
 - We'll be sticking with using localStorage instead of databases, since they're simpler
-- Kris updated the file names for more clarity
+- Kris updated the filenames for more clarity
 - Designs will be finalized (as much as possible) for more clarity
 
 ## Plan of Action
