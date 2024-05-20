@@ -116,7 +116,7 @@ main {
 /* Style the whole project-collection class */
 .project-collection {
   position: relative;
-  width: auto;
+  width: 100%;
   margin-left: 5%;
 }
 
@@ -135,6 +135,7 @@ main {
   gap: 10px;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 }
 
 /* Style each specific project */
