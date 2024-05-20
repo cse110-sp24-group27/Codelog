@@ -1,10 +1,7 @@
 /* CSS for the individual project page */
 
 /* TODO:
- * Make table of contents link to journal entries (HTML)
- * Make the tags display horizontally inline
- * Find a better back button image so that the background doesn't have to be white
- * Get a higher-res favicon?
+ * Configure sizes for different window sizes
  */
 
 /* Consistency features:
@@ -24,18 +21,6 @@
   margin-top: 40px;
 }
 
-/* Apply font colors small text */
-#individual-project p,
-li {
-  color: #cbcbcb;
-}
-
-/* Apply font colors to headers */
-#individual-project h1,
-h2 {
-  color: white;
-}
-
 /* Position the project header in the top-left */
 .project-header {
   margin-left: 10%;
@@ -45,6 +30,16 @@ h2 {
   flex-direction: column;
   justify-content: center;
   width: calc(20vw);
+}
+
+/* Style the project description */
+#project-description {
+  margin-top: -10px;
+}
+
+/* Style the table of contents */
+#project-nav {
+  margin-top: 10px;
 }
 
 /* Style the back button */
@@ -63,19 +58,6 @@ h2 {
   position: relative;
   width: 30px;
   height: 30px;
-  background-color: white;
-}
-
-/* Style the table of contents */
-#project-nav {
-  border: solid white;
-  border-radius: 10px;
-  margin-top: 30px;
-}
-
-/* Style the table of contents header */
-#table-header {
-  text-align: center;
 }
 
 /* Center the main elements */
@@ -97,11 +79,10 @@ h2 {
 .journal-entry {
   position: relative;
   margin-bottom: 20px;
-  border: solid white;
+  border: solid #434345;
   border-radius: 10px;
   padding: 5px 10px;
-  overflow-y: scroll;
-  height: 200px;
+  height: 250px;
 }
 
 /* Style the entry name */
@@ -109,7 +90,7 @@ h2 {
   color: #b6b6b6;
 }
 
-/* Style the entry tag */
+/* Style the entry template name */
 .entry-template {
   color: #f24822;
   position: absolute;
@@ -117,20 +98,47 @@ h2 {
   right: 10px;
 }
 
+/* Style the entry text */
+.entry-text {
+  max-height: 120px;
+  height: 120px;
+  overflow-y: scroll; /* If the text exceeds the max height, allow scrolling */
+}
+
+/* Style the entry tag container */
+.entry-tags {
+  position: absolute;
+}
+
+/* Style the entry tag text */
+.entry-tags p {
+  display: inline-block;
+  padding-right: 15px;
+}
+
 /* Style the drag button container */
 .drag-btn-container {
   /* Use absolute position to place the button container correctly */
   position: absolute;
   top: 10px;
-  right: 40px;
-  height: 100%;
+  right: 10px;
+  width: 3%;
+  height: auto;
 }
 
 /* Style the drag buttons within each journal entry */
 .drag-btn {
-  /* Use fixed position to keep the button visible while scrolling */
-  position: fixed;
   cursor: grab;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the drag button image */
+.drag-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
 }
 
 /* Style the journal entry add button */
@@ -140,6 +148,27 @@ h2 {
   right: 5%;
   cursor: pointer;
   font-size: calc(1vw);
+}
+
+/* Style the down arrow between entries */
+.down-arrow {
+  width: 10%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+}
+
+/* Apply font colors small text */
+#individual-project p,
+li {
+  color: #cbcbcb;
+}
+
+/* Apply font colors to headers */
+#individual-project h1,
+h2 {
+  color: white;
 }
 
 /* End of individual project page styling */
