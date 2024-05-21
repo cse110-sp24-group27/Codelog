@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Home Page</title>
-    <!--Uncomment the below line when editing CSS file-->
     <link rel="stylesheet" href="source/assets/styles/project_styles.css">
+    <!-- Project Card Custom Element -->
+    <script src="source/assets/scripts/ProjectCard.js" type="module"></script>
+
+        <!-- Main Stylesheets & Scripts -->
+    <script src="source/assets/scripts/main.js" type="module"></script>
+
 </head>
+<script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
 <body>
     <header>
         <!--Logo for the website-->
@@ -15,81 +21,91 @@
 
         <div class="but">
             <!--Buttons to jump to other pages-->
-            <!--Add JS function to reload the page when click the home button-->
+
+            <!--Button to go the the Project Home Page-->
             <button id="home">Home</button>
 
-            <!--Add JS function to jump to the setting page to edit dev bar when click on this button-->
-            <button id="setting">Settings</button>
-
-            <!--Add JS function to jump to the tag editor page to edit tags when click on this button-->
-            <button id="tag-editor">Tag Editor</button>
+            <!--Button to go to setting and edit user's profile-->
+            <button id="setting">Setting</button>
         </div>
-       
     </header>
     <main>
         <!--User's profile-->
         <!--Delete this class after implementing the JS function to load user's profile (from the database or somewehere else)-->
         <div class="profile">
             <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture"/>
-            <h2 id="name">Name</h2>
+            <h2 id="name">Developer's Name</h2>
             <div class="user-info">
                 <p id="username">Username</p>
+                <p>•</p>
                 <p id="pronoun">Pronoun</p>
             </div>
             <p id="description">User description</p>
 
             <!--User's sublinks-->
             <div class="sublinks">
-                <a id="github" href="https://github.com/">Link to Github</a> <br>
-                <a id="linked-in" href="https://www.linkedin.com/feed/">Link to LinkedIn</a>
+
+                <div class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a id="link-email" href="mailto:user@email.com">Link to Email</a>
+                </div>
+
+                <div class="linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a id="link-linkedin" href="https://www.linkedin.com/feed/">Link to LinkedIn</a>
+                </div>
+                
+                <div class="github">
+                    <i class="fa-brands fa-github"></i>
+                    <a id="link-github" href="https://github.com/">Link to Github</a> <br>
+                </div>
                 <!--Add line to add more links-->
             </div>
         </div>
 
-        <!-- Projects section-->
+        <!--Projects section-->
         <div class="project-collection">
             <h1 id="proj-title">Projects</h1>
 
-            <!--Display project as a box-->
-            <div class="project">
-                <!--The drag button to reorder the projects-->
-                <!--Need to implement JS function drag_project()-->
-                <button id="drag-btn" onclick="drag_project()">...</button>
+            <!--Class of all project boxes-->
+            <div class="projects">
+                <!--Display project as a box-->
+                <div class="project">
+                    <!--The drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button id="drag-btn" onclick="drag_project()">...</button>
 
-                <!--Project details-->
-                <!--Delete this after implementing "importing project details" function-->
+                    <!--Project details-->
+                    <!--Delete this after implementing "importing project details" function-->
 
-                <!--Name of the project-->
-                <h3 id="project-name">Project Name</h3>
+                    <!--Name of the project-->
+                    <h3 id="project-name">Project Name</h3>
 
-                <!--Public/ private status of the project-->
-                <p id="status">Public</p>
-                
-                <!-- <select id="privacy">
-                    <option value="Public">Public</option>
-                    <option value="Private">Private</option>
-                </select> -->
+                    <!--Public/ private status of the project-->
+                    <p id="status">Public</p>
+                    
+                    <!-- <select id="privacy">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select> -->
 
-                <!--Description for the project-->
-                <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
-                
+                    <!--Description for the project-->
+                    <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
+                    
 
-                <!--Class for tags-->
-                <div class="tags">
-                    <p>Tag 1</p>
-                    <p>Tag 2</p>
-                    <p>Tag 3</p>
+                    <!--Class for tags-->
+                    <div class="tags">
+                        <p><span class="dot"></span> Tag 1</p>
+                        <p><span class="dot"></span> Tag 2</p>
+                        <p><span class="dot"></span> Tag 3</p>
+                    </div>
                 </div>
             </div>
-
             <!--The + button to add new project-->
             <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
             <button id="create-btn" onclick="new_project()">+</button>
         </div>
         
-        
-        
-
         <!--Manual project creation-->
         <!--Hide this until the + button is clicked-->
         <div class="new-project">

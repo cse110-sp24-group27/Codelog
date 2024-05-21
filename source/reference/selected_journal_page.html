@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Journal Page</title>
-        <link rel="stylesheet" href="source/assets/styles/styles.css">
+        <link rel="stylesheet" href="../assets/styles/styles.css">
     </head>
     <body id="journal-page">
         <header class="btn">
@@ -14,37 +14,38 @@
                 <button id="back-btn">Back</button>
             </div>
         </header>
-        
+        <!-- Start of Journal Page -->
         <main id="j-main">
             <section id="journal-show">
+                <!-- Show Journal Title -->
                 <div class="wed" id="title">
                     <h1 id="journal-title"> Journal title name</h1>
                 </div>
+                <!-- Show Template --->
+                <div class="wed" id="template">
+                    <p>template</p>
+                </div>
+                <!--Show tags --->
                 <div class="wed" id="tags">
-                    <!--Showing the tags in  push here--->
                     <p id="tag1">tag1</p>
                     <p class="tag" id="tag2">tag2</p>
                     <p class="tag" id="tag3">tag3</p>
                 </div>
-                <div class="wed" id="template">
-                    <!--Showing the information in push here--->
-                    <p>template</p>
-                </div>
             </section>
 
-            <!--Section for journal entries-->
+            <!-- Entry Content -->
             <section id="markdown">
-                <!--Showing the markdown in push here-->
+                <!--Showing the markdown that contains content -->
                 <p>markdown file</p>
             </section>
         </main>
 
         <!-- Journal js file -->
-        <script src="journal.js"></script>
+        <script src="../assets/scripts/selected_journal.js"></script>
 
         <!--Footer for copyright-->
         <footer>
-            <p>Copyright</p>
+            <p>@ 2024 CodeLog</p>
         </footer>
     </body>
 </html>
