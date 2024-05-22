@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Home Page</title>
+    <link rel="stylesheet" href="../assets/styles/project_styles.css">
+    <!-- Project Card Custom Element -->
+    <script src="../assets/scripts/ProjectCard.js" type="module"></script>
+    
+    <script src="../assets/scripts/home_projects_page.js"></script>
+
+    <!-- Main Stylesheets & Scripts -->
+    <script src="../assets/scripts/main.js" type="module"></script>
+
+</head>
+<script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
+<body>
+    <header>
+        <!--Logo for the website-->
+        <img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
+        <h1 id="codelog">CodeLog</h1>
+
+        <div class="but">
+            <!--Buttons to jump to other pages-->
+
+            <!--Button to go the the Project Home Page-->
+            <button onclick="location.href" id="home">Home</button>
+
+            <script type="text/javascript">
+                document.getElementById("home").onclick = function () {
+                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/home_projects_page.html";
+                };
+            </script>
+
+            <!--Button to go to setting and edit user's profile-->
+            <button id="setting">Setting</button>
+        </div>
+    </header>
+    <main>
+        <!--User's profile-->
+        <!--Delete this class after implementing the JS function to load user's profile (from the database or somewehere else)-->
+        <div class="profile">
+            <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture"/>
+            <h2 id="name">Developer's Name</h2>
+            <div class="user-info">
+                <p id="username">Username</p>
+                <p>•</p>
+                <p id="pronoun">Pronoun</p>
+            </div>
+            <p id="description">User description</p>
+
+            <!--User's sublinks-->
+            <div class="sublinks">
+
+                <div class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a id="link-email" href="mailto:user@email.com">Link to Email</a>
+                </div>
+
+                <div class="linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a id="link-linkedin" href="https://www.linkedin.com/feed/">Link to LinkedIn</a>
+                </div>
+                
+                <div class="github">
+                    <i class="fa-brands fa-github"></i>
+                    <a id="link-github" href="https://github.com/">Link to Github</a> <br>
+                </div>
+                <!--Add line to add more links-->
+            </div>
+        </div>
+
+        <!--Projects section-->
+        <div class="project-collection">
+            <h1 id="proj-title">Projects</h1>
+
+            <!--Class of all project boxes-->
+            <div class="projects">
+                <!--Display project as a box-->
+                <div class="project">
+                    <!--The drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button id="drag-btn" onclick="drag_project()">...</button>
+
+                    <!--Project details-->
+                    <!--Delete this after implementing "importing project details" function-->
+
+                    <!--Name of the project-->
+                    <h3 id="project-name">Project Name</h3>
+
+                    <!--Public/ private status of the project-->
+                    <p id="status">Public</p>
+                    
+                    <!-- <select id="privacy">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select> -->
+
+                    <!--Description for the project-->
+                    <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
+                    
+
+                    <!--Class for tags-->
+                    <div class="tags">
+                        <p><span class="dot"></span> Tag 1</p>
+                        <p><span class="dot"></span> Tag 2</p>
+                        <p><span class="dot"></span> Tag 3</p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Manual project creation-->
+            <!--Hide this until the + button is clicked-->
+            <div class="new-project">
+                <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+
+                <div class="select-tags">
+                    <button>Tag1</button>
+                    <button>Tag2</button>
+                    <button>Add+</button>
+                </div>
+
+                <input type="text" id="new-project-description" placeholder="Enter New Project Description">
+
+                <!--Option to let users choose their project to be public or private-->
+                <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
+                <select id="public-private">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
+
+                <input type="text" id="new-entry" placeholder="Enter Entry content.">
+
+                <button id="more-entry">+</button>
+                
+                <!--The Done button to confirm project-->
+                <!--Need to implement JS function add_project() to add the created project to the Project Page-->
+                <button onclick="addProject()">Done</button>
+            </div>
+
+            <!--The + button to add new project-->
+            <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
+            <button id="create-btn" onclick="newProject()">+</button>
+        </div>
+        
+        
+    </main>
+    <script>
+        // Call the load_projects function when the page loads to display user's projects
+        window.onload = function() {
+            load_projects();
+        };
+    </script>
+
+    <script>
+        // Call the load_profile function when the page loads to display user's profile
+        // Probably modify the profile class when load profile
+        window.onload = function() {
+            load_profile();
+        };
+    </script>
+    <!--Footer for copyright-->
+    <footer id="footer">
+        <p>@ 2024 CodeLog</p>
+    </footer>
+</body>
+</html>

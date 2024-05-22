@@ -19,6 +19,7 @@ header {
   margin-right: auto;
   padding-left: 10%;
   padding-right: 10%;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -223,10 +224,10 @@ main {
 /* Style the class of creating new project */
 .new-project {
   display: none;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 /* Style the + button to create project */
