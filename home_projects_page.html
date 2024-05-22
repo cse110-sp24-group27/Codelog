@@ -106,39 +106,35 @@
             <!--Need to implement JS function newProject() to show the below pop-up manual project creation-->
             <button id="create-btn" onclick="newProject()">+</button>
             <!--Manual project creation-->
-        <!--Hide this until the + button is clicked-->
-        <div class="new-project">
-            <input type="text" id="new-project-name" placeholder="Enter New Project Name">
 
-            <div class="select-tags">
-                <button>Tag1</button>
-                <button>Tag2</button>
-                <button>Add+</button>
-            </div>
+            <!--Hide this until the + button is clicked-->
+            <article class="new-project">
+                <input type="text" id="new-project-name" placeholder="Enter New Project Name">
 
-            <input type="text" id="new-project-description" placeholder="Enter New Project Description">
+                <div class="select-tags">
+                    <button>Tag1</button>
+                    <button>Tag2</button>
+                    <button>Add+</button>
+                </div>
 
-            <!--Option to let users choose their project to be public or private-->
-            <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
-            <select id="public-private">
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-            </select>
+                <input type="text" id="new-project-description" placeholder="Enter New Project Description">
 
-            <input type="text" id="new-entry" placeholder="Enter Entry content.">
+                <!--Option to let users choose their project to be public or private-->
+                <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
+                <select id="public-private">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
 
-            <button id="more-entry">+</button>
-            
-            <!--The Done button to confirm project-->
-            <!--Need to implement JS function addProject() to add the created project to the Project Page-->
-            <button onclick="addProject()" id="done">Done</button>
-        </div>
-        </div>
-        
-        
-        
+                <input type="text" id="new-entry" placeholder="Enter Entry content.">
 
-        
+                <button id="more-entry">+</button>
+                
+                <!--The Done button to confirm project-->
+                <!--Need to implement JS function addProject() to add the created project to the Project Page-->
+                <button onclick="addProject()" id="done">Done</button>
+            </article>
+        </div>        
     </main>
     <script>
         // Call the load_projects function when the page loads to display user's projects
