@@ -1,22 +1,25 @@
 function newProject () {
   // show the pop-up after clicking + button
-  const form = document.querySelector('.new-project');;
-  form.style.display = (form.style.display === 'flex' ? 'none' : 'flex');;
+  const form = document.querySelector('.new-project')
+  form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
 }
 
-const newProjectButton = document.querySelector('#create-btn');;
+// add add event listener for + button
+const newProjectButton = document.querySelector('#create-btn')
 if (newProjectButton) {
   newProjectButton.addEventListener('click', newProject);;
 }
 
 function addProject () {
   // hide the pop-up after clicking done button
-  document.querySelector('.new-project').style.display = 'none';;
+  document.querySelector('.new-project').style.display = 'none'
 }
 
-const addProjectButton = document.querySelector('#done');;
+// add event listener for Done button
+// modify this to submit the form later on
+const addProjectButton = document.querySelector('#done')
 if (addProjectButton) {
-    addProjectButton.addEventListener('clicl', addProject);;
+  addProjectButton.addEventListener('click', addProject)
 }
 
 // create project class or DOM for creating new project box
