@@ -15,11 +15,10 @@ function init () {
 
 // fetch exampledata.json to localstorage
 function fetchExamplejsonToStorage () {
-  fetch('source/reference/exampledata.json')
-      // Parse the response as JSON
-      .then(response => response.json())
-      .then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
-      .catch(error => {
+  fetch('source/reference/exampledata.json') // Parse the response as JSON
+    .then(response => response.json())
+    .then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
+    .catch(error => {
       console.error('Failed to fetch project data:', error) // More specific error message
     })
 }
@@ -45,9 +44,8 @@ function addProjectsToDocument (projects) {
   // Get a reference to the <main> element
   const mainElement = document.querySelector('.project-collection')
   for (const project of projects) {
-    const projectCard = document.createElement('project-card')
-	// Set project data on the card
-	projectCard.data = project
-	mainElement.appendChild(projectCard)
+    const projectCard = document.createElement('project-card') // Set project data on the card
+    projectCard.data = project
+    mainElement.appendChild(projectCard)
   }
 }
