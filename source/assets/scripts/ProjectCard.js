@@ -2,7 +2,7 @@ class ProjectCard extends HTMLElement {
   // Called once when document.createElement('project-card') is called, or
   // the element is written into the DOM directly as <project-card>
   constructor () {
-    super() //inherit everything from HTMLElement
+    super() // inherit everything from HTMLElement
 
     // attach the shadow DOM to this Web Component (leave the mode open)
     this.attachShadow({ mode: 'open' })
@@ -27,6 +27,7 @@ class ProjectCard extends HTMLElement {
     // Append the <style> and <article> elements to the Shadow DOM
     this.shadowRoot.append(style, article)
   }
+
   /**
   * @param {Object} data - the data to pass into the <project-card> should be of the following format:
   {
@@ -39,6 +40,7 @@ class ProjectCard extends HTMLElement {
   },... //could use innerHTML like lab 7, but this seems to give less bugs, and easier to edit in future
   */
   set data (data) {
+
     if (!data || typeof data !== 'object') {
       console.error('Invalid project data provided to ProjectCard!')
       return
@@ -69,7 +71,7 @@ class ProjectCard extends HTMLElement {
       tagsContainer.classList.add('tags')
       data.tags.forEach(tag => {
         const tagElement = document.createElement('p')
-        tagElement.textContent = tag;
+        tagElement.textContent = tag
         tagsContainer.appendChild(tagElement)
       })
       article.appendChild(tagsContainer)
@@ -81,6 +83,10 @@ class ProjectCard extends HTMLElement {
       projectImage.src = data.imageUrl
       article.appendChild(projectImage)
     }
+  }
+
+  get data () {
+    return this.data
   }
 }
 
