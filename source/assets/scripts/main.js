@@ -1,14 +1,14 @@
 // Run the init() function when the page has loaded
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', init)
 
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  fetchExamplejsonToStorage();		
+  fetchExamplejsonToStorage()	
   // Get the projects from localStorage
-  let projects = getProjectsFromStorage();
+  let projects = getProjectsFromStorage()
   // Add each project to the <main> element
-  addProjectsToDocument(projects);
+  addProjectsToDocument(projects)
   // Add the event listeners to the form elements
   // initFormHandler()
 }
@@ -20,7 +20,7 @@ function fetchExamplejsonToStorage () {
     .then(response => response.json()) 
 	.then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
 	.catch(error => {
-	console.error('Failed to fetch project data:', error); // More specific error message
+	console.error('Failed to fetch project data:', error) // More specific error message
   });
 }
 /**
