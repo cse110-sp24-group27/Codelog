@@ -40,7 +40,6 @@ class ProjectCard extends HTMLElement {
   },... //could use innerHTML like lab 7, but this seems to give less bugs, and easier to edit in future
   */
   set data (data) {
-
     if (!data || typeof data !== 'object') {
       console.error('Invalid project data provided to ProjectCard!')
       return
