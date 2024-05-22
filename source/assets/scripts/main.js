@@ -4,9 +4,9 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  fetchExamplejsonToStorage()	
+  fetchExamplejsonToStorage()
   // Get the projects from localStorage
-  let projects = getProjectsFromStorage()
+  const projects = getProjectsFromStorage()
   // Add each project to the <main> element
   addProjectsToDocument(projects)
   // Add the event listeners to the form elements
@@ -16,12 +16,12 @@ function init () {
 // fetch exampledata.json to localstorage
 function fetchExamplejsonToStorage () {
   fetch('source/reference/exampledata.json')
-  // Parse the response as JSON
-    .then(response => response.json()) 
-	.then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
-	.catch(error => {
-	console.error('Failed to fetch project data:', error) // More specific error message
-  });
+      // Parse the response as JSON
+      .then(response => response.json())
+      .then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
+      .catch(error => {
+      console.error('Failed to fetch project data:', error) // More specific error message
+    })
 }
 /**
  * Reads 'projects' from localStorage and returns an array of
