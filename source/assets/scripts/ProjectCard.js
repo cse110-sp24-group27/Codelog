@@ -14,15 +14,95 @@ class ProjectCard extends HTMLElement {
     const style = document.createElement('style')
 
     // fetch style from source/styles/styles.css. copy everything inide the <style> tag
-    fetch('source/assets/styles/styles.css')
-      .then(response => response.text())
-      .then(cssText => {
-        style.textContent = cssText
-        // console.log(cssText);
-      })
-      .catch(error => {
-        console.error('Failed to fetch project card styles:', error)
-      })
+    // fetch('source/assets/styles/styles.css')
+    //   .then(response => response.text())
+    //   .then(cssText => {
+    //     style.textContent = cssText
+    //     console.log(cssText);
+    //   })
+    //   .catch(error => {
+    //     console.error('Failed to fetch project card styles:', error)
+    //   })
+
+    style.textContent = `
+    article {
+      margin-right: auto;
+      margin-bottom: 20px;
+      width: 350px;
+      height: 150px;
+      border: solid #434345;
+      border-radius: 10px;
+      position: relative;
+      padding: 10px;
+      }
+  
+      /* Style for project name */
+      h3.project-name {
+        margin-left: 5%;
+        margin-right: 5px;
+        font-size: 18px;
+      }
+  
+      /* Style for project status */
+      p.status {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+        color: #eaeaea;
+        font-size: 10px;
+        margin-left: 5%;
+        margin-right: 5px;
+      }
+  
+      /* Style for project description */
+      p.project-description {
+        font-size: 10px;
+        margin: 0% 5% 10%;
+      }
+  
+      /* Style the drag button */
+      button.drag-btn {
+        position: absolute;
+        display: flex;
+        background: none;
+        top: 5%;
+        right: 5%;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        padding: 0;
+        border-radius: 5px;
+      }
+  
+      button.drag-btn:hover {
+        background-color: grey;
+      }
+  
+      /* Style the tags of each project */
+      div.tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+  
+      div.tags p {
+        border-radius: 2px;
+        padding: 5px 10px;
+        color: #cbcbcb;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
+  
+      p.dot {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: darkred; /* change this as needed */
+        margin-right: 5px;
+      }
+    `;
 
     // Append the <style> and <article> elements to the Shadow DOM
     this.shadowRoot.append(style, article)
@@ -45,43 +125,66 @@ class ProjectCard extends HTMLElement {
       return
     }
 
-    //   Select the <article> we added to the Shadow DOM in the constructor
-    const article = this.shadowRoot.querySelector('article')
-    const projectName = document.createElement('h3')
-    projectName.id = 'project-name' // Set the ID as suggested in the template
-    projectName.textContent = data.projectName
-    article.appendChild(projectName)
+    let article = this.shadowRoot.querySelector('article');
+    const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('');
+    const maxWords = 30;
+    const words = data.projectDescription.split(" ");
+    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(" ") + "..." : data.projectDescription;
 
-    // status
-    const projectStatus = document.createElement('p')
-    projectStatus.id = 'status'
-    projectStatus.textContent = data.status
-    article.appendChild(projectStatus)
+    article.innerHTML = `
+    <button class="drag-btn" onclick="dragProject()">...</button>
 
-    // Project Description (truncate if too long)
-    const projectDescription = document.createElement('p')
-    projectDescription.id = 'project-description'
-    projectDescription.textContent = data.projectDescription.substring(0, 100) // Truncate to 100 characters
-    article.appendChild(projectDescription)
+    <h3 class="project-name">${data.projectName}</h3>
 
-    // Project Tags (Conditional)
-    if (data.tags && data.tags.length > 0) {
-      const tagsContainer = document.createElement('div')
-      tagsContainer.classList.add('tags')
-      data.tags.forEach(tag => {
-        const tagElement = document.createElement('p')
-        tagElement.textContent = tag
-        tagsContainer.appendChild(tagElement)
-      })
-      article.appendChild(tagsContainer)
-    }
+    <p class="status">${data.status}</p>
 
-    // Optional: Project Image
+    <p class="project-description">${truncatedDescription}</p>
+    
+    <div class="tags">${tagsHtml}</div>
+    `;
+    
+    // Optional: handle project impage if provided
     if (data.imageUrl) {
-      const projectImage = document.createElement('img')
-      projectImage.src = data.imageUrl
-      article.appendChild(projectImage)
+      const imageHtml = `<img src="${data.imageUrl}" alt="Project Image">`;
+      article.innerHTML += imageHtml;
     }
+    // //   Select the <article> we added to the Shadow DOM in the constructor
+    // const article = this.shadowRoot.querySelector('article')
+    // const projectName = document.createElement('h3')
+    // projectName.id = 'project-name' // Set the ID as suggested in the template
+    // projectName.textContent = data.projectName
+    // article.appendChild(projectName)
+
+    // // status
+    // const projectStatus = document.createElement('p')
+    // projectStatus.id = 'status'
+    // projectStatus.textContent = data.status
+    // article.appendChild(projectStatus)
+
+    // // Project Description (truncate if too long)
+    // const projectDescription = document.createElement('p')
+    // projectDescription.id = 'project-description'
+    // projectDescription.textContent = data.projectDescription.substring(0, 100) // Truncate to 100 characters
+    // article.appendChild(projectDescription)
+
+    // // Project Tags (Conditional)
+    // if (data.tags && data.tags.length > 0) {
+    //   const tagsContainer = document.createElement('div')
+    //   tagsContainer.classList.add('tags')
+    //   data.tags.forEach(tag => {
+    //     const tagElement = document.createElement('p')
+    //     tagElement.textContent = tag
+    //     tagsContainer.appendChild(tagElement)
+    //   })
+    //   article.appendChild(tagsContainer)
+    // }
+
+    // // Optional: Project Image
+    // if (data.imageUrl) {
+    //   const projectImage = document.createElement('img')
+    //   projectImage.src = data.imageUrl
+    //   article.appendChild(projectImage)
+    // }
   }
 
   get data () {
