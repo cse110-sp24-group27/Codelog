@@ -58,8 +58,8 @@ function newProject () {
   // show the pop-up after clicking + button
   const form = document.querySelector('.new-project')
   form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
-  }
-  
+}
+
 // add add event listener for + button
 const newProjectButton = document.querySelector('#create-btn')
 if (newProjectButton) {
