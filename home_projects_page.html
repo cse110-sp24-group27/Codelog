@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Home Page</title>
-    <!--Uncomment the below line when editing CSS file-->
     <link rel="stylesheet" href="source/assets/styles/project_styles.css">
+    <!-- Project Card Custom Element -->
+    <script src="source/assets/scripts/ProjectCard.js" type="module"></script>
 </head>
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
+<!-- Main Stylesheets & Scripts -->
+<script src="source/assets/scripts/main.js"></script>
 <body>
     <header>
         <!--Logo for the website-->
@@ -18,7 +21,13 @@
             <!--Buttons to jump to other pages-->
 
             <!--Button to go the the Project Home Page-->
-            <button id="home">Home</button>
+            <button onclick="location.href" id="home">Home</button>
+
+            <script type="text/javascript">
+                document.getElementById("home").onclick = function () {
+                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/home_projects_page.html";
+                };
+            </script>
 
             <!--Button to go to setting and edit user's profile-->
             <button id="setting">Setting</button>
@@ -58,76 +67,75 @@
             </div>
         </div>
 
-        <!-- Projects section-->
+        <!--Projects section-->
         <div class="project-collection">
             <h1 id="proj-title">Projects</h1>
 
-            <!--Display project as a box-->
-            <div class="project">
-                <!--The drag button to reorder the projects-->
-                <!--Need to implement JS function drag_project()-->
-                <button id="drag-btn" onclick="drag_project()">...</button>
+            <!--Class of all project boxes-->
+            <div class="projects">
+                <!--Display project as a box-->
+                <article class="project">
+                    <!--The drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <button id="drag-btn" onclick="dragProject()">...</button>
 
-                <!--Project details-->
-                <!--Delete this after implementing "importing project details" function-->
+                    <!--Project details-->
+                    <!--Delete this after implementing "importing project details" function-->
 
-                <!--Name of the project-->
-                <h3 id="project-name">Project Name</h3>
+                    <!--Name of the project-->
+                    <h3 id="project-name">Project Name</h3>
 
-                <!--Public/ private status of the project-->
-                <p id="status">Public</p>
-                
-                <!-- <select id="privacy">
-                    <option value="Public">Public</option>
-                    <option value="Private">Private</option>
-                </select> -->
+                    <!--Public/ private status of the project-->
+                    <p id="status">Public</p>
+                    
+                    <!-- <select id="privacy">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select> -->
 
-                <!--Description for the project-->
-                <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
-                
+                    <!--Description for the project-->
+                    <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
+                    
 
-                <!--Class for tags-->
-                <div class="tags">
-                    <p><span class="dot"></span> Tag 1</p>
-                    <p><span class="dot"></span> Tag 2</p>
-                    <p><span class="dot"></span> Tag 3</p>
-                </div>
+                    <!--Class for tags-->
+                    <div class="tags">
+                        <p><span class="dot"></span> Tag 1</p>
+                        <p><span class="dot"></span> Tag 2</p>
+                        <p><span class="dot"></span> Tag 3</p>
+                    </div>
+                </article>
             </div>
             <!--The + button to add new project-->
             <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
-            <button id="create-btn" onclick="new_project()">+</button>
-        </div>
-        
-        
-        
+            <button id="create-btn" onclick="newProject()">+</button>
+            <!--Manual project creation-->
+            <!--Hide this until the + button is clicked-->
+            <div class="new-project">
+                <input type="text" id="new-project-name" placeholder="Enter New Project Name">
 
-        <!--Manual project creation-->
-        <!--Hide this until the + button is clicked-->
-        <div class="new-project">
-            <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+                <div class="select-tags">
+                    <button>Tag1</button>
+                    <button>Tag2</button>
+                    <button>Add+</button>
+                </div>
 
-            <div class="select-tags">
-                <button>Tag1</button>
-                <button>Tag2</button>
-                <button>Add+</button>
+                <input type="text" id="new-project-description" placeholder="Enter New Project Description">
+
+                <!--Option to let users choose their project to be public or private-->
+                <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
+                <select id="public-private">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
+
+                <input type="text" id="new-entry" placeholder="Enter Entry content.">
+
+                <button id="more-entry">+</button>
+                
+                <!--The Done button to confirm project-->
+                <!--Need to implement JS function add_project() to add the created project to the Project Page-->
+                <button onclick="addProject()">Done</button>
             </div>
-
-            <input type="text" id="new-project-description" placeholder="Enter New Project Description">
-
-            <!--Option to let users choose their project to be public or private-->
-            <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
-            <select id="public-private">
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-            </select>
-
-            <input type="text" id="new-entry" placeholder="Enter Entry content.">
-
-            <button id="more-entry">+</button>
-            
-            <!--The Done button to confirm project-->
-            <!--Need to implement JS function add_project() to add the created project to the Project Page-->
-            <button onclick="add_project()">Done</button>
         </div>
     </main>
     <script>
