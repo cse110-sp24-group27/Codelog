@@ -55,9 +55,9 @@
 
 ### Auto-Documentation
 - We currently have auto-documentation for JS files (likely enough)
-  - Make sure to comment JS code correctly so that JSDocs works
+  - Make sure to comment JS code correctly so that JSDoc works
   - Works on all files in the `source/assets` directory
-- Use [this guide](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/general/jsdoc.html) to create correctly formatted comments for JSDocs
+- Use [this guide](https://michaelcurrin.github.io/dev-cheatsheets/cheatsheets/javascript/general/jsdoc.html) to create correctly formatted comments for JSDoc
 
 ### Sprint Assignments
 - Need to have two sprint reviews and retrospectives done by the end of the course
