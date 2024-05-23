@@ -11,7 +11,7 @@ function newProject () {
 // add add event listener for + button
 const newProjectButton = document.querySelector('#create-btn')
 if (newProjectButton) {
-newProjectButton.addEventListener('click', newProject)
+  newProjectButton.addEventListener('click', newProject)
 }
 
 /**
