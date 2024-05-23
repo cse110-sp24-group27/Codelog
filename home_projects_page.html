@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="source/assets/styles/project_styles.css">
     <!-- Project Card Custom Element -->
     <script src="source/assets/scripts/ProjectCard.js" type="module"></script>
-
-        <!-- Main Stylesheets & Scripts -->
-    <script src="source/assets/scripts/main.js" type="module"></script>
-
 </head>
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
+<!-- Main Stylesheets & Scripts -->
+<script src="source/assets/scripts/main.js"></script>
 <body>
     <header>
         <!--Logo for the website-->
@@ -76,10 +74,10 @@
             <!--Class of all project boxes-->
             <div class="projects">
                 <!--Display project as a box-->
-                <div class="project">
+                <article class="project">
                     <!--The drag button to reorder the projects-->
                     <!--Need to implement JS function drag_project()-->
-                    <button id="drag-btn" onclick="drag_project()">...</button>
+                    <button id="drag-btn" onclick="dragProject()">...</button>
 
                     <!--Project details-->
                     <!--Delete this after implementing "importing project details" function-->
@@ -105,40 +103,39 @@
                         <p><span class="dot"></span> Tag 2</p>
                         <p><span class="dot"></span> Tag 3</p>
                     </div>
-                </div>
+                </article>
             </div>
             <!--The + button to add new project-->
             <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
-            <button id="create-btn" onclick="new_project()">+</button>
-        </div>
-        
-        <!--Manual project creation-->
-        <!--Hide this until the + button is clicked-->
-        <div class="new-project">
-            <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+            <button id="create-btn" onclick="newProject()">+</button>
+            <!--Manual project creation-->
+            <!--Hide this until the + button is clicked-->
+            <div class="new-project">
+                <input type="text" id="new-project-name" placeholder="Enter New Project Name">
 
-            <div class="select-tags">
-                <button>Tag1</button>
-                <button>Tag2</button>
-                <button>Add+</button>
+                <div class="select-tags">
+                    <button>Tag1</button>
+                    <button>Tag2</button>
+                    <button>Add+</button>
+                </div>
+
+                <input type="text" id="new-project-description" placeholder="Enter New Project Description">
+
+                <!--Option to let users choose their project to be public or private-->
+                <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
+                <select id="public-private">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
+
+                <input type="text" id="new-entry" placeholder="Enter Entry content.">
+
+                <button id="more-entry">+</button>
+                
+                <!--The Done button to confirm project-->
+                <!--Need to implement JS function add_project() to add the created project to the Project Page-->
+                <button onclick="addProject()">Done</button>
             </div>
-
-            <input type="text" id="new-project-description" placeholder="Enter New Project Description">
-
-            <!--Option to let users choose their project to be public or private-->
-            <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
-            <select id="public-private">
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-            </select>
-
-            <input type="text" id="new-entry" placeholder="Enter Entry content.">
-
-            <button id="more-entry">+</button>
-            
-            <!--The Done button to confirm project-->
-            <!--Need to implement JS function add_project() to add the created project to the Project Page-->
-            <button onclick="add_project()">Done</button>
         </div>
     </main>
     <script>
