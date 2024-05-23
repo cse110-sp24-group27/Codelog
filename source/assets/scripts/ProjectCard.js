@@ -102,7 +102,7 @@ class ProjectCard extends HTMLElement {
         background-color: darkred; /* change this as needed */
         margin-right: 5px;
       }
-    `;
+    `
 
     // Append the <style> and <article> elements to the Shadow DOM
     this.shadowRoot.append(style, article)
@@ -125,11 +125,11 @@ class ProjectCard extends HTMLElement {
       return
     }
 
-    let article = this.shadowRoot.querySelector('article');
-    const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('');
-    const maxWords = 30;
-    const words = data.projectDescription.split(" ");
-    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(" ") + "..." : data.projectDescription;
+    const article = this.shadowRoot.querySelector('article')
+    const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
+    const maxWords = 30
+    const words = data.projectDescription.split(' ')
+    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.projectDescription
 
     article.innerHTML = `
     <button class="drag-btn" onclick="dragProject()">...</button>
@@ -141,12 +141,12 @@ class ProjectCard extends HTMLElement {
     <p class="project-description">${truncatedDescription}</p>
     
     <div class="tags">${tagsHtml}</div>
-    `;
-    
+    `
+
     // Optional: handle project impage if provided
     if (data.imageUrl) {
-      const imageHtml = `<img src="${data.imageUrl}" alt="Project Image">`;
-      article.innerHTML += imageHtml;
+      const imageHtml = `<img src="${data.imageUrl}" alt="Project Image">`
+      article.innerHTML += imageHtml
     }
     // //   Select the <article> we added to the Shadow DOM in the constructor
     // const article = this.shadowRoot.querySelector('article')
