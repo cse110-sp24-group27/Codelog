@@ -19,6 +19,7 @@ header {
   margin-right: auto;
   padding-left: 10%;
   padding-right: 10%;
+  padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
