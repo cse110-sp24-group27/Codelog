@@ -1,46 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Page Title</title>
     <meta charset="UTF-8">
-    <!-- <link rel="stylesheet" href="+_button.css"> -->
+    <title>Page Title</title>
     <link rel="stylesheet" href="+_button_selcted_project_page.css">
 </head>
 <body>
     <main>
-        <!-- ######################### ######################### #########################-->
-        <!-- To-do:
-        1. Templetes implementation:
-            - different versions: dynamically change after selected template name
-            - template entry box: cover text/code to .md code block
-
-        2. Js: page interactions: saving/ retreving tags, etc
-        -->
-
-        <!--The + button to add new project-->
-        <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
-        <button id="create-btn" onclick="openPopup('projectPop-up')">+</button>
-
-        <!--Manual project creation-->
+        <!--JOURNAL project creation-->
+        <button id="create-btn" onclick="openPopup('projectpop-up')">+</button>
         <!--Hide this until the + button is clicked-->
-        <div id="projectPop-up" class="pop-up">
+        <div id="projectpop-up" class="pop-up">
             <form id="new-project">
                 <!--Button to go back to the project homepage-->
-                <!-- Should the go back button be exting the ppop-up or leadind to project page? -->
-                <button id="project-page-back-btn">
-                    <a href="/source/assets/reference/selected_projects_page.html">
-                        <img src="/source/assets/images/back-arrow.png" alt="back" id="back-arrow"/>
-                        <!-- <button type="button" id="cancel-btn" onclick="closePopup('projectPop-up')"></button> -->
-                    </a>
-                </button> 
-                
+                <!-- Should the go back button be exiting the popup or leading to project page? -->
+                <button type="button" id="project-page-back-btn" onclick="closePopup('projectpop-up')">
+                    <img src="/source/assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
+                </button>
                 <h1>Create a new entry</h1>
                 <h3>Entry Title</h3>
-                    <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+                <input type="text" id="new-project-name" placeholder="Enter New Project Name">
                 <h3>Description</h3>
-                    <input type="text" id="new-project-description" placeholder="Enter New Project Description">
-
-
+                <input type="text" id="new-project-description" placeholder="Enter New Project Description">
                 <div class="select-container">
                     <div class="dropdown-group">
                         <h3>Publicity</h3>
@@ -59,76 +40,17 @@
                         </select>
                     </div>
                 </div> 
-
-                <!-- Add Tag -->
-                <div class="tag-container">
+                <div id="tag-editor-popup" class="tag-container">
                     <h3>Tags</h3>
-                    <button type="button" id="add-tag-btn" onclick="openPopup('tagEditorPopup')">Add Tag</button>
+                    <button type="button" id="add-tag-btn">Add Tag</button>
                 </div>
 
-
-
-                <!-- ========================================================================================= -->
-
-                <!-- This Add entry + button was on the old design, we can comment out if not needed for now,
-                but delete when the project is done. -->
-                <!-- Add entry + button -->        
-                <!-- 
-                    For later note- New entry behavior: 
-                        1. ask user to remove empty entry box.
-                        2. cofirmation for deletion. 
-                -->
-                <div id="entry-container">
-                    <div class="entry">
-                        <button type="button" class="remove-entry-btn" onclick="removeEntry(this)" style="display: none;">Remove</button>
-                    </div>
-                </div>
-                <button type="button" class="add-entry-btn" onclick="addEntry()">+</button>
-                <!-- ========================================================================================= -->
-                
-
-
-
-                <!--The Done button to SAVE all entries of the project-->
-                <!--Need to implement JS function add_project() to add the created project to the Project Page-->
                 <div class="done-btn-position">
-                    <button type="button" id="done-btn" onclick="add_project()">Create Entry</button>
+                    <button type="button" id="done-btn">Create Entry</button>
                 </div>
             </form>
         </div>
-
-
-
-        <!-- ========================================================================================= -->
-        <!-- Linking to Tag Editor pop-up Place Holder -->
-        <!-- After Tag Editor is completed by s:
-            1. figure how to load the tag list back to template pop-up
-            2. remember to implement the function to delete the list after done editing and saving all entries of the template to some storage. 
-            3. show list on tag editor.
-        --> 
-        <!-- <div id="tagEditorPopup" class="pop-up">
-            <form id="tag-edit-form">
-                <h2>Tag Editor</h2>
-
-                <div id="current-tags">
-                </div>
-
-                <div id="add-tag-section">
-                    <input type="text" id="new-tag-name" placeholder="Enter Tag Name">
-                    <input type="color" id="new-tag-color" value="#ff0000">
-                    <button type="button" id="add-tag-btn" onclick="addTag()">Create</button>
-                </div>
-
-                <button type="button" id="done-tag-btn" onclick="closeTagEditor()">Done</button>
-            </form>
-        </div> -->
-        <!-- ========================================================================================= -->
-
     </main>
-
     <script src="+_button_selcted_project_page.js"></script>
 </body>
 </html>
-
-
-
