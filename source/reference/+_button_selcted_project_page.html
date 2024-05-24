@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Page Title</title>
-    <link rel="stylesheet" href="/source/assets/styles/+_button_selcted_project_page.css">
-    <script src="/source/assets/scripts/+_button_selcted_project_page.js"></script>
-</head>
-<body>
-    <main>
-        <!--JOURNAL project creation-->
-        <button id="create-btn" onclick="openPopup('projectpop-up')">+</button>
-        <!--Hide this until the + button is clicked-->
-        <div id="projectpop-up" class="pop-up">
-            <form id="new-project">
-                <!--Button to go back to the project homepage-->
-                <button type="button" id="project-page-back-btn" onclick="closePopup('projectpop-up')">
-                    <img src="/source/assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
-                </button>
-                <h1>Create a new entry</h1>
-                <h3>Entry Title</h3>
-                <input type="text" id="new-project-name" placeholder="Enter New Project Name">
-                <h3>Description</h3>
-                <input type="text" id="new-project-description" placeholder="Enter New Project Description">
-                <div class="select-container">
-                    <div class="dropdown-group">
-                        <h3>Publicity</h3>
-                        <select id="publicity-select">
-                            <option value="Public">Public</option>
-                            <option value="Private">Private</option>
-                        </select>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Title</title>
+        <link rel="stylesheet" href="../assets/styles/+_button_selcted_project_page.css">
+        <script src="../assets/scripts/+_button_selcted_project_page.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <!--JOURNAL project creation-->
+            <button id="create-btn" onclick="openPopup('projectpop-up')">+</button>
+            <!--Hide this until the + button is clicked-->
+            <div id="projectpop-up" class="pop-up">
+                <form id="new-project">
+                    <!--Button to go back to the project homepage-->
+                    <button type="button" id="project-page-back-btn" onclick="closePopup('projectpop-up')">
+                        <img src="/source/assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
+                    </button>
+                    <h1>Create a new entry</h1>
+                    <h3>Entry Title</h3>
+                    <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+                    <h3>Description</h3>
+                    <input type="text" id="new-project-description" placeholder="Enter New Project Description">
+                    <div class="select-container">
+                        <div class="dropdown-group">
+                            <h3>Publicity</h3>
+                            <select id="publicity-select">
+                                <option value="Public">Public</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                        <div class="dropdown-group">
+                            <h3>Template</h3>
+                            <select id="template-select">
+                                <option value="Template1">Bug Fix</option>
+                                <option value="Template2">Template 2</option>
+                                <option value="Template3">Template 3</option>
+                                <option value="Template4">Template 4</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div id="tag-editor-popup" class="tag-container">
+                        <h3>Tags</h3>
+                        <button type="button" id="add-tag-btn">Add Tag</button>
                     </div>
-                    <div class="dropdown-group">
-                        <h3>Template</h3>
-                        <select id="template-select">
-                            <option value="Template1">Bug Fix</option>
-                            <option value="Template2">Template 2</option>
-                            <option value="Template3">Template 3</option>
-                            <option value="Template4">Template 4</option>
-                        </select>
-                    </div>
-                </div> 
-                <div id="tag-editor-popup" class="tag-container">
-                    <h3>Tags</h3>
-                    <button type="button" id="add-tag-btn">Add Tag</button>
-                </div>
 
-                <div class="done-btn-position">
-                    <button type="button" id="done-btn">Create Entry</button>
-                </div>
-            </form>
-        </div>
-    </main>
-</body>
+                    <div class="done-btn-position">
+                        <button type="button" id="done-btn">Create Entry</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
 </html>
