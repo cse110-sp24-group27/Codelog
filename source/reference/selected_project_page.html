@@ -10,6 +10,29 @@
     </head>
     <body id="individual-project">
         <header>
+            <!--Navbar at the top of the page-->
+            <div id="navbar">
+                <!--Logo for the website-->
+                <img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
+                <h1 id="codelog">CodeLog</h1>
+
+                <div class="but">
+                    <!--Buttons to jump to other pages-->
+
+                    <!--Button to go the the Project Home Page-->
+                    <button onclick="location.href" id="home">Home</button>
+
+                    <script type="text/javascript">
+                        document.getElementById("home").onclick = function () {
+                            location.href = "http://127.0.0.1:5500/cse110-sp24-group27/home_projects_page.html";
+                        };
+                    </script>
+
+                    <!--Button to go to setting and edit user's profile-->
+                    <button id="setting">Setting</button>
+                </div>
+            </div>
+
             <!--Button to go back to the project homepage-->
             <button id="project-page-back-btn">
                 <a href="/home_projects_page.html">
