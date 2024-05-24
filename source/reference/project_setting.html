@@ -3,84 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creation Page</title>
-    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <title>Profile Settings</title>
+    <link rel="stylesheet" href="source/assets/styles/project_styles.css">
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
-        <h1>Profile Settings</h1>
+        <!--Logo for the website-->
+        <img id="codelog-pic" src="/admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
+        <h1 id="codelog">CodeLog</h1>
+
+        <div class="but">
+            <!--Button to go to the Project Home Page-->
+            <button onclick="location.href='/home_projects_page.html'" id="home">Home</button>
+
+            <!--Button to go to setting and edit user's profile-->
+            <button onclick="location.href='/project_setting.html'" id="setting">Setting</button>
+        </div>
     </header>
+
     <main>
-        <section class="profile">
-            <div class="profile-picture" onclick="document.getElementById('upload-profile-pic').click()">
-                <img id="profile-picture" src="" alt="Profile Picture">
-                <div class="hover-text">Change your avatar</div>
-                <input type="file" id="upload-profile-pic" style="display: none;" onchange="loadImage(event)">
+        <h1>Profile Setting</h1>
+        <!--User's profile settings form-->
+        <div class="profile">
+            <!-- Profile Picture with hover effect to change avatar -->
+            <div>
+                <label for="profile-picture-upload">
+                 <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture" title="Change your avatar" />
+                </label>
+                <input type="file" id="profile-picture-upload" style="display: none;" />
             </div>
-            <div class="input-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Developer's Name">
-            </div>
-            <div class="input-group">
-                <label for="pronouns">Pronouns</label>
-                <input type="text" id="pronouns" placeholder="they/them">
-            </div>
-            <div class="input-group">
-                <label for="bio">Bio</label>
-                <input type="text" id="bio" placeholder="Bio - ex. Software Engineer at UCSD">
-            </div>
-                <label>Social Accounts</label>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <img src="assets/icons/email-icon.png" alt="Email" class="social-icon">
-                <input type="email" id="email" placeholder="Email">
-            </div>
-            <div class="input-group">
-                <label for="linkedin">LinkedIn</label>
-                <img src="assets/icons/linkedin-icon.png" alt="LinkedIn" class="social-icon">
-                <input type="text" id="linkedin" placeholder="LinkedIn">
-            </div>
-            <div class="input-group">
-                <label for="github">GitHub</label>
-                <img src="assets/icons/github-icon.png" alt="GitHub" class="social-icon">
-                <input type="text" id="github" placeholder="GitHub">
-            </div>
-        </section>
-        <div class="buttons">
-            <button onclick="save()">Save</button>
-            <button onclick="cancel()">Cancel</button>
+            
+              <!-- Profile Picture Change Text -->
+              <div id="change-avatar-text" style="display: none;">Change your avatar</div>
+            
+
+            <!-- Form for User Information -->
+            <form id="profile-form">
+                <!-- Name Input -->
+                <div class="form-group">
+                    <label for="name-input">Name</label>
+                    <input type="text" id="name-input" placeholder="Developer's Name">
+                </div>
+
+                <!-- Pronouns Input -->
+                <div class="form-group">
+                    <label for="pronouns-input">Pronouns</label>
+                    <input type="text" id="pronouns-input" placeholder="they/them">
+                </div>
+
+                <!-- Bio Input -->
+                <div class="form-group">
+                    <label for="bio-input">Bio</label>
+                    <input type="text" id="bio-input" placeholder="Bio - ex. Software Engineer at UCSD">
+                </div>
+
+                <!-- Social Accounts Section -->
+                <div class="form-group">
+                    <label for="email-input"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" id="email-input" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <label for="linkedin-input"><i class="fa-brands fa-linkedin"></i> LinkedIn</label>
+                    <input type="text" id="linkedin-input" placeholder="LinkedIn">
+                </div>
+
+                <div class="form-group">
+                    <label for="github-input"><i class="fa-brands fa-github"></i> GitHub</label>
+                    <input type="text" id="github-input" placeholder="GitHub">
+                </div>
+
+                <!-- Buttons -->
+                <button type="button" onclick="save()">Save</button>
+                <button type="button" onclick="cancel()">Cancel</button>
+            </form>
         </div>
     </main>
+
     <footer id="footer">
         <p>copyright</p>
     </footer>
 
     <script>
-        function loadImage(event) {
-            const output = document.getElementById('profile-picture');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        }
+
+
+        document.getElementById('profile-picture').addEventListener('mouseover', function () {
+            document.getElementById('change-avatar-text').style.display = 'block';
+            console.log('hover over');
+        });
+
+        document.getElementById('profile-picture').addEventListener('mouseout', function () {
+            document.getElementById('change-avatar-text').style.display = 'none';
+        });
 
         function save() {
             const profile = {
-                name: document.getElementById('name').value,
-                pronouns: document.getElementById('pronouns').value,
-                bio: document.getElementById('bio').value,
+                name: document.getElementById('name-input').value,
+                pronouns: document.getElementById('pronouns-input').value,
+                bio: document.getElementById('bio-input').value,
                 socialAccount: {
-                    email: document.getElementById('email').value,
-                    linkedin: document.getElementById('linkedin').value,
-                    github: document.getElementById('github').value
+                    email: document.getElementById('email-input').value,
+                    linkedin: document.getElementById('linkedin-input').value,
+                    github: document.getElementById('github-input').value
                 },
                 img: document.getElementById('profile-picture').src
             };
-            console.log("profile:", JSON.stringify(profile, null, 2));
+
+            console.log("profile:", profile);
         }
 
         function cancel() {
-            console.log("Cancelled");
+            document.getElementById('profile-form').reset();
         }
     </script>
 </body>
-
 </html>
