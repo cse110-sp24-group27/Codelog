@@ -33,7 +33,7 @@
                 <label for="profile-picture-upload">
                  <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture" title="Change your avatar" />
                 </label>
-                <input type="file" id="profile-picture-upload" style="display: none;" />
+                <input type="file" id="profile-picture-upload" style="display: none;" onchange="loadImage(event)"/>
             </div>
             
               <!-- Profile Picture Change Text -->
@@ -92,12 +92,16 @@
 
         document.getElementById('profile-picture').addEventListener('mouseover', function () {
             document.getElementById('change-avatar-text').style.display = 'block';
-            console.log('hover over');
+            console.log('hover over'); // debug line
         });
 
         document.getElementById('profile-picture').addEventListener('mouseout', function () {
             document.getElementById('change-avatar-text').style.display = 'none';
         });
+        function loadImage(event) {
+            const output = document.getElementById('profile-picture');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
 
         function save() {
             const profile = {
@@ -112,7 +116,7 @@
                 img: document.getElementById('profile-picture').src
             };
 
-            console.log("profile:", profile);
+            console.log("profile:", profile); //debug line
         }
 
         function cancel() {
