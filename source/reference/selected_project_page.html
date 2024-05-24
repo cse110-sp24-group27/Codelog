@@ -16,17 +16,13 @@
                     <img src="../assets/images/back-arrow.png" alt="back" id="back-arrow"/>
                 </a>
             </button>
-            <!--Project header; includes project name, description, and table of contents-->
+            <!-- Project header; includes project name, description, and a dynamic table of contents -->
             <div class="project-header">
                 <h1 id="project-name">Project Name</h1>
-                <p id="project-description">Project dnjuwiqDescription</p>
-                <nav id="project-nav">
-                    <h2 id="table-header">Table of Contents:</h2>
-                    <ol id="table-of-contents">
-                        <li><a href="#entry1">Journal entry name</a></li>
-                        <li><a href="#entry2">Journal entry name 2</a></li>
-                        <li><a href="#entry3">Journal entry name 3</a></li>
-                    </ol>
+                <p id="project-description">Project Description</p>
+                <nav id="dynamic-table-of-contents">
+                    <h2>Table of Contents:</h2>
+                    <ul id="dynamic-content-list"></ul> <h3 id="entry1">Entry 1 Title Name</h3>
                 </nav>
             </div>
         </header>
@@ -73,7 +69,6 @@
                 </div>
 
                 <!--Down arrow between journal entries-->
-                <!--
                 <img src="./source/assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
                 <div class="journal-entry">
@@ -118,7 +113,7 @@
                         <p>Tag 2</p>
                     </div>
                 </div>
-                -->
+                
             </section>
 
             <!--Button to add a new journal entry-->
