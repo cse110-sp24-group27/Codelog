@@ -102,7 +102,7 @@
   max-width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
-} 
+}
 
 #new-project-description {
   flex-grow: 1;
@@ -114,9 +114,6 @@
   max-width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
-}
-
-#new-project-description {
   height: 80px;
 }
 
@@ -141,14 +138,11 @@ h3 {
 }
 
 .dropdown-group select {
-  margin: 5px;
-}
-
-.dropdown-group select {
   background-color: #2a2a2e;
   border: 1px solid #fff;
   color: grey;
   padding: 10px;
   border-radius: 5px;
   padding-right: 30px;
+  margin: 5px;
 }
