@@ -1,0 +1,113 @@
+{
+    "current_max_id":1000,
+    "profile": {
+        "name": "wayfarers",
+        "pronouns": "they/them",
+        "bio": "SE at UCSD",
+        "socialAccount": {
+            "email": "string@str.str",
+            "linkdn": "string linkd",
+            "github": "wayfare.git.io"
+        },
+        "img": "img url"
+    },
+    "projects" : [
+        {
+            "projectId": 1,
+            "projectName": "meta-projects",
+            "projectDescription": "strstrstrstrstrstrstr strstrstr",
+            "status": "Private",
+            "tags": ["HTML"], 
+            "journals": [3,4,5] 
+        },
+        {       
+            "projectId": 2,
+            "projectName": "codelog",
+            "projectDescription": "str",
+            "status": "Public",
+            "tags": ["HTML", "CSS", "JS"], 
+            "journals": [6,7,8] 
+        }
+    ], 
+
+    "journals" : [
+        {
+            "journalId": 3,
+            "parentProject": 1,
+            "journalName": "journal1",
+            "tags": ["tage 1", "tag 2"], 
+            "status": "Private",
+            "template": "Bug Fix",
+            "entries": [9,10,11,12]
+        },
+        {
+            "journalId": 5,
+            "parentProject": 1,
+            "journalName": "journal2",
+            "tags": ["tage 1", "tag 2"],
+            "status": "Public",
+            "template": "Bug-fix",
+            "entries": [13,14,15]
+        }
+    ],
+
+    "entries": [
+        {
+            "entryId": 9,
+            "parentJournal": 3,
+            "entryDescription": "entryDescription entryDescription entryDescription",
+            "status": "Public",
+            "template": "Bug Fix",
+            "tags": ["Debug", "New Feature"],
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content",
+                }
+            ]
+        }
+    ],
+
+    "templates": [
+        {
+            "templateId": 20,
+            "templateName": "Bug Fix",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content",
+                },
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content",
+                }
+            ]
+        },
+        {
+            "templateId": 20,
+            "templateName": "New Idea",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content",
+                }
+            ]
+        }
+    ]
+}
