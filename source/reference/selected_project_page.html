@@ -139,23 +139,8 @@
         <footer>
             <p>@ 2024 CodeLog</p>
         </footer>
+        
+        <!-- Link to script -->
+        <script> href = "../assets/scripts/selected_project_page.js"</script>
     </body>
 </html>
-
-<!--Temporary JS just to outline behaviors we might want-->
-<script>
-    // Attach event listeners to each journal entry (replace with actual selector)
-    // This code is temporary, just to see how hovering, single click, and doubleclick might function
-    const journalEntries = document.querySelectorAll(".journal-entry");
-    journalEntries.forEach(entry => {
-        entry.addEventListener("mouseover", () => console.log('show preview'));  //handleJournalEntryHover(entry)
-        entry.addEventListener("click", () => console.log('expand journal entry'));  //handleJournalEntryClick(entry)
-        entry.addEventListener("dblclick", () => console.log('edit journal')); //handleJournalEntryDoubleClick(entry)
-    });
-    function drag_project() {
-        console.log('drag a project');
-    }
-    function new_journal_entry() {
-        console.log('add new journal entry');
-    }
-</script>
