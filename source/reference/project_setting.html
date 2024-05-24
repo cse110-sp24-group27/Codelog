@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation Page</title>
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Profile Settings</h1>
+    </header>
+    <main>
+        <section class="profile">
+            <div class="profile-picture" onclick="document.getElementById('upload-profile-pic').click()">
+                <img id="profile-picture" src="" alt="Profile Picture">
+                <div class="hover-text">Change your avatar</div>
+                <input type="file" id="upload-profile-pic" style="display: none;" onchange="loadImage(event)">
+            </div>
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Developer's Name">
+            </div>
+            <div class="input-group">
+                <label for="pronouns">Pronouns</label>
+                <input type="text" id="pronouns" placeholder="they/them">
+            </div>
+            <div class="input-group">
+                <label for="bio">Bio</label>
+                <input type="text" id="bio" placeholder="Bio - ex. Software Engineer at UCSD">
+            </div>
+                <label>Social Accounts</label>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <img src="assets/icons/email-icon.png" alt="Email" class="social-icon">
+                <input type="email" id="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <label for="linkedin">LinkedIn</label>
+                <img src="assets/icons/linkedin-icon.png" alt="LinkedIn" class="social-icon">
+                <input type="text" id="linkedin" placeholder="LinkedIn">
+            </div>
+            <div class="input-group">
+                <label for="github">GitHub</label>
+                <img src="assets/icons/github-icon.png" alt="GitHub" class="social-icon">
+                <input type="text" id="github" placeholder="GitHub">
+            </div>
+        </section>
+        <div class="buttons">
+            <button onclick="save()">Save</button>
+            <button onclick="cancel()">Cancel</button>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>copyright</p>
+    </footer>
+
+    <script>
+        function loadImage(event) {
+            const output = document.getElementById('profile-picture');
+            output.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function save() {
+            const profile = {
+                name: document.getElementById('name').value,
+                pronouns: document.getElementById('pronouns').value,
+                bio: document.getElementById('bio').value,
+                socialAccount: {
+                    email: document.getElementById('email').value,
+                    linkedin: document.getElementById('linkedin').value,
+                    github: document.getElementById('github').value
+                },
+                img: document.getElementById('profile-picture').src
+            };
+            console.log("profile:", JSON.stringify(profile, null, 2));
+        }
+
+        function cancel() {
+            console.log("Cancelled");
+        }
+    </script>
+</body>
+
+</html>
