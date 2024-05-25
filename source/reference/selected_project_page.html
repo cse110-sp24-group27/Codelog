@@ -64,8 +64,8 @@
                 <!--Display each journal entry in a box-->
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
-                <div class="journal-entry" id="entry1-container" draggable="true" ondragstart="drag_project(event)" 
-                ondrop="drop_project(event)" ondragover="allow_drop(event)">
+                <div class="journal-entry" id="entry1-container" draggable="true" ondragstart="dragProject(event)" 
+                ondrop="dropProject(event)" ondragover="allowDrop(event)">
                     <h2 class="entry-name" id="entry1">Journal entry name</h2>
                     <h4 class="entry-template">Journal entry template</h4>
                     <p class="entry-text">
@@ -89,7 +89,7 @@
                     <!--Drag button to reorder the projects-->
                     <!--Need to implement JS function drag_project()-->
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">
+                        <button class="drag-btn" onclick="dragProject()">
                             <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
                         </button>
                     </div>
@@ -104,8 +104,8 @@
                 <!--
                 <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
-                <div class="journal-entry" id="entry2-container" draggable="true" ondragstart="drag_project(event)" 
-                ondrop="drop_project(event)" ondragover="allow_drop(event)">
+                <div class="journal-entry" id="entry2-container" draggable="true" ondragstart="dragProject(event)" 
+                ondrop="dropProject(event)" ondragover="allowDrop(event)">
                     <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
@@ -115,7 +115,7 @@
                         Cras nulla libero, fermentum vitae sem at, efficitur blandit velit.
                     </p>
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">
+                        <button class="drag-btn" onclick="dragProject()">
                             <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
                         </button>
                     </div>
@@ -127,8 +127,8 @@
 
                 <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
-                <div class="journal-entry" id="entry3-container" draggable="true" ondragstart="drag_project(event)" 
-                ondrop="drop_project(event)" ondragover="allow_drop(event)">
+                <div class="journal-entry" id="entry3-container" draggable="true" ondragstart="dragProject(event)" 
+                ondrop="dropProject(event)" ondragover="allowDrop(event)">
                     <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
@@ -139,7 +139,7 @@
                         vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
                     </p>
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="drag_project()">
+                        <button class="drag-btn" onclick="dragProject()">
                             <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
                         </button>
                     </div>
