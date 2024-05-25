@@ -47,6 +47,7 @@ function loadTableOfContents () {
 loadTableOfContents()
 
 // Drag Button By Devan //
+// TODO: change to only drag and drop if using the button
 /**
  * @param event reference to the entry being grabbed.
  */
@@ -121,12 +122,12 @@ function createEntry () {
     * content
     */
   const entry = {
-      titleName: entryTitle,
-      id: '10000',
-      template: entryTemplate,
-      tags: '',
-      publicity: entryPublicity,
-      content: entryContent
+    titleName: entryTitle,
+    id: '10000',
+    template: entryTemplate,
+    tags: '',
+    publicity: entryPublicity,
+    content: entryContent
   }
 
   // Add entry to the entries of this project
