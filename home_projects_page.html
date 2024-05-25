@@ -32,7 +32,12 @@
             </script>
 
             <!--Button to go to setting and edit user's profile-->
-            <button id="setting">Setting</button>
+            <button onclick="location.href" id="setting">Setting</button>
+            <script type="text/javascript">
+                document.getElementById("setting").onclick = function () {
+                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/project_setting.html";
+                };
+            </script>
         </div>
     </header>
     <main>
