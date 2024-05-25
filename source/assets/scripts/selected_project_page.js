@@ -51,35 +51,35 @@ loadTableOfContents()
 /**
  * @param event reference to the entry being grabbed.
  */
-function dragProject (event) {
-  event.dataTransfer.setData('text', event.target.id)
-}
+// function dragProject (event) {
+//   event.dataTransfer.setData('text', event.target.id)
+// }
 
 /**
  * @param event reference to the entry to be dragged and dropped.
  */
-function allowDrop (event) {
-  event.preventDefault()
-}
+// function allowDrop (event) {
+//   event.preventDefault()
+// }
 
 // TODO: add comments for JSDoc
 // Swap Projects
-function dropProject (event) {
-  event.preventDefault()
-  let dragIndex = 0
-  const clone = event.target.cloneNode(true)
-  const data = event.dataTransfer.getData('text')
-  if (clone.id !== data) {
-    const nodeList = document.getElementById('journal-entries').childNodes
-    for (let i = 0; i < nodeList.length; i++) {
-      if (nodeList[i].id === data) {
-        dragIndex = i
-      }
-    }
-    document.getElementById('journal-entries').replaceChild(document.getElementById(data), event.target)
-    document.getElementById('journal-entries').insertBefore(clone, document.getElementById('journal-entries').childNodes[dragIndex])
-  }
-}
+// function dropProject (event) {
+//   event.preventDefault()
+//   let dragIndex = 0
+//   const clone = event.target.cloneNode(true)
+//   const data = event.dataTransfer.getData('text')
+//   if (clone.id !== data) {
+//     const nodeList = document.getElementById('journal-entries').childNodes
+//     for (let i = 0; i < nodeList.length; i++) {
+//       if (nodeList[i].id === data) {
+//         dragIndex = i
+//       }
+//     }
+//     document.getElementById('journal-entries').replaceChild(document.getElementById(data), event.target)
+//     document.getElementById('journal-entries').insertBefore(clone, document.getElementById('journal-entries').childNodes[dragIndex])
+//   }
+// }
 
 // Show Popup Button //
 const showButton = document.getElementById('create-btn')
