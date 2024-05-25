@@ -19,7 +19,7 @@ function loadTableOfContents () {
    * Entry Template
    * Tags
    * Markdown File
-   * 
+   *
    * We only want the Entry Name (can be accessed using .)
    */
   entriesForList.forEach(entry => {
@@ -66,17 +66,17 @@ function allowDrop (event) {
 function dropProject (event) {
   event.preventDefault()
   let dragIndex = 0
-  let clone = event.target.cloneNode(true)
-  let data = event.dataTransfer.getData('text')
-  if(clone.id !== data) {
-      let nodeList = document.getElementById('journal-entries').childNodes
-      for (let i = 0; i < nodeList.length; i++) {
-          if(nodeList[i].id === data) {
-              dragIndex = i
-          }
+  const clone = event.target.cloneNode(true)
+  const data = event.dataTransfer.getData('text')
+  if (clone.id !== data) {
+    const nodeList = document.getElementById('journal-entries').childNodes
+    for (let i = 0; i < nodeList.length; i++) {
+      if (nodeList[i].id === data) {
+        dragIndex = i
       }
-      document.getElementById('journal-entries').replaceChild(document.getElementById(data), event.target)
-      document.getElementById('journal-entries').insertBefore(clone, document.getElementById('journal-entries').childNodes[dragIndex])
+    }
+    document.getElementById('journal-entries').replaceChild(document.getElementById(data), event.target)
+    document.getElementById('journal-entries').insertBefore(clone, document.getElementById('journal-entries').childNodes[dragIndex])
   }
 }
 
@@ -114,7 +114,7 @@ function createEntry () {
 
   /* Create an entry object
     * titleName
-    * id 
+    * id
     * template
     * tags
     * publicity
@@ -126,12 +126,12 @@ function createEntry () {
       template: entryTemplate,
       tags: '',
       publicity: entryPublicity,
-      content: entryContent,
+      content: entryContent
   }
 
   // Add entry to the entries of this project
   entries.push(entry)
-  
+
   // Add the updated entries array to the localStorage
   localStorage.setItem('entries', JSON.stringify(entries))
 }
@@ -146,7 +146,7 @@ function createEntry () {
 // This code is temporary, just to see how hovering, single click, and doubleclick might function
 const journalEntries = document.querySelectorAll('.journal-entry')
 journalEntries.forEach(entry => {
-  entry.addEventListener('mouseover', () => console.log('show preview')) //handleJournalEntryHover(entry)
-  entry.addEventListener('click', () => console.log('expand journal entry')) //handleJournalEntryClick(entry)
-  entry.addEventListener('dblclick', () => console.log('edit journal')) //handleJournalEntryDoubleClick(entry)
+  entry.addEventListener('mouseover', () => console.log('show preview')) // handleJournalEntryHover(entry)
+  entry.addEventListener('click', () => console.log('expand journal entry')) // handleJournalEntryClick(entry)
+  entry.addEventListener('dblclick', () => console.log('edit journal')) // handleJournalEntryDoubleClick(entry)
 })
