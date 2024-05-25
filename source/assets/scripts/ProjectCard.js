@@ -81,7 +81,7 @@ class ProjectCard extends HTMLElement {
       /* Style the drag button image */
       .drag-btn-img {
         position: relative;
-        width: 100%;
+        width: 10px;
         height: auto;
       }
   
