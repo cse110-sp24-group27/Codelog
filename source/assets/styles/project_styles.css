@@ -63,8 +63,6 @@ header {
 /* Style the main body */
 main {
   display: flex;
-  margin-left: 10%;
-  margin-right: 10%;
   margin: center;
   padding: center;
   margin-top: 5%;
@@ -73,6 +71,7 @@ main {
 
 /* Style the user profile */
 .profile {
+  margin-left: 10%;
   width: auto;
   height: auto;
 }
