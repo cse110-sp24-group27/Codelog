@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { getProjectsFromStorage } = require('../assets/scripts/main');
+const { getProjectsFromStorage } = require('../assets/scripts/main')
 const project1 = `{
     "projectId": 1,
     "projectName": "Project Awesome",
@@ -35,11 +35,11 @@ const project1 = `{
   }`
 
 describe('Testing getProjectsFromStorage...', () => {
-  window.localStorage.setItem('projects', JSON.stringify([project1]));
-  const projectArr = getProjectsFromStorage();
+  window.localStorage.setItem('projects', JSON.stringify([project1]))
+  const projectArr = getProjectsFromStorage()
   test('Testing get projects when one project was added...', () => {
     expect(projectArr.length).toEqual(1)
-  });
+  })
   test('Testing output array content...', () => {
     expect(projectArr[0]).toEqual(project1)
   })
