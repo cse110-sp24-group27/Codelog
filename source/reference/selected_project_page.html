@@ -6,7 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Project Page</title>
         <link rel="stylesheet" href="../assets/styles/styles.css">
+        <link rel="stylesheet" href="../assets/styles/+_button_selcted_project_page.css">
         <link rel="icon" type="image/x-icon" href="../assets/images/icons/logo.ico">
+        <style>
+            /* Hide the Popup page by Default (until user clicks the + button) */
+            .pop-up {
+              display: none;
+            }
+        </style>
     </head>
     <body id="individual-project">
         <header>
@@ -46,6 +53,7 @@
                 <nav id="dynamic-table-of-contents">
                     <h2>Table of Contents:</h2>
                     <ul id="dynamic-content-list"></ul> <h3 id="entry1">Entry 1 Title Name</h3>
+                    <!--Note: id "entry1" is already taken by the journal entry 1 name-->
                 </nav>
             </div>
         </header>
@@ -56,7 +64,8 @@
                 <!--Display each journal entry in a box-->
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
-                <div class="journal-entry">
+                <div class="journal-entry" id="entry1-container" draggable="true" ondragstart="drag_project(event)" 
+                ondrop="drop_project(event)" ondragover="allow_drop(event)">
                     <h2 class="entry-name" id="entry1">Journal entry name</h2>
                     <h4 class="entry-template">Journal entry template</h4>
                     <p class="entry-text">
@@ -92,9 +101,11 @@
                 </div>
 
                 <!--Down arrow between journal entries-->
+                <!--
                 <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
-                <div class="journal-entry">
+                <div class="journal-entry" id="entry2-container" draggable="true" ondragstart="drag_project(event)" 
+                ondrop="drop_project(event)" ondragover="allow_drop(event)">
                     <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
@@ -116,7 +127,8 @@
 
                 <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
-                <div class="journal-entry">
+                <div class="journal-entry" id="entry3-container" draggable="true" ondragstart="drag_project(event)" 
+                ondrop="drop_project(event)" ondragover="allow_drop(event)">
                     <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
@@ -136,12 +148,61 @@
                         <p>Tag 2</p>
                     </div>
                 </div>
-                
+                -->
             </section>
+
+            <!-- Pop Up (Hidden by default) Screen -->
+            <!--JOURNAL project creation-->
+            <button id="create-btn" onclick="openPopup('hidden-popup')">+</button>
+
+            <!--Hide this until the + button is clicked-->
+            <div id="hidden-popup" class="pop-up">
+                <form id="new-project">
+                    <!--Button to go back to the project homepage-->
+                    <button type="button" id="project-page-popup-back-btn" onclick="closePopup('hidden-popup')">
+                        <img src="../assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
+                    </button>
+                    <h1>Create a new entry</h1>
+                    <h3>Entry Title</h3>
+                    <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+                    <h3>Content</h3>
+                    <input type="text" id="new-project-content" placeholder="Enter New Project Content">
+                    <div class="select-container">
+                        <div class="dropdown-group">
+                            <h3>Publicity</h3>
+                            <select id="publicity-select">
+                                <option value="Public">Public</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                        <div class="dropdown-group">
+                            <h3>Template</h3>
+                            <select id="template-select">
+                                <option value="Template1">Bug Fix</option>
+                                <option value="Template2">Template 2</option>
+                                <option value="Template3">Template 3</option>
+                                <option value="Template4">Template 4</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div id="tag-editor-popup" class="tag-container">
+                        <h3>Tags</h3>
+                        <button type="button" id="add-tag-btn">Add Tag</button>
+                    </div>
+
+                    <div class="done-btn-position">
+                        <button type="button" id="done-btn">Create Entry</button>
+                    </div>
+                    <!-- <script defer>
+                        const createEntryButton = document.getElementById('done-btn');
+                        createEntryButton.addEventListener('click', create_entry);
+                    </script> -->
+                </form>
+            </div>
 
             <!--Button to add a new journal entry-->
             <!--Need to implement JS function new_journal_entry()-->
-            <button id="entry-create-btn" onclick="new_journal_entry()">+</button>
+            <!-- <button id="entry-create-btn" onclick="openPopup()">+</button> -->
         </main>
 
         <!--Footer for copyright-->
@@ -150,6 +211,7 @@
         </footer>
         
         <!-- Link to script -->
-        <script> href = "../assets/scripts/selected_project_page.js"</script>
+        <script defer src="../assets/scripts/+_button_selcted_project_page.js"></script>
+        <script src="../assets/scripts/selected_project_page.js"></script>
     </body>
 </html>

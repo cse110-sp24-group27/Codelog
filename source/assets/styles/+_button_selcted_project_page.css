@@ -16,6 +16,7 @@
   font-family: Roboto, sans-serif;
 }
 
+/* Style the form in the pop-up */
 .pop-up form {
   display: flex;
   flex-direction: column;
@@ -29,6 +30,7 @@
   font-size: 16px;
 }
 
+/* Style the create button */
 #create-btn {
   position: fixed;
   bottom: 20px;
@@ -42,11 +44,13 @@
   cursor: pointer;
 }
 
+/* Container for the done button in the pop-up */
 .done-btn-position {
   display: flex;
   justify-content: flex-end;
 }
 
+/* Style the done button in the pop-up */
 #done-btn {
   background-color: #4a801b;
   color: #fff;
@@ -59,6 +63,7 @@
   align-items: flex-start;
 }
 
+/* Style the add tag button in the pop-up */
 #add-tag-btn {
   background-color: #4a801b;
   color: #fff;
@@ -70,8 +75,8 @@
   cursor: pointer;
 }
 
-/* back arrow button */
-#project-page-back-btn {
+/* Style the back arrow button in the pop-up */
+#project-page-popup-back-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -86,7 +91,8 @@
   margin-top: 6px;
 }
 
-#project-page-back-btn img {
+/* Style the back arrow image in the pop-up*/
+#project-page-popup-back-btn img {
   width: 35px;
   height: 35px;
 }
@@ -104,7 +110,8 @@
   box-sizing: border-box;
 }
 
-#new-project-description {
+/* Style the entry content section of the form */
+#new-project-content {
   flex-grow: 1;
   padding: 10px;
   border: 1px solid #fff;
@@ -117,12 +124,13 @@
   height: 80px;
 }
 
-h1 {
+/* Style the headers in the pop-up */
+.pop-up h1 {
   margin: 0;
   font-size: 40px;
 }
 
-h3 {
+.pop-up h3 {
   margin: 0;
   font-size: 15px;
 }
@@ -133,6 +141,7 @@ h3 {
   gap: 30px;
 }
 
+/* Style the dropdown menus in the pop-up */
 .dropdown-group h3 {
   margin: 5px;
 }
