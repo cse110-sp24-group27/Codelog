@@ -1,0 +1,111 @@
+{
+    "current_max_id":1000,
+    "profile": {
+        "name": "wayfarers",
+        "pronouns": "they/them",
+        "bio": "SE at UCSD",
+        "socialAccount": {
+            "email": "string@str.str",
+            "linkdn": "string linkd",
+            "github": "wayfare.git.io"
+        },
+        "img": "img url"
+    },
+    "projects" : [
+        {
+            "projectId": 1,
+            "projectName": "meta-projects",
+            "projectDescription": "strstrstrstrstrstrstr strstrstr",
+            "privacy": "Private",
+            "tags": ["HTML"], 
+            "journals": [3,4,5] 
+        },
+        {       
+            "projectId": 2,
+            "projectName": "codelog",
+            "projectDescription": "str",
+            "privacy": "Public",
+            "tags": ["HTML", "CSS", "JS"], 
+            "journals": [6,7,8] 
+        }
+    ], 
+
+    "journals" : [
+        {
+            "journalId": 3,
+            "parentProject": 1,
+            "journalName": "journal1",
+            "tags": ["tage 1", "tag 2"], 
+            "privacy": "Private",
+            "template": "Bug Fix",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content"
+                }
+            ]
+        },
+        {
+            "journalId": 5,
+            "parentProject": 1,
+            "journalName": "journal2",
+            "tags": ["tage 1", "tag 2"],
+            "privacy": "Public",
+            "template": "Bug-fix",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content"
+                }
+            ]
+        }
+    ],
+
+
+    "templates": [
+        {
+            "templateId": 20,
+            "templateName": "Bug Fix",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content"
+                },
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content"
+                }
+            ]
+        },
+        {
+            "templateId": 20,
+            "templateName": "New Idea",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content"
+                }
+            ]
+        }
+    ]
+}
