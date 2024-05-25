@@ -43,12 +43,3 @@ document.addEventListener('DOMContentLoaded', function () {
   // Attach an event listener to the go back button to execute the function go_back
   document.getElementById('back-btn').addEventListener('click', goBack)
 })
-
-document.addEventListener('DOMContentLoaded', function() {
-  fetch('README.md')
-      .then(response => response.text())
-      .then(text => {
-          document.getElementById('markdown-container').innerHTML = marked(text);
-      })
-      .catch(error => console.error('Error loading the markdown file:', error));
-});
