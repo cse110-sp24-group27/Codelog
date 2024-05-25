@@ -16,7 +16,7 @@
             "projectId": 1,
             "projectName": "meta-projects",
             "projectDescription": "strstrstrstrstrstrstr strstrstr",
-            "status": "Private",
+            "privacy": "Private",
             "tags": ["HTML"], 
             "journals": [3,4,5] 
         },
@@ -24,7 +24,7 @@
             "projectId": 2,
             "projectName": "codelog",
             "projectDescription": "str",
-            "status": "Public",
+            "privacy": "Public",
             "tags": ["HTML", "CSS", "JS"], 
             "journals": [6,7,8] 
         }
@@ -36,29 +36,8 @@
             "parentProject": 1,
             "journalName": "journal1",
             "tags": ["tage 1", "tag 2"], 
-            "status": "Private",
+            "privacy": "Private",
             "template": "Bug Fix",
-            "entries": [9,10,11,12]
-        },
-        {
-            "journalId": 5,
-            "parentProject": 1,
-            "journalName": "journal2",
-            "tags": ["tage 1", "tag 2"],
-            "status": "Public",
-            "template": "Bug-fix",
-            "entries": [13,14,15]
-        }
-    ],
-
-    "entries": [
-        {
-            "entryId": 9,
-            "parentJournal": 3,
-            "entryDescription": "entryDescription entryDescription entryDescription",
-            "status": "Public",
-            "template": "Bug Fix",
-            "tags": ["Debug", "New Feature"],
             "sections": [
                 {
                     "type": "codeblock",
@@ -66,11 +45,30 @@
                 },
                 {
                     "type": "text",
-                    "content":"content content content content",
+                    "content":"content content content content"
+                }
+            ]
+        },
+        {
+            "journalId": 5,
+            "parentProject": 1,
+            "journalName": "journal2",
+            "tags": ["tage 1", "tag 2"],
+            "privacy": "Public",
+            "template": "Bug-fix",
+            "sections": [
+                {
+                    "type": "codeblock",
+                    "content": "content content content content"
+                },
+                {
+                    "type": "text",
+                    "content":"content content content content"
                 }
             ]
         }
     ],
+
 
     "templates": [
         {
@@ -83,7 +81,7 @@
                 },
                 {
                     "type": "text",
-                    "content":"content content content content",
+                    "content":"content content content content"
                 },
                 {
                     "type": "codeblock",
@@ -91,7 +89,7 @@
                 },
                 {
                     "type": "text",
-                    "content":"content content content content",
+                    "content":"content content content content"
                 }
             ]
         },
@@ -105,7 +103,7 @@
                 },
                 {
                     "type": "text",
-                    "content":"content content content content",
+                    "content":"content content content content"
                 }
             ]
         }
