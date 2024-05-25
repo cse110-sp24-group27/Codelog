@@ -194,7 +194,7 @@ h2 {
   margin-right: 10%;
 }
 
-body{
+body {
   height: 100%;
 }
 
@@ -215,19 +215,20 @@ body{
   margin: auto;
   padding-left: 20px;
 }
-#journal-title{
+
+#journal-title {
   color: #fff;
 }
 
-#journal-template{
+#journal-template {
   color: #ff7676;
 }
 
-#tags h3{
+#tags h3 {
   color: #cbcbcb;
 }
 
-#dot1{
+#dot1 {
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -236,7 +237,8 @@ body{
   margin-top: 25px;
   
 }
-#dot2{
+
+#dot2 {
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -258,9 +260,8 @@ body{
   color: #fff;
 }
 
-#codeblock{
+#codeblock {
   background-color: #39393f;
-
 }
 
 #j-footer {
