@@ -9,21 +9,29 @@ body {
   font-style: normal;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 60px;
 }
 
 /* Style the header section */
 header {
-  width: auto;
+  width: 100%;
   height: 75px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 10%;
-  padding-right: 10%;
   padding-bottom: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative;
   border-bottom: 1px solid #ccc;
+}
+
+/* Style the codelog picture */
+#codelog-pic {
+  padding-left: 10%;
 }
 
 /* Style the CodeLog title */
@@ -36,7 +44,7 @@ header {
 /* Style the menu buttons in the header section */
 .but {
   margin-left: auto;
-  margin-right: 5%;
+  padding-right: 15%;
   display: flex;
   gap: 100px;
 }
@@ -55,13 +63,15 @@ header {
 /* Style the main body */
 main {
   display: flex;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: center;
+  padding: center;
   margin-top: 5%;
+  width: auto;
 }
 
 /* Style the user profile */
 .profile {
+  margin-left: 10%;
   width: auto;
   height: auto;
 }
@@ -165,11 +175,14 @@ main {
 }
 
 /* Style the copyright footer */
-#footer {
-  padding-top: 25%;
-  margin-left: 10%;
-  font-size: 14px;
+footer {
+  position: relative;
   bottom: 0;
-  width: 100%;
-  height: 60px;
+  left: 0;
+  width: 10%;
+  margin: center;
+  padding-top: 5%;
+  padding-right: 73%;
+  text-align: left;
+  font-size: 14px;
 }

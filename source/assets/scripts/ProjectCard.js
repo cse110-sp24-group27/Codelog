@@ -60,22 +60,29 @@ class ProjectCard extends HTMLElement {
         margin: 0% 5% 10%;
       }
   
-      /* Style the drag button */
-      button.drag-btn {
+      /* Style the drag button container */
+      .drag-btn-container {
+        /* Use absolute position to place the button container correctly */
         position: absolute;
-        display: flex;
-        background: none;
-        top: 5%;
-        right: 5%;
-        color: inherit;
-        font: inherit;
-        cursor: pointer;
-        padding: 0;
-        border-radius: 5px;
+        top: 10px;
+        right: 10px;
+        width: 2vw;
+        height: auto;
       }
-  
-      button.drag-btn:hover {
-        background-color: grey;
+
+      /* Style the drag buttons within each journal entry */
+      .drag-btn {
+        cursor: grab;
+        background-color: inherit;
+        appearance: none;
+        border: none;
+      }
+
+      /* Style the drag button image */
+      .drag-btn-img {
+        position: relative;
+        width: 100%;
+        height: auto;
       }
   
       /* Style the tags of each project */
@@ -132,7 +139,11 @@ class ProjectCard extends HTMLElement {
     const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.projectDescription
 
     article.innerHTML = `
-    <button class="drag-btn" onclick="dragProject()">...</button>
+    <div class="drag-btn-container" bis_skin_checked="1">
+      <button class="drag-btn" onclick="dragProject()">
+        <img src="source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img">
+      </button>
+    </div>
 
     <h3 class="project-name">${data.projectName}</h3>
 
