@@ -9,30 +9,20 @@ body {
   font-style: normal;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 60px;
 }
 
 /* Style the header section */
 header {
-  width: 100%;
+  width: auto;
   height: 75px;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border-bottom: 1px solid #ccc;
-}
-
-/* Style the codelog picture */
-#codelog-pic {
   padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
 }
 
 /* Style the CodeLog title */
@@ -45,7 +35,7 @@ header {
 /* Style the menu buttons in the header section */
 .but {
   margin-left: auto;
-  padding-right: 15%;
+  margin-right: 5%;
   display: flex;
   gap: 100px;
 }
@@ -64,17 +54,13 @@ header {
 /* Style the main body */
 main {
   display: flex;
-  margin: center;
-  padding: center;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 5%;
-  width: 1400px;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Style the user profile */
 .profile {
-  margin-left: 10%;
   width: auto;
   height: auto;
 }
@@ -91,9 +77,8 @@ main {
 /* Style the profile name */
 #name {
   margin-top: 5%;
-  margin-bottom: 0%;
+  margin-bottom: 0;
   color: white;
-  font: bold;
   font-weight: 600;
   font-size: 32px;
   white-space: nowrap;
@@ -105,13 +90,13 @@ main {
   gap: 10px;
   font-size: 24px;
   color: #797979;
-  margin-bottom: 0%;
+  margin-bottom: 0;
 }
 
 /* Style the user description */
 #description {
   font-size: 20px;
-  margin-top: 0%;
+  margin-top: 0;
   height: auto;
 }
 
@@ -130,7 +115,11 @@ main {
 /* Style the whole project-collection class */
 .project-collection {
   position: relative;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
   margin-left: 5%;
 }
 
@@ -139,53 +128,236 @@ main {
   font-size: 40px;
   width: 100%;
   color: #fff;
-  margin-bottom: 5%;
+  margin-bottom: 0;
 }
 
-/* Style of Project Boxes */
-.projects {
+/* Style each specific project */
+.project {
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 45%;
+  border: solid #434345;
+  border-radius: 10px;
+  position: relative;
+  padding: 20px;
+}
+
+/* Style for both project name and public/ private status */
+#project-name,
+#status {
+  display: inline-block;
+  gap: 50px;
+}
+
+/* Style for project name */
+#project-name {
+  margin-left: 5%;
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+/* Style for project status */
+#status {
+  color: #eaeaea;
+  font-size: 10px;
+  margin-left: 5%;
+  margin-right: 5px;
+}
+
+/* Style for project description */
+#project-description {
+  font-size: 10px;
+  margin: 0 5% 10%;
+}
+
+/* Style the drag button */
+#drag-btn {
+  position: absolute;
+  display: flex;
+  background: none;
+  top: 5%;
+  right: 5%;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 5px;
+}
+
+#drag-btn:hover {
+  background-color: grey;
+}
+
+/* Style the tags of each project */
+.tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
+  gap: 5px;
 }
 
-/* .project-card {
-  width: 300px;
-  height: 400px;
-} */
+.tags p {
+  border-radius: 2px;
+  padding: 5px 10px;
+  color: #cbcbcb;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: darkred; /* change this as needed */
+  margin-right: 5px;
+}
 
 /* Style the class of creating new project */
 .new-project {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 20px;
 }
 
-/* Style the + button to create project */
+.new-project h2 {
+  font-size: 32px;
+  color: #cbcbcb;
+  margin-bottom: 20px;
+}
+
+.tag-privacy-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tags,
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag,
+.add-tag,
+.privacy-option {
+  background-color: #c0c0c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.add-tag {
+  background-color: #5a5;
+}
+
+#public {
+  color: green;
+}
+
+#private {
+  color: blue;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#new-project-description,
+#new-entry {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #333;
+  color: #cbcbcb;
+}
+
+#more-entry,
+#done {
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#more-entry {
+  background-color: #5a5;
+}
+
+#done {
+  background-color: #5a5a5a;
+  align-self: flex-end;
+}
+
 #create-btn {
-  position: absolute;
-  width: 40px;
-  height: 40px;
+  position: fixed;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: lightskyblue;
-  right: 5px;
-  bottom: 5px;
+  font-size: x-large;
+  right: 20px;
+  bottom: 20px;
 }
 
 /* Style the copyright footer */
-footer {
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 10%;
-  margin: center;
-  padding-top: 5%;
-  padding-right: 73%;
-  text-align: left;
+#footer {
+  padding-top: 25%;
+  margin-left: 10%;
   font-size: 14px;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+}
+
+/* Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0 0 0 / 60%);
+  padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
