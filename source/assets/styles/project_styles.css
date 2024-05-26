@@ -239,13 +239,16 @@ main {
   margin-bottom: 20px;
 }
 
-.tags, .privacy {
+.tags,
+.privacy {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.tag, .add-tag, .privacy-option {
+.tag,
+.add-tag,
+.privacy-option {
   background-color: #c0c0c0;
   color: white;
   border: none;
@@ -270,7 +273,8 @@ main {
   font-weight: bold;
 }
 
-#new-project-description, #new-entry {
+#new-project-description,
+#new-entry {
   width: 80%;
   padding: 10px;
   margin-bottom: 20px;
@@ -280,7 +284,8 @@ main {
   color: #cbcbcb;
 }
 
-#more-entry, #done {
+#more-entry,
+#done {
   background-color: #666;
   color: white;
   border: none;

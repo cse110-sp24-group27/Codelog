@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   let selectedTags = [];
 
   // Function to handle the new project form
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to get a new project ID based on the number of projects in local storage
   function getNewProjectId(projects) {
-    let maxId = projects.reduce((max, project) => Math.max(max, project.projectId), 0);
+    const maxId = projects.reduce((max, project) => Math.max(max, project.projectId), 0);
     return maxId + 1;
   }
 
@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ensure that a privacy option is selected
     if (!selectedPrivacyOption) {
-      alert("Please select a privacy option.");
+      alert('Please select a privacy option.');
       return;
     }
 
-    const status = selectedPrivacyOption.id === "private" ? "Private" : "Public";
+    const status = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public';
 
     const projects = getProjectsFromStorage();
     const projectId = getNewProjectId(projects);
@@ -72,19 +72,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to handle privacy selection
   function selectPrivacy(option) {
-    document.getElementById("public").classList.remove('bold');
-    document.getElementById("private").classList.remove('bold');
+    document.getElementById('public').classList.remove('bold');
+    document.getElementById('private').classList.remove('bold');
     document.getElementById(option).classList.add('bold');
   }
 
   // Function to reset the form
   function resetForm() {
     document.querySelector('#new-project-description').value = '';
-    document.querySelectorAll('#new-entry').forEach(entry => entry.value = '');
+    document.querySelectorAll('#new-entry').forEach(entry => { entry.value = ''; });
     selectedTags = [];
-    document.querySelectorAll('.tag').forEach(tag => tag.style.fontWeight = 'normal');
-    document.getElementById("public").classList.remove('bold');
-    document.getElementById("private").classList.remove('bold');
+    document.querySelectorAll('.tag').forEach(tag => { tag.style.fontWeight = 'normal'; });
+    document.getElementById('public').classList.remove('bold');
+    document.getElementById('private').classList.remove('bold');
   }
 
   // Event listeners
@@ -100,13 +100,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.getElementById("public").addEventListener("click", function () {
-    selectPrivacy("public");
+  document.getElementById('public').addEventListener('click', function () {
+    selectPrivacy('public');
   });
-  document.getElementById("private").addEventListener("click", function () {
-    selectPrivacy("private");
+  document.getElementById('private').addEventListener('click', function () {
+    selectPrivacy('private');
   });
-
 });
 
 // Ensure getProjectsFromStorage and addProjectsToDocument are available
