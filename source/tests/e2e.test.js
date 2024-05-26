@@ -107,4 +107,4 @@ test('example test', () => {
 
 // Test Multiple Tags
 // 18. Test adding multiple tags to entries
-// Add multiple tags to journal entries and verify they are correctly assigned
+// Add multiple tags to journal entries and verify they are correctly assigned.
