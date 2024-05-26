@@ -1,39 +1,57 @@
 /* CSS for the individual project page */
 
 /* TODO:
- * Make table of contents link to journal entries (HTML)
- * Make the tags display horizontally inline
- * Find a better back button image so that the background doesn't have to be white
- * Get a higher-res favicon?
+ * 1. Continue resizing elements based on window size
  */
 
-/* Consistency features:
- * Margin: 10% on the left and right, 40px on the top
- * Footer: see footer styling
- * Font: Roboto
- * Backgrund color: #2a2a2e
- * Font color: matches Figma design
- */
-
-/* Style the whole individual project page */
+/* Style the whole selected_project_page */
 #individual-project {
   background-color: #2a2a2e;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-top: 40px;
 }
 
-/* Apply font colors small text */
-#individual-project p,
-li {
+/* Style the nav bar at the top of the page */
+#navbar {
+  width: auto;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5%;
+}
+
+/* Style the CodeLog title */
+#codelog {
+  font-size: 64px;
+  color: #9bbeda;
+  font-family: Merriweather, serif;
+}
+
+/* Style the menu buttons in the header section */
+.but {
+  margin-left: auto;
+  margin-right: 5%;
+  display: flex;
+  gap: 100px;
+}
+
+/* Style the buttons in the header section */
+.but button {
+  background: none;
+  border: none;
   color: #cbcbcb;
-}
-
-/* Apply font colors to headers */
-#individual-project h1,
-h2 {
-  color: white;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  font-family: Inter, Arial, sans-serif;
 }
 
 /* Position the project header in the top-left */
@@ -44,13 +62,34 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: calc(20vw);
+  width: 20vw;
+}
+
+/* Apply font colors to project header headings */
+.project-header h1,
+h2 {
+  color: white;
+}
+
+/* Style the project description */
+#project-description {
+  margin-top: -10px;
+}
+
+/* Style the table of contents */
+#project-nav {
+  margin-top: 10px;
+}
+
+/* List within table of contents */
+#table-of-contents {
+  width: 15vw;
+  height: 30vh;
 }
 
 /* Style the back button */
 #project-page-back-btn {
   position: absolute;
-  top: 40px;
   left: 5%;
   cursor: pointer;
   background-color: inherit;
@@ -61,21 +100,9 @@ h2 {
 /* Style the back arrow image */
 #back-arrow {
   position: relative;
-  width: 30px;
-  height: 30px;
-  background-color: white;
-}
-
-/* Style the table of contents */
-#project-nav {
-  border: solid white;
-  border-radius: 10px;
-  margin-top: 30px;
-}
-
-/* Style the table of contents header */
-#table-header {
-  text-align: center;
+  width: 3.5vw;
+  max-width: 40px;
+  min-width: 15px;
 }
 
 /* Center the main elements */
@@ -97,24 +124,44 @@ h2 {
 .journal-entry {
   position: relative;
   margin-bottom: 20px;
-  border: solid white;
+  border: solid #434345;
   border-radius: 10px;
   padding: 5px 10px;
-  overflow-y: scroll;
-  height: 200px;
+  height: 36.5vh;
 }
 
 /* Style the entry name */
 .entry-name {
   color: #b6b6b6;
+  width: 30vw;
 }
 
-/* Style the entry tag */
+/* Style the entry template name */
 .entry-template {
   color: #f24822;
   position: absolute;
   top: 15px;
   right: 10px;
+  width: 13vw;
+}
+
+/* Style the entry text */
+.entry-text {
+  height: 15vh;
+  overflow-y: scroll; /* If the text exceeds the max height, allow scrolling */
+}
+
+/* Style the entry tag container */
+.entry-tags {
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style the entry tag text */
+.entry-tags p {
+  display: inline-block;
+  padding-right: 15px;
 }
 
 /* Style the drag button container */
@@ -122,29 +169,46 @@ h2 {
   /* Use absolute position to place the button container correctly */
   position: absolute;
   top: 10px;
-  right: 40px;
-  height: 100%;
+  right: 10px;
+  width: 2vw;
+  height: auto;
 }
 
 /* Style the drag buttons within each journal entry */
 .drag-btn {
-  /* Use fixed position to keep the button visible while scrolling */
-  position: fixed;
   cursor: grab;
+  background-color: inherit;
+  appearance: none;
+  border: none;
 }
 
-/* Style the journal entry add button */
-#entry-create-btn {
-  position: fixed;
-  top: 40px;
-  right: 5%;
-  cursor: pointer;
-  font-size: calc(1vw);
+/* Style the drag button image */
+.drag-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 15px;
+  min-width: 10px;
 }
 
-/* End of individual project page styling */
+/* Style the down arrow between entries */
+.down-arrow {
+  width: 10%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+}
 
-/* Style the whole Journal page */
+/* Apply font colors small text */
+#individual-project p,
+li {
+  color: #cbcbcb;
+}
+
+/* // // End of selected_project_page styling // // */
+
+/* Style the whole selected_journal_page */
 #journal-page {
   background-color: #2a2a2e;
   color: #9bbeda;
@@ -156,61 +220,82 @@ h2 {
   margin-right: 10%;
 }
 
+body {
+  height: 100%;
+}
+
 /* Style the back button color */
 #back-btn {
-  background-color: #9bbeda;
-  color: #fff;
   position: absolute;
   top: 40px;
-  right: 78%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 50%;
-  margin-top: 6px;
-}
-
-/* Style the back button hover color and active */
-#back-btn:hover {
-  background-color: #426d96;
-}
-
-#back-btn:active {
-  box-shadow: 2px 2px 5px #9bbeda;
+  left: 10%;
+  cursor: pointer;
+  background-color: inherit;
+  appearance: none;
+  border: none;
 }
 
 /* Style the whole title, tag, template, and .MD file location */
 #j-main {
-  width: 55%;
+  width: 80%;
   margin: auto;
   padding-left: 20px;
+}
+
+#journal-title {
+  color: #fff;
+}
+
+#journal-template {
+  color: #ff7676;
+}
+
+#tags h3 {
+  color: #cbcbcb;
+}
+
+#dot1 {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #9bbeda; /* change this as needed */
+  margin-right: -10px;
+  margin-top: 25px;
+}
+
+#dot2 {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: darkred; /* change this as needed */
+  margin-right: -10px;
+  margin-top: 25px;
 }
 
 /* If tags are more than one, put them side by side */
 #tags {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
+  margin-top: -15px;
 }
 
-/* Make places between each tags */
-.tag {
-  padding-left: 12px;
+#markdown-container {
+  background-color: #2a2a2e;
+  color: #fff;
 }
 
-#markdown {
-  text-align: center;
+#codeblock {
+  background-color: #39393f;
 }
 
-footer {
-  margin-left: 10%;
-  position: fixed;
+#j-footer {
   bottom: 5px;
-  left: 5px;
 }
 
-/* End of journal page styling */
+/* // // End of selected_journal_page styling // // */
 
-/* Style the whole ceation page */
+/* Style the whole create_new_project_page */
 #creation-page {
   background-color: #2a2a2e;
   color: #9bbeda;
@@ -309,4 +394,4 @@ footer {
   margin-top: 20px;
 }
 
-/* End of creation page styling */
+/* // // // End of create_new_project_page styling // // */

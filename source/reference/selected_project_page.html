@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--This HTML file is a page for an individual project.-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Page</title>
+        <link rel="stylesheet" href="../assets/styles/styles.css">
+        <link rel="stylesheet" href="../assets/styles/+_button_selcted_project_page.css">
+        <link rel="icon" type="image/x-icon" href="../assets/images/icons/logo.ico">
+        <style>
+            /* Hide the Popup page by Default (until user clicks the + button) */
+            .pop-up {
+              display: none;
+            }
+        </style>
+    </head>
+    <body id="individual-project">
+        <header>
+            <!--Navbar at the top of the page-->
+            <div id="navbar">
+                <!--Logo for the website-->
+                <img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
+                <h1 id="codelog">CodeLog</h1>
+
+                <div class="but">
+                    <!--Buttons to jump to other pages-->
+
+                    <!--Button to go the the Project Home Page-->
+                    <button onclick="location.href" id="home">Home</button>
+
+                    <script type="text/javascript">
+                        document.getElementById("home").onclick = function () {
+                            location.href = "../../home_projects_page.html";
+                        };
+                    </script>
+
+                    <!--Button to go to setting and edit user's profile-->
+                    <button id="setting">Setting</button>
+                </div>
+            </div>
+
+            <!--Button to go back to the project homepage-->
+            <button id="project-page-back-btn">
+                <a href="../../home_projects_page.html">
+                    <img src="../assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+                </a>
+            </button>
+          
+            <!-- Project header; includes project name, description, and a dynamic table of contents -->
+            <div class="project-header">
+                <h1 id="project-name">Project Name</h1>
+                <p id="project-description">Project Description</p>
+                <nav id="dynamic-table-of-contents">
+                    <h2>Table of Contents:</h2>
+                    <ul id="dynamic-content-list"></ul> <h3 id="entry1-table-of-contents">Entry 1 Title Name</h3>
+                    <!--Note: id "entry1" is already taken by the journal entry 1 name-->
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <!--Section for journal entries-->
+            <section id="journal-entries">
+                <!--Display each journal entry in a box-->
+                <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
+                <!--Journal entries can be added/deleted using a JS function-->
+                <div class="journal-entry" id="entry1-container" draggable="true" ondragstart="dragProject(event)" 
+                ondrop="dropProject(event)" ondragover="allowDrop(event)">
+                    <h2 class="entry-name" id="entry1">Journal entry name</h2>
+                    <h4 class="entry-template">Journal entry template</h4>
+                    <p class="entry-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
+                        dolor rhoncus malesuada dapibus ut nisi. Nullam eu felis ut erat efficitur vehicula 
+                        quis ut turpis. Donec nisi diam, efficitur in aliquet ultricies, mollis sed dui. 
+                        Cras nulla libero, fermentum vitae sem at, efficitur blandit velit. Pellentesque 
+                        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+                        Donec fermentum arcu et purus ornare, vel feugiat ex pulvinar. Suspendisse ornare 
+                        risus vel tellus egestas, auctor tristique risus porta. Duis a fermentum orci. 
+                        Proin molestie risus vitae sem tincidunt malesuada. Phasellus laoreet urna vel 
+                        facilisis rutrum. Phasellus finibus mi sit amet felis congue imperdiet. Aliquam 
+                        vehicula ante eu nibh molestie feugiat. Sed sodales est nunc, at scelerisque mauris 
+                        ultrices sit amet. Aliquam dapibus nibh sit amet urna fringilla egestas. Integer 
+                        facilisis mauris dui. Morbi venenatis venenatis erat, nec tristique lectus eleifend 
+                        quis. Morbi sit amet facilisis velit, et eleifend purus. Interdum et malesuada 
+                        fames ac ante ipsum primis in faucibus. Phasellus ligula lorem, dignissim non 
+                        vestibulum at, pellentesque eget magna. In et vulputate sapien. Curabitur finibus 
+                        convallis maximus. Aliquam erat volutpat.
+                    </p>
+                    <!--Drag button to reorder the projects-->
+                    <!--Need to implement JS function drag_project()-->
+                    <div class="drag-btn-container">
+                        <button class="drag-btn" onclick="dragProject()">
+                            <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <!--Journal entry tags-->
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+
+                <!--Down arrow between journal entries-->
+                <!--
+                <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
+                <div class="journal-entry" id="entry2-container" draggable="true" ondragstart="dragProject(event)" 
+                ondrop="dropProject(event)" ondragover="allowDrop(event)">
+                    <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
+                    <h4 class="entry-template">Template</h4>
+                    <p class="entry-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
+                        dolor rhoncus malesuada dapibus ut nisi. Nullam eu felis ut erat efficitur vehicula 
+                        quis ut turpis. Donec nisi diam, efficitur in aliquet ultricies, mollis sed dui. 
+                        Cras nulla libero, fermentum vitae sem at, efficitur blandit velit.
+                    </p>
+                    <div class="drag-btn-container">
+                        <button class="drag-btn" onclick="dragProject()">
+                            <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+
+                <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
+                <div class="journal-entry" id="entry3-container" draggable="true" ondragstart="dragProject(event)" 
+                ondrop="dropProject(event)" ondragover="allowDrop(event)">
+                    <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
+                    <h4 class="entry-template">Template</h4>
+                    <p class="entry-text">
+                        Ut ultrices justo a nibh egestas, sit 
+                        amet porttitor risus pulvinar. Phasellus non lacus a magna aliquam placerat. 
+                        Pellentesque a metus sed risus ultricies interdum. Phasellus et risus et odio 
+                        varius mollis id eu nisl. Maecenas vitae massa id massa pellentesque convallis. Ut 
+                        vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
+                    </p>
+                    <div class="drag-btn-container">
+                        <button class="drag-btn" onclick="dragProject()">
+                            <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+                -->
+            </section>
+
+            <!-- Pop Up (Hidden by default) Screen -->
+            <!--JOURNAL project creation-->
+            <button id="create-btn" onclick="openPopup('hidden-popup')">+</button>
+
+            <!--Hide this until the + button is clicked-->
+            <div id="hidden-popup" class="pop-up">
+                <form id="new-project">
+                    <!--Button to go back to the project homepage-->
+                    <button type="button" id="project-page-popup-back-btn" onclick="closePopup('hidden-popup')">
+                        <img src="../assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
+                    </button>
+                    <h1>Create a new entry</h1>
+                    <h3>Entry Title</h3>
+                    <input type="text" id="new-project-name" placeholder="Enter New Project Name">
+                    <h3>Content</h3>
+                    <input type="text" id="new-project-content" placeholder="Enter New Project Content">
+                    <div class="select-container">
+                        <div class="dropdown-group">
+                            <h3>Publicity</h3>
+                            <select id="publicity-select">
+                                <option value="Public">Public</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                        <div class="dropdown-group">
+                            <h3>Template</h3>
+                            <select id="template-select">
+                                <option value="Template1">Bug Fix</option>
+                                <option value="Template2">Template 2</option>
+                                <option value="Template3">Template 3</option>
+                                <option value="Template4">Template 4</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div id="tag-editor-popup" class="tag-container">
+                        <h3>Tags</h3>
+                        <button type="button" id="add-tag-btn">Add Tag</button>
+                    </div>
+
+                    <div class="done-btn-position">
+                        <button type="button" id="done-btn">Create Entry</button>
+                    </div>
+                    <!-- <script defer>
+                        const createEntryButton = document.getElementById('done-btn');
+                        createEntryButton.addEventListener('click', create_entry);
+                    </script> -->
+                </form>
+            </div>
+
+            <!--Button to add a new journal entry-->
+            <!--Need to implement JS function new_journal_entry()-->
+            <!-- <button id="entry-create-btn" onclick="openPopup()">+</button> -->
+        </main>
+
+        <!--Footer for copyright-->
+        <footer>
+            <p>@ 2024 CodeLog</p>
+        </footer>
+        
+        <!-- Link to script -->
+        <script defer src="../assets/scripts/+_button_selcted_project_page.js"></script>
+        <script src="../assets/scripts/selected_project_page.js"></script>
+    </body>
+</html>

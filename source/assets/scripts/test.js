@@ -48,3 +48,4 @@ function test2 (y) {}
  * @type {number}
  */
 const FOO = 1
+
