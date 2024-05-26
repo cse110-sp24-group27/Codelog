@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Settings</title>
     <!-- <link rel="stylesheet" href="/source/assets/styles/project_styles.css"> -->
-    <link rel="stylesheet" href="/source/assets/styles/project_setting.css">
+    <link rel="stylesheet" href="../assets/styles/project_setting.css">
 </head>
     <!-- FontAwesome for icons -->
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
@@ -13,15 +13,27 @@
 <body>
     <header>
         <!--Logo for the website-->
-        <img id="codelog-pic" src="/admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
+        <img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
         <h1 id="codelog">CodeLog</h1>
 
         <div class="but">
             <!--Button to go to the Project Home Page-->
-            <button onclick="location.href='/home_projects_page.html'" id="home">Home</button>
+            <button onclick="location.href" id="home">Home</button>
+
+            <script type="text/javascript">
+                document.getElementById("home").onclick = function () {
+                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/home_projects_page.html";
+                };
+            </script>
+             
 
             <!--Button to go to setting and edit user's profile-->
-            <button onclick="location.href='/project_setting.html'" id="setting">Setting</button>
+            <button onclick="location.href" id="setting">Setting</button>
+            <script type="text/javascript">
+                document.getElementById("setting").onclick = function () {
+                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/project_setting.html";
+                };
+            </script>
         </div>
     </header>
 
@@ -115,6 +127,7 @@
                 img: document.getElementById('profile-picture').src
             };
 
+            localStorage.setItem('profile', JSON.stringify(profile));
             console.log("profile:", profile); //debug line
         }
 

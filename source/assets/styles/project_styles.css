@@ -12,6 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-bottom: 60px;
 }
 
@@ -66,7 +67,9 @@ main {
   margin: center;
   padding: center;
   margin-top: 5%;
-  width: auto;
+  width: 1400px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style the user profile */
