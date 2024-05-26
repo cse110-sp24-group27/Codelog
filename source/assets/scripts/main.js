@@ -49,3 +49,6 @@ function addProjectsToDocument (projects) {
     mainElement.appendChild(projectCard)
   }
 }
+
+// export functions for testing
+module.exports = { getProjectsFromStorage }
