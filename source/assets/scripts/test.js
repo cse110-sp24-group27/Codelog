@@ -11,7 +11,7 @@
  *     foo('hello')
  */
 
-function foo(n, o, d) {
+function foo (n, o, d) {
   return n
 }
 
@@ -24,27 +24,27 @@ function foo(n, o, d) {
  * @returns {string} Description of the book.
  * @throws An error if values are not set.
  */
-function Book(title, author) {
+function Book (title, author) {
   if (!title || !author) {
-    throw new Error('title and author must be set');
+    throw new Error('title and author must be set')
   }
-  
-  return `${title} by ${author}`;
+
+  return `${title} by ${author}`
 }
 
 /**
  * @param {Bar} x
  */
 
-function test(x) {}
+function test (x) {}
 
 /**
  * @param {Bar} y
  */
 
-function test2(y) {}
+function test2 (y) {}
 
 /**
  * @type {number}
  */
-var FOO = 1
+const FOO = 1
