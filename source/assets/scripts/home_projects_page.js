@@ -2,19 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
   let selectedTags = []
 
   // Function to handle the new project form
-  function newProject() {
+  function newProject () {
     const form = document.querySelector('.new-project')
     form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
   }
 
   // Function to get a new project ID based on the number of projects in local storage
-  function getNewProjectId(projects) {
+  function getNewProjectId (projects) {
     const maxId = projects.reduce((max, project) => Math.max(max, project.projectId), 0)
     return maxId + 1
   }
 
   // Function to handle the addition of a new project
-  function addProject() {
+  function addProject () {
     const projectName = document.querySelector('#new-project-description').value
     const projectDescription = document.querySelector('#new-entry').value
     const selectedPrivacyOption = document.querySelector('.privacy-option.bold')
@@ -48,37 +48,37 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Function to handle adding more entry fields
-  function addEntry() {
-      const newEntry = document.createElement('input')
-      newEntry.type = 'text'
-      newEntry.placeholder = 'Enter Entry content.'
-      newEntry.id = 'new-entry'
-      const moreEntryButton = document.getElementById('more-entry')
-      moreEntryButton.insertAdjacentElement('beforebegin', newEntry)
+  function addEntry () {
+    const newEntry = document.createElement('input')
+    newEntry.type = 'text'
+    newEntry.placeholder = 'Enter Entry content.'
+    newEntry.id = 'new-entry'
+    const moreEntryButton = document.getElementById('more-entry')
+    moreEntryButton.insertAdjacentElement('beforebegin', newEntry)
   }
 
   // Function to handle tag selection
-  function toggleTag(tagElement) {
-      const tag = tagElement.textContent
+  function toggleTag (tagElement) {
+    const tag = tagElement.textContent
 
-      if (selectedTags.includes(tag)) {
-          selectedTags = selectedTags.filter(t => t !== tag)
-          tagElement.style.fontWeight = 'normal'
-      } else {
-          selectedTags.push(tag)
-          tagElement.style.fontWeight = 'bold'
-      }
+    if (selectedTags.includes(tag)) {
+      selectedTags = selectedTags.filter(t => t !== tag)
+      tagElement.style.fontWeight = 'normal'
+    } else {
+      selectedTags.push(tag)
+      tagElement.style.fontWeight = 'bold'
+    }
   }
 
   // Function to handle privacy selection
-  function selectPrivacy(option) {
+  function selectPrivacy (option) {
     document.getElementById('public').classList.remove('bold')
     document.getElementById('private').classList.remove('bold')
     document.getElementById(option).classList.add('bold')
   }
 
   // Function to reset the form
-  function resetForm() {
+  function resetForm () {
     document.querySelector('#new-project-description').value = ''
     document.querySelectorAll('#new-entry').forEach(entry => { entry.value = '' })
     selectedTags = []
@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   document.getElementById('public').addEventListener('click', function () {
-      selectPrivacy('public')
+    selectPrivacy('public')
   })
   document.getElementById('private').addEventListener('click', function () {
-      selectPrivacy('private')
+    selectPrivacy('private')
   })
 
   // Tag Editor Functionality
@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Show the modal when the Add Tag button is clicked
   document.querySelector('.add-tag').addEventListener('click', function () {
-      modal.style.display = 'block'
-      loadTags()
+    modal.style.display = 'block'
+    loadTags()
   })
 
   // Hide the modal when the close button is clicked
@@ -148,30 +148,30 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   // Load tags from localStorage
-  function loadTags() {
-      const tags = getTagsFromStorage()
-      const tagList = document.getElementById('tag-list')
-      tagList.innerHTML = ''
+  function loadTags () {
+    const tags = getTagsFromStorage()
+    const tagList = document.getElementById('tag-list')
+    tagList.innerHTML = ''
 
-      tags.forEach(tag => {
-          const tagItem = document.createElement('div')
-          tagItem.style.backgroundColor = tag.color
-          tagItem.textContent = tag.name
-          tagList.appendChild(tagItem)
-      })
+    tags.forEach(tag => {
+      const tagItem = document.createElement('div')
+      tagItem.style.backgroundColor = tag.color
+      tagItem.textContent = tag.name
+      tagList.appendChild(tagItem)
+    })
   }
 
   // Get tags from localStorage
-  function getTagsFromStorage() {
-      return JSON.parse(localStorage.getItem('tags')) || []
+  function getTagsFromStorage () {
+    return JSON.parse(localStorage.getItem('tags')) || []
   }
 
   // Ensure getProjectsFromStorage and addProjectsToDocument are available
-  function getProjectsFromStorage() {
+  function getProjectsFromStorage () {
     return JSON.parse(localStorage.getItem('projects')) || []
   }
 
-  function addProjectsToDocument(projects) {
+  function addProjectsToDocument (projects) {
     const mainElement = document.querySelector('.projects')
     projects.forEach(project => {
       const projectCard = document.createElement('project-card')
