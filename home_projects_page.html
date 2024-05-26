@@ -10,6 +10,7 @@
 
     <!-- Main Stylesheets & Scripts -->
     <script src="source/assets/scripts/main.js" type="module"></script>
+    <script src="source/assets/scripts/tag_editor.js" type="module"></script>
 </head>
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
 <script src="source/assets/scripts/home_projects_page.js"></script>
@@ -92,7 +93,7 @@
                     <div class="tags">
                         <button class="tag">Tag1</button>
                         <button class="tag">Tag2</button>
-                        <button class="tag add-tag" disabled>Add +</button>
+                        <button class="tag add-tag">Add +</button>
                     </div>
                     <div class="privacy">
                         <button class="privacy-option" id="public">Public</button>
@@ -106,20 +107,19 @@
             </div>            
         </div>
     </main>
-    <script>
-        // Call the load_projects function when the page loads to display user's projects
-        window.onload = function() {
-            load_projects();
-        };
-    </script>
 
-    <script>
-        // Call the load_profile function when the page loads to display user's profile
-        // Probably modify the profile class when load profile
-        window.onload = function() {
-            load_profile();
-        };
-    </script>
+    <!-- Tag Editor Modal -->
+    <div id="tag-editor" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tag Editor</h2>
+            <div id="tag-list"></div>
+            <input type="text" id="new-tag-name" placeholder="Enter tag name">
+            <input type="color" id="new-tag-color">
+            <button id="add-tag-btn">Add Tag</button>
+        </div>
+    </div>
+
     <!--Footer for copyright-->
     <footer id="footer">
         <p>@ 2024 CodeLog</p>
