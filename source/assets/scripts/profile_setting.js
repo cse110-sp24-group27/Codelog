@@ -6,7 +6,8 @@ function init () {
   // Update this to asynchronous
   fetchExamplejsonToStorage()
   // Get the projects from localStorage
-  const profile = getProfileFromStorage()
+  // const profile = getProfileFromStorage()
+  // Call function to store profile to .JSON
 }
 
 // fetch datastructure.json to localstorage
@@ -14,8 +15,8 @@ function fetchExamplejsonToStorage () {
   fetch('../reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
     .then(data => {
-        const profileData = JSON.stringify(data.profile)
-        localStorage.setItem('profile', profileData)
+      const profileData = JSON.stringify(data.profile)
+      localStorage.setItem('profile', profileData)
     }) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch profile data:', error) // More specific error message
@@ -32,3 +33,5 @@ function fetchExamplejsonToStorage () {
 function getProfileFromStorage () {
   return JSON.parse(localStorage.getItem('profile')) || []
 }
+
+// TODO: implement function to store localstorage to .JSON
