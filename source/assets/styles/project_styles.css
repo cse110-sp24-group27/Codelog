@@ -57,9 +57,6 @@ main {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
-  width: 1400px;
-  align-items: center;
-  justify-content: center;
 }
 
 /* Style the user profile */
@@ -215,11 +212,6 @@ main {
   background-color: darkred; /* change this as needed */
   margin-right: 5px;
 }
-
-/* .project-card {
-  width: 300px;
-  height: 400px;
-} */
 
 /* Style the class of creating new project */
 .new-project {
