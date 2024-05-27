@@ -7,7 +7,7 @@ function init () {
   fetchExamplejsonToStorage()
   // Get the projects from localStorage
   const profile = getProfileFromStorage()
-  console.log(profile);
+  console.log(profile)
   // Call function to store profile to .JSON
 }
 
