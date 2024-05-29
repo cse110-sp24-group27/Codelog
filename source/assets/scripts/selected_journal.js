@@ -3,6 +3,7 @@ function goBack () {
   window.history.back()
 }
 
+// UNCOMMENT WHEN LOCAL STORAGE GETS IMPLEMENTED
 // Fetch Journal Data from localStorage (onLoad) & Display it in The Selected Journal Page //
 /**
 // Fetch journal title
