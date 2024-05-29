@@ -10,6 +10,7 @@ function init () {
   const profile = getProfileFromStorage()
   updateProfileOnPage(profile)
 
+  // Get projects from .JSON to localstorage
   // Update this to asynchronous
   fetchExamplejsonToStorage()
   // Get the projects from localStorage
