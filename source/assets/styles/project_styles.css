@@ -204,6 +204,7 @@ main {
   margin: 0;
 }
 
+/* Style the dot for the tags */
 .dot {
   height: 15px;
   width: 15px;
