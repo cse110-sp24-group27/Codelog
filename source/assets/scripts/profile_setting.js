@@ -4,11 +4,17 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  fetchExamplejsonToStorage()
-  // Get the projects from localStorage
-  const profile = getProfileFromStorage()
-  console.log(profile)
-  // Call function to store profile to .JSON
+  let prev_profile = localStorage.getItem('profile')
+
+  if (prev_profile == null) {
+    fetchExamplejsonToStorage()
+  } else {
+    // Get the projects from localStorage
+    const profile = getProfileFromStorage()
+    console.log(profile)
+    updateProfileOnPage(profile)
+    // Call function to store profile to .JSON
+  }
 }
 
 // fetch datastructure.json to localstorage
@@ -36,3 +42,26 @@ function getProfileFromStorage () {
 }
 
 // TODO: implement function to store localstorage to .JSON
+
+// Update the HTML page with the profile data
+function updateProfileOnPage(profile) {
+  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
+  document.getElementById('name-input').value = profile.name
+  // document.getElementById('username').value = profile.username || 'Username'
+  document.getElementById('pronouns-input').value = profile.pronouns
+  document.getElementById('bio-input').value = profile.bio 
+
+  // Update links if provided in the profile
+  if (profile.socialAccount.email) {
+    document.getElementById('email-input').href = `mailto:${profile.socialAccount.email}`
+    document.getElementById('email-input').value = profile.socialAccount.email
+  }
+  if (profile.socialAccount.linkedin) {
+    document.getElementById('linkedin-input').href = profile.socialAccount.linkedin
+    document.getElementById('linkedin-input').value = profile.socialAccount.linkedin
+  }
+  if (profile.socialAccount.github) {
+    document.getElementById('github-input').href = profile.socialAccount.github;
+    document.getElementById('github-input').value = profile.socialAccount.github
+  }
+}
