@@ -1,34 +1,182 @@
-/**
- * Event listener for + button.
- * When clicking on the + button, pops up the form for manually create new project.
- */
-function newProject () {
-  // show the pop-up after clicking + button
-  const form = document.querySelector('.new-project')
-  form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
-}
+document.addEventListener('DOMContentLoaded', function () {
+  let selectedTags = []
 
-// add add event listener for + button
-const newProjectButton = document.querySelector('#create-btn')
-if (newProjectButton) {
-  newProjectButton.addEventListener('click', newProject)
-}
+  // Function to handle the new project form
+  function newProject () {
+    const form = document.querySelector('.new-project')
+    form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
+  }
 
-/**
-  * Event listener for Done button in the input form.
-  * When clicking on the Done button, submit the form and hide the form.
-*/
-function addProject () {
-  // hide the pop-up after clicking done button
-  document.querySelector('.new-project').style.display = 'none'
-}
+  // Function to get a new project ID based on the number of projects in local storage
+  function getNewProjectId (projects) {
+    const maxId = projects.reduce((max, project) => Math.max(max, project.projectId), 0)
+    return maxId + 1
+  }
 
-// add event listener for Done button
-// modify this to submit the form later on
-const addProjectButton = document.querySelector('#done')
-if (addProjectButton) {
-  addProjectButton.addEventListener('click', addProject)
-}
+  // Function to handle the addition of a new project
+  function addProject () {
+    const projectName = document.querySelector('#new-project-description').value
+    const projectDescription = document.querySelector('#new-entry').value
+    const selectedPrivacyOption = document.querySelector('.privacy-option.bold')
 
-// create project class or DOM for creating new project box
-// read details from lab 7
+    // Ensure that a privacy option is selected
+    if (!selectedPrivacyOption) {
+      alert('Please select a privacy option.')
+      return
+    }
+
+    const status = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
+
+    const projects = getProjectsFromStorage()
+    const projectId = getNewProjectId(projects)
+
+    const newProject = {
+      projectId,
+      projectName,
+      projectDescription,
+      status,
+      tags: selectedTags,
+      journals: []
+    }
+
+    projects.push(newProject)
+    localStorage.setItem('projects', JSON.stringify(projects))
+
+    document.querySelector('.new-project').style.display = 'none'
+    resetForm()
+    addProjectsToDocument([newProject])
+  }
+
+  // Function to handle adding more entry fields
+  function addEntry () {
+    const newEntry = document.createElement('input')
+    newEntry.type = 'text'
+    newEntry.placeholder = 'Enter Entry content.'
+    newEntry.id = 'new-entry'
+    const moreEntryButton = document.getElementById('more-entry')
+    moreEntryButton.insertAdjacentElement('beforebegin', newEntry)
+  }
+
+  // Function to handle tag selection
+  function toggleTag (tagElement) {
+    const tag = tagElement.textContent
+
+    if (selectedTags.includes(tag)) {
+      selectedTags = selectedTags.filter(t => t !== tag)
+      tagElement.style.fontWeight = 'normal'
+    } else {
+      selectedTags.push(tag)
+      tagElement.style.fontWeight = 'bold'
+    }
+  }
+
+  // Function to handle privacy selection
+  function selectPrivacy (option) {
+    document.getElementById('public').classList.remove('bold')
+    document.getElementById('private').classList.remove('bold')
+    document.getElementById(option).classList.add('bold')
+  }
+
+  // Function to reset the form
+  function resetForm () {
+    document.querySelector('#new-project-description').value = ''
+    document.querySelectorAll('#new-entry').forEach(entry => { entry.value = '' })
+    selectedTags = []
+    document.querySelectorAll('.tag').forEach(tag => { tag.style.fontWeight = 'normal' })
+    document.getElementById('public').classList.remove('bold')
+    document.getElementById('private').classList.remove('bold')
+  }
+
+  // Event listeners
+  document.querySelector('#create-btn').addEventListener('click', newProject)
+  document.querySelector('#done').addEventListener('click', addProject)
+  document.querySelector('#more-entry').addEventListener('click', addEntry)
+
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', function () {
+      if (!this.classList.contains('add-tag')) {
+        toggleTag(this)
+      }
+    })
+  })
+
+  document.getElementById('public').addEventListener('click', function () {
+    selectPrivacy('public')
+  })
+  document.getElementById('private').addEventListener('click', function () {
+    selectPrivacy('private')
+  })
+
+  // Tag Editor Functionality
+  const modal = document.getElementById('tag-editor')
+  const span = document.getElementsByClassName('close')[0]
+  const addTagButton = document.getElementById('add-tag-btn')
+
+  // Show the modal when the Add Tag button is clicked
+  document.querySelector('.add-tag').addEventListener('click', function () {
+    modal.style.display = 'block'
+    loadTags()
+  })
+
+  // Hide the modal when the close button is clicked
+  span.onclick = function () {
+    modal.style.display = 'none'
+  }
+
+  // Hide the modal when clicking outside of it
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none'
+    }
+  }
+
+  // Add new tag
+  addTagButton.addEventListener('click', function () {
+    const tagName = document.getElementById('new-tag-name').value
+    const tagColor = document.getElementById('new-tag-color').value
+
+    if (tagName) {
+      const tags = getTagsFromStorage()
+      tags.push({ name: tagName, color: tagColor })
+      localStorage.setItem('tags', JSON.stringify(tags))
+      loadTags()
+      document.getElementById('new-tag-name').value = ''
+      document.getElementById('new-tag-color').value = '#000000'
+    } else {
+      alert('Please enter a tag name')
+    }
+  })
+
+  // Load tags from localStorage
+  function loadTags () {
+    const tags = getTagsFromStorage()
+    const tagList = document.getElementById('tag-list')
+    tagList.innerHTML = ''
+
+    tags.forEach(tag => {
+      const tagItem = document.createElement('div')
+      tagItem.style.backgroundColor = tag.color
+      tagItem.textContent = tag.name
+      tagList.appendChild(tagItem)
+    })
+  }
+
+  // Get tags from localStorage
+  function getTagsFromStorage () {
+    return JSON.parse(localStorage.getItem('tags')) || []
+  }
+
+  // Ensure getProjectsFromStorage and addProjectsToDocument are available
+  function getProjectsFromStorage () {
+    return JSON.parse(localStorage.getItem('projects')) || []
+  }
+
+  function addProjectsToDocument (projects) {
+    const mainElement = document.querySelector('.projects')
+    projects.forEach(project => {
+      const projectCard = document.createElement('project-card')
+      projectCard.data = project
+      mainElement.appendChild(projectCard)
+    })
+  }
+})
