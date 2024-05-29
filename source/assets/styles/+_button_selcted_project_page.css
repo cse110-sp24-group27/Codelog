@@ -1,0 +1,157 @@
+/* popup button for Project Page styling and positioning */
+.pop-up {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  padding: 70px;
+  background-color: #2a2a2e;
+  color: #fff;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 5px;
+  font-family: Roboto, sans-serif;
+}
+
+/* Style the form in the pop-up */
+.pop-up form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Styling and positioning for the "+" buttons */
+.pop-up button {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Style the create button */
+#create-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #9bbeda;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Container for the done button in the pop-up */
+.done-btn-position {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Style the done button in the pop-up */
+#done-btn {
+  background-color: #4a801b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 120px;
+  height: 35px;
+  font-size: 15px;
+  cursor: pointer;
+  align-items: flex-start;
+}
+
+/* Style the add tag button in the pop-up */
+#add-tag-btn {
+  background-color: #4a801b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 90px;
+  height: 35px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Style the back arrow button in the pop-up */
+#project-page-popup-back-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  top: 67px;
+  right: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+/* Style the back arrow image in the pop-up */
+#project-page-popup-back-btn img {
+  width: 35px;
+  height: 35px;
+}
+
+/* This is positioning and styling for entry title an desscription */
+#new-project-name {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #2a2a2e;
+  color: grey;
+  width: 500px;
+  max-width: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Style the entry content section of the form */
+#new-project-content {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #2a2a2e;
+  color: grey;
+  width: 500px;
+  max-width: 100%;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 80px;
+}
+
+/* Style the headers in the pop-up */
+.pop-up h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.pop-up h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* Style for entry boxes and select dropdowns */
+.select-container {
+  display: flex;
+  gap: 30px;
+}
+
+/* Style the dropdown menus in the pop-up */
+.dropdown-group h3 {
+  margin: 5px;
+}
+
+.dropdown-group select {
+  background-color: #2a2a2e;
+  border: 1px solid #fff;
+  color: grey;
+  padding: 10px;
+  border-radius: 5px;
+  padding-right: 30px;
+  margin: 5px;
+}

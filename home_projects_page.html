@@ -8,11 +8,12 @@
     <!-- Project Card Custom Element -->
     <script src="source/assets/scripts/ProjectCard.js" type="module"></script>
 
-        <!-- Main Stylesheets & Scripts -->
+    <!-- Main Stylesheets & Scripts -->
     <script src="source/assets/scripts/main.js" type="module"></script>
-
+    <script src="source/assets/scripts/tag_editor.js" type="module"></script>
 </head>
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
+<script src="source/assets/scripts/home_projects_page.js"></script>
 <body>
     <header>
         <!--Logo for the website-->
@@ -32,7 +33,12 @@
             </script>
 
             <!--Button to go to setting and edit user's profile-->
-            <button id="setting">Setting</button>
+            <button onclick="location.href" id="setting">Setting</button>
+            <script type="text/javascript">
+                document.getElementById("setting").onclick = function () {
+                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/project_setting.html";
+                };
+            </script>
         </div>
     </header>
     <main>
@@ -69,92 +75,51 @@
             </div>
         </div>
 
-        <!--Projects section-->
+        <!-- Projects section -->
         <div class="project-collection">
             <h1 id="proj-title">Projects</h1>
 
-            <!--Class of all project boxes-->
-            <div class="projects">
-                <!--Display project as a box-->
-                <div class="project">
-                    <!--The drag button to reorder the projects-->
-                    <!--Need to implement JS function drag_project()-->
-                    <button id="drag-btn" onclick="drag_project()">...</button>
+            <!-- Class of all project boxes -->
+            <div class="projects"></div>
 
-                    <!--Project details-->
-                    <!--Delete this after implementing "importing project details" function-->
+            <!-- The + button to add new project -->
+            <button id="create-btn">+</button>
 
-                    <!--Name of the project-->
-                    <h3 id="project-name">Project Name</h3>
-
-                    <!--Public/ private status of the project-->
-                    <p id="status">Public</p>
-                    
-                    <!-- <select id="privacy">
-                        <option value="Public">Public</option>
-                        <option value="Private">Private</option>
-                    </select> -->
-
-                    <!--Description for the project-->
-                    <p id="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
-                    
-
-                    <!--Class for tags-->
+            <!-- Manual project creation -->
+            <!-- Hide this until the + button is clicked -->
+            <div class="new-project" style="display: none;">
+                <h2>Template: Project Name</h2>
+                <div class="tag-privacy-row">
                     <div class="tags">
-                        <p><span class="dot"></span> Tag 1</p>
-                        <p><span class="dot"></span> Tag 2</p>
-                        <p><span class="dot"></span> Tag 3</p>
+                        <button class="tag">Tag1</button>
+                        <button class="tag">Tag2</button>
+                        <button class="tag add-tag">Add +</button>
+                    </div>
+                    <div class="privacy">
+                        <button class="privacy-option" id="public">Public</button>
+                        <button class="privacy-option" id="private">Private</button>
                     </div>
                 </div>
-            </div>
-            <!--The + button to add new project-->
-            <!--Need to implement JS function new_project() to show the below pop-up manual project creation-->
-            <button id="create-btn" onclick="new_project()">+</button>
-        </div>
-        
-        <!--Manual project creation-->
-        <!--Hide this until the + button is clicked-->
-        <div class="new-project">
-            <input type="text" id="new-project-name" placeholder="Enter New Project Name">
-
-            <div class="select-tags">
-                <button>Tag1</button>
-                <button>Tag2</button>
-                <button>Add+</button>
-            </div>
-
-            <input type="text" id="new-project-description" placeholder="Enter New Project Description">
-
-            <!--Option to let users choose their project to be public or private-->
-            <!--Might not need this because all displayed projects on the page are something they want to show to the recruiters, therefore shouls be public-->
-            <select id="public-private">
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-            </select>
-
-            <input type="text" id="new-entry" placeholder="Enter Entry content.">
-
-            <button id="more-entry">+</button>
-            
-            <!--The Done button to confirm project-->
-            <!--Need to implement JS function add_project() to add the created project to the Project Page-->
-            <button onclick="add_project()">Done</button>
+                <input type="text" id="new-project-description" placeholder="Enter Project Description: Briefly describe what this is about.">
+                <input type="text" id="new-entry" placeholder="Enter Entry 1 content.">
+                <button id="more-entry">+</button>
+                <button id="done">Done</button>
+            </div>            
         </div>
     </main>
-    <script>
-        // Call the load_projects function when the page loads to display user's projects
-        window.onload = function() {
-            load_projects();
-        };
-    </script>
 
-    <script>
-        // Call the load_profile function when the page loads to display user's profile
-        // Probably modify the profile class when load profile
-        window.onload = function() {
-            load_profile();
-        };
-    </script>
+    <!-- Tag Editor Modal -->
+    <div id="tag-editor" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tag Editor</h2>
+            <div id="tag-list"></div>
+            <input type="text" id="new-tag-name" placeholder="Enter tag name">
+            <input type="color" id="new-tag-color">
+            <button id="add-tag-btn">Add Tag</button>
+        </div>
+    </div>
+
     <!--Footer for copyright-->
     <footer id="footer">
         <p>@ 2024 CodeLog</p>

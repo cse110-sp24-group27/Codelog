@@ -42,10 +42,13 @@ function getProjectsFromStorage () {
  */
 function addProjectsToDocument (projects) {
   // Get a reference to the <main> element
-  const mainElement = document.querySelector('.project-collection')
+  const mainElement = document.querySelector('.projects')
   for (const project of projects) {
     const projectCard = document.createElement('project-card') // Set project data on the card
     projectCard.data = project
     mainElement.appendChild(projectCard)
   }
 }
+
+// export functions for testing
+module.exports = { getProjectsFromStorage }
