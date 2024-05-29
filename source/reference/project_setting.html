@@ -25,7 +25,7 @@
 
             <script type="text/javascript">
                 document.getElementById("home").onclick = function () {
-                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/home_projects_page.html";
+                    location.href = "http://127.0.0.1:5501/home_projects_page.html";
                 };
             </script>
              
@@ -34,7 +34,7 @@
             <button onclick="location.href" id="setting">Setting</button>
             <script type="text/javascript">
                 document.getElementById("setting").onclick = function () {
-                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/project_setting.html";
+                    location.href = "http://127.0.0.1:5501/source/reference/project_setting.html";
                 };
             </script>
         </div>
@@ -118,16 +118,18 @@
         }
 
         function save() {
+            const existingProfile = JSON.parse(localStorage.getItem('profile')) || {};
             const profile = {
-                name: document.getElementById('name-input').value,
-                pronouns: document.getElementById('pronouns-input').value,
-                bio: document.getElementById('bio-input').value,
+                ...existingProfile,
+                name: document.getElementById('name-input').value || existingProfile.name,
+                pronouns: document.getElementById('pronouns-input').value || existingProfile.pronouns,
+                bio: document.getElementById('bio-input').value || existingProfile.bio,
                 socialAccount: {
-                    email: document.getElementById('email-input').value,
-                    linkedin: document.getElementById('linkedin-input').value,
-                    github: document.getElementById('github-input').value
+                    email: document.getElementById('email-input').value || existingProfile.socialAccount.email,
+                    linkedin: document.getElementById('linkedin-input').value || existingProfile.socialAccount.linkdn,
+                    github: document.getElementById('github-input').value || existingProfile.socialAccount.github
                 },
-                img: document.getElementById('profile-picture').src
+                img: document.getElementById('profile-picture').src || existingProfile.img
             };
 
             localStorage.setItem('profile', JSON.stringify(profile));
