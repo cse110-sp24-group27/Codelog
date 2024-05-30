@@ -64,4 +64,55 @@ function updateProfileOnPage(profile) {
     document.getElementById('github-input').href = profile.socialAccount.github;
     document.getElementById('github-input').value = profile.socialAccount.github
   }
+
+// Handle image preview (Tim and fiona will manually merge from html + the code below)
+function loadImage(event) {
+  const output = document.getElementById('profile-picture');
+  output.src = URL.createObjectURL(event.target.files[0]);
+}
+
+// Save the profile data to localStorage
+function save() {
+  const profile = getProfileFromStorage(); // Get existing profile data
+
+  const newProfile = {
+      name: document.getElementById('name-input').value,
+      pronouns: document.getElementById('pronouns-input').value,
+      bio: document.getElementById('bio-input').value,
+      socialAccount: {
+          email: document.getElementById('email-input').value,
+          linkedin: document.getElementById('linkedin-input').value,
+          github: document.getElementById('github-input').value
+      },
+      img: profile.img // Retain the old image if no new image is uploaded
+  };
+
+  const imageUpload = document.getElementById('profile-picture-upload');
+  if (imageUpload.files && imageUpload.files[0]) {
+      // A new image has been uploaded
+      const reader = new FileReader();
+      reader.onload = function(e) {
+          newProfile.img = e.target.result;
+          localStorage.setItem('profile', JSON.stringify(newProfile));
+          console.log("profile updated with new image:", newProfile); 
+      };
+      reader.readAsDataURL(imageUpload.files[0]);
+  } else {
+      // No new image uploaded, retain the existing image
+      localStorage.setItem('profile', JSON.stringify(newProfile));
+      console.log("profile updated without new image:", newProfile);
+  }
+}
+
+// Reset the profile form to previous state
+function cancel() {
+  const profile = getProfileFromStorage(); // Get existing profile data
+  document.getElementById('profile-form').reset();
+  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150';
+  console.log('reset form');
+}
+
+window.loadImage = loadImage;
+window.save = save;
+window.cancel = cancel;
 }
