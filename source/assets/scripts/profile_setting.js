@@ -64,6 +64,7 @@ function updateProfileOnPage(profile) {
     document.getElementById('github-input').href = profile.socialAccount.github;
     document.getElementById('github-input').value = profile.socialAccount.github
   }
+}
 
 // Handle image preview (Tim and fiona will manually merge from html + the code below)
 function loadImage(event) {
@@ -115,4 +116,3 @@ function cancel() {
 window.loadImage = loadImage;
 window.save = save;
 window.cancel = cancel;
-}
