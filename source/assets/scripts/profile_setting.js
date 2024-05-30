@@ -49,7 +49,7 @@ function updateProfileOnPage (profile) {
   document.getElementById('name-input').value = profile.name
   // document.getElementById('username').value = profile.username || 'Username'
   document.getElementById('pronouns-input').value = profile.pronouns
-  document.getElementById('bio-input').value = profile.bio 
+  document.getElementById('bio-input').value = profile.bio
   // Update links if provided in the profile
   if (profile.socialAccount.email) {
     document.getElementById('email-input').href = `mailto:${profile.socialAccount.email}`
@@ -72,7 +72,7 @@ function loadImage (event) {
 }
 
 // Save the profile data to localStorage
-function save() {
+function save () {
   const profile = getProfileFromStorage ()
   const newProfile = {
     name: document.getElementById('name-input').value,
@@ -92,7 +92,7 @@ function save() {
     reader.onload = function (e) {
       newProfile.img = e.target.result
       localStorage.setItem('profile', JSON.stringify(newProfile))
-      console.log("profile updated with new image:", newProfile)
+      console.log('profile updated with new image:', newProfile)
     }
     reader.readAsDataURL(imageUpload.files[0])
   } else {
@@ -104,8 +104,8 @@ function save() {
 
 // Reset the profile form to previous state
 function cancel () {
-  const profile = getProfileFromStorage ()
-  document.getElementById('profile-form').reset ()
+  const profile = getProfileFromStorage()
+  document.getElementById('profile-form').reset()
   document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
   console.log('reset form')
 }
