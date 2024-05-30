@@ -73,7 +73,7 @@ function loadImage (event) {
 
 // Save the profile data to localStorage
 function save () {
-  const profile = getProfileFromStorage ()
+  const profile = getProfileFromStorage()
   const newProfile = {
     name: document.getElementById('name-input').value,
     pronouns: document.getElementById('pronouns-input').value,
