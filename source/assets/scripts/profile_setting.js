@@ -66,7 +66,7 @@ function updateProfileOnPage (profile) {
 }
 
 // Handle image preview (Tim and fiona will manually merge from html + the code below)
-function loadImage(event) {
+function loadImage (event) {
   const output = document.getElementById('profile-picture')
   output.src = URL.createObjectURL(event.target.files[0])
 }
@@ -74,7 +74,6 @@ function loadImage(event) {
 // Save the profile data to localStorage
 function save() {
   const profile = getProfileFromStorage ()
-
   const newProfile = {
     name: document.getElementById('name-input').value,
     pronouns: document.getElementById('pronouns-input').value,
@@ -85,13 +84,12 @@ function save() {
       github: document.getElementById('github-input').value
     },
     img: profile.img // Retain the old image if no new image is uploaded
-  };
-
-  const imageUpload = document.getElementById('profile-picture-upload');
+  }
+  const imageUpload = document.getElementById('profile-picture-upload')
   if (imageUpload.files && imageUpload.files[0]) {
     // A new image has been uploaded
     const reader = new FileReader()
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       newProfile.img = e.target.result
       localStorage.setItem('profile', JSON.stringify(newProfile))
       console.log("profile updated with new image:", newProfile)
@@ -105,9 +103,9 @@ function save() {
 }
 
 // Reset the profile form to previous state
-function cancel() {
+function cancel () {
   const profile = getProfileFromStorage ()
-  document.getElementById('profile-form').reset()
+  document.getElementById('profile-form').reset ()
   document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
   console.log('reset form')
 }
