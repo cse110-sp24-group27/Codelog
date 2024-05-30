@@ -10,7 +10,13 @@
 
     <!-- Main Stylesheets & Scripts -->
     <script src="source/assets/scripts/main.js" type="module"></script>
+
+
+    <!--Profile Setting script to laod localStorage-->
+    <script src="source/assets/scripts/profile_setting.js" type="module"></script>
+
     <script src="source/assets/scripts/tag_editor.js" type="module"></script>
+
 </head>
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
 <script src="source/assets/scripts/home_projects_page.js"></script>
@@ -28,7 +34,9 @@
 
             <script type="text/javascript">
                 document.getElementById("home").onclick = function () {
-                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/home_projects_page.html";
+                // TODO: Change this url when page is published
+                // This url only works on local server
+                    location.href = "http://127.0.0.1:5501/home_projects_page.html";
                 };
             </script>
 
@@ -36,7 +44,9 @@
             <button onclick="location.href" id="setting">Setting</button>
             <script type="text/javascript">
                 document.getElementById("setting").onclick = function () {
-                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/project_setting.html";
+                // TODO: Change this url when page is published
+                // This url only works on local server
+                    location.href = "http://127.0.0.1:5501/source/reference/project_setting.html";
                 };
             </script>
         </div>
