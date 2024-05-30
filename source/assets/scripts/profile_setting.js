@@ -4,9 +4,9 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  let prev_profile = localStorage.getItem('profile')
+  const prevProfile = localStorage.getItem('profile')
 
-  if (prev_profile == null) {
+  if (prevProfile == null) {
     fetchExamplejsonToStorage()
   } else {
     // Get the projects from localStorage
@@ -44,12 +44,12 @@ function getProfileFromStorage () {
 // TODO: implement function to store localstorage to .JSON
 
 // Update the HTML page with the profile data
-function updateProfileOnPage(profile) {
+function updateProfileOnPage (profile) {
   document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
   document.getElementById('name-input').value = profile.name
   // document.getElementById('username').value = profile.username || 'Username'
   document.getElementById('pronouns-input').value = profile.pronouns
-  document.getElementById('bio-input').value = profile.bio 
+  document.getElementById('bio-input').value = profile.bio
 
   // Update links if provided in the profile
   if (profile.socialAccount.email) {
@@ -61,7 +61,7 @@ function updateProfileOnPage(profile) {
     document.getElementById('linkedin-input').value = profile.socialAccount.linkedin
   }
   if (profile.socialAccount.github) {
-    document.getElementById('github-input').href = profile.socialAccount.github;
+    document.getElementById('github-input').href = profile.socialAccount.github
     document.getElementById('github-input').value = profile.socialAccount.github
   }
 }

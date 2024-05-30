@@ -3,10 +3,10 @@ window.addEventListener('DOMContentLoaded', init)
 
 // Starts the program, all function calls trace back here
 function init () {
-  let prev_profile = localStorage.getItem('profile')
+  const prevProfile = localStorage.getItem('profile')
   // Update the profile
   // Get profile info from .JSON file to localStorage
-  if (prev_profile == null) {
+  if (prevProfile == null) {
     fetchProfileExamplejsonToStorage()
   } else {
     // Get the projects from localStorage
@@ -15,7 +15,6 @@ function init () {
     updateProfileOnPage(profile)
     // Call function to store profile to .JSON
   }
- 
 
   // Get projects from .JSON to localstorage
   // Update this to asynchronous
