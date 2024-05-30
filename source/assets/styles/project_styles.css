@@ -126,7 +126,6 @@ main {
 /* Style the Project title above the projects */
 #proj-title {
   font-size: 40px;
-  width: 100%;
   color: #fff;
   margin-bottom: 0;
 }
@@ -205,6 +204,7 @@ main {
   margin: 0;
 }
 
+/* Style the dot for the tags */
 .dot {
   height: 15px;
   width: 15px;

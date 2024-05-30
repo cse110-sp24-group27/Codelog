@@ -6,6 +6,9 @@
     <title>Profile Settings</title>
     <!-- <link rel="stylesheet" href="/source/assets/styles/project_styles.css"> -->
     <link rel="stylesheet" href="../assets/styles/project_setting.css">
+
+    <!--Profile Setting script to laod localStorage-->
+    <script src="../assets/scripts/profile_setting.js" type="module"></script>
 </head>
     <!-- FontAwesome for icons -->
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
@@ -22,7 +25,7 @@
 
             <script type="text/javascript">
                 document.getElementById("home").onclick = function () {
-                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/home_projects_page.html";
+                    location.href = "../../home_projects_page.html";
                 };
             </script>
              
@@ -31,7 +34,7 @@
             <button onclick="location.href" id="setting">Setting</button>
             <script type="text/javascript">
                 document.getElementById("setting").onclick = function () {
-                    location.href = "http://127.0.0.1:5500/cse110-sp24-group27/source/reference/project_setting.html";
+                    location.href = "project_setting.html";
                 };
             </script>
         </div>
@@ -133,6 +136,8 @@
 
         function cancel() {
             document.getElementById('profile-form').reset();
+            document.getElementById('profile-picture').src = "https://via.placeholder.com/150"
+            console.log('reset form')
         }
     </script>
 </body>
