@@ -5,6 +5,12 @@ test('example test', () => {
   expect(1 + 2).toBe(3)
 })
 
+//First visit journal webpoage
+describe('Basic user flow for Website', () => {
+  beforeAll(async () => {
+      await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/');
+  });
+
 // Journal Entries
 // 1. Add journal entry
 // 2. Edit journal entry
