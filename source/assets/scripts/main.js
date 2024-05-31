@@ -3,13 +3,13 @@ window.addEventListener('DOMContentLoaded', init)
 
 // Starts the program, all function calls trace back here
 function init () {
-  // Update the profile  
+  // Update the profile
   const prevProfile = localStorage.getItem('profile')
   // Check if the localStorage is already created for projects
-  if (prevProfile == NaN) {
+  if (isNaN(prevProfile)) {
     fetchProfileExamplejsonToStorage()
   }
-  
+
   // Get the profile from localStorage
   const profile = getProfileFromStorage()
   updateProfileOnPage(profile)
@@ -17,11 +17,11 @@ function init () {
   // Update the projects
   const prevProjects = localStorage.getItem('projects')
   // Check if the localStorage is already created for projects
-  if (prevProjects == NaN) {
+  if (isNaN(prevProjects)) {
     // Get projects from .JSON to localstorage
     fetchExamplejsonToStorage()
   }
-  
+
   // Get the projects from localStorage
   const projects = getProjectsFromStorage()
   // Add each project to the <main> element

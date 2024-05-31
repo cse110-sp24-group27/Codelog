@@ -125,7 +125,7 @@ main {
 
 #proj-title {
   font-size: 58px;
-  color: #ffffff;
+  color: #fff;
   margin-bottom: 10px;
 }
 
@@ -138,7 +138,6 @@ main {
   align-items: flex-start;
   width: 1000px;
   height: auto;
-  /* min-height: 400px; */
   margin-bottom: 100px;
   gap: 10px;
 }
