@@ -42,12 +42,6 @@ function addProject(project_to_add) {
 */
 function getAllUserProjects() {
     // TODO: return "user_projects" array object from localStorage
-    //Get "user_projects" array object from localStorage
-    let projects = JSON.parse(localStorage.getItem('user_projects') || '[]');
-
-    //Retrun "user_projects" array object
-    return projects;
-
 }
 
 // (2) selected_project_page functions //
