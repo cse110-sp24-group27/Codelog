@@ -5,14 +5,14 @@ function goBack () {
 
 // UNCOMMENT WHEN LOCAL STORAGE GETS IMPLEMENTED
 // Fetch Journal Data from localStorage (onLoad) & Display it in The Selected Journal Page //
-/**
-// Fetch journal title
-// function getTitleToDisplay () {
-//   // Fetch title from localStorage
-//   var textTitle = localStorage.getItem("journal-title");
-//   // Assign it to the selected journal page for display
-//   document.getElementById("journal-title").innerHTML = "put the title here using textTitle"
-// }
+
+//Fetch journal title
+function getTitleToDisplay () {
+  // Fetch title from localStorage
+  var textTitle = localStorage.getItem("journal-title");
+  // Assign it to the selected journal page for display
+  document.getElementById("journal-title").innerHTML = "put the title here using textTitle"
+}
 
 // Fetch tags
 function getTagsToDisplay () {
@@ -35,9 +35,8 @@ function getEntryTextToDisplay () {
   // Fetch entry text from localStorage
   var entryText = localStorage.getItem("markdown");
   // Assign it to the selected journal page for display
-  document.getElementById("markdown").innerHTML = entryText
+  document.getElementById("text").innerHTML = entryText
 }
-*/
 
 // Wait for the DOM content to be loaded before attaching the event listener to the back button
 document.addEventListener('DOMContentLoaded', function () {
