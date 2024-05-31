@@ -1,7 +1,5 @@
 // Tests that cover basic User interactions
 
-
-
 //First visit journal webpoage
 describe('Basic user flow for Website', () => {
   beforeAll(async () => {
