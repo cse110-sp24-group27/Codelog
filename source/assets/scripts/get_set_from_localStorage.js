@@ -27,13 +27,13 @@
 function addProject(project_to_add) {
     // TODO: Add given project to the "user_projects" array in localStorage
     //Get the current "user_projects" array, or return an empty array if there is empty.
-    var project = JSON.parse(localStorage.getItem('user_projects') || '[]');
+    var projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]');
 
     //Add the user additions to the "user_projects" array.
-    project.push(project_to_add);
+    projectInArray.push(project_to_add);
 
     //Update to laocalStorage
-    localStorage.setItem('user_projects', JSON.stringify(project));
+    localStorage.setItem('user_projects', JSON.stringify(projectInArray));
 }
 
 /**
