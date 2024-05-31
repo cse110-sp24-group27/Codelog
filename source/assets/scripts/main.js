@@ -3,16 +3,25 @@ window.addEventListener('DOMContentLoaded', init)
 
 // Starts the program, all function calls trace back here
 function init () {
-  // Update the profile
-  // Get profile info from .JSON file to localStorage
-  fetchProfileExamplejsonToStorage()
+  // Update the profile  
+  const prevProfile = localStorage.getItem('profile')
+  // Check if the localStorage is already created for projects
+  if (prevProfile == NaN) {
+    fetchProfileExamplejsonToStorage()
+  }
+  
   // Get the profile from localStorage
   const profile = getProfileFromStorage()
   updateProfileOnPage(profile)
 
-  // Get projects from .JSON to localstorage
-  // Update this to asynchronous
-  fetchExamplejsonToStorage()
+  // Update the projects
+  const prevProjects = localStorage.getItem('projects')
+  // Check if the localStorage is already created for projects
+  if (prevProjects == NaN) {
+    // Get projects from .JSON to localstorage
+    fetchExamplejsonToStorage()
+  }
+  
   // Get the projects from localStorage
   const projects = getProjectsFromStorage()
   // Add each project to the <main> element
@@ -47,7 +56,7 @@ function getProfileFromStorage () {
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.img
+  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
   document.getElementById('name').textContent = profile.name || 'Developer\'s Name'
   document.getElementById('username').textContent = profile.username || 'Username'
   document.getElementById('pronoun').textContent = profile.pronouns
