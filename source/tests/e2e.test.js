@@ -8,10 +8,11 @@ describe('Basic user flow for Website', () => {
       await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/');
   });
 
-// Test Example
-test('example test', () => {
-  expect(1 + 2).toBe(3)
-})
+  // Test Example
+  test('example test', () => {
+    expect(1 + 2).toBe(3)
+  })
+});
 
 // Journal Entries
 // 1. Add journal entry
@@ -113,4 +114,3 @@ test('example test', () => {
 // Add multiple tags to journal entries and verify they are correctly assigned.
 
 // Templates Removed
-
