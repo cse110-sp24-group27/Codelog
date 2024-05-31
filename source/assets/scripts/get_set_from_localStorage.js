@@ -9,15 +9,17 @@
  * @param project - project object to be added.
  * Project object has the following elements:
  * 
- *      "id": int starts with "current_max_project_id" + 1
+ *      "project_id": int starts with "current_max_project_id" + 1
  *      "projectName": "string"
  *      "description": "string"
  *      "privacy": "string"
- *      "tags": {
- *          "tag1": "colorString"
- *          "tag2": "colorString"
- *          "tag3": "colorString"
- *      }
+ *      "tags": [
+ *          {
+ *              "tag_id": int that starts with ("current_max_tag_id" + 1),
+ *              "tag_text": "HTML",
+ *              "color": "red"
+ *          }
+ *      ] 
  *      "selected_project_entries": {
  *          // contains all the entries shown below (!!) //
  *      }
@@ -41,15 +43,31 @@ function getAllUserProjects() {
  * @param entry_to_add - entry object to be added
  * (!!) Entry object has the following elements:
  * 
- *      "id": int that starts with ("current_max_entry_id" + 1) -> don't forget to update current_max_entry_id
+ *      "entry_id": int that starts with ("current_max_entry_id" + 1) -> don't forget to update current_max_entry_id
  *      "titleName": "string"
- *      "tags": {
- *          "tag1": "colorString"
- *          "tag2": "colorString"
- *          "tag3": "colorString"
- *      }
+ *      "tags": [
+ *          {
+ *              "tag_id": 30001,
+ *              "tag_text": "HTML",
+ *              "color": "red"
+ *          },
+ *          {
+ *              "tag_id": 30002,
+ *              "tag_text": "HTML",
+ *              "color": "red"
+ *          }
+ *      ] 
  *      "publicity": "string"
- *      "content": "string"
+ *      "content": [
+ *          {
+ *              "type": "code"
+ *              "content": "text content for a code block"
+ *          },
+ *          {
+ *              "type": "text"
+ *              "content": "text content"
+ *          }
+ *      ]
 */
 function addEntry(selected_project, entry_to_add) {
     // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
