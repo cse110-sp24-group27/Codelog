@@ -71,7 +71,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 100%;
+  width: 250px;
 }
 
 /* Style the profile name */
@@ -123,94 +123,23 @@ main {
   margin-left: 5%;
 }
 
-/* Style the Project title above the projects */
 #proj-title {
-  font-size: 40px;
+  font-size: 58px;
   color: #fff;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
-/* Style each specific project */
-.project {
-  margin-right: auto;
-  margin-bottom: 20px;
-  width: 45%;
-  border: solid #434345;
-  border-radius: 10px;
+/* Style the class contains all projects */
+.projects {
   position: relative;
-  padding: 20px;
-}
-
-/* Style for both project name and public/ private status */
-#project-name,
-#status {
-  display: inline-block;
-  gap: 50px;
-}
-
-/* Style for project name */
-#project-name {
-  margin-left: 5%;
-  margin-right: 5px;
-  font-size: 18px;
-}
-
-/* Style for project status */
-#status {
-  color: #eaeaea;
-  font-size: 10px;
-  margin-left: 5%;
-  margin-right: 5px;
-}
-
-/* Style for project description */
-#project-description {
-  font-size: 10px;
-  margin: 0 5% 10%;
-}
-
-/* Style the drag button */
-#drag-btn {
-  position: absolute;
-  display: flex;
-  background: none;
-  top: 5%;
-  right: 5%;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  padding: 0;
-  border-radius: 5px;
-}
-
-#drag-btn:hover {
-  background-color: grey;
-}
-
-/* Style the tags of each project */
-.tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-}
-
-.tags p {
-  border-radius: 2px;
-  padding: 5px 10px;
-  color: #cbcbcb;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
-
-/* Style the dot for the tags */
-.dot {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: darkred; /* change this as needed */
-  margin-right: 5px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 1000px;
+  height: auto;
+  margin-bottom: 100px;
+  gap: 10px;
 }
 
 /* Style the class of creating new project */
@@ -223,6 +152,7 @@ main {
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 20px;
+  margin-left: -200px;
 }
 
 .new-project h2 {
@@ -320,7 +250,7 @@ main {
   margin-left: 10%;
   font-size: 14px;
   bottom: 0;
-  width: 100%;
+  width: 200px;
   height: 60px;
 }
 
