@@ -112,33 +112,6 @@
         document.getElementById('profile-picture').addEventListener('mouseout', function () {
             document.getElementById('change-avatar-text').style.display = 'none';
         });
-        function loadImage(event) {
-            const output = document.getElementById('profile-picture');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        }
-
-        function save() {
-            const profile = {
-                name: document.getElementById('name-input').value,
-                pronouns: document.getElementById('pronouns-input').value,
-                bio: document.getElementById('bio-input').value,
-                socialAccount: {
-                    email: document.getElementById('email-input').value,
-                    linkedin: document.getElementById('linkedin-input').value,
-                    github: document.getElementById('github-input').value
-                },
-                img: document.getElementById('profile-picture').src
-            };
-
-            localStorage.setItem('profile', JSON.stringify(profile));
-            console.log("profile:", profile); //debug line
-        }
-
-        function cancel() {
-            document.getElementById('profile-form').reset();
-            document.getElementById('profile-picture').src = "https://via.placeholder.com/150"
-            console.log('reset form')
-        }
     </script>
 </body>
 </html>
