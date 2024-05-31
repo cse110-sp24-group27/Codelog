@@ -91,6 +91,12 @@ function getAllUserProjects() {
 */
 function addEntry(selected_project, entry_to_add) {
     // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
+    selected_project = JSON.parse(localStorage.getItem('selected_project_entries') || '[]');
+
+    selected_project.push(entry_to_add);
+
+    //Update to laocalStorage
+    localStorage.setItem('user_projects', JSON.stringify(selected_project));
 }
 
 /**
