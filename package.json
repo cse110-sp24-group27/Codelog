@@ -9,9 +9,13 @@
     "puppeteer": "^22.10.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --maxWorkers=1"
   },
   "dependencies": {
     "jsdom": "^24.0.0"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "verbose": true
   }
 }
