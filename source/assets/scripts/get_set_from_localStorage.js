@@ -16,7 +16,7 @@
  *      "tags": [
  *          {
  *              "tag_id": int that starts with ("current_max_tag_id" + 1),
- *              "tag_text": "HTML",
+ *              "tag_name": "HTML",
  *              "color": "red"
  *          }
  *      ] 
@@ -45,20 +45,25 @@ function getAllUserProjects() {
  * 
  *      "entry_id": int that starts with ("current_max_entry_id" + 1) -> don't forget to update current_max_entry_id
  *      "titleName": "string"
+ *      "description": "string"
  *      "tags": [
  *          {
  *              "tag_id": 30001,
- *              "tag_text": "HTML",
+ *              "tag_name": "HTML",
  *              "color": "red"
  *          },
  *          {
  *              "tag_id": 30002,
- *              "tag_text": "HTML",
+ *              "tag_name": "HTML",
  *              "color": "red"
  *          }
  *      ] 
  *      "publicity": "string"
  *      "content": [
+ *          {
+ *              "type": "header"
+ *              "content": "Render this text with white background and bigger black font"
+ *          }
  *          {
  *              "type": "code"
  *              "content": "text content for a code block"

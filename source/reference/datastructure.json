@@ -22,17 +22,17 @@
             "tags": [
                 {
                     "tag_id": 30001,
-                    "tag_text": "HTML",
+                    "tag_name": "HTML",
                     "color": "red"                
                 },
                 {
                     "tag_id": 30002,
-                    "tag_text": "CSS",
+                    "tag_name": "CSS",
                     "color": "blue"                
                 },
                 {
                     "tag_id": 30003,
-                    "tag_text": "JavaScript",
+                    "tag_name": "JavaScript",
                     "color": "Yellow"                
                 }
             ], 
@@ -40,25 +40,30 @@
                 {
                     "entry_id": 2001,
                     "titleName": "Entry 1 Name",
+                    "description": "Project description here",
                     "tags": [
                         {
                             "tag_id": 30004,
-                            "tag_text": "HTML",
+                            "tag_name": "HTML",
                             "color": "red"                
                         },
                         {
                             "tag_id": 30005,
-                            "tag_text": "CSS",
+                            "tag_name": "CSS",
                             "color": "blue"                
                         },
                         {
                             "tag_id": 30006,
-                            "tag_text": "JavaScript",
+                            "tag_name": "JavaScript",
                             "color": "Yellow"                
                         }
                     ], 
                     "publicity": "Private",
                     "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
                         {
                             "type": "code",
                             "content": "Render this text with a dark gray background and light gray font"
@@ -79,17 +84,17 @@
             "tags": [
                 {
                     "tag_id": 30008,
-                    "tag_text": "HTML",
+                    "tag_name": "HTML",
                     "color": "red"                
                 },
                 {
                     "tag_id": 30009,
-                    "tag_text": "CSS",
+                    "tag_name": "CSS",
                     "color": "blue"                
                 },
                 {
                     "tag_id": 30010,
-                    "tag_text": "JavaScript",
+                    "tag_name": "JavaScript",
                     "color": "Yellow"                
                 }
             ], 
@@ -97,20 +102,25 @@
                 {
                     "entry_id": 2002,
                     "titleName": "Entry 1 Name",
+                    "description": "Project description here",
                     "tags": [
                         {
                             "tag_id": 30011,
-                            "tag_text": "HTML",
+                            "tag_name": "HTML",
                             "color": "red"                
                         },
                         {
                             "tag_id": 30012,
-                            "tag_text": "CSS",
+                            "tag_name": "CSS",
                             "color": "blue"                
                         }
                     ], 
                     "publicity": "Private",
                     "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
                         {
                             "type": "code",
                             "content": "Render this text with a dark gray background and light gray font"
@@ -124,20 +134,25 @@
                 {
                     "entry_id": 2003,
                     "titleName": "Entry 1 Name",
+                    "description": "Project description here",
                     "tags": [
                         {
                             "tag_id": 30013,
-                            "tag_text": "HTML",
+                            "tag_name": "HTML",
                             "color": "red"                
                         },
                         {
                             "tag_id": 30014,
-                            "tag_text": "CSS",
+                            "tag_name": "CSS",
                             "color": "blue"                
                         }
                     ], 
                     "publicity": "Private",
                     "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
                         {
                             "type": "code",
                             "content": "Render this text with a dark gray background and light gray font"
