@@ -32,11 +32,6 @@ test('example test', () => {
 // Refresh
 // 13. Refresh and test change in data
 
-// Templates
-// 14. Add template
-// 15. Edit template
-// 16. Delete template
-
 // Toggle public and private
 // 17. Toggle public and private entry
 
@@ -108,3 +103,5 @@ test('example test', () => {
 // Test Multiple Tags
 // 18. Test adding multiple tags to entries
 // Add multiple tags to journal entries and verify they are correctly assigned.
+
+// Templates Removed
