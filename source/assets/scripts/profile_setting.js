@@ -22,7 +22,7 @@ function fetchExamplejsonToStorage () {
   fetch('../reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
     .then(data => {
-      const profileData = JSON.stringify(data.profile)
+      const profileData = JSON.stringify(data.user_profile)
       localStorage.setItem('profile', profileData)
     }) // Store the parsed data
     .catch(error => {
@@ -45,23 +45,23 @@ function getProfileFromStorage () {
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
-  document.getElementById('name-input').value = profile.name
+  document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
+  document.getElementById('name-input').value = profile.username || 'Name'
   // document.getElementById('username').value = profile.username || 'Username'
   document.getElementById('pronouns-input').value = profile.pronouns
   document.getElementById('bio-input').value = profile.bio
   // Update links if provided in the profile
-  if (profile.socialAccount.email) {
-    document.getElementById('email-input').href = `mailto:${profile.socialAccount.email}`
-    document.getElementById('email-input').value = profile.socialAccount.email
+  if (profile.socialLinks.email) {
+    document.getElementById('email-input').href = `mailto:${profile.socialLinks.email}`
+    document.getElementById('email-input').value = profile.socialLinks.email
   }
-  if (profile.socialAccount.linkedin) {
-    document.getElementById('linkedin-input').href = profile.socialAccount.linkedin
-    document.getElementById('linkedin-input').value = profile.socialAccount.linkedin
+  if (profile.socialLinks.linkedin) {
+    document.getElementById('linkedin-input').href = profile.socialLinks.linkedin
+    document.getElementById('linkedin-input').value = profile.socialLinks.linkedin
   }
-  if (profile.socialAccount.github) {
-    document.getElementById('github-input').href = profile.socialAccount.github
-    document.getElementById('github-input').value = profile.socialAccount.github
+  if (profile.socialLinks.github) {
+    document.getElementById('github-input').href = profile.socialLinks.github
+    document.getElementById('github-input').value = profile.socialLinks.github
   }
 }
 
@@ -75,22 +75,22 @@ function loadImage (event) {
 function save () {
   const profile = getProfileFromStorage()
   const newProfile = {
-    name: document.getElementById('name-input').value,
+    username: document.getElementById('name-input').value,
     pronouns: document.getElementById('pronouns-input').value,
     bio: document.getElementById('bio-input').value,
-    socialAccount: {
+    socialLinks: {
       email: document.getElementById('email-input').value,
       linkedin: document.getElementById('linkedin-input').value,
       github: document.getElementById('github-input').value
     },
-    img: profile.img // Retain the old image if no new image is uploaded
+    profilePicture: profile.profilePicture // Retain the old image if no new image is uploaded
   }
   const imageUpload = document.getElementById('profile-picture-upload')
   if (imageUpload.files && imageUpload.files[0]) {
     // A new image has been uploaded
     const reader = new FileReader()
     reader.onload = function (e) {
-      newProfile.img = e.target.result
+      newProfile.profilePicture = e.target.result
       localStorage.setItem('profile', JSON.stringify(newProfile))
       console.log('profile updated with new image:', newProfile)
     }
@@ -106,7 +106,7 @@ function save () {
 function cancel () {
   const profile = getProfileFromStorage()
   document.getElementById('profile-form').reset()
-  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
+  document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
   console.log('reset form')
 }
 

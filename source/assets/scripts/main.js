@@ -17,25 +17,29 @@ function init () {
   // Update the projects
   const prevProjects = localStorage.getItem('projects')
   // Check if the localStorage is already created for projects
-  if (isNaN(prevProjects)) {
+  if (prevProjects == null) {
     // Get projects from .JSON to localstorage
     fetchExamplejsonToStorage()
   }
 
   // Get the projects from localStorage
   const projects = getProjectsFromStorage()
+  console.log(projects)
   // Add each project to the <main> element
   addProjectsToDocument(projects)
   // Add the event listeners to the form elements
   // initFormHandler()
 }
 
-// fetch datastructure.json to localstorage
+/**
+ * Fetches user_profile from .JSON file to localstorage.
+ * Store the profile in localstorage as variable projects.
+ */
 function fetchProfileExamplejsonToStorage () {
   fetch('source/reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
     .then(data => {
-      const profileData = JSON.stringify(data.profile)
+      const profileData = JSON.stringify(data.user_profile)
       localStorage.setItem('profile', profileData)
     }) // Store the parsed data
     .catch(error => {
@@ -56,32 +60,40 @@ function getProfileFromStorage () {
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
-  document.getElementById('name').textContent = profile.name || 'Developer\'s Name'
-  document.getElementById('username').textContent = profile.username || 'Username'
+  document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
+  document.getElementById('name').textContent = profile.username || 'Developer\'s Name'
   document.getElementById('pronoun').textContent = profile.pronouns
   document.getElementById('description').textContent = profile.bio || 'User description'
   // Update links if provided in the profile
-  if (profile.socialAccount.email) {
-    document.getElementById('link-email').href = `mailto:${profile.socialAccount.email}`
+  if (profile.socialLinks.email) {
+    document.getElementById('link-email').href = `mailto:${profile.socialLinks.email}`
   }
-  if (profile.socialAccount.linkdn) {
-    document.getElementById('link-linkedin').href = profile.socialAccount.linkdn
+  if (profile.socialLinks.linkedin) {
+    document.getElementById('link-linkedin').href = profile.socialLinks.linkedin
   }
-  if (profile.socialAccount.github) {
-    document.getElementById('link-github').href = profile.socialAccount.github
+  if (profile.socialLinks.github) {
+    document.getElementById('link-github').href = profile.socialLinks.github
   }
 }
 
-// fetch exampledata.json to localstorage
+/**
+ * Fetches user_projects from .JSON file to localstorage.
+ * Store the projects in localstorage as variable projects.
+ */
 function fetchExamplejsonToStorage () {
-  fetch('source/reference/exampledata.json') // Parse the response as JSON
+  console.log('hi')
+  fetch('source/reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
-    .then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
+    .then(data => {
+      const projectsData = JSON.stringify(data.user_projects)
+      localStorage.setItem('projects', projectsData)
+      console.log('Projects successfully stored in localStorage');
+    }) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch project data:', error) // More specific error message
     })
 }
+
 /**
  * Reads 'projects' from localStorage and returns an array of
  * all of the projects found (parsed, not in string form). If
