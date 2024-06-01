@@ -1,47 +1,47 @@
 // Js for the functionality of the Selected Project Page // (Back button functionality is not here)
 // Table of Contents By Kristhian Ortiz //
-const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
-/**
- * Generates a dynamic table of contents.
- */
-function loadTableOfContents () {
-  dynamicContentList.innerHTML = '' // clear contents
+// const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
+// /**
+//  * Generates a dynamic table of contents.
+//  */
+// function loadTableOfContents () {
+//   dynamicContentList.innerHTML = '' // clear contents
 
-  // Get all entries from local Storage (we receive a string representing an object)
-  const entriesForListAsString = localStorage.getItem('entries')
-  // Convert the string back into an object using JSON.parse
-  const entriesForList = JSON.parse(entriesForListAsString)
+//   // Get all entries from local Storage (we receive a string representing an object)
+//   const entriesForListAsString = localStorage.getItem('entries')
+//   // Convert the string back into an object using JSON.parse
+//   const entriesForList = JSON.parse(entriesForListAsString)
 
-  /**
-   * Each Entry Object in 'entries' will have:
-   * Entry Name (Journal Title)
-   * id (unique identifier for this entry)
-   * Entry Template
-   * Tags
-   * Markdown File
-   *
-   * We only want the Entry Name (can be accessed using .)
-   */
-  entriesForList.forEach(entry => {
-    // Fetch Project Entries' data
-    const entryTitleName = entry.titleName
-    const entryId = entry.id
+//   /**
+//    * Each Entry Object in 'entries' will have:
+//    * Entry Name (Journal Title)
+//    * id (unique identifier for this entry)
+//    * Entry Template
+//    * Tags
+//    * Markdown File
+//    *
+//    * We only want the Entry Name (can be accessed using .)
+//    */
+//   entriesForList.forEach(entry => {
+//     // Fetch Project Entries' data
+//     const entryTitleName = entry.titleName
+//     const entryId = entry.id
 
-    // Create list item to be included in table of contents.
-    const listContent = document.createElement('ul')
-    // Create an anchor so that it can be linked
-    const anchor = document.createElement('a')
+//     // Create list item to be included in table of contents.
+//     const listContent = document.createElement('ul')
+//     // Create an anchor so that it can be linked
+//     const anchor = document.createElement('a')
 
-    // Link entry in table of contents to actual entry in webpage
-    anchor.href = `#${entryId}` // Link by id
-    anchor.textContent = entryTitleName // String holding the link will be the title
+//     // Link entry in table of contents to actual entry in webpage
+//     anchor.href = `#${entryId}` // Link by id
+//     anchor.textContent = entryTitleName // String holding the link will be the title
 
-    // Add anchor to listContent
-    listContent.appendChild(anchor)
-    // Add listContent to table of content list.
-    dynamicContentList.appendChild(listContent)
-  })
-}
+//     // Add anchor to listContent
+//     listContent.appendChild(anchor)
+//     // Add listContent to table of content list.
+//     dynamicContentList.appendChild(listContent)
+//   })
+// }
 
 // On load of script, load table of contents
 // loadTableOfContents()
@@ -119,7 +119,7 @@ function getAllItems () {
 }
 
 /**
- * Helper function for dragging and dropping. Gets all entries in the journal entry section 
+ * Helper function for dragging and dropping. Gets all entries in the journal entry section
  * that aren't being dragged
  */
 function getIdleItems () {
@@ -127,23 +127,23 @@ function getIdleItems () {
 }
 
 /**
- * Helper function for dragging and dropping. Checks whether an entry was above the 
+ * Helper function for dragging and dropping. Checks whether an entry was above the
  * entry currently being dragged in their original positions
  * @param item Entry to check (not the entry being dragged)
  * @return Whether the entry was above the entry being dragged
  */
-function isItemAbove(item) {
+function isItemAbove (item) {
   return item.hasAttribute('data-is-above')
 }
 
 /**
- * Helper function for dragging and dropping. Checks whether an entry that was 
- * originally above the entry currently being dragged is now below that entry as a 
+ * Helper function for dragging and dropping. Checks whether an entry that was
+ * originally above the entry currently being dragged is now below that entry as a
  * result of the dragging
  * @param item Entry to check (not the entry being dragged)
  * @returns Whether the entry's relative position to the entry being dragged has changed
  */
-function isItemToggled(item) {
+function isItemToggled (item) {
   return item.hasAttribute('data-is-toggled')
 }
 
@@ -156,7 +156,7 @@ function initDraggableItem () {
 }
 
 /**
- * Helper function for dragStart(). Categorizes entries based on whether they are above 
+ * Helper function for dragStart(). Categorizes entries based on whether they are above
  * the entry currently being dragged
  */
 function initItemsState () {
@@ -168,7 +168,7 @@ function initItemsState () {
 }
 
 /**
- * Helper function for drag(). Continuously updates the entries not being dragged 
+ * Helper function for drag(). Continuously updates the entries not being dragged
  * while an entry is being dragged
  */
 function updateIdleItemsStateAndPosition () {
@@ -207,7 +207,7 @@ function updateIdleItemsStateAndPosition () {
 }
 
 /**
- * Helper function for dragEnd(). Reorders and reassembles the entries after the 
+ * Helper function for dragEnd(). Reorders and reassembles the entries after the
  * entry being dragged has been dropped
  */
 function applyNewItemsOrder () {
@@ -262,7 +262,7 @@ function unsetDraggableItem () {
 }
 
 /**
- * Helper function for dragEnd(). Resets everything necessary after an entry is 
+ * Helper function for dragEnd(). Resets everything necessary after an entry is
  * dropped
  */
 function cleanup () {
