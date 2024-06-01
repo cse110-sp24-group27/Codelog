@@ -1,6 +1,9 @@
 // Tests that cover basic User interactions
 // First visit journal webpoage
 describe('Basic user flow for Website', () => {
+  beforeAll(async () => {
+    await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html');
+});
 // Test Example
 test('example test', () => {
   expect(1 + 2).toBe(3)
