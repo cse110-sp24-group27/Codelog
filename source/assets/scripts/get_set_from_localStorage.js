@@ -67,7 +67,7 @@ function getAllUserProjects () {
  *              "tag_id": 30002,
  *              "tag_name": "HTML",
  *              "color": "red"
- *          }] 
+ *          }]
  *      "publicity": "string"
  *      "content": [
  *          {
@@ -85,11 +85,11 @@ function getAllUserProjects () {
 */
 function addEntry (selectedProject, entryToAdd) {
   // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
-  // get the max entry id    
-  let current_max_entry_id = selectedProject.current_max_entry_id
+  // get the max entry id
+  const entryToAddId = selectedProject.current_max_entry_id
 
   // set the entry id to current_max_entry_id + 1
-  entryToAdd.entry_id = current_max_entry_id +1
+  entryToAdd.entry_id = entryToAddId + 1
 
   // set the "current_max_entry_id" to "entry_to_add.entry_id"
   selectedProject.current_max_entry_id = entryToAdd.entry_id
@@ -113,7 +113,7 @@ function getAllSelectedProjectEntries (projects, projectId) {
   // Iterate through projects, find the project with matching project_id, then return that project's entries
   projects.forEach(project => {
     if (project.projectId === projectId) {
-        return project.selected_project_entries
+      return project.selected_project_entries
     }
   })
 
@@ -129,10 +129,10 @@ function getAllSelectedProjectEntries (projects, projectId) {
 */
 function getSelectedEntry (selectedProject, entryId) {
   // TODO: return the specific entry of the given project from localStorage
-  let entries = selectedProject.selected_project_entries
+  const entries = selectedProject.selected_project_entries
   entries.forEach(entry => {
     if (entry.entryId === entryId) {
-        return entry
+      return entry
     }
   })
   console.log(`No entry with entry_id ${entryId} found in selected_project`)
