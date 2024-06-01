@@ -34,7 +34,6 @@ function addProject(project_to_add) {
 
     //Update to laocalStorage
     localStorage.setItem('user_projects', JSON.stringify(projectInArray))
-
 }
 
 /**
@@ -49,7 +48,6 @@ function getAllUserProjects() {
 
     //Retrun "user_projects" array object
     return projects;
-
 }
 
 // (2) selected_project_page functions //
@@ -92,23 +90,20 @@ function getAllUserProjects() {
 */
 function addEntry(selected_project, entry_to_add) {
     // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
-    //Get the current "user_projects" array, or return an empty array if there is empty.
-    let projects = JSON.parse(localStorage.getItem('user_projects') || '[]')
+    //get the max entry id    
+    let current_max_entry_id = selected_project.current_max_entry_id;
 
-    //find if have project equal to selected_project
-    let project = projects.find(p => p.project_id === selected_project.project_id);
-    
-    //if have
-    if(project){
-        //Add entry_to_add into selected_project
-        project.selected_project.push(entry_to_add);
+    //set the entry id to current_max_entry_id + 1
+    entry_to_add.entry_id = current_max_entry_id +1;
 
-        //Uptade to localStorage
-        localStorage.setItem('user_projects', JSON.stringify(projects))
-    }
-    //if not
-    console.error(`The given entry not found`);
+    //set the "current_max_entry_id" to "entry_to_add.entry_id"
+    selected_project.current_max_entry_id = entry_to_add.entry_id;
 
+    //push the given entry to "selected_project_entries" array
+    selected_project.selected_project_entries.push(entry_to_add);
+
+    //update to localStorage
+    localStorage.setItem('selected_project', JSON.stringify(selected_project));
 }
 
 /**
