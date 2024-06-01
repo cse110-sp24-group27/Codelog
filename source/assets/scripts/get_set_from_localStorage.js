@@ -27,13 +27,14 @@
 function addProject(project_to_add) {
     // TODO: Add given project to the "user_projects" array in localStorage
     //Get the current "user_projects" array, or return an empty array if there is empty.
-    var projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]');
+    var projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
 
     //Add the user additions to the "user_projects" array.
-    projectInArray.push(project_to_add);
+    projectInArray.push(project_to_add)
 
     //Update to laocalStorage
-    localStorage.setItem('user_projects', JSON.stringify(projectInArray));
+    localStorage.setItem('user_projects', JSON.stringify(projectInArray))
+
 }
 
 /**
@@ -44,7 +45,7 @@ function getAllUserProjects() {
     // TODO: return "user_projects" array object from localStorage
 
     //Get "user_projects" array object from localStorage
-    const projects = JSON.parse(localStorage.getItem('user_projects') || '[]');
+    const projects = JSON.parse(localStorage.getItem('user_projects') || '[]')
 
     //Retrun "user_projects" array object
     return projects;
@@ -91,20 +92,32 @@ function getAllUserProjects() {
 */
 function addEntry(selected_project, entry_to_add) {
     // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
-    selected_project = JSON.parse(localStorage.getItem('selected_project_entries') || '[]');
+    selected_project = JSON.parse(localStorage.getItem('selected_project_entries') || '[]')
 
-    selected_project.push(entry_to_add);
+    selected_project.push(entry_to_add)
 
     //Update to laocalStorage
-    localStorage.setItem('user_projects', JSON.stringify(selected_project));
+    // localStorage.setItem('user_projects', JSON.stringify(selected_project)); // Sang: we don't want to overwrite `user_projects` with a single selected project
 }
 
 /**
  * Retrieve all entries of the selected project given the project id
+ * @param projects - object `user_projects`
+ * @param project_id - int, id of the project
  * @return the "selected_project_entries" array of that selected project
 */
-function getAllSelectedProjectEntries(project_id) {
+function getAllSelectedProjectEntries(projects, project_id) {
     // TODO: return "selected_project_entries" array of the given project from localStorage
+
+    //Iterate through projects, find the project with matching project_id, then return that project's entries
+    projects.forEach(project => {
+        if (project.project_id == project_id) {
+            return project.selected_project_entries
+        }
+    })
+
+    //If no project with the correct project_id found from above loop, console.log
+    console.log(`There's no project found with ${project_id}`)
 }
 
 // (3) selected_journal_page functions //
@@ -115,4 +128,11 @@ function getAllSelectedProjectEntries(project_id) {
 */
 function getSelectedEntry(selected_project, entry_id) {
     // TODO: return the specific entry of the given project from localStorage
+    let entries = selected_project.selected_project_entries
+    entries.forEach(entry => {
+        if (entry.entry_id == entry_id) {
+            return entry
+        }
+    })
+    console.log(`No entry with entry_id ${entry_id} found in selected_project`)
 }
