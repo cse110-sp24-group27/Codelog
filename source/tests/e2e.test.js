@@ -1,10 +1,11 @@
 // Tests that cover basic User interactions
 // First visit journal webpoage
-
+describe('Basic user flow for Website', () => {
 // Test Example
 test('example test', () => {
   expect(1 + 2).toBe(3)
 })
+});
 // Journal Entries
 // 1. Add journal entry
 // 2. Edit journal entry
