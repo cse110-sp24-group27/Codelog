@@ -1,27 +1,10 @@
 // Tests that cover basic User interactions
 // First visit journal webpoage
-const puppeteer = require('puppeteer');
 
-describe('Basic user flow for Website', () => {
-  let browser;
-  let page;
-
-  beforeAll(async () => {
-    // launch browser
-    browser = await puppeteer.launch();
-    // creates a new page in the opened browser
-    page = await browser.newPage();
-    await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html');
-  });
-
-  afterAll(async () => {
-    await browser.close();
-  });
 // Test Example
 test('example test', () => {
   expect(1 + 2).toBe(3)
 })
-});
 // Journal Entries
 // 1. Add journal entry
 // 2. Edit journal entry
