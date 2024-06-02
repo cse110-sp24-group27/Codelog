@@ -1,6 +1,22 @@
 // import { addProjectToLocalStorage } from "./get_set_from_localStorage.js";
 // (1) home_projects_page functions //
 /**
+ * Get an unused Project Id 
+ */
+function getUnusedProjectId () {
+  // Get the current max entry id
+  const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
+
+  // Make it an int
+  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)  
+
+  // set the "current_max_entry_id" to "entry_to_add.entry_id"
+  localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
+
+  return (currMaxProjectId + 1)
+}
+
+/**
  * Add given project object to the "user_projects" array
  * @param projectToAdd - project object to be added.
  * Project object has the following elements:
@@ -21,7 +37,7 @@
 function addProjectToLocalStorage (projectToAdd) {
   // TODO: Add given project to the "user_projects" array in localStorage
   const unusedProjectId = getUnusedProjectId()
- 
+
   // Set the entry id to current_max_entry_id + 1
   projectToAdd.project_id = unusedProjectId
 
@@ -57,11 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
       return
     }
     const privacy = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
-    const project_id = 0
 
     // Create Project
     const newProject = {
-      project_id,
       projectName,
       description,
       privacy,
