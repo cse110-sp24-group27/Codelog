@@ -3,6 +3,23 @@
  * home_projects_page, selected_project_page, and selected_journal_page will leverage this file
 */
 
+// Helper Functions //
+/**
+ * Get an unused Project Id 
+ */
+export function getUnusedProjectId () {
+  // Get the current max entry id
+  const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
+
+  // Make it an int
+  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)  
+
+  // set the "current_max_entry_id" to "entry_to_add.entry_id"
+  localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
+
+  return (currMaxProjectId + 1)
+}
+
 // (1) home_projects_page functions //
 /**
  * Add given project object to the "user_projects" array
@@ -22,21 +39,15 @@
  *          // contains all the entries shown below (!!) //
  *      }
 */
-function addProject (projectToAdd) {
+export function addProjectToLocalStorage (projectToAdd) {
   // TODO: Add given project to the "user_projects" array in localStorage
-
-  // get the max entry id
-  const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
-  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
-
-  // set the entry id to current_max_entry_id + 1
-  projectToAdd.project_id = currMaxProjectId + 1
-
-  // set the "current_max_entry_id" to "entry_to_add.entry_id"
-  localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
+  const unusedProjectId = getUnusedProjectId()
+ 
+  // Set the entry id to current_max_entry_id + 1
+  projectToAdd.project_id = unusedProjectId
 
   // Get the current "user_projects" array, or return an empty array if there is empty.
-  let projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
+  const projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
 
   // Add the user additions to the "user_projects" array.
   projectInArray.push(projectToAdd)
@@ -47,9 +58,9 @@ function addProject (projectToAdd) {
 
 /**
  * Retrieve all user projects
- * @return the array "user_projects"
+ * @return {Array<Object>} the array "user_projects"
 */
-function getAllUserProjects () {
+export function getAllUserProjects () {
   // TODO: return "user_projects" array object from localStorage
 
   // Get "user_projects" array object from localStorage
@@ -94,7 +105,7 @@ function getAllUserProjects () {
  *              "content": "text content"
  *          }]
 */
-function addEntry (selectedProject, entryToAdd) {
+export function addEntry (selectedProject, entryToAdd) {
   // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
   // get the max entry id
   const retrievedCurrMaxEntryId = localStorage.getItem('current_max_entry_id')
@@ -119,7 +130,7 @@ function addEntry (selectedProject, entryToAdd) {
  * @param projectId - int, id of the project
  * @return the "selected_project_entries" array of that selected project
 */
-function getAllSelectedProjectEntries (projects, projectId) {
+export function getAllSelectedProjectEntries (projects, projectId) {
   // TODO: return "selected_project_entries" array of the given project from localStorage
 
   // Iterate through projects, find the project with matching project_id, then return that project's entries
@@ -139,7 +150,7 @@ function getAllSelectedProjectEntries (projects, projectId) {
  * @param entryId - the id of the entry we want to display in selected_journal_page.js
  * @return entry given an id
 */
-function getSelectedEntry (selectedProject, entryId) {
+export function getSelectedEntry (selectedProject, entryId) {
   // TODO: return the specific entry of the given project from localStorage
   const entries = selectedProject.selected_project_entries
   entries.forEach(entry => {

@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  const prevProfile = localStorage.getItem('profile')
+  const prevProfile = localStorage.getItem('user_profile')
 
   if (prevProfile == null) {
     fetchExamplejsonToStorage()
@@ -23,7 +23,7 @@ function fetchExamplejsonToStorage () {
     .then(response => response.json())
     .then(data => {
       const profileData = JSON.stringify(data.profile)
-      localStorage.setItem('profile', profileData)
+      localStorage.setItem('user_profile', profileData)
     }) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch profile data:', error) // More specific error message
@@ -38,30 +38,30 @@ function fetchExamplejsonToStorage () {
  * @returns {Array<Object>} An array of projects found in localStorage
  */
 function getProfileFromStorage () {
-  return JSON.parse(localStorage.getItem('profile')) || []
+  return JSON.parse(localStorage.getItem('user_profile')) || []
 }
 
 // TODO: implement function to store localstorage to .JSON
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
-  document.getElementById('name-input').value = profile.name
+  document.getElementById('profile-picture').src = profile.img || 'source/assets/images/userPlaceholder.png'
+  document.getElementById('name').value = profile.username || 'username'
   // document.getElementById('username').value = profile.username || 'Username'
-  document.getElementById('pronouns-input').value = profile.pronouns
-  document.getElementById('bio-input').value = profile.bio
+  document.getElementById('pronoun').value = profile.pronouns
+  document.getElementById('description').value = profile.bio
   // Update links if provided in the profile
-  if (profile.socialAccount.email) {
-    document.getElementById('email-input').href = `mailto:${profile.socialAccount.email}`
-    document.getElementById('email-input').value = profile.socialAccount.email
+  if (profile.socialLinks.email) {
+    document.getElementById('link-email').href = `mailto:${profile.socialLinks.email}`
+    document.getElementById('link-email').value = profile.socialLinks.email
   }
-  if (profile.socialAccount.linkedin) {
-    document.getElementById('linkedin-input').href = profile.socialAccount.linkedin
-    document.getElementById('linkedin-input').value = profile.socialAccount.linkedin
+  if (profile.socialLinks.linkedin) {
+    document.getElementById('link-linkedin').href = profile.socialLinks.linkedin
+    document.getElementById('link-linkedin').value = profile.socialLinks.linkedin
   }
-  if (profile.socialAccount.github) {
-    document.getElementById('github-input').href = profile.socialAccount.github
-    document.getElementById('github-input').value = profile.socialAccount.github
+  if (profile.socialLinks.github) {
+    document.getElementById('link-github').href = profile.socialLinks.github
+    document.getElementById('link-github').value = profile.socialLinks.github
   }
 }
 
@@ -91,13 +91,13 @@ function save () {
     const reader = new FileReader()
     reader.onload = function (e) {
       newProfile.img = e.target.result
-      localStorage.setItem('profile', JSON.stringify(newProfile))
+      localStorage.setItem('user_profile', JSON.stringify(newProfile))
       console.log('profile updated with new image:', newProfile)
     }
     reader.readAsDataURL(imageUpload.files[0])
   } else {
     // No new image uploaded, retain the existing image
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    localStorage.setItem('user_profile', JSON.stringify(newProfile))
     console.log('profile updated without new image: ', newProfile)
   }
 }

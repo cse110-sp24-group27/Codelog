@@ -1,3 +1,40 @@
+// import { addProjectToLocalStorage } from "./get_set_from_localStorage.js";
+// (1) home_projects_page functions //
+/**
+ * Add given project object to the "user_projects" array
+ * @param projectToAdd - project object to be added.
+ * Project object has the following elements:
+ *      "project_id": int starts with "current_max_project_id" + 1
+ *      "projectName": "string"
+ *      "description": "string"
+ *      "privacy": "string"
+ *      "tags": [
+ *          {
+ *              "tag_id": int that starts with ("current_max_tag_id" + 1),
+ *              "tag_name": "HTML",
+ *              "color": "red"
+ *          }]
+ *      "selected_project_entries": {
+ *          // contains all the entries shown below (!!) //
+ *      }
+*/
+function addProjectToLocalStorage (projectToAdd) {
+  // TODO: Add given project to the "user_projects" array in localStorage
+  const unusedProjectId = getUnusedProjectId()
+ 
+  // Set the entry id to current_max_entry_id + 1
+  projectToAdd.project_id = unusedProjectId
+
+  // Get the current "user_projects" array, or return an empty array if there is empty.
+  const projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
+
+  // Add the user additions to the "user_projects" array.
+  projectInArray.push(projectToAdd)
+
+  // Update to laocalStorage
+  localStorage.setItem('user_projects', JSON.stringify(projectInArray))
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   let selectedTags = []
 
@@ -7,16 +44,11 @@ document.addEventListener('DOMContentLoaded', function () {
     form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
   }
 
-  // Function to get a new project ID based on the number of projects in local storage
-  function getNewProjectId (projects) {
-    const maxId = projects.reduce((max, project) => Math.max(max, project.projectId), 0)
-    return maxId + 1
-  }
-
   // Function to handle the addition of a new project
   function addProject () {
+    // Gather Project Data
     const projectName = document.querySelector('#new-project-description').value
-    const projectDescription = document.querySelector('#new-entry').value
+    const description = document.querySelector('#new-entry').value
     const selectedPrivacyOption = document.querySelector('.privacy-option.bold')
 
     // Ensure that a privacy option is selected
@@ -24,27 +56,25 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Please select a privacy option.')
       return
     }
+    const privacy = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
+    const project_id = 0
 
-    const status = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
-
-    const projects = getProjectsFromStorage()
-    const projectId = getNewProjectId(projects)
-
+    // Create Project
     const newProject = {
-      projectId,
+      project_id,
       projectName,
-      projectDescription,
-      status,
+      description,
+      privacy,
       tags: selectedTags,
-      journals: []
+      selected_project_entries: []
     }
-
-    projects.push(newProject)
-    localStorage.setItem('projects', JSON.stringify(projects))
-
     document.querySelector('.new-project').style.display = 'none'
     resetForm()
+
+    // Add project to home page
     addProjectsToDocument([newProject])
+    // Add project to localStorage
+    addProjectToLocalStorage(newProject)
   }
 
   // Function to handle adding more entry fields
@@ -164,11 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get tags from localStorage
   function getTagsFromStorage () {
     return JSON.parse(localStorage.getItem('tags')) || []
-  }
-
-  // Ensure getProjectsFromStorage and addProjectsToDocument are available
-  function getProjectsFromStorage () {
-    return JSON.parse(localStorage.getItem('projects')) || []
   }
 
   function addProjectsToDocument (projects) {
