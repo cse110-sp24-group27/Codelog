@@ -13,7 +13,6 @@ function init () {
     const profile = getProfileFromStorage()
     console.log(profile)
     updateProfileOnPage(profile)
-    // Call function to store profile to .JSON
   }
 }
 
@@ -78,7 +77,7 @@ function save () {
     name: document.getElementById('name-input').value,
     pronouns: document.getElementById('pronouns-input').value,
     bio: document.getElementById('bio-input').value,
-    socialAccount: {
+    socialLinks: {
       email: document.getElementById('email-input').value,
       linkedin: document.getElementById('linkedin-input').value,
       github: document.getElementById('github-input').value
