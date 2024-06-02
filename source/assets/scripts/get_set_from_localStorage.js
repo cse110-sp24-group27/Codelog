@@ -24,8 +24,19 @@
 */
 function addProject (projectToAdd) {
   // TODO: Add given project to the "user_projects" array in localStorage
+
+  // get the max entry id
+  const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
+  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
+
+  // set the entry id to current_max_entry_id + 1
+  projectToAdd.project_id = currMaxProjectId + 1
+
+  // set the "current_max_entry_id" to "entry_to_add.entry_id"
+  localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
+
   // Get the current "user_projects" array, or return an empty array if there is empty.
-  const projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
+  let projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
 
   // Add the user additions to the "user_projects" array.
   projectInArray.push(projectToAdd)
@@ -86,13 +97,14 @@ function getAllUserProjects () {
 function addEntry (selectedProject, entryToAdd) {
   // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
   // get the max entry id
-  const entryToAddId = selectedProject.current_max_entry_id
+  const retrievedCurrMaxEntryId = localStorage.getItem('current_max_entry_id')
+  const currMaxEntryId = parseInt(retrievedCurrMaxEntryId)
 
   // set the entry id to current_max_entry_id + 1
-  entryToAdd.entry_id = entryToAddId + 1
+  entryToAdd.entry_id = currMaxEntryId + 1
 
   // set the "current_max_entry_id" to "entry_to_add.entry_id"
-  selectedProject.current_max_entry_id = entryToAdd.entry_id
+  localStorage.setItem('current_max_entry_id', (currMaxEntryId + 1))
 
   // push the given entry to "selected_project_entries" array
   selectedProject.selected_project_entries.push(entryToAdd)
