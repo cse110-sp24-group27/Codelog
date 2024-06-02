@@ -44,7 +44,7 @@ function getProfileFromStorage () {
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.img || 'source/assets/images/userPlaceholder.png'
+  document.getElementById('profile-picture').src = profile.profilePicture || 'source/assets/images/userPlaceholder.png'
   document.getElementById('name').value = profile.username || 'username'
   // document.getElementById('username').value = profile.username || 'Username'
   document.getElementById('pronoun').value = profile.pronouns
@@ -74,22 +74,22 @@ function loadImage (event) {
 function save () {
   const profile = getProfileFromStorage()
   const newProfile = {
-    name: document.getElementById('name-input').value,
-    pronouns: document.getElementById('pronouns-input').value,
-    bio: document.getElementById('bio-input').value,
+    username: document.getElementById('name').value,
+    pronouns: document.getElementById('pronoun').value,
+    bio: document.getElementById('description').value,
     socialLinks: {
-      email: document.getElementById('email-input').value,
-      linkedin: document.getElementById('linkedin-input').value,
-      github: document.getElementById('github-input').value
+      email: document.getElementById('link-email').value,
+      linkedin: document.getElementById('link-linkedin').value,
+      github: document.getElementById('link-github').value
     },
-    img: profile.img // Retain the old image if no new image is uploaded
+    profilePicture: profile.profilePicture // Retain the old image if no new image is uploaded
   }
   const imageUpload = document.getElementById('profile-picture-upload')
   if (imageUpload.files && imageUpload.files[0]) {
     // A new image has been uploaded
     const reader = new FileReader()
     reader.onload = function (e) {
-      newProfile.img = e.target.result
+      newProfile.profilePicture = e.target.result
       localStorage.setItem('user_profile', JSON.stringify(newProfile))
       console.log('profile updated with new image:', newProfile)
     }
@@ -105,7 +105,7 @@ function save () {
 function cancel () {
   const profile = getProfileFromStorage()
   document.getElementById('profile-form').reset()
-  document.getElementById('profile-picture').src = profile.img || 'https://via.placeholder.com/150'
+  document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
   console.log('reset form')
 }
 
