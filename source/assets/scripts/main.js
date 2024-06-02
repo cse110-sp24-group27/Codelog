@@ -111,4 +111,4 @@ function addProjectsToDocument (projects) {
 }
 
 // export functions for testing
-export default { getProjectsFromStorage }
+module.exports = { getProjectsFromStorage }

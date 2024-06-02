@@ -1,14 +1,14 @@
 // import { addProjectToLocalStorage } from "./get_set_from_localStorage.js";
 // (1) home_projects_page functions //
 /**
- * Get an unused Project Id 
+ * Get an unused Project Id
  */
 function getUnusedProjectId () {
   // Get the current max entry id
   const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
 
   // Make it an int
-  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)  
+  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
 
   // set the "current_max_entry_id" to "entry_to_add.entry_id"
   localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
