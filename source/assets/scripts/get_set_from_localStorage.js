@@ -5,14 +5,14 @@
 
 // Helper Functions //
 /**
- * Get an unused Project Id 
+ * Get an unused Project Id
  */
 export function getUnusedProjectId () {
   // Get the current max entry id
   const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
 
   // Make it an int
-  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)  
+  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
 
   // set the "current_max_entry_id" to "entry_to_add.entry_id"
   localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
@@ -42,7 +42,7 @@ export function getUnusedProjectId () {
 export function addProjectToLocalStorage (projectToAdd) {
   // TODO: Add given project to the "user_projects" array in localStorage
   const unusedProjectId = getUnusedProjectId()
- 
+
   // Set the entry id to current_max_entry_id + 1
   projectToAdd.project_id = unusedProjectId
 
