@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update the profile
-  const prevProfile = localStorage.getItem('profile')
+  const prevProfile = localStorage.getItem('user_profile')
   // Check if the localStorage is already created for projects
   if (isNaN(prevProfile)) {
     fetchProfileExamplejsonToStorage()
@@ -15,11 +15,11 @@ function init () {
   updateProfileOnPage(profile)
 
   // Update the projects
-  const prevProjects = localStorage.getItem('projects')
+  const prevProjects = localStorage.getItem('user_projects')
   // Check if the localStorage is already created for projects
   if (isNaN(prevProjects)) {
     // Get projects from .JSON to localstorage
-    fetchExamplejsonToStorage()
+    fetchProjectsExamplejsonToStorage()
   }
 
   // Get the projects from localStorage
@@ -35,8 +35,8 @@ function fetchProfileExamplejsonToStorage () {
   fetch('source/reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
     .then(data => {
-      const profileData = JSON.stringify(data.profile)
-      localStorage.setItem('profile', profileData)
+      const profileData = JSON.stringify(data.user_profile)
+      localStorage.setItem('user_profile', profileData)
     }) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch profile data:', error) // More specific error message
@@ -56,9 +56,9 @@ function getProfileFromStorage () {
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.img || 'source/assets/images/userPlaceholder.png'
-  document.getElementById('name').textContent = profile.name || 'Developer\'s Name'
-  document.getElementById('username').textContent = profile.username || 'Username'
+  document.getElementById('profile-picture').src = profile.profilePicture || 'source/assets/images/userPlaceholder.png'
+  document.getElementById('name').textContent = profile.username || 'Developer\'s Name'
+  // document.getElementById('username').textContent = profile.username || 'Username'
   document.getElementById('pronoun').textContent = profile.pronouns
   document.getElementById('description').textContent = profile.bio || 'User description'
   // Update links if provided in the profile
@@ -73,11 +73,11 @@ function updateProfileOnPage (profile) {
   }
 }
 
-// fetch exampledata.json to localstorage
-function fetchExamplejsonToStorage () {
-  fetch('source/reference/exampledata.json') // Parse the response as JSON
+// fetch datasturcture.json to localstorage
+function fetchProjectsExamplejsonToStorage () {
+  fetch('source/reference/datasturcture.json') // Parse the response as JSON
     .then(response => response.json())
-    .then(data => localStorage.setItem('projects', JSON.stringify(data))) // Store the parsed data
+    .then(data => localStorage.setItem('user_projects', JSON.stringify(data))) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch project data:', error) // More specific error message
     })
@@ -90,7 +90,7 @@ function fetchExamplejsonToStorage () {
  * @returns {Array<Object>} An array of projects found in localStorage
  */
 function getProjectsFromStorage () {
-  return JSON.parse(localStorage.getItem('projects')) || []
+  return JSON.parse(localStorage.getItem('user_projects')) || []
 }
 
 /**
@@ -111,4 +111,4 @@ function addProjectsToDocument (projects) {
 }
 
 // export functions for testing
-module.exports = { getProjectsFromStorage }
+// module.exports = { getProjectsFromStorage }

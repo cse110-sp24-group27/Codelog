@@ -133,10 +133,10 @@ class ProjectCard extends HTMLElement {
     }
 
     const article = this.shadowRoot.querySelector('article')
-    const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
+    const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag.tag_name}</p>`).join('')
     const maxWords = 30
-    const words = data.projectDescription.split(' ')
-    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.projectDescription
+    const words = data.description.split(' ')
+    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.description
 
     article.innerHTML = `
     <div class="drag-btn-container" bis_skin_checked="1">
@@ -147,7 +147,7 @@ class ProjectCard extends HTMLElement {
 
     <h3 class="project-name">${data.projectName}</h3>
 
-    <p class="status">${data.status}</p>
+    <p class="status">${data.privacy}</p>
 
     <p class="project-description">${truncatedDescription}</p>
     
