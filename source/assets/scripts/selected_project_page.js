@@ -284,8 +284,8 @@ showButton.addEventListener('click', function () {
 
 // Fetch data from user input in pop-up after clicking "Create Entry" and put the data in localStorage
 window.addEventListener('load', () => {
-  if (localStorage.getItem('entries') == null) {
-    localStorage.setItem('entries', [])
+  if (localStorage.getItem('selected_project_entries') == null) {
+    localStorage.setItem('selected_project_entries', [])
   }
 })
 
@@ -298,13 +298,12 @@ createEntryButton.addEventListener('click', createEntry)
 // On click, execute the create entry function
 function createEntry () {
   // Get the current array of entries from the local storage
-  const entries = localStorage.getItem('entries') || []
+  const entries = localStorage.getItem('selected_project_entries') || []
 
   // Fetch data from user input
   const entryTitle = document.getElementById('new-project-name').value
   const entryContent = document.getElementById('new-project-content').value
   const entryPublicity = document.getElementById('publicity-select').value
-  const entryTemplate = document.getElementById('template-select').value
   // TODO: Fetch Tags after its implemented
 
   /* Create an entry object
@@ -316,10 +315,10 @@ function createEntry () {
     * content
     */
   const entry = {
+    entry_id,
     titleName: entryTitle,
-    id: '10000',
-    template: entryTemplate,
-    tags: '',
+    description,
+    tags: [],
     publicity: entryPublicity,
     content: entryContent
   }
@@ -328,7 +327,7 @@ function createEntry () {
   entries.push(entry)
 
   // Add the updated entries array to the localStorage
-  localStorage.setItem('entries', JSON.stringify(entries))
+  localStorage.setItem('selected_project_entries', JSON.stringify(entries))
 }
 
 // Fetch Entries corresponding to the project for display //

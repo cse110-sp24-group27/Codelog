@@ -55,7 +55,7 @@ function fetchProfileExamplejsonToStorage () {
  * @returns {Array<Object>} An array of projects found in localStorage
  */
 function getProfileFromStorage () {
-  return JSON.parse(localStorage.getItem('profile')) || []
+  return JSON.parse(localStorage.getItem('user_profile')) || []
 }
 
 // Update the HTML page with the profile data
