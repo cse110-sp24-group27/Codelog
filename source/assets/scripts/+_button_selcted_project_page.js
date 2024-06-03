@@ -9,9 +9,9 @@ function closePopup (id) {
 }
 
 // Function to add a new input field and delete button
-function addInput(columnNumber) {
+function addInput (columnNumber) {
   // Get the container where the new input group will be added
-  const container = document.getElementById('inputContainer')
+  const container = document.getElementById('inputcontainer')
   // Create a new div element to act as the input group
   const inputGroup = document.createElement('div')
   inputGroup.classList.add('input-group')
@@ -25,7 +25,7 @@ function addInput(columnNumber) {
   deleteButton.classList.add('delete-btn')
   deleteButton.innerText = 'Delete'
   // Add an onclick event to the delete button to remove the input group
-  deleteButton.onclick = function() {
+  deleteButton.onclick = function () {
     deleteInput(deleteButton)
   }
   // Add an onclick event to the delete button to remove the input group
@@ -34,7 +34,7 @@ function addInput(columnNumber) {
   container.appendChild(inputGroup)
 }
 // Function to delete an input group
-function deleteInput(button) {
+function deleteInput (button) {
   const inputGroup = button.parentElement
   inputGroup.remove()
 }
