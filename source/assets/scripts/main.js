@@ -55,11 +55,12 @@ function fetchProfileExamplejsonToStorage () {
  * @returns {Array<Object>} An array of projects found in localStorage
  */
 function getProfileFromStorage () {
-  return JSON.parse(localStorage.getItem('profile')) || []
+  return JSON.parse(localStorage.getItem('user_profile')) || []
 }
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
+
   document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
   document.getElementById('name').textContent = profile.username || 'Developer\'s Name'
   document.getElementById('pronoun').textContent = profile.pronouns
@@ -68,6 +69,7 @@ function updateProfileOnPage (profile) {
   if (profile.socialLinks.email) {
     document.getElementById('link-email').href = `mailto:${profile.socialLinks.email}`
   }
+
   if (profile.socialLinks.linkedin) {
     document.getElementById('link-linkedin').href = profile.socialLinks.linkedin
   }

@@ -1,5 +1,8 @@
 {
-    "current_max_id":1000,
+    "current_max_project_id":0,
+    "current_max_entry_id":2000,
+    "current_max_tag_id":30000,
+
     "user_profile": {
         "username": "wayfarers",
         "pronouns": "they/them",
@@ -14,98 +17,154 @@
     "user_projects" : [
         {
             "project_id": 1,
-            "projectName": "meta-projects",
-            "description": "strstrstrstrstrstrstr strstrstr",
+            "projectName": "Name of the first project here",
+            "description": "Project description here",
             "privacy": "Private",
-            "tags": ["HTML"], 
-            "journals": [3,4,5] 
+            "tags": [
+                {
+                    "tag_id": 30001,
+                    "tag_name": "HTML",
+                    "color": "red"                
+                },
+                {
+                    "tag_id": 30002,
+                    "tag_name": "CSS",
+                    "color": "blue"                
+                },
+                {
+                    "tag_id": 30003,
+                    "tag_name": "JavaScript",
+                    "color": "Yellow"                
+                }
+            ], 
+            "selected_project_entries": [
+                {
+                    "entry_id": 2001,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tag_id": 30004,
+                            "tag_name": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tag_id": 30005,
+                            "tag_name": "CSS",
+                            "color": "blue"                
+                        },
+                        {
+                            "tag_id": 30006,
+                            "tag_name": "JavaScript",
+                            "color": "Yellow"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                }
+            ] 
         },
-        {       
+        {
             "project_id": 2,
-            "projectName": "codelog",
-            "description": "str",
-            "privacy": "Public",
-            "tags": ["HTML", "CSS", "JS"], 
-            "journals": [6,7,8] 
-        }
-    ], 
-
-    "journals" : [
-        {
-            "journalId": 3,
-            "parentProject": 1,
-            "journalName": "journal1",
-            "tags": ["tage 1", "tag 2"], 
+            "projectName": "Name of the first project here",
+            "description": "Project description here",
             "privacy": "Private",
-            "template": "Bug Fix",
-            "sections": [
+            "tags": [
                 {
-                    "type": "codeblock",
-                    "content": "content content content content"
+                    "tag_id": 30008,
+                    "tag_name": "HTML",
+                    "color": "red"                
                 },
                 {
-                    "type": "text",
-                    "content":"content content content content"
+                    "tag_id": 30009,
+                    "tag_name": "CSS",
+                    "color": "blue"                
+                },
+                {
+                    "tag_id": 30010,
+                    "tag_name": "JavaScript",
+                    "color": "Yellow"                
                 }
-            ]
-        },
-        {
-            "journalId": 5,
-            "parentProject": 1,
-            "journalName": "journal2",
-            "tags": ["tage 1", "tag 2"],
-            "privacy": "Public",
-            "template": "Bug-fix",
-            "sections": [
+            ], 
+            "selected_project_entries": [
                 {
-                    "type": "codeblock",
-                    "content": "content content content content"
+                    "entry_id": 2002,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tag_id": 30011,
+                            "tag_name": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tag_id": 30012,
+                            "tag_name": "CSS",
+                            "color": "blue"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
                 },
                 {
-                    "type": "text",
-                    "content":"content content content content"
+                    "entry_id": 2003,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tag_id": 30013,
+                            "tag_name": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tag_id": 30014,
+                            "tag_name": "CSS",
+                            "color": "blue"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
                 }
-            ]
-        }
-    ],
-
-
-    "templates": [
-        {
-            "templateId": 20,
-            "templateName": "Bug Fix",
-            "sections": [
-                {
-                    "type": "codeblock",
-                    "content": "content content content content"
-                },
-                {
-                    "type": "text",
-                    "content":"content content content content"
-                },
-                {
-                    "type": "codeblock",
-                    "content": "content content content content"
-                },
-                {
-                    "type": "text",
-                    "content":"content content content content"
-                }
-            ]
-        },
-        {
-            "templateId": 20,
-            "templateName": "New Idea",
-            "sections": [
-                {
-                    "type": "codeblock",
-                    "content": "content content content content"
-                },
-                {
-                    "type": "text",
-                    "content":"content content content content"
-                }
-            ]
-        }
+            ] 
+        }                
     ]
 }

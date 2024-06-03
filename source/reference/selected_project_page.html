@@ -71,8 +71,7 @@
                 <!--Display each journal entry in a box-->
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
-                <div class="journal-entry" id="entry1-container" draggable="true" ondragstart="dragProject(event)" 
-                ondrop="dropProject(event)" ondragover="allowDrop(event)">
+                <div class="journal-entry is-idle" id="entry1-container">
                     <h2 class="entry-name" id="entry1">Journal entry name</h2>
                     <h4 class="entry-template">Journal entry template</h4>
                     <p class="entry-text">
@@ -96,7 +95,7 @@
                     <!--Drag button to reorder the projects-->
                     <!--Need to implement JS function drag_project()-->
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="dragProject()">
+                        <button class="drag-btn">
                             <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
                         </button>
                     </div>
@@ -111,8 +110,7 @@
                 <!--
                 <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
-                <div class="journal-entry" id="entry2-container" draggable="true" ondragstart="dragProject(event)" 
-                ondrop="dropProject(event)" ondragover="allowDrop(event)">
+                <div class="journal-entry is-idle" id="entry2-container">
                     <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
@@ -122,7 +120,7 @@
                         Cras nulla libero, fermentum vitae sem at, efficitur blandit velit.
                     </p>
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="dragProject()">
+                        <button class="drag-btn">
                             <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
                         </button>
                     </div>
@@ -134,8 +132,7 @@
 
                 <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
 
-                <div class="journal-entry" id="entry3-container" draggable="true" ondragstart="dragProject(event)" 
-                ondrop="dropProject(event)" ondragover="allowDrop(event)">
+                <div class="journal-entry is-idle" id="entry3-container">
                     <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
                     <h4 class="entry-template">Template</h4>
                     <p class="entry-text">
@@ -146,7 +143,7 @@
                         vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
                     </p>
                     <div class="drag-btn-container">
-                        <button class="drag-btn" onclick="dragProject()">
+                        <button class="drag-btn">
                             <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
                         </button>
                     </div>
@@ -218,7 +215,7 @@
         </footer>
         
         <!-- Link to script -->
-        <script defer src="../assets/scripts/+_button_selcted_project_page.js"></script>
-        <script src="../assets/scripts/selected_project_page.js"></script>
+        <script type="text/javascript" src="../assets/scripts/+_button_selcted_project_page.js"></script>
+        <script type="text/javascript" src="../assets/scripts/selected_project_page.js"></script>
     </body>
 </html>
