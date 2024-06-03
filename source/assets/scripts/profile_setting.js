@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  const prevProfile = localStorage.getItem('profile')
+  const prevProfile = localStorage.getItem('user_profile')
 
   if (prevProfile == null) {
     fetchExamplejsonToStorage()
@@ -13,7 +13,6 @@ function init () {
     const profile = getProfileFromStorage()
     console.log(profile)
     updateProfileOnPage(profile)
-    // Call function to store profile to .JSON
   }
 }
 
@@ -23,7 +22,7 @@ function fetchExamplejsonToStorage () {
     .then(response => response.json())
     .then(data => {
       const profileData = JSON.stringify(data.user_profile)
-      localStorage.setItem('profile', profileData)
+      localStorage.setItem('user_profile', profileData)
     }) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch profile data:', error) // More specific error message
@@ -38,7 +37,7 @@ function fetchExamplejsonToStorage () {
  * @returns {Array<Object>} An array of projects found in localStorage
  */
 function getProfileFromStorage () {
-  return JSON.parse(localStorage.getItem('profile')) || []
+  return JSON.parse(localStorage.getItem('user_profile')) || []
 }
 
 // TODO: implement function to store localstorage to .JSON
@@ -48,8 +47,8 @@ function updateProfileOnPage (profile) {
   document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
   document.getElementById('name-input').value = profile.username || 'Name'
   // document.getElementById('username').value = profile.username || 'Username'
-  document.getElementById('pronouns-input').value = profile.pronouns
-  document.getElementById('bio-input').value = profile.bio
+  document.getElementById('pronoun').value = profile.pronouns
+  document.getElementById('description').value = profile.bio
   // Update links if provided in the profile
   if (profile.socialLinks.email) {
     document.getElementById('email-input').href = `mailto:${profile.socialLinks.email}`
@@ -91,13 +90,13 @@ function save () {
     const reader = new FileReader()
     reader.onload = function (e) {
       newProfile.profilePicture = e.target.result
-      localStorage.setItem('profile', JSON.stringify(newProfile))
+      localStorage.setItem('user_profile', JSON.stringify(newProfile))
       console.log('profile updated with new image:', newProfile)
     }
     reader.readAsDataURL(imageUpload.files[0])
   } else {
     // No new image uploaded, retain the existing image
-    localStorage.setItem('profile', JSON.stringify(newProfile))
+    localStorage.setItem('user_profile', JSON.stringify(newProfile))
     console.log('profile updated without new image: ', newProfile)
   }
 }
