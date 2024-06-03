@@ -172,7 +172,7 @@ function dragProjects () {
       console.log(sibling.offsetTop)
       console.log(sibling.offsetWidth)
       const rect = sibling.getBoundingClientRect()
-      return e.clientY <= rect.top + rect.height / 2;
+      return e.clientY <= rect.top + rect.height / 2
     })
     console.log(nextSibling)
     // Inserting the dragging project before the found sibling
