@@ -1,7 +1,6 @@
 // Run the init() function when the page has loaded
 window.addEventListener('DOMContentLoaded', init)
 
-
 // Starts the program, all function calls trace back here
 function init () {
   // Update the profile
@@ -11,11 +10,9 @@ function init () {
     fetchProfileExamplejsonToStorage()
   }
 
-
   // Get the profile from localStorage
   const profile = getProfileFromStorage()
   updateProfileOnPage(profile)
-
 
   // Update the projects
   const prevProjects = localStorage.getItem('projects')
@@ -25,7 +22,6 @@ function init () {
     fetchExamplejsonToStorage()
   }
 
-
   // Get the projects from localStorage
   const projects = getProjectsFromStorage()
   console.log(projects)
@@ -34,7 +30,6 @@ function init () {
   // Add the event listeners to the form elements
   // initFormHandler()
 }
-
 
 /**
  * Fetches user_profile from .JSON file to localstorage.
@@ -52,7 +47,6 @@ function fetchProfileExamplejsonToStorage () {
     })
 }
 
-
 /**
  * Reads 'profile' from localStorage and returns an array of
  * user profile info. found (parsed, not in string form). If
@@ -63,7 +57,6 @@ function fetchProfileExamplejsonToStorage () {
 function getProfileFromStorage () {
   return JSON.parse(localStorage.getItem('profile')) || []
 }
-
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
@@ -83,7 +76,6 @@ function updateProfileOnPage (profile) {
   }
 }
 
-
 /**
  * Fetches user_projects from .JSON file to localstorage.
  * Store the projects in localstorage as variable projects.
@@ -95,13 +87,12 @@ function fetchExamplejsonToStorage () {
     .then(data => {
       const projectsData = JSON.stringify(data.user_projects)
       localStorage.setItem('projects', projectsData)
-      console.log('Projects successfully stored in localStorage');
+      console.log('Projects successfully stored in localStorage')
     }) // Store the parsed data
     .catch(error => {
       console.error('Failed to fetch project data:', error) // More specific error message
     })
 }
-
 
 /**
  * Reads 'projects' from localStorage and returns an array of
@@ -113,7 +104,6 @@ function fetchExamplejsonToStorage () {
 function getProjectsFromStorage () {
   return JSON.parse(localStorage.getItem('projects')) || []
 }
-
 
 /**
  * Takes in an array of projects and for each project creates a
@@ -133,13 +123,12 @@ function addProjectsToDocument (projects) {
   dragProjects()
 }
 
-
 /**
  * Function that allows user to drag the project and reorder
  * projects.
  * Unfinished!
  */
-function dragProjects() {
+function dragProjects () {
   const projects = document.querySelector('.projects')
   const projectCards = projects.querySelectorAll('project-card')
   projectCards.forEach(project => {
@@ -152,36 +141,34 @@ function dragProjects() {
     project.addEventListener('dragend', () => article.classList.remove('dragging'))
   })
 
-
-  let draggingItem = null;
+  let draggingItem = null
   const initProjects = (e) => {
     if (!draggingItem) {
       projectCards.forEach(project => {
         if (project.shadowRoot.querySelector('.project').classList.contains('dragging')) {
-          draggingItem = project;
+          draggingItem = project
         }
       })
     }
     if (!draggingItem) return
     projectCards.forEach(project => {
       if (project.shadowRoot.querySelector('.project').classList.contains('dragging')) {
-        draggingItem = project;
+        draggingItem = project
       }
     })
     console.log(draggingItem)
     // Getting all items except currently dragging and making array of them
     const siblings = []
-    projectCards.forEach(project => {3
+    projectCards.forEach(project => {
       const article = project.shadowRoot.querySelector('.project')
       if (!article.classList.contains('dragging')) {
         siblings.push(project)
       }
     })
 
-
     console.log(siblings)
     // Finding the sibling after which teh dragging item should be placed
-    let nextSibling = siblings.find(sibling => {
+    const nextSibling = siblings.find(sibling => {
       console.log(sibling.offsetTop)
       console.log(sibling.offsetWidth)
       const rect = sibling.getBoundingClientRect()
@@ -197,7 +184,6 @@ function dragProjects() {
   }
   projects.addEventListener('dragover', initProjects)
 }
-
 
 // export functions for testing
 module.exports = { getProjectsFromStorage }
