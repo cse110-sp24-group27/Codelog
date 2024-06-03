@@ -21,7 +21,7 @@ function fetchExamplejsonToStorage () {
   fetch('../reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
     .then(data => {
-      const profileData = JSON.stringify(data.profile)
+      const profileData = JSON.stringify(data.user_profile)
       localStorage.setItem('user_profile', profileData)
     }) // Store the parsed data
     .catch(error => {
@@ -44,23 +44,23 @@ function getProfileFromStorage () {
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.profilePicture || 'source/assets/images/userPlaceholder.png'
-  document.getElementById('name').value = profile.username || 'username'
+  document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
+  document.getElementById('name-input').value = profile.username || 'Name'
   // document.getElementById('username').value = profile.username || 'Username'
   document.getElementById('pronoun').value = profile.pronouns
   document.getElementById('description').value = profile.bio
   // Update links if provided in the profile
   if (profile.socialLinks.email) {
-    document.getElementById('link-email').href = `mailto:${profile.socialLinks.email}`
-    document.getElementById('link-email').value = profile.socialLinks.email
+    document.getElementById('email-input').href = `mailto:${profile.socialLinks.email}`
+    document.getElementById('email-input').value = profile.socialLinks.email
   }
   if (profile.socialLinks.linkedin) {
-    document.getElementById('link-linkedin').href = profile.socialLinks.linkedin
-    document.getElementById('link-linkedin').value = profile.socialLinks.linkedin
+    document.getElementById('linkedin-input').href = profile.socialLinks.linkedin
+    document.getElementById('linkedin-input').value = profile.socialLinks.linkedin
   }
   if (profile.socialLinks.github) {
-    document.getElementById('link-github').href = profile.socialLinks.github
-    document.getElementById('link-github').value = profile.socialLinks.github
+    document.getElementById('github-input').href = profile.socialLinks.github
+    document.getElementById('github-input').value = profile.socialLinks.github
   }
 }
 
@@ -74,13 +74,13 @@ function loadImage (event) {
 function save () {
   const profile = getProfileFromStorage()
   const newProfile = {
-    username: document.getElementById('name').value,
-    pronouns: document.getElementById('pronoun').value,
-    bio: document.getElementById('description').value,
+    username: document.getElementById('name-input').value,
+    pronouns: document.getElementById('pronouns-input').value,
+    bio: document.getElementById('bio-input').value,
     socialLinks: {
-      email: document.getElementById('link-email').value,
-      linkedin: document.getElementById('link-linkedin').value,
-      github: document.getElementById('link-github').value
+      email: document.getElementById('email-input').value,
+      linkedin: document.getElementById('linkedin-input').value,
+      github: document.getElementById('github-input').value
     },
     profilePicture: profile.profilePicture // Retain the old image if no new image is uploaded
   }

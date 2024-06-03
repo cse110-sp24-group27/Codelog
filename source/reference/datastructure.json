@@ -2,16 +2,17 @@
     "current_max_project_id":0,
     "current_max_entry_id":2000,
     "current_max_tag_id":30000,
+
     "user_profile": {
         "username": "wayfarers",
         "pronouns": "they/them",
         "bio": "SE at UCSD",
         "socialLinks": {
-            "email": "example@gmail.com",
-            "linkedin": "linkedin/profile",
+            "email": "string@str.str",
+            "linkedin": "string linkd",
             "github": "wayfare.git.io"
         },
-        "profilePicture": "source/of/picture"
+        "profilePicture": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
     },
     "user_projects" : [
         {
