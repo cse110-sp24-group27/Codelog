@@ -1,6 +1,7 @@
 // Run the init() function when the page has loaded
 window.addEventListener('DOMContentLoaded', init)
 
+
 // Starts the program, all function calls trace back here
 function init () {
   // Update the profile
@@ -10,9 +11,11 @@ function init () {
     fetchProfileExamplejsonToStorage()
   }
 
+
   // Get the profile from localStorage
   const profile = getProfileFromStorage()
   updateProfileOnPage(profile)
+
 
   // Update the projects
   const prevProjects = localStorage.getItem('projects')
@@ -22,6 +25,7 @@ function init () {
     fetchExamplejsonToStorage()
   }
 
+
   // Get the projects from localStorage
   const projects = getProjectsFromStorage()
   console.log(projects)
@@ -30,6 +34,7 @@ function init () {
   // Add the event listeners to the form elements
   // initFormHandler()
 }
+
 
 /**
  * Fetches user_profile from .JSON file to localstorage.
@@ -47,6 +52,7 @@ function fetchProfileExamplejsonToStorage () {
     })
 }
 
+
 /**
  * Reads 'profile' from localStorage and returns an array of
  * user profile info. found (parsed, not in string form). If
@@ -55,12 +61,12 @@ function fetchProfileExamplejsonToStorage () {
  * @returns {Array<Object>} An array of projects found in localStorage
  */
 function getProfileFromStorage () {
-  return JSON.parse(localStorage.getItem('user_profile')) || []
+  return JSON.parse(localStorage.getItem('profile')) || []
 }
+
 
 // Update the HTML page with the profile data
 function updateProfileOnPage (profile) {
-
   document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
   document.getElementById('name').textContent = profile.username || 'Developer\'s Name'
   document.getElementById('pronoun').textContent = profile.pronouns
@@ -69,7 +75,6 @@ function updateProfileOnPage (profile) {
   if (profile.socialLinks.email) {
     document.getElementById('link-email').href = `mailto:${profile.socialLinks.email}`
   }
-
   if (profile.socialLinks.linkedin) {
     document.getElementById('link-linkedin').href = profile.socialLinks.linkedin
   }
@@ -77,6 +82,7 @@ function updateProfileOnPage (profile) {
     document.getElementById('link-github').href = profile.socialLinks.github
   }
 }
+
 
 /**
  * Fetches user_projects from .JSON file to localstorage.
@@ -96,6 +102,7 @@ function fetchExamplejsonToStorage () {
     })
 }
 
+
 /**
  * Reads 'projects' from localStorage and returns an array of
  * all of the projects found (parsed, not in string form). If
@@ -106,6 +113,7 @@ function fetchExamplejsonToStorage () {
 function getProjectsFromStorage () {
   return JSON.parse(localStorage.getItem('projects')) || []
 }
+
 
 /**
  * Takes in an array of projects and for each project creates a
@@ -125,6 +133,7 @@ function addProjectsToDocument (projects) {
   dragProjects()
 }
 
+
 /**
  * Function that allows user to drag the project and reorder
  * projects.
@@ -142,6 +151,7 @@ function dragProjects() {
     // Removing dragging-project class from project on dragend event
     project.addEventListener('dragend', () => article.classList.remove('dragging'))
   })
+
 
   let draggingItem = null;
   const initProjects = (e) => {
@@ -168,6 +178,7 @@ function dragProjects() {
       }
     })
 
+
     console.log(siblings)
     // Finding the sibling after which teh dragging item should be placed
     let nextSibling = siblings.find(sibling => {
@@ -186,6 +197,7 @@ function dragProjects() {
   }
   projects.addEventListener('dragover', initProjects)
 }
+
 
 // export functions for testing
 module.exports = { getProjectsFromStorage }
