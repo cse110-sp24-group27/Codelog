@@ -39,6 +39,125 @@ function deleteInput (button) {
   inputGroup.remove()
 }
 
+/**
+ * Create a new entry object from the form data
+ * @param: none, assuming that we have current_max_id and selected_project_id
+* @return  {object} in format: {"entry_id": 2003,
+            "titleName": "Entry 1 Name",
+            "description": "Project description here",
+            "tags": [
+                {
+                    "tag_id": 30013,
+                    "tag_name": "HTML",
+                    "color": "red"                
+                },
+                {
+                    "tag_id": 30014,
+                    "tag_name": "CSS",
+                    "color": "blue"                
+                }
+            ],
+            "publicity": "Private",
+            "content": [
+                {
+                    "type": "header",
+                    "content": "white background and bigger black font"
+                },
+                {
+                    "type": "code",
+                    "content": "dark gray background and light gray font"
+                },
+                {
+                    "type": "text",
+                    "content":"white background and black font"
+                }
+            ]}      
+
+ */
+function createNewEntryObject() { 
+    // Retrieve the title, description, and publicity
+    const titleName = document.getElementById('new-project-name').value
+    const description = document.getElementById('new-project-content').value
+    const publicity = document.getElementById('publicity-select').value
+  
+    // Retrieve the tags (assuming tags are dynamically added and have a specific class)
+    const tags = Array.from(document.querySelectorAll('#tag-editor-popup .tag'))
+    .map(tagElement => {
+      return {
+        tag_id: tagElement.getAttribute('data-tag-id'),  // using data-* attribute for id
+        tag_name: tagElement.textContent,  // or a specific element within the tag element for the name
+        color: tagElement.getAttribute('data-tag-color') // using data-* attribute for color
+      };
+    });
+  
+    // Retrieve the content sections
+    const contentElements = document.querySelectorAll('#inputcontainer .input-group')
+    const content = Array.from(contentElements).map((inputGroup) => {
+      const input = inputGroup.querySelector('input')
+      const type = input.classList.contains('input-1') ? 'header' :
+                   input.classList.contains('input-2') ? 'code' :
+                   'text'
+      return {
+        type: type,
+        content: input.value
+      }
+    })
+    // Create the new entry object
+    const newEntryObject = {
+      entry_id: 2000,   // TODO line 119
+      titleName: titleName,
+      description: description,
+      tags: tags,
+      publicity: publicity,
+      content: content
+    };
+    console.log(newEntryObject)
+    saveNewEntryToLocalStorage(100, newEntryObject)  // testing for now, will move this out
+    return newEntryObject
+}
+
+
+// TODO: get current_max_entry_id
+
+// TODO: get current selected_project
+
+
+/**
+ * Save a new entry to the localStorage under a specific project.
+ * 
+ * @param {number} selectedProjectId - The ID of the project to which the new entry should be added.
+ * @param {object} newEntry - The new entry object to be added to the selected project.
+ */
+function saveNewEntryToLocalStorage(selectedProjectId, newEntry) {
+  try {
+    // Retrieve the user projects from localStorage and parse it into an array
+    let projects = JSON.parse(localStorage.getItem('user_projects')) || [];
+
+    // Find the project with the matching ID and add the new entry to its entries array
+    let projectFound = false;
+    projects.forEach(project => {
+      if (project.project_id == selectedProjectId) {
+        project.selected_project_entries = project.selected_project_entries || [];
+        project.selected_project_entries.push(newEntry);
+        projectFound = true;
+      }
+    });
+
+    // Update the localStorage with the modified projects array
+    if (projectFound) {
+      localStorage.setItem('user_projects', JSON.stringify(projects));
+    } else {
+      console.warn(`Project with ID ${selectedProjectId} not found.`);
+    }
+  } catch (error) {
+    console.error('Error saving new entry to localStorage:', error);
+  }
+}
+
+
+
+
+
 window.openPopup = openPopup
 window.closePopup = closePopup
 window.addInput = addInput

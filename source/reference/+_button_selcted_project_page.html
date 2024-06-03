@@ -34,8 +34,10 @@
             </div>
             <div id="tag-editor-popup" class="tag-container">
                 <h3>Tags</h3>
+                <div class="tag" data-tag-id=3000 data-tag-color="red">HTML</div>
+                <div class="tag" data-tag-id=3001 data-tag-color="green">CSS</div>
                 <button type="button" id="add-tag-btn">Add Tag</button>
-            </div>
+              </div>
 
             <div class="entry-container">
                 <div class="input-container" id="inputcontainer">
@@ -60,7 +62,7 @@
             </div>
 
             <div class="done-btn-position">
-                <button type="button" id="done-btn">Create Entry</button>
+                <button type="button" id="done-btn" onclick="createNewEntryObject()">Create Entry</button>
             </div>
         </form>
     </div>
