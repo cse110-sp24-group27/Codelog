@@ -18,7 +18,7 @@ function addInput (columnNumber) {
   // Create a new input element
   const newInput = document.createElement('input')
   newInput.type = 'text'
-  newInput.placeholder = `Input for ${columnNumber}`
+  newInput.placeholder = `${columnNumber==1 ? 'Header' : columnNumber==2 ? 'Code' : 'Text'} input`
   newInput.classList.add(`input-${columnNumber}`)
   // Create a new button element for deletion
   const deleteButton = document.createElement('button')
@@ -76,8 +76,8 @@ function deleteInput (button) {
  */
 function createNewEntryObject() { 
     // Retrieve the title, description, and publicity
-    const titleName = document.getElementById('new-project-name').value
-    const description = document.getElementById('new-project-content').value
+    const titleName = document.getElementById('new-entry-name').value
+    const description = document.getElementById('new-entry-description').value
     const publicity = document.getElementById('publicity-select').value
   
     // Retrieve the tags (assuming tags are dynamically added and have a specific class)

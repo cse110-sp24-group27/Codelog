@@ -14,15 +14,15 @@
 
     <!-- This will hide until the + button is clicked -->
     <div id="hidden-popup" class="pop-up">
-        <form id="new-project" class="entry-container">
+        <form id="new-entry" class="entry-container">
             <button type="button" id="project-page-popup-back-btn" onclick="closePopup('hidden-popup')">
                 <img src="../assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
             </button>
             <h1>Create a new entry</h1>
             <h3>Entry Title</h3>
-            <input type="text" id="new-project-name" placeholder="Enter New Project Name">
-            <h3>Content</h3>
-            <input type="text" id="new-project-content" placeholder="Enter New Project Content">
+            <input type="text" id="new-entry-name" placeholder="Enter New Entry Name">
+            <h3>Description</h3>
+            <input type="text" id="new-entry-description" placeholder="Enter New Entry Description">
             <div class="select-container">
                 <div class="dropdown-group">
                     <h3>Publicity</h3>
@@ -34,8 +34,8 @@
             </div>
             <div id="tag-editor-popup" class="tag-container">
                 <h3>Tags</h3>
-                <div class="tag" data-tag-id=3000 data-tag-color="red">HTML</div>
-                <div class="tag" data-tag-id=3001 data-tag-color="green">CSS</div>
+                <div class="tag" data-tag-id="3000" data-tag-color="red">HTML</div> <!-- example data for testing, will be removed-->
+                <div class="tag" data-tag-id="3001" data-tag-color="green">CSS</div> <!-- example data for testing, will be removed-->
                 <button type="button" id="add-tag-btn">Add Tag</button>
               </div>
 

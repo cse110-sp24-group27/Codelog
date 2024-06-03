@@ -99,7 +99,7 @@
 }
 
 /* Style for entry title box */
-#new-project-name {
+#new-entry-name {
   padding: 10px;
   border: 1px solid #fff;
   background-color: #2a2a2e;
@@ -110,8 +110,8 @@
   box-sizing: border-box;
 }
 
-/* Style for content box */
-#new-project-content {
+/* Style for description box */
+#new-entry-description {
   flex-grow: 1;
   padding: 10px;
   border: 1px solid #fff;
