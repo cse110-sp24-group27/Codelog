@@ -60,36 +60,36 @@
             <form id="profile-form">
                 <!-- Name Input -->
                 <div class="form-group">
-                    <label for="name-input">Name</label>
-                    <input type="text" id="name-input" placeholder="Developer's Name">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Developer's Name">
                 </div>
 
                 <!-- Pronouns Input -->
                 <div class="form-group">
-                    <label for="pronouns-input">Pronouns</label>
-                    <input type="text" id="pronouns-input" placeholder="they/them">
+                    <label for="pronoun">Pronouns</label>
+                    <input type="text" id="pronoun" placeholder="they/them">
                 </div>
 
                 <!-- Bio Input -->
                 <div class="form-group">
-                    <label for="bio-input">Bio</label>
-                    <input type="text" id="bio-input" placeholder="Bio - ex. Software Engineer at UCSD">
+                    <label for="description">Bio</label>
+                    <input type="text" id="description" placeholder="Bio - ex. Software Engineer at UCSD">
                 </div>
 
                 <!-- Social Accounts Section -->
                 <div class="form-group">
-                    <label for="email-input"><i class="fa-solid fa-envelope"></i> Email</label>
-                    <input type="email" id="email-input" placeholder="Email">
+                    <label for="link-email"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" id="link-email" placeholder="Email">
                 </div>
 
                 <div class="form-group">
-                    <label for="linkedin-input"><i class="fa-brands fa-linkedin"></i> LinkedIn</label>
-                    <input type="text" id="linkedin-input" placeholder="LinkedIn">
+                    <label for="link-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</label>
+                    <input type="text" id="link-linkedin" placeholder="LinkedIn">
                 </div>
 
                 <div class="form-group">
-                    <label for="github-input"><i class="fa-brands fa-github"></i> GitHub</label>
-                    <input type="text" id="github-input" placeholder="GitHub">
+                    <label for="link-github"><i class="fa-brands fa-github"></i> GitHub</label>
+                    <input type="text" id="link-github" placeholder="GitHub">
                 </div>
 
                 <!-- Buttons -->
@@ -112,33 +112,6 @@
         document.getElementById('profile-picture').addEventListener('mouseout', function () {
             document.getElementById('change-avatar-text').style.display = 'none';
         });
-        function loadImage(event) {
-            const output = document.getElementById('profile-picture');
-            output.src = URL.createObjectURL(event.target.files[0]);
-        }
-
-        function save() {
-            const profile = {
-                name: document.getElementById('name-input').value,
-                pronouns: document.getElementById('pronouns-input').value,
-                bio: document.getElementById('bio-input').value,
-                socialAccount: {
-                    email: document.getElementById('email-input').value,
-                    linkedin: document.getElementById('linkedin-input').value,
-                    github: document.getElementById('github-input').value
-                },
-                img: document.getElementById('profile-picture').src
-            };
-
-            localStorage.setItem('profile', JSON.stringify(profile));
-            console.log("profile:", profile); //debug line
-        }
-
-        function cancel() {
-            document.getElementById('profile-form').reset();
-            document.getElementById('profile-picture').src = "https://via.placeholder.com/150"
-            console.log('reset form')
-        }
     </script>
 </body>
 </html>
