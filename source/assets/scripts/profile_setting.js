@@ -17,7 +17,7 @@ function init () {
 }
 
 // fetch datastructure.json to localstorage
-function fetchExamplejsonToStorage() {
+function fetchExamplejsonToStorage () {
   fetch('../reference/datastructure.json') // Parse the response as JSON
     .then(response => response.json())
     .then(data => {
@@ -44,15 +44,15 @@ function fetchExamplejsonToStorage() {
 //     console.error(err)
 //   }
 // }
-function getProfileFromStorage() {
+function getProfileFromStorage () {
   try {
-    const profileString = localStorage.getItem('user_profile');
+    const profileString = localStorage.getItem('user_profile')
     if (profileString) {
-      return JSON.parse(profileString);
+      return JSON.parse(profileString)
     }
-    return null; // Or another appropriate value for error case
+    return null // Or another appropriate value for error case
   } catch (err) {
-    console.error('Error retrieving profile from storage:', err);
+    console.error('Error retrieving profile from storage:', err)
   }
 }
 // TODO: implement function to store localstorage to .JSON
