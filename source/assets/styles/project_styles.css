@@ -9,6 +9,7 @@ body {
   font-style: normal;
   width: 100%;
   height: 100%;
+  padding: 0;
 }
 
 /* Style the header section */
@@ -57,6 +58,9 @@ main {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
+  padding: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Style the user profile */
@@ -116,8 +120,7 @@ main {
 .project-collection {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: flex-start;
   width: auto;
   margin-left: 5%;
@@ -131,15 +134,15 @@ main {
 
 /* Style the class contains all projects */
 .projects {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   justify-content: flex-start;
   align-items: flex-start;
-  width: 1000px;
+  width: auto;
   height: auto;
   margin-bottom: 100px;
-  gap: 10px;
+  gap: 100px;
 }
 
 /* Style the class of creating new project */
@@ -152,7 +155,6 @@ main {
   border: 1px solid #ddd;
   border-radius: 5px;
   margin-top: 20px;
-  margin-left: -200px;
 }
 
 .new-project h2 {
@@ -246,10 +248,13 @@ main {
 
 /* Style the copyright footer */
 #footer {
-  padding-top: 25%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 10%;
   margin-left: 10%;
   font-size: 14px;
-  bottom: 0;
   width: 200px;
   height: 60px;
 }
