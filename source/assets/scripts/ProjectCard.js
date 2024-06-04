@@ -4,19 +4,14 @@ class ProjectCard extends HTMLElement {
   constructor() {
     super() // inherit everything from HTMLElement
 
-
     // attach the shadow DOM to this Web Component (leave the mode open)
     this.attachShadow({ mode: 'open' })
-
 
     // create an <article> element - This will hold our markup once our data is set
     const article = document.createElement('article')
 
-
     // Create a style element - This will hold all of the styles for the Web Component
     const style = document.createElement('style')
-
-
     style.textContent = `
     article {
       margin-right: auto;
@@ -29,12 +24,14 @@ class ProjectCard extends HTMLElement {
       padding: 10px;
       cursor: move;
       }
+
        /* Style for project name */
       h3.project-name {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
       }
+
        /* Style for project status */
       p.status {
         position: absolute;
@@ -45,11 +42,13 @@ class ProjectCard extends HTMLElement {
         margin-left: 5%;
         margin-right: 5px;
       }
+
        /* Style for project description */
       p.project-description {
         font-size: 10px;
         margin: 0% 5% 10%;
       }
+
        /* Style the drag button container */
       .delete-btn-container {
         /* Use absolute position to place the button container correctly */
@@ -60,7 +59,6 @@ class ProjectCard extends HTMLElement {
         height: auto;
       }
  
- 
       /* Style the drag buttons within each journal entry */
       .delete-btn {
         cursor: grab;
@@ -68,20 +66,21 @@ class ProjectCard extends HTMLElement {
         appearance: none;
         border: none;
       }
- 
- 
+
       /* Style the drag button image */
       .delete-btn-img {
         position: relative;
         width: 10px;
         height: auto;
       }
+
        /* Style the tags of each project */
       div.tags {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
       }
+
        div.tags p {
         border-radius: 2px;
         padding: 5px 10px;
@@ -91,6 +90,7 @@ class ProjectCard extends HTMLElement {
         align-items: center;
         margin: 0;
       }
+
        p.dot {
         height: 15px;
         width: 15px;
@@ -98,18 +98,11 @@ class ProjectCard extends HTMLElement {
         background-color: darkred; /* change this as needed */
         margin-right: 5px;
       }
- 
- 
-      .project.dragging {
-        opacity: 0;
-      }
     `
-
 
     // Append the <style> and <article> elements to the Shadow DOM
     this.shadowRoot.append(style, article)
   }
-
 
   /**
    * This function deletes the selected project from
@@ -118,22 +111,19 @@ class ProjectCard extends HTMLElement {
    * the user wants to delete the clicked project.
    * If yes, the project will be deleted.
    */
-  deletePopUp() {
+  deletePopUp () {
     if (confirm('Are you sure you want to delete this project?')) {
       console.log('Deleting project...')
       this.remove()
       const projectName = this.shadowRoot.querySelector('.project').querySelector('.project-name').textContent
-
 
       // Remove the project data from localStorage if projectId is valid
       if (projectName) {
         // Fetch existing projects from localStorage
         let projects = localStorage.getItem('user_projects')
         projects = projects ? JSON.parse(projects) : []
-        console.log(projects)
         // Filter out the project to be deleted
         projects = projects.filter(project => project.projectName !== projectName)
-        console.log(projects)
         // Update localStorage with the new projects array
         localStorage.setItem('user_projects', JSON.stringify(projects))
         projects = localStorage.getItem('user_projects')
@@ -144,7 +134,6 @@ class ProjectCard extends HTMLElement {
     // TODO: Delete this project from the .JSON file as well
     // (or maybe not if the .JSON file is always updating according to the localstorage)
   }
-
 
   /**
   * @param {Object} data - the data to pass into the <project-card> should be of the following format:
@@ -157,52 +146,38 @@ class ProjectCard extends HTMLElement {
   "imageUrl": "URL of the project image" // Optional: URL for a project image //string
   },... //could use innerHTML like lab 7, but this seems to give less bugs, and easier to edit in future
   */
-  set data(data) {
+  set data (data) {
     if (!data || typeof data !== 'object') {
       console.error('Invalid project data provided to ProjectCard!')
       return
     }
-    console.log(data.projectName)
     const article = this.shadowRoot.querySelector('article')
     article.setAttribute('draggable', 'true')
     article.className = 'project'
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
-    console.log(data.description)
     const words = data.description.split(' ')
     const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.description
-
-
     article.innerHTML = `
     <div class="delete-btn-container" bis_skin_checked="1">
       <button class="delete-btn" draggable='false'>
         <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
       </button>
     </div>
- 
- 
     <h3 class="project-name">${data.projectName}</h3>
- 
- 
     <p class="status">${data.privacy}</p>
- 
- 
     <p class="project-description">${truncatedDescription}</p>
-   
     <div class="tags">${tagsHtml}</div>
     `
-
 
     // create an eventListener for the delete button of the project
     const deleteButton = article.querySelector('.delete-btn')
     deleteButton.addEventListener('click', () => this.deletePopUp())
 
-
     // Append or update the article (project) in shadow DOM
     if (!this.shadowRoot.contains(article)) {
       this.shadowRoot.appendChild(article)
     }
-
 
     // Optional: handle project impage if provided
     if (data.imageUrl) {
@@ -211,8 +186,7 @@ class ProjectCard extends HTMLElement {
     }
   }
 
-
-  get data() {
+  get data () {
     return this.data
   }
 }
