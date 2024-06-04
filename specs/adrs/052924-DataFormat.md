@@ -7,7 +7,7 @@
 
 We need to decide on how to store projects, journal entries.
 1. Store projects and jounrals in an array of objects.
-  * Each project object contains information and journal entry ID's.
+  * Each project object contains information and journal entry IDs.
   * Each journal object contains journal content, tags, and other information.
 2. Store projects in an array of objects.
   * Each project object contains an array of journal entry objects.
@@ -17,4 +17,4 @@ We need to decide on how to store projects, journal entries.
 
 Chosen option: option 2
 
-Because this option groups all entries of a project together, so they are easier to access and helps with turning the journal data into a markdown file to be displayed.
+Because this option groups all entries of a project together, so they are easier to access and helps with turning the journal data into a Markdown file to be displayed.
