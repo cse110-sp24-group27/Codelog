@@ -1,0 +1,170 @@
+{
+    "current_max_project_id":0,
+    "current_max_entry_id":2000,
+    "current_max_tag_id":30000,
+
+    "user_profile": {
+        "username": "wayfarers",
+        "pronouns": "they/them",
+        "bio": "SE at UCSD",
+        "socialLinks": {
+            "email": "string@str.str",
+            "linkedin": "string linkd",
+            "github": "wayfare.git.io"
+        },
+        "profilePicture": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
+    },
+    "user_projects" : [
+        {
+            "project_id": 1,
+            "projectName": "Name of the first project here",
+            "description": "Project description here",
+            "privacy": "Private",
+            "tags": [
+                {
+                    "tag_id": 30001,
+                    "tag_name": "HTML",
+                    "color": "red"                
+                },
+                {
+                    "tag_id": 30002,
+                    "tag_name": "CSS",
+                    "color": "blue"                
+                },
+                {
+                    "tag_id": 30003,
+                    "tag_name": "JavaScript",
+                    "color": "Yellow"                
+                }
+            ], 
+            "selected_project_entries": [
+                {
+                    "entry_id": 2001,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tag_id": 30004,
+                            "tag_name": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tag_id": 30005,
+                            "tag_name": "CSS",
+                            "color": "blue"                
+                        },
+                        {
+                            "tag_id": 30006,
+                            "tag_name": "JavaScript",
+                            "color": "Yellow"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "project_id": 2,
+            "projectName": "Name of the first project here",
+            "description": "Project description here",
+            "privacy": "Private",
+            "tags": [
+                {
+                    "tag_id": 30008,
+                    "tag_name": "HTML",
+                    "color": "red"                
+                },
+                {
+                    "tag_id": 30009,
+                    "tag_name": "CSS",
+                    "color": "blue"                
+                },
+                {
+                    "tag_id": 30010,
+                    "tag_name": "JavaScript",
+                    "color": "Yellow"                
+                }
+            ], 
+            "selected_project_entries": [
+                {
+                    "entry_id": 2002,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tag_id": 30011,
+                            "tag_name": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tag_id": 30012,
+                            "tag_name": "CSS",
+                            "color": "blue"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                },
+                {
+                    "entry_id": 2003,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tag_id": 30013,
+                            "tag_name": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tag_id": 30014,
+                            "tag_name": "CSS",
+                            "color": "blue"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                }
+            ] 
+        }                
+    ]
+}

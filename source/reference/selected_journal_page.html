@@ -11,7 +11,11 @@
         <header class="btn">
             <!--Project header; includes  journal title, and go back button-->
             <div class="journal-header">
-                <button id="back-btn">Back</button>
+                <button id="back-btn">
+                    <a href="selected_project_page.html">
+                        <img src="../assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+                    </a>
+                </button>
             </div>
         </header>
         <!-- Start of Journal Page -->
@@ -19,24 +23,39 @@
             <section id="journal-show">
                 <!-- Show Journal Title -->
                 <div class="wed" id="title">
-                    <h1 id="journal-title"> Journal title name</h1>
+                    <h1 id="journal-title"></h1>
                 </div>
                 <!-- Show Template --->
                 <div class="wed" id="template">
-                    <p>template</p>
+                    <h2 id="journal-template"></h2>
                 </div>
                 <!--Show tags --->
                 <div class="wed" id="tags">
-                    <p id="tag1">tag1</p>
-                    <p class="tag" id="tag2">tag2</p>
-                    <p class="tag" id="tag3">tag3</p>
                 </div>
             </section>
 
-            <!-- Entry Content -->
-            <section id="markdown">
-                <!--Showing the markdown that contains content -->
-                <p>markdown file</p>
+            <!--Showing the markdown that contains content -->
+            <section id="markdown-container">
+                <div id="codeblock">
+                    <pre>
+                    <code>
+static void reverseInPlace(int[] arr) { <br>
+    int[] tempArr = new int[arr.length]; <br>
+    for(int i = 0; i &lt; arr.length; i++) {<br>
+        tempArr[i] = arr[arr.Length -1 -i];<br>
+        arr[arr.lengh -1 - i] = tempArr[i];<br>
+    }
+    for(int i = 0; i &lt; arr.length; i++){
+        arr[i] = tempArr[i];
+    }
+}</code>
+        </pre>
+                </div>
+                <div id="text">
+
+                </div>
+
+
             </section>
         </main>
 
@@ -44,8 +63,8 @@
         <script src="../assets/scripts/selected_journal.js"></script>
 
         <!--Footer for copyright-->
-        <footer>
-            <p>@ 2024 CodeLog</p>
+        <footer id="j-footer">
+            <h5>@ 2024 CodeLog</h5>
         </footer>
     </body>
 </html>

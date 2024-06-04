@@ -1,9 +1,9 @@
 [
     {
-      "projectId": 1,
+      "project_id": 1,
       "projectName": "Project Awesome",
-      "projectDescription": "This is a description for an awesome project. It's a long description to fill up some space and make the project card look more interesting.",
-      "status": "Public",
+      "description": "This is a description for an awesome project. It's a long description to fill up some space and make the project card look more interesting.",
+      "privacy": "Public",
       "tags": ["Awesome", "Web Dev", "JavaScript"],
       "journals": [
         {
@@ -30,10 +30,10 @@
       ]
     },
     {
-      "projectId": 2,
+      "project_id": 2,
       "projectName": "Project Fantastic",
-      "projectDescription": "This is a description for a fantastic project. It's another long description to show how projects can have different lengths.",
-      "status": "Private",
+      "description": "This is a description for a fantastic project. It's another long description to show how projects can have different lengths.",
+      "privacy": "Private",
       "tags": ["Design", "Mobile App", "React Native"],
       "journals": [
         {
