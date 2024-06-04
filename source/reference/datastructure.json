@@ -12,50 +12,50 @@
             "linkedin": "string linkd",
             "github": "wayfare.git.io"
         },
-        "profilePicture": "https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp"
+        "profilePicture": "source/of/picture"
     },
     "user_projects" : [
         {
-            "project_id": 1,
+            "projectId": 1,
             "projectName": "Name of the first project here",
             "description": "Project description here",
             "privacy": "Private",
             "tags": [
                 {
-                    "tag_id": 30001,
-                    "tag_name": "HTML",
+                    "tagId": 30001,
+                    "tagName": "HTML",
                     "color": "red"                
                 },
                 {
-                    "tag_id": 30002,
-                    "tag_name": "CSS",
+                    "tagId": 30002,
+                    "tagName": "CSS",
                     "color": "blue"                
                 },
                 {
-                    "tag_id": 30003,
-                    "tag_name": "JavaScript",
+                    "tagId": 30003,
+                    "tagName": "JavaScript",
                     "color": "Yellow"                
                 }
             ], 
             "selected_project_entries": [
                 {
-                    "entry_id": 2001,
+                    "entryId": 2001,
                     "titleName": "Entry 1 Name",
                     "description": "Project description here",
                     "tags": [
                         {
-                            "tag_id": 30004,
-                            "tag_name": "HTML",
+                            "tagId": 30004,
+                            "tagName": "HTML",
                             "color": "red"                
                         },
                         {
-                            "tag_id": 30005,
-                            "tag_name": "CSS",
+                            "tagId": 30005,
+                            "tagName": "CSS",
                             "color": "blue"                
                         },
                         {
-                            "tag_id": 30006,
-                            "tag_name": "JavaScript",
+                            "tagId": 30006,
+                            "tagName": "JavaScript",
                             "color": "Yellow"                
                         }
                     ], 
@@ -78,41 +78,41 @@
             ] 
         },
         {
-            "project_id": 2,
+            "projectId": 2,
             "projectName": "Name of the first project here",
             "description": "Project description here",
             "privacy": "Private",
             "tags": [
                 {
-                    "tag_id": 30008,
-                    "tag_name": "HTML",
+                    "tagId": 30008,
+                    "tagName": "HTML",
                     "color": "red"                
                 },
                 {
-                    "tag_id": 30009,
-                    "tag_name": "CSS",
+                    "tagId": 30009,
+                    "tagName": "CSS",
                     "color": "blue"                
                 },
                 {
-                    "tag_id": 30010,
-                    "tag_name": "JavaScript",
+                    "tagId": 30010,
+                    "tagName": "JavaScript",
                     "color": "Yellow"                
                 }
             ], 
             "selected_project_entries": [
                 {
-                    "entry_id": 2002,
+                    "entryId": 2002,
                     "titleName": "Entry 1 Name",
                     "description": "Project description here",
                     "tags": [
                         {
-                            "tag_id": 30011,
-                            "tag_name": "HTML",
+                            "tagId": 30011,
+                            "tagName": "HTML",
                             "color": "red"                
                         },
                         {
-                            "tag_id": 30012,
-                            "tag_name": "CSS",
+                            "tagId": 30012,
+                            "tagName": "CSS",
                             "color": "blue"                
                         }
                     ], 
@@ -133,18 +133,18 @@
                     ]
                 },
                 {
-                    "entry_id": 2003,
+                    "entryId": 2003,
                     "titleName": "Entry 1 Name",
                     "description": "Project description here",
                     "tags": [
                         {
-                            "tag_id": 30013,
-                            "tag_name": "HTML",
+                            "tagId": 30013,
+                            "tagName": "HTML",
                             "color": "red"                
                         },
                         {
-                            "tag_id": 30014,
-                            "tag_name": "CSS",
+                            "tagId": 30014,
+                            "tagName": "CSS",
                             "color": "blue"                
                         }
                     ], 

@@ -125,15 +125,15 @@ class ProjectCard extends HTMLElement {
       // Remove the project data from localStorage if projectId is valid
       if (projectName) {
         // Fetch existing projects from localStorage
-        let projects = localStorage.getItem('projects')
+        let projects = localStorage.getItem('user_projects')
         projects = projects ? JSON.parse(projects) : []
 
         // Filter out the project to be deleted
         projects = projects.filter(project => project.projectName !== projectName)
 
         // Update localStorage with the new projects array
-        localStorage.setItem('projects', JSON.stringify(projects))
-        projects = localStorage.getItem('projects')
+        localStorage.setItem('user_projects', JSON.stringify(projects))
+        projects = localStorage.getItem('user_projects')
       } else {
         console.error('Project invalid')
       }
