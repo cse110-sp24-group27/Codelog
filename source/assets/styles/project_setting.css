@@ -21,14 +21,19 @@ body {
   flex-direction: column;
 }
 
+/* Style for the title */
+#title {
+  text-align: center;
+}
+
 /* Style for the input boxes */
 #profile-form input {
   width: 250px;
   height: 35px;
-  margin: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   background-color: #2a2a2e;
-  border: 1px solid #fff;
+  border: 0.5px solid #818181;
   color: #fff;
 }
 
