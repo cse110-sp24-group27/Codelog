@@ -12,7 +12,6 @@ class ProjectCard extends HTMLElement {
 
     // Create a style element - This will hold all of the styles for the Web Component
     const style = document.createElement('style')
-
     style.textContent = `
     article {
       margin-right: auto;
@@ -25,15 +24,15 @@ class ProjectCard extends HTMLElement {
       padding: 10px;
       cursor: move;
       }
-  
-      /* Style for project name */
+
+       /* Style for project name */
       h3.project-name {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
       }
-  
-      /* Style for project status */
+
+       /* Style for project status */
       p.status {
         position: absolute;
         top: 20px;
@@ -43,14 +42,14 @@ class ProjectCard extends HTMLElement {
         margin-left: 5%;
         margin-right: 5px;
       }
-  
-      /* Style for project description */
+
+       /* Style for project description */
       p.project-description {
         font-size: 10px;
         margin: 0% 5% 10%;
       }
-  
-      /* Style the drag button container */
+
+       /* Style the drag button container */
       .delete-btn-container {
         /* Use absolute position to place the button container correctly */
         position: absolute;
@@ -59,7 +58,7 @@ class ProjectCard extends HTMLElement {
         width: 2vw;
         height: auto;
       }
-
+ 
       /* Style the drag buttons within each journal entry */
       .delete-btn {
         cursor: grab;
@@ -74,15 +73,15 @@ class ProjectCard extends HTMLElement {
         width: 10px;
         height: auto;
       }
-  
-      /* Style the tags of each project */
+
+       /* Style the tags of each project */
       div.tags {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
       }
-  
-      div.tags p {
+
+       div.tags p {
         border-radius: 2px;
         padding: 5px 10px;
         color: #cbcbcb;
@@ -91,17 +90,13 @@ class ProjectCard extends HTMLElement {
         align-items: center;
         margin: 0;
       }
-  
-      p.dot {
+
+       p.dot {
         height: 15px;
         width: 15px;
         border-radius: 50%;
         background-color: darkred; /* change this as needed */
         margin-right: 5px;
-      }
-
-      .project.dragging {
-        opacity: 0;
       }
     `
 
@@ -127,10 +122,8 @@ class ProjectCard extends HTMLElement {
         // Fetch existing projects from localStorage
         let projects = localStorage.getItem('user_projects')
         projects = projects ? JSON.parse(projects) : []
-
         // Filter out the project to be deleted
         projects = projects.filter(project => project.projectName !== projectName)
-
         // Update localStorage with the new projects array
         localStorage.setItem('user_projects', JSON.stringify(projects))
         projects = localStorage.getItem('user_projects')
@@ -158,29 +151,22 @@ class ProjectCard extends HTMLElement {
       console.error('Invalid project data provided to ProjectCard!')
       return
     }
-    console.log(data.projectName)
     const article = this.shadowRoot.querySelector('article')
     article.setAttribute('draggable', 'true')
     article.className = 'project'
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
-    console.log(data.description)
     const words = data.description.split(' ')
     const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.description
-
     article.innerHTML = `
     <div class="delete-btn-container" bis_skin_checked="1">
       <button class="delete-btn" draggable='false'>
         <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
       </button>
     </div>
-
     <h3 class="project-name">${data.projectName}</h3>
-
     <p class="status">${data.privacy}</p>
-
     <p class="project-description">${truncatedDescription}</p>
-    
     <div class="tags">${tagsHtml}</div>
     `
 
