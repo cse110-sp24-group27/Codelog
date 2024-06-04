@@ -1,7 +1,3 @@
-// Define the Class as a customElement so that you can create
-//           'project-card' elements
-customElements.define('project-card', ProjectCard)
-
 class ProjectCard extends HTMLElement {
   // Called once when document.createElement('project-card') is called, or
   // the element is written into the DOM directly as <project-card>
