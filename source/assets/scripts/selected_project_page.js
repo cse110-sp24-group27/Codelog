@@ -315,9 +315,9 @@ function createEntry () {
     * content
     */
   const entry = {
-    entry_id,
+    entryId: -1,
     titleName: entryTitle,
-    description,
+    description: '',
     tags: [],
     publicity: entryPublicity,
     content: entryContent
