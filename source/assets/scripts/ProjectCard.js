@@ -1,7 +1,7 @@
 class ProjectCard extends HTMLElement {
   // Called once when document.createElement('project-card') is called, or
   // the element is written into the DOM directly as <project-card>
-  constructor() {
+  constructor () {
     super() // inherit everything from HTMLElement
 
     // attach the shadow DOM to this Web Component (leave the mode open)
