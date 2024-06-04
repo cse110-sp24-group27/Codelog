@@ -3,7 +3,7 @@
  */
 
 const { getProjectsFromStorage } = require('../assets/scripts/main')
-const project1 = ``
+// const project1 = ``
 
 describe('Testing getProjectsFromStorage...', () => {
   // window.localStorage.setItem('projects', JSON.stringify([project1]))
@@ -20,6 +20,3 @@ describe('Testing getProjectsFromStorage...', () => {
   })
   */
 })
-
-
-
