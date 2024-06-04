@@ -1,17 +1,17 @@
 # Data Format
 
-## Our jounrnal needs to store user entries in localStorage. Since it is a CRUD app, we need to read and write frequently to the data base. Deciding on a uniform data format is essential for the success of our development.
+## Our jounrnal needs to store user entries in localStorage. Since it is a CRUD app, we need to read and write frequently to the data base. Deciding on a uniform data format is essential for the success of our development
 
 
 ## Considered Options
 
 We need to decide on how to store projects, journal entries.
 1. Store projects and jounrals in an array of objects.
-  * Each project object contains information and journal entry IDs.
-  * Each journal object contains journal content, tags, and other information.
+   1. Each project object contains information and journal entry IDs.
+   2. Each journal object contains journal content, tags, and other information.
 2. Store projects in an array of objects.
-  * Each project object contains an array of journal entry objects.
-  * Each journal object contains tags, content, and other information.
+   1. Each project object contains an array of journal entry objects.
+   2. Each journal object contains tags, content, and other information.
 
 ## Decision Outcome
 
