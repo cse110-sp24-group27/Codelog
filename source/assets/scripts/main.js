@@ -179,4 +179,4 @@ function dragProjects () {
 }
 
 // export functions for testing
-// module.exports = { getProjectsFromStorage }
+module.exports = getProjectsFromStorage

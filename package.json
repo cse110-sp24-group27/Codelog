@@ -16,6 +16,6 @@
     "verbose": true
   },
   "dependencies": {
-    "trading-indicator": "^2.0.4"
+    "jsdom": "^24.1.0"
   }
 }
