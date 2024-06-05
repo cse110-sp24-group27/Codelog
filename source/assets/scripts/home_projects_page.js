@@ -1,17 +1,18 @@
-// import { addProjectToLocalStorage } from "./get_set_from_localStorage.js";
+// import { addProjectToLocalStorage } from "./get_set_from_localStorage.js"
+
 // (1) home_projects_page functions //
 /**
  * Get an unused Project Id
  */
 function getUnusedProjectId () {
   // Get the current max entry id
-  const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
+  const retrievedCurrMaxProjectId = localStorage.getItem('currentMaxProjectId')
 
   // Make it an int
   const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
 
   // set the "current_max_entry_id" to "entry_to_add.entry_id"
-  localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
+  localStorage.setItem('currentMaxProjectId', (currMaxProjectId + 1))
 
   return (currMaxProjectId + 1)
 }
@@ -39,7 +40,7 @@ function addProjectToLocalStorage (projectToAdd) {
   const unusedProjectId = getUnusedProjectId()
 
   // Set the entry id to current_max_entry_id + 1
-  projectToAdd.project_id = unusedProjectId
+  projectToAdd.projectId = unusedProjectId
 
   // Get the current "user_projects" array, or return an empty array if there is empty.
   const projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
@@ -63,19 +64,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Function to handle the addition of a new project
   function addProject () {
     // Gather Project Data
-    const projectName = document.querySelector('#new-project-description').value
-    const description = document.querySelector('#new-entry').value
+    const projectName = document.querySelector('#new-project-name').value
+    const description = document.querySelector('#new-project-description').value
     const selectedPrivacyOption = document.querySelector('.privacy-option.bold')
 
     // Ensure that a privacy option is selected
     if (!selectedPrivacyOption) {
+      console.log(selectedPrivacyOption)
       alert('Please select a privacy option.')
       return
     }
     const privacy = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
+    const projectId = -1
 
     // Create Project
     const newProject = {
+      projectId,
       projectName,
       description,
       privacy,
@@ -91,16 +95,6 @@ document.addEventListener('DOMContentLoaded', function () {
     addProjectToLocalStorage(newProject)
   }
 
-  // Function to handle adding more entry fields
-  function addEntry () {
-    const newEntry = document.createElement('input')
-    newEntry.type = 'text'
-    newEntry.placeholder = 'Enter Entry content.'
-    newEntry.id = 'new-entry'
-    const moreEntryButton = document.getElementById('more-entry')
-    moreEntryButton.insertAdjacentElement('beforebegin', newEntry)
-  }
-
   // Function to handle tag selection
   function toggleTag (tagElement) {
     const tag = tagElement.textContent
@@ -114,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Function to handle privacy selection
+  // // Function to handle privacy selection
   function selectPrivacy (option) {
     document.getElementById('public').classList.remove('bold')
     document.getElementById('private').classList.remove('bold')
@@ -123,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to reset the form
   function resetForm () {
+    document.querySelector('#new-project-name').value = ''
     document.querySelector('#new-project-description').value = ''
-    document.querySelectorAll('#new-entry').forEach(entry => { entry.value = '' })
     selectedTags = []
     document.querySelectorAll('.tag').forEach(tag => { tag.style.fontWeight = 'normal' })
     document.getElementById('public').classList.remove('bold')
@@ -134,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Event listeners
   document.querySelector('#create-btn').addEventListener('click', newProject)
   document.querySelector('#done').addEventListener('click', addProject)
-  document.querySelector('#more-entry').addEventListener('click', addEntry)
 
   document.querySelectorAll('.tag').forEach(tag => {
     tag.addEventListener('click', function () {
