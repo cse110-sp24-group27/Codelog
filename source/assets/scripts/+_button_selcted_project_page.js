@@ -18,7 +18,7 @@ function addInput (columnNumber) {
   // Create a new input element
   const newInput = document.createElement('input')
   newInput.type = 'text'
-  newInput.placeholder = `${columnNumber === 1 ? 'Header' : columnNumber==2 ? 'Code' : 'Text'} input`
+  newInput.placeholder = `${columnNumber === 1 ? 'Header' : columnNumber === 2 ? 'Code' : 'Text'} input`
   newInput.classList.add(`input-${columnNumber}`)
   // Create a new button element for deletion
   const deleteButton = document.createElement('button')
@@ -49,12 +49,12 @@ function deleteInput (button) {
                 {
                     "tagId": 30013,
                     "tagName": "HTML",
-                    "color": "red"     
+                    "color": "red"
                 },
                 {
                     "tagId": 30014,
                     "tagName": "CSS",
-                    "color": "blue"                
+                    "color": "blue"
                 }
             ],
             "publicity": "Private",
@@ -73,43 +73,41 @@ function deleteInput (button) {
                 }
             ]}
  */
-function createNewEntryObject() { 
+function createNewEntryObject () {
   // Retrieve the title, description, and publicity
   const titleName = document.getElementById('new-entry-name').value
   const description = document.getElementById('new-entry-description').value
   const publicity = document.getElementById('publicity-select').value
-  
+
   // Retrieve the tags (assuming tags are dynamically added and have a specific class)
   const tags = Array.from(document.querySelectorAll('#tag-editor-popup .tag'))
     .map(tagElement => {
       return {
-      tagId: tagElement.getAttribute('data-tag-id'),  // using data-* attribute for id
-      tagName: tagElement.textContent,  // or a specific element within the tag element for the name
-      color: tagElement.getAttribute('data-tag-color') // using data-* attribute for color
-      };
-    });
-  
-    // Retrieve the content sections
-    const contentElements = document.querySelectorAll('#inputcontainer .input-group')
-    const content = Array.from(contentElements).map((inputGroup) => {
-      const input = inputGroup.querySelector('input')
-      const type = input.classList.contains('input-1') ? 'header' :
-                   input.classList.contains('input-2') ? 'code' :
-                   'text'
-      return {
-        type: type,
-        content: input.value
+        tagId: tagElement.getAttribute('data-tag-id'),
+        tagName: tagElement.textContent, // or a specific element within the tag element for the name
+        color: tagElement.getAttribute('data-tag-color') // using data-* attribute for color
       }
     })
+
+  // Retrieve the content sections
+  const contentElements = document.querySelectorAll('#inputcontainer .input-group')
+  const content = Array.from(contentElements).map((inputGroup) => {
+    const input = inputGroup.querySelector('input')
+    const type = input.classList.contains('input-1') ? 'header' : input.classList.contains('input-2') ? 'code' : 'text'
+    return {
+      type,
+      content: input.value
+    }
+  })
   // Create the new entry object
   const newEntryObject = {
-    entryId: 2000,   // TODO line 119
-    titleName: titleName,
-    description: description,
-    tags: tags,
-    publicity: publicity,
-    content: content
-  };
+    entryId: 2000, // TODO
+    titleName,
+    description,
+    tags,
+    publicity,
+    content
+  }
   console.log(newEntryObject)
   // saveNewEntryToLocalStorage(100, newEntryObject)  // testing for now, will move this out
   return newEntryObject
@@ -121,28 +119,27 @@ function createNewEntryObject() {
 
 /**
  * Save a new entry to the localStorage under a specific project.
- * 
  * @param {number} selectedProjectId - The ID of the project to which the new entry should be added.
  * @param {object} newEntry - The new entry object to be added to the selected project.
  */
-function saveNewEntryToLocalStorage(selectedProjectId, newEntry) {
+function saveNewEntryToLocalStorage (selectedProjectId, newEntry) {
   try {
     // Retrieve the user projects from localStorage and parse it into an array
-    let projects = JSON.parse(localStorage.getItem ('user_projects')) || []
+    const projects = JSON.parse(localStorage.getItem('user_projects')) || []
 
     // Find the project with the matching ID and add the new entry to its entries array
     let projectFound = false
     projects.forEach(project => {
-      if (project.project_id == selectedProjectId) {
+      if (project.project_id === selectedProjectId) {
         project.selected_project_entries = project.selected_project_entries || []
-        project.selected_project_entries.push(newEntry);
-        projectFound = true;
+        project.selected_project_entries.push(newEntry)
+        projectFound = true
       }
     })
 
     // Update the localStorage with the modified projects array
     if (projectFound) {
-      localStorage.setItem('user_projects', JSON.stringify(projects));
+      localStorage.setItem('user_projects', JSON.stringify(projects))
     } else {
       console.warn(`Project with ID ${selectedProjectId} not found.`)
     }
