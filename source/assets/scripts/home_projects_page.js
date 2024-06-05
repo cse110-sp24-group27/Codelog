@@ -218,15 +218,5 @@ document.addEventListener('DOMContentLoaded', function () {
       mainElement.appendChild(projectCard)
     })
   }
-
-  // let displayedProjects = document.querySelectorAll('project-card')
-
-  // displayedProjects.forEach(project => {
-  //   let projectName = project.shadowRoot.querySelector('.project-name')
-  //   projectName.addEventListener('click', function () {
-  //     // This function will be executed when the project is clicked
-  //     console.log('h3.project-name element clicked!')
-  //   })
-  //
-
+  
 })
