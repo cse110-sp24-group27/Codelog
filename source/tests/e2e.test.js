@@ -6,6 +6,8 @@ describe('Basic user flow for Website', () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html')
+    // close browser
+    await browser.close()
   }, 10000) // timeout of 10 seconds
   // Test Example
   test('example test', () => {
