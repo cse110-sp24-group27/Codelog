@@ -1,10 +1,17 @@
 // Tests that cover basic User interactions
-
-// Test Example
-test('example test', () => {
-  expect(1 + 2).toBe(3)
+const puppeteer = require('puppeteer')
+// First visit journal webpoage
+describe('Basic user flow for Website', () => {
+  beforeAll(async () => {
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html')
+  }, 10000) // timeout of 10 seconds
+  // Test Example
+  test('example test', () => {
+    expect(1 + 2).toBe(3)
+  })
 })
-
 // Journal Entries
 // 1. Add journal entry
 // 2. Edit journal entry

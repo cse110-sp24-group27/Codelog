@@ -11,7 +11,11 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "verbose": true
+  },
   "dependencies": {
-    "jsdom": "^24.0.0"
+    "jsdom": "^24.1.0"
   }
 }

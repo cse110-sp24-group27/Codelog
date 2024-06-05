@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { getProjectsFromStorage } = require('../assets/scripts/main')
+const getProjectsFromStorage = require('../assets/scripts/main')
 // const project1 = ``
 
 describe('Testing getProjectsFromStorage...', () => {
