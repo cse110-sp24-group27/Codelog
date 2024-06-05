@@ -8,7 +8,7 @@
 * Code Quality: Codeclimate, Codacy
 * Documentation: JSDoc
 * Testing: parallel
-* End-to-End (E2E) Testing: 
+* End-to-End (E2E) Testing:
   * Puppeteer to operate the browser and Jest to perform the tests
   * Playwright
   * Selenium
