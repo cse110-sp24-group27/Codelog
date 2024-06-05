@@ -21,9 +21,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run test
-        uses: tj-actions/puppeteer@v5
-        id: puppeteer
-        with:
-          files: |
-            source/tests/e2e.test.js
+      - name: Run Tests
+        run: npm test
