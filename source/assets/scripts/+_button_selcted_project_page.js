@@ -104,7 +104,7 @@ function createNewEntryObject() {
     })
     // Create the new entry object
     const newEntryObject = {
-      entry_id: 2000,   // TODO line 119
+      entryId: 2000,   // TODO line 119
       titleName: titleName,
       description: description,
       tags: tags,
