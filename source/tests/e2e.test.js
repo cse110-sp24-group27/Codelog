@@ -1,5 +1,5 @@
 // Tests that cover basic User interactions
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer')
 // First visit journal webpoage
 describe('Basic user flow for Website', () => {
   beforeAll(async () => {
@@ -11,7 +11,7 @@ describe('Basic user flow for Website', () => {
   test('example test', () => {
     expect(1 + 2).toBe(3)
   })
-}) 
+})
 // Journal Entries
 // 1. Add journal entry
 // 2. Edit journal entry
