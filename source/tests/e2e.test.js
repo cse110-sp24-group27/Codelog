@@ -3,11 +3,8 @@ const puppeteer = require('puppeteer');
 // First visit journal webpoage
 describe('Basic user flow for Website', () => {
   beforeAll(async () => {
-    const browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  })
-    const page = await browser.newPage()
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage
     await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html')
   }, 10000) // timeout of 10 seconds
   // Test Example
