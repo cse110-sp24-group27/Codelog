@@ -47,13 +47,13 @@ function deleteInput (button) {
             "description": "Project description here",
             "tags": [
                 {
-                    "tag_id": 30013,
-                    "tag_name": "HTML",
+                    "tagId": 30013,
+                    "tagName": "HTML",
                     "color": "red"                
                 },
                 {
-                    "tag_id": 30014,
-                    "tag_name": "CSS",
+                    "tagId": 30014,
+                    "tagName": "CSS",
                     "color": "blue"                
                 }
             ],
@@ -84,8 +84,8 @@ function createNewEntryObject() {
     const tags = Array.from(document.querySelectorAll('#tag-editor-popup .tag'))
     .map(tagElement => {
       return {
-        tag_id: tagElement.getAttribute('data-tag-id'),  // using data-* attribute for id
-        tag_name: tagElement.textContent,  // or a specific element within the tag element for the name
+        tagId: tagElement.getAttribute('data-tag-id'),  // using data-* attribute for id
+        tagName: tagElement.textContent,  // or a specific element within the tag element for the name
         color: tagElement.getAttribute('data-tag-color') // using data-* attribute for color
       };
     });
@@ -112,7 +112,7 @@ function createNewEntryObject() {
       content: content
     };
     console.log(newEntryObject)
-    saveNewEntryToLocalStorage(100, newEntryObject)  // testing for now, will move this out
+    // saveNewEntryToLocalStorage(100, newEntryObject)  // testing for now, will move this out
     return newEntryObject
 }
 
