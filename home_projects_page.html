@@ -130,5 +130,15 @@
     <!-- Local Storage Script -->
     <script src="source/assets/scripts/get_set_from_localStorage.js" type="module"></script>
 
+    <!-- Navigating between pages script -->
+    <script>
+        function loadProjectNameToLocalStorage(anchorElement) {
+            console.log("title was clicked")
+            const h3Element = anchorElement.querySelector('h3')
+            const currDisplayedProject = h3Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+            localStorage.setItem('currDisplayedProject', currDisplayedProject)
+        }
+    </script>
+
 </body>
 </html>
