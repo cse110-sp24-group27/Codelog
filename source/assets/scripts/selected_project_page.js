@@ -21,7 +21,7 @@ function getCurrProjectObject () {
  */
 function projectPageInit () {
   // Get the current project object
-  let currProject = getCurrProjectObject()
+  const currProject = getCurrProjectObject()
 
   // Update the project name
   const projectName = document.getElementById('project-name')
@@ -30,7 +30,7 @@ function projectPageInit () {
   // Update the project description
   const projectDescription = document.getElementById('project-description')
   projectDescription.innerHTML = currProject.description
-  
+
   // On load, populate the selected project's entries
   populateEntries()
 }
@@ -402,7 +402,7 @@ createEntryButton.addEventListener('click', createEntry)
 function createEntry () {
   // Get the project array and the current project object
   const projects = JSON.parse(localStorage.getItem('user_projects'))
-  let currProject = getCurrProjectObject()
+  const currProject = getCurrProjectObject()
 
   // Get the current project's entries
   const entries = currProject.selected_project_entries
