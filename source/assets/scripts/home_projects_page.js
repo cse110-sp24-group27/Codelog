@@ -227,41 +227,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //     // This function will be executed when the project is clicked
   //     console.log('h3.project-name element clicked!')
   //   })
-  // })
-
-  // Add event listener to all projects' name text
-  let displayedProjects = document.querySelectorAll('project-card')
-
-  displayedProjects.forEach(project => {
-    try {
-      let projectName = project.shadowRoot?.querySelector('.project-name') // Optional chaining for shadowRoot
-      if (projectName) {
-        projectName.addEventListener('click', function() {
-          // Handle project name click here (e.g., navigate to a detail page)
-          console.log('Project name clicked!')
-        })
-      } else {
-        console.warn('Project name element not found for project card:', project)
-      }
-    } catch (error) {
-      console.error('Error accessing project name element:', error)
-    }
-  })
+  //
 
 })
-
-
-
-
-// // This function iterates over all h3 elements with class "project-name"
-// function findProjectByName(projectName) {
-//   var elements = document.querySelectorAll("h3.project-name");
-//   for (var i = 0; i < elements.length; i++) {
-//     if (elements[i].textContent === projectName) {
-//       return elements[i];
-//     }
-//   }
-//   return null;
-// }
-
-// var selectedProject = findProjectByName("project1");

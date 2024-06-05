@@ -1,4 +1,62 @@
-// Js for the functionality of the Selected Project Page // (Back button functionality is not here)
+// Js for the functionality of the Selected Project Page //
+
+/**
+ * Retrieve all entries of the selected project given the project id
+ * @param projects - object `user_projects`
+ * @param projectName - string, name of the project
+ * @return the "selected_project_entries" array of that selected project
+*/
+function getAllSelectedProjectEntries (projects, projectName) {
+  // TODO: return "selected_project_entries" array of the given project from localStorage
+
+  // Iterate through projects, find the project with matching project_id, then return that project's entries
+  projects.forEach(project => {
+    if (project.projectName === projectName) {
+      return project.selected_project_entries
+    }
+  })
+
+  // If no project with the correct project_id found from above loop, console.log
+  console.log(`There's no project found with ${projectName}`)
+}
+
+// On load, populate the selected project's entries
+window.addEventListener('load', populateEntries)
+
+/**
+ * Adds the entries for the selected project onto the page
+ */
+function populateEntries () {
+  // Get the current project and its entries
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = localStorage.getItem('userProjects')
+  const entries = getAllSelectedProjectEntries(projects, currProjectName)
+
+  // Empty the journal entry container
+  const journalEntryContainer = document.getElementById('journal-entries')
+  journalEntryContainer.innerHTML = ``
+  
+  // For each entry, add its parts from localStorage
+  entries.forEach(entry => {
+    entryElement = document.createElement('div')
+    entryElement.classList.add('journal-entry')
+    entryElement.classList.add('is-idle')
+
+    entryElement.innerHTML = `
+      <a href="selected_journal_page.html" onclick="loadEntryNameToLocalStorage(this)"><h2 class="entry-name" id=${entry.entryId}>${entry.titleName}</h2></a>
+      <p class="entry-text">${entry.description}</p>
+      <div class="drag-btn-container">
+        <button class="drag-btn">
+          <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+        </button>
+      </div>
+    `
+
+    // Append all the entries to the entry container
+    journalEntryContainer.appendChild(entryElement)
+  })
+}
+
 // Table of Contents By Kristhian Ortiz //
 // const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
 // /**

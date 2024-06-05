@@ -72,7 +72,7 @@
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
                 <div class="journal-entry is-idle" id="entry1-container">
-                    <h2 class="entry-name" id="entry1">Journal entry name</h2>
+                    <a href="selected_journal_page.html" onclick="loadEntryNameToLocalStorage(this)"><h2 class="entry-name" id="entry1">Journal entry name</h2></a>
                     <!--h4 class="entry-template">Journal entry template</h4--> <!--REDACTED-->
                     <p class="entry-text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
@@ -207,5 +207,14 @@
         <!-- Link to script -->
         <script type="text/javascript" src="../assets/scripts/+_button_selcted_project_page.js"></script>
         <script type="text/javascript" src="../assets/scripts/selected_project_page.js"></script>
+        <!-- Navigating between pages script -->
+        <script>
+            function loadEntryNameToLocalStorage(anchorElement) {
+                console.log("entry name was clicked")
+                const h2Element = anchorElement.querySelector('h2')
+                const currDisplayedEntry = h2Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+                localStorage.setItem('currDisplayedEntry', currDisplayedEntry)
+            }
+        </script>
     </body>
 </html>
