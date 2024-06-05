@@ -1,4 +1,72 @@
-// Js for the functionality of the Selected Project Page // (Back button functionality is not here)
+// Js for the functionality of the Selected Project Page //
+
+/**
+ * Retrieve all entries of the selected project given the project id
+ * @param projects - object `user_projects`
+ * @param projectName - string, name of the project
+ * @return the "selected_project_entries" array of that selected project
+*/
+function getAllSelectedProjectEntries (projects, projectName) {
+  // TODO: return "selected_project_entries" array of the given project from localStorage
+
+  // Iterate through projects, find the project with matching project_id, then return that project's entries
+  let currProjectEntries
+  projects.forEach(project => {
+    if (project.projectName === projectName) {
+      currProjectEntries = project.selected_project_entries
+    }
+  })
+
+  // If no project with the correct project_id found from above loop, console.log
+  if (currProjectEntries) {
+    return currProjectEntries
+  } else {
+    console.log(`There's no project found with ${projectName}`)
+  }
+}
+
+// On load, populate the selected project's entries
+window.addEventListener('load', populateEntries)
+
+/**
+ * Adds the entries for the selected project onto the page
+ */
+function populateEntries () {
+  // Get the current project and its entries
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
+  const entries = getAllSelectedProjectEntries(projects, currProjectName)
+
+  // Empty the journal entry container
+  const journalEntryContainer = document.getElementById('journal-entries')
+  journalEntryContainer.innerHTML = ''
+
+  // If there are no entries, end the function
+  if (!entries) {
+    return
+  }
+
+  // For each entry, add its parts from localStorage
+  entries.forEach(entry => {
+    const entryElement = document.createElement('div')
+    entryElement.classList.add('journal-entry')
+    entryElement.classList.add('is-idle')
+
+    entryElement.innerHTML = `
+      <a href="selected_journal_page.html" onclick="loadEntryNameToLocalStorage(this)"><h2 class="entry-name" id=${entry.entryId}>${entry.titleName}</h2></a>
+      <p class="entry-text">${entry.content}</p>
+      <div class="drag-btn-container">
+        <button class="drag-btn">
+          <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+        </button>
+      </div>
+    `
+
+    // Append all the entries to the entry container
+    journalEntryContainer.appendChild(entryElement)
+  })
+}
+
 // Table of Contents By Kristhian Ortiz //
 // const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
 // /**
@@ -283,39 +351,45 @@ showButton.addEventListener('click', function () {
 })
 
 // Fetch data from user input in pop-up after clicking "Create Entry" and put the data in localStorage
-window.addEventListener('load', () => {
-  if (localStorage.getItem('selected_project_entries') == null) {
-    localStorage.setItem('selected_project_entries', [])
-  }
-})
+// window.addEventListener('load', () => {
+//   if (localStorage.getItem('selected_project_entries') == null) {
+//     localStorage.setItem('selected_project_entries', [])
+//   }
+// })
 
-// Add an event listener to the Create Entry button
-// TODO: createEntryButton is not defined in DevTools when testing; however, create_entry() function has been tested and works
+// Upon clicking the "add" button in the pop-up, create the new entry
 const createEntryButton = document.getElementById('done-btn')
 createEntryButton.addEventListener('click', createEntry)
 
-// TODO: add comments for JSDoc
-// On click, execute the create entry function
+/**
+ * Creates a journal entry and adds it to localStorage and the current project page
+ */
 function createEntry () {
-  // Get the current array of entries from the local storage
-  const entries = localStorage.getItem('selected_project_entries') || []
+  // Get the current project object
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
+  let currProject
+  projects.forEach(project => {
+    if (project.projectName === currProjectName) {
+      currProject = project
+    }
+  })
 
-  // Fetch data from user input
+  // Get the current project's entries
+  const entries = currProject.selected_project_entries
+
+  // Get the values within the pop-up to use in the new entry
   const entryTitle = document.getElementById('new-project-name').value
   const entryContent = document.getElementById('new-project-content').value
   const entryPublicity = document.getElementById('publicity-select').value
-  // TODO: Fetch Tags after its implemented
 
-  /* Create an entry object
-    * titleName
-    * id
-    * template
-    * tags
-    * publicity
-    * content
-    */
+  // Calculate the new entry ID and increment the current max entry ID
+  const newEntryId = (parseInt(localStorage.getItem('current_max_entry_id'))) + 1
+  localStorage.setItem('current_max_entry_id', newEntryId)
+
+  // Create the new entry object
   const entry = {
-    entryId: -1,
+    entryId: newEntryId,
     titleName: entryTitle,
     description: '',
     tags: [],
@@ -323,14 +397,54 @@ function createEntry () {
     content: entryContent
   }
 
-  // Add entry to the entries of this project
+  // Push the entry to the project's entry array
   entries.push(entry)
+  currProject.selected_project_entries = entries
 
-  // Add the updated entries array to the localStorage
-  localStorage.setItem('selected_project_entries', JSON.stringify(entries))
+  // Add the entry to localStorage and the page
+  localStorage.setItem('user_projects', JSON.stringify(projects))
+  populateEntries()
 }
 
-// Fetch Entries corresponding to the project for display //
+// Add an event listener to the Create Entry button
+// const createEntryButton = document.getElementById('done-btn')
+// createEntryButton.addEventListener('click', createEntry)
+
+// // TODO: add comments for JSDoc
+// // On click, execute the create entry function
+// function createEntry () {
+//   // Get the current array of entries from the local storage
+//   const entries = localStorage.getItem('selected_project_entries') || []
+
+//   // Fetch data from user input
+//   const entryTitle = document.getElementById('new-project-name').value
+//   const entryContent = document.getElementById('new-project-content').value
+//   const entryPublicity = document.getElementById('publicity-select').value
+//   // TODO: Fetch Tags after its implemented
+
+//   /* Create an entry object
+//     * titleName
+//     * id
+//     * template
+//     * tags
+//     * publicity
+//     * content
+//     */
+//   const entry = {
+//     entryId: -1,
+//     titleName: entryTitle,
+//     description: '',
+//     tags: [],
+//     publicity: entryPublicity,
+//     content: entryContent
+//   }
+
+//   // Add entry to the entries of this project
+//   entries.push(entry)
+
+//   // Add the updated entries array to the localStorage
+//   localStorage.setItem('selected_project_entries', JSON.stringify(entries))
+// }
 
 // On each entry, add an event listener to take you to its selected_journal_(entry)_page
 
