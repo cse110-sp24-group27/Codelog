@@ -19,7 +19,7 @@ function getUnusedProjectId () {
 /**
  * Add given project object to the "user_projects" array
  * @param projectToAdd - project object to be added.
- * Project object has the following elements:
+ * @description Project object has the following elements:
  *      "project_id": int starts with "current_max_project_id" + 1
  *      "projectName": "string"
  *      "description": "string"
