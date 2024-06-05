@@ -1,10 +1,10 @@
 // Js for the functionality of the Selected Project Page //
 
 /**
- * Initializes the title, description, and entries of the project page
+ * Returns the current project object stored in localStorage
+ * @returns Current project object
  */
-function projectPageInit () {
-  // Get the current project object
+function getCurrProjectObject () {
   const currProjectName = localStorage.getItem('currDisplayedProject')
   const projects = JSON.parse(localStorage.getItem('user_projects'))
   let currProject
@@ -13,6 +13,15 @@ function projectPageInit () {
       currProject = project
     }
   })
+  return currProject
+}
+
+/**
+ * Initializes the title, description, and entries of the project page
+ */
+function projectPageInit () {
+  // Get the current project object
+  let currProject = getCurrProjectObject()
 
   // Update the project name
   const projectName = document.getElementById('project-name')
@@ -391,15 +400,9 @@ createEntryButton.addEventListener('click', createEntry)
  * Creates a journal entry and adds it to localStorage and the current project page
  */
 function createEntry () {
-  // Get the current project object
-  const currProjectName = localStorage.getItem('currDisplayedProject')
+  // Get the project array and the current project object
   const projects = JSON.parse(localStorage.getItem('user_projects'))
-  let currProject
-  projects.forEach(project => {
-    if (project.projectName === currProjectName) {
-      currProject = project
-    }
-  })
+  let currProject = getCurrProjectObject()
 
   // Get the current project's entries
   const entries = currProject.selected_project_entries
