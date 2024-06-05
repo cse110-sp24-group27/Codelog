@@ -94,8 +94,8 @@ function save () {
     bio: document.getElementById('description').value,
     socialLinks: {
       email: document.getElementById('link-email').value,
-      linkedin: document.getElementById('link-linkedin').value,
-      github: document.getElementById('link-github').value
+      linkedin: checkURL(document.getElementById('link-linkedin').value, 'linkedin'),
+      github: checkURL(document.getElementById('link-github').value, 'github')
     },
     profilePicture: profile.profilePicture // Retain the old image if no new image is uploaded
   }
@@ -122,6 +122,36 @@ function cancel () {
   document.getElementById('profile-form').reset()
   document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
   console.log('reset form')
+}
+
+// function to check if users github or linkedin url contains correct format
+function checkURL (url, type) {
+  if (type === 'linkedin' && !url.startsWith('https://www.')) {
+    // Remove 'http://www.' and add 'https://www.'
+    if (url.startsWith('http://www.')) {
+      return 'https://www.' + url.substring(11)
+      // Remove 'http://' and add 'https://www.'
+    } else if (url.startsWith('http://')) {
+        return 'https://www.' + url.substring(7)
+        // Remove 'http://' and add 'https://www.'
+    } else if (url.startsWith('https://')) {
+      // Remove 'https://' and add 'https://www.'
+      return 'https://www.' + url.substring(8)
+    } else {
+      // add 'https://www.' if none of above is found
+      return 'https://www.' + url
+    }
+  } else {
+    if (!url.startsWith('https://')) {
+      if (url.startsWith('http://')) {
+        // Remove 'http://' and add 'https://'
+        return 'https://' + url.substring(7)
+      }
+      // add 'https://' if none of above
+      return 'https://' + url
+    }
+  }
+  return url
 }
 
 window.loadImage = loadImage
