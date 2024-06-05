@@ -223,10 +223,6 @@ main {
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-#done {
-  background-color: #5a5a5a;
   align-self: flex-end;
 }
 
