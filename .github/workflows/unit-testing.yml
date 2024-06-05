@@ -26,4 +26,4 @@ jobs:
         id: puppeteer
         with:
           files: |
-            ./source/tests/test.js
+            source/tests/e2e.test.js
