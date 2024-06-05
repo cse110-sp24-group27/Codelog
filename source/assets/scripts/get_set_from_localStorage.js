@@ -75,7 +75,7 @@ export function getAllUserProjects () {
  * Add entry_to_add object to the "selected_project_entries" array of selected_project
  * @param selectedProject - selected project to add the entry to
  * @param entryToAdd - entry object to be added
- * (!!) Entry object has the following elements:
+ * @description Entry object has the following elements:
  *      "entry_id": int that starts with ("current_max_entry_id" + 1) -> don't forget to update current_max_entry_id
  *      "titleName": "string"
  *      "description": "string"
