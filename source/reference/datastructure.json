@@ -1,7 +1,7 @@
 {
-    "current_max_project_id":0,
-    "current_max_entry_id":2000,
-    "current_max_tag_id":30000,
+    "currentMaxProjectId":0,
+    "currentMaxEntryId":2000,
+    "currentMaxEagId":30000,
 
     "user_profile": {
         "username": "wayfarers",
@@ -12,7 +12,7 @@
             "linkedin": "string linkd",
             "github": "wayfare.git.io"
         },
-        "profilePicture": "source/of/picture"
+        "profilePicture": "../assets/images/userPlaceholder.png"
     },
     "user_projects" : [
         {
