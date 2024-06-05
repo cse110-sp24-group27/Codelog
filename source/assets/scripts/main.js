@@ -3,10 +3,21 @@ window.addEventListener('DOMContentLoaded', init)
 
 // Starts the program, all function calls trace back here
 function init () {
+  // Initialize global variables from localStorage
+  if(localStorage.getItem('currentMaxProjectId') === null) {
+    localStorage.setItem('currentMaxProjectId', 0)
+  }
+  if(localStorage.getItem('currentMaxEntryId') === null) {
+    localStorage.setItem('currentMaxEntryId', 2000)
+  }
+  if(localStorage.getItem('currentMaxTagId') === null) {
+    localStorage.setItem('currentMaxTagId', 30000)
+  }
+
   // Update the profile
   const prevProfile = localStorage.getItem('user_profile')
   // Check if the localStorage is already created for projects
-  if (isNaN(prevProfile)) {
+  if (prevProfile == null) {
     fetchProfileExamplejsonToStorage()
   }
 
@@ -17,7 +28,7 @@ function init () {
   // Update the projects
   const prevProjects = localStorage.getItem('user_projects')
   // Check if the localStorage is already created for projects
-  if (prevProjects == null) {
+  if (prevProjects === null) {
     // Get projects from .JSON to localstorage
     fetchProjectsExamplejsonToStorage()
   }
@@ -113,7 +124,7 @@ function addProjectsToDocument (projects) {
     projectCard.data = project
     mainElement.appendChild(projectCard)
   }
-  dragProjects()
+  // dragProjects()
 }
 
 /**
