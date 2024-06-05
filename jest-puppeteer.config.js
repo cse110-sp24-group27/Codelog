@@ -1,6 +1,6 @@
 module.exports = {
   launch: {
-    headless: false,
+    headless: true,
     slowMo: 25,
     env: {
       DISPLAY: ":10.0"
