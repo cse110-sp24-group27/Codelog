@@ -413,8 +413,8 @@ function createEntry () {
   const entryPublicity = document.getElementById('publicity-select').value
 
   // Calculate the new entry ID and increment the current max entry ID
-  const newEntryId = (parseInt(localStorage.getItem('current_max_entry_id'))) + 1
-  localStorage.setItem('current_max_entry_id', newEntryId)
+  const newEntryId = (parseInt(localStorage.getItem('currentMaxEntryId'))) + 1
+  localStorage.setItem('currentMaxEntryId', newEntryId)
 
   // Create the new entry object
   const entry = {
