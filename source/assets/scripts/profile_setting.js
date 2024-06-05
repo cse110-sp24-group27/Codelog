@@ -132,8 +132,8 @@ function checkURL (url, type) {
       return 'https://www.' + url.substring(11)
       // Remove 'http://' and add 'https://www.'
     } else if (url.startsWith('http://')) {
-        return 'https://www.' + url.substring(7)
-        // Remove 'http://' and add 'https://www.'
+      return 'https://www.' + url.substring(7)
+      // Remove 'http://' and add 'https://www.'
     } else if (url.startsWith('https://')) {
       // Remove 'https://' and add 'https://www.'
       return 'https://www.' + url.substring(8)
