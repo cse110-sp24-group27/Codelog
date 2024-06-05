@@ -11,11 +11,11 @@
   "scripts": {
     "test": "jest"
   },
-  "dependencies": {
-    "jsdom": "^24.0.0"
-  },
   "jest": {
     "preset": "jest-puppeteer",
     "verbose": true
+  },
+  "dependencies": {
+    "trading-indicator": "^2.0.4"
   }
 }
