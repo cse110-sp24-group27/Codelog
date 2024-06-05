@@ -1,11 +1,40 @@
 // Js for the functionality of the Selected Project Page //
 
 /**
+ * Initializes the title, description, and entries of the project page
+ */
+function projectPageInit () {
+  // Get the current project object
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
+  let currProject
+  projects.forEach(project => {
+    if (project.projectName === currProjectName) {
+      currProject = project
+    }
+  })
+
+  // Update the project name
+  const projectName = document.getElementById('project-name')
+  projectName.innerHTML = currProject.projectName
+
+  // Update the project description
+  const projectDescription = document.getElementById('project-description')
+  projectDescription.innerHTML = currProject.description
+  
+  // On load, populate the selected project's entries
+  populateEntries()
+}
+
+// On load, populate all necessary parts of the page
+window.addEventListener('load', projectPageInit)
+
+/**
  * Retrieve all entries of the selected project given the project id
  * @param projects - object `user_projects`
  * @param projectName - string, name of the project
  * @return the "selected_project_entries" array of that selected project
-*/
+ */
 function getAllSelectedProjectEntries (projects, projectName) {
   // TODO: return "selected_project_entries" array of the given project from localStorage
 
@@ -24,9 +53,6 @@ function getAllSelectedProjectEntries (projects, projectName) {
     console.log(`There's no project found with ${projectName}`)
   }
 }
-
-// On load, populate the selected project's entries
-window.addEventListener('load', populateEntries)
 
 /**
  * Adds the entries for the selected project onto the page
