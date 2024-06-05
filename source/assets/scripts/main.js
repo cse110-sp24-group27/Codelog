@@ -4,13 +4,13 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Initialize global variables from localStorage
-  if(localStorage.getItem('currentMaxProjectId') === null) {
+  if (localStorage.getItem('currentMaxProjectId') === null) {
     localStorage.setItem('currentMaxProjectId', 0)
   }
-  if(localStorage.getItem('currentMaxEntryId') === null) {
+  if (localStorage.getItem('currentMaxEntryId') === null) {
     localStorage.setItem('currentMaxEntryId', 2000)
   }
-  if(localStorage.getItem('currentMaxTagId') === null) {
+  if (localStorage.getItem('currentMaxTagId') === null) {
     localStorage.setItem('currentMaxTagId', 30000)
   }
 
@@ -124,69 +124,6 @@ function addProjectsToDocument (projects) {
     projectCard.data = project
     mainElement.appendChild(projectCard)
   }
-  // dragProjects()
-}
-
-/**
- * Function that allows user to drag the project and reorder
- * projects.
- * Unfinished!
- */
-function dragProjects () {
-  const projects = document.querySelector('.projects')
-  const projectCards = projects.querySelectorAll('project-card')
-  projectCards.forEach(project => {
-    const article = project.shadowRoot.querySelector('.project')
-    project.addEventListener('dragstart', () => {
-      // Adding dragging class to project after a delay
-      setTimeout(() => article.classList.add('dragging'))
-    })
-    // Removing dragging-project class from project on dragend event
-    project.addEventListener('dragend', () => article.classList.remove('dragging'))
-  })
-
-  let draggingItem = null
-  const initProjects = (e) => {
-    if (!draggingItem) {
-      projectCards.forEach(project => {
-        if (project.shadowRoot.querySelector('.project').classList.contains('dragging')) {
-          draggingItem = project
-        }
-      })
-    }
-    if (!draggingItem) return
-    projectCards.forEach(project => {
-      if (project.shadowRoot.querySelector('.project').classList.contains('dragging')) {
-        draggingItem = project
-      }
-    })
-    console.log(draggingItem)
-    // Getting all items except currently dragging and making array of them
-    const siblings = []
-    projectCards.forEach(project => {
-      const article = project.shadowRoot.querySelector('.project')
-      if (!article.classList.contains('dragging')) {
-        siblings.push(project)
-      }
-    })
-
-    console.log(siblings)
-    // Finding the sibling after which teh dragging item should be placed
-    const nextSibling = siblings.find(sibling => {
-      console.log(sibling.offsetTop)
-      console.log(sibling.offsetWidth)
-      const rect = sibling.getBoundingClientRect()
-      return e.clientY <= rect.top + rect.height / 2
-    })
-    console.log(nextSibling)
-    // Inserting the dragging project before the found sibling
-    if (nextSibling) {
-      projects.insertBefore(draggingItem, nextSibling)
-    } else if (e.clientY > siblings[siblings.length - 1].getBoundingClientRect().bottom) {
-      projects.appendChild(draggingItem)
-    }
-  }
-  projects.addEventListener('dragover', initProjects)
 }
 
 // export functions for testing
