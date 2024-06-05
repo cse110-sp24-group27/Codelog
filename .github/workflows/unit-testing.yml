@@ -15,17 +15,15 @@ jobs:
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
         with:
-          args: install
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Tests
-        uses: mujo-code/puppeteer-headful@16.6.0
-        env:
-          CI: "true"
+      - name: Run test
+        uses: tj-actions/puppeteer@v5
+        id: puppeteer
         with:
-          args: npm test
+          files: |
+            ./source/tests/test.js
