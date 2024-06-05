@@ -218,5 +218,4 @@ document.addEventListener('DOMContentLoaded', function () {
       mainElement.appendChild(projectCard)
     })
   }
-  
 })

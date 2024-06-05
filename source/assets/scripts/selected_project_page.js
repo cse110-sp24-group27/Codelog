@@ -39,8 +39,8 @@ function populateEntries () {
 
   // Empty the journal entry container
   const journalEntryContainer = document.getElementById('journal-entries')
-  journalEntryContainer.innerHTML = ``
-  
+  journalEntryContainer.innerHTML = ''
+
   // If there are no entries, end the function
   if (!entries) {
     return
@@ -48,7 +48,7 @@ function populateEntries () {
 
   // For each entry, add its parts from localStorage
   entries.forEach(entry => {
-    entryElement = document.createElement('div')
+    const entryElement = document.createElement('div')
     entryElement.classList.add('journal-entry')
     entryElement.classList.add('is-idle')
 
@@ -400,13 +400,11 @@ function createEntry () {
   // Push the entry to the project's entry array
   entries.push(entry)
   currProject.selected_project_entries = entries
-  
+
   // Add the entry to localStorage and the page
   localStorage.setItem('user_projects', JSON.stringify(projects))
   populateEntries()
 }
-
-
 
 // Add an event listener to the Create Entry button
 // const createEntryButton = document.getElementById('done-btn')
