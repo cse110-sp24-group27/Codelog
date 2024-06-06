@@ -1,6 +1,7 @@
 # CODELOG
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8d725010d37a477684db11331ee95641)](https://app.codacy.com/gh/cse110-sp24-group27/cse110-sp24-group27/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/8d725010d37a477684db11331ee95641)](https://app.codacy.com/gh/cse110-sp24-group27/cse110-sp24-group27/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 [![Super-Linter](https://github.com/cse110-sp24-group27/cse110-sp24-group27/actions/workflows/super-linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
 How can developers integrate the features of a personal site, developer journal, and project hosting platform into a unified web application, providing recruiters with a comprehensive view of their skills and development process?
