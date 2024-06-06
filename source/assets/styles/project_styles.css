@@ -257,7 +257,7 @@ main {
   height: 100%;
   overflow: auto;
   background-color: gray;
-  opacity: 90%;
+  opacity: 0.9;
   padding-top: 60px;
 }
 
