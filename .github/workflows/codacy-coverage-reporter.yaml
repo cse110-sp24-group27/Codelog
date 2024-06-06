@@ -1,9 +1,10 @@
 name: Codacy Coverage Reporter
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   codacy-coverage-reporter:
