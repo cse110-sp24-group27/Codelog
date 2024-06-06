@@ -433,7 +433,7 @@ function createEntry () {
 
   // Alert the user that the entry was created
   alert('Entry created!')
-  
+
   // Repopulate the table of contents
   loadTableOfContents()
 }
