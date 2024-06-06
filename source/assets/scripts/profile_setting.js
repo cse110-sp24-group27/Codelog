@@ -125,6 +125,9 @@ function cancel () {
 
 // function to check if users github or linkedin url contains correct format
 function checkURL (url, type) {
+  if (url === null) {
+    return ""
+  }
   if (type === 'linkedin' && !url.startsWith('https://www.')) {
     // Remove 'http://www.' and add 'https://www.'
     if (url.startsWith('http://www.')) {
