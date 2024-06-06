@@ -192,6 +192,7 @@ h2 {
   max-width: 15px;
   min-width: 10px;
 }
+
 /* Style the delete button container */
 .entry-delete-btn-container {
   /* Use absolute position to place the button container correctly */
