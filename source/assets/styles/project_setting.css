@@ -53,6 +53,7 @@ body {
   font-size: 15px;
 }
 
+/* Style for the save button highlight */
 #save-bnt:active {
   background-color: #53ad04;
   color: #fff;
@@ -67,6 +68,17 @@ body {
 /* Style for the plus button */
 #cancel-bnt {
   background-color: grey;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 25px;
+  font-size: 15px;
+}
+
+/* Style for the plus button highlight */
+#cancel-bnt:active {
+  background-color: rgb(158, 157, 157);
   color: #fff;
   border: none;
   border-radius: 5px;

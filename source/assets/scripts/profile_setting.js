@@ -120,6 +120,7 @@ function save () {
 
 // Reset the profile form to previous state
 function cancel () {
+  const cancelButton = document.getElementById('cancel-btn')
   const profile = getProfileFromStorage()
   document.getElementById('profile-form').reset()
   document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
