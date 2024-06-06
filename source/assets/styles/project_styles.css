@@ -142,7 +142,7 @@ main {
   width: auto;
   height: auto;
   margin-bottom: 100px;
-  gap: 10px;
+  gap: 20px;
 }
 
 /* Style the class of creating new project */
@@ -256,22 +256,25 @@ main {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0 0 0 / 60%);
+  background-color: gray;
+  opacity: 0.9;
   padding-top: 60px;
 }
 
 /* Modal Content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #2a2a2e;
   margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  border-radius: 8px;
+  width: 50%;
+  color: #cbcbcb;
 }
 
 /* Close Button */
 .close {
-  color: #aaa;
+  color: #cbcbcb;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -279,7 +282,66 @@ main {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #fff;
   text-decoration: none;
+  cursor: pointer;
+}
+
+/* Tag Editor Styles */
+#tag-editor h2 {
+  font-size: 32px;
+  color: #cbcbcb;
+  margin-bottom: 20px;
+}
+
+#tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #333;
+  color: #cbcbcb;
+  cursor: pointer;
+}
+
+.tag-item::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--tag-color);
+  margin-right: 5px;
+}
+
+#new-tag-name,
+#new-tag-color {
+  width: calc(50% - 10px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #333;
+  color: #cbcbcb;
+}
+
+#new-tag-color {
+  width: auto;
+}
+
+#add-tag-btn {
+  background-color: #5a5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
   cursor: pointer;
 }
