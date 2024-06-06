@@ -165,6 +165,18 @@
                     ]
                 }
             ] 
-        }                
-    ]
+        }               
+    ],
+    "user_tags": [
+        {
+            "tagId": 30001,
+            "tagName": "HTML",
+            "color": "red"                
+        },
+        {
+            "tagId": 30002,
+            "tagName": "CSS",
+            "color": "blue"                
+        }
+    ] 
 }
