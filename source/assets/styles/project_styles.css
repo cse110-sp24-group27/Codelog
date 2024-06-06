@@ -142,7 +142,7 @@ main {
   width: auto;
   height: auto;
   margin-bottom: 100px;
-  gap: 100px;
+  gap: 20px;
 }
 
 /* Style the class of creating new project */
@@ -240,10 +240,6 @@ main {
 /* Style the copyright footer */
 #footer {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin-top: 10%;
   margin-left: 10%;
   font-size: 14px;
   width: 200px;
