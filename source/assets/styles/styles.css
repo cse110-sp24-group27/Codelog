@@ -203,7 +203,7 @@ h2 {
 }
 
 #project-page-footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
@@ -225,13 +225,10 @@ li {
 /* Style the whole selected_journal_page */
 #journal-page {
   background-color: #2a2a2e;
-  color: #fff;
+  color: #9bbeda;
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-top: 40px;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 body {
@@ -241,7 +238,6 @@ body {
 /* Style the back button color */
 #back-btn {
   position: absolute;
-  top: 40px;
   left: 10%;
   cursor: pointer;
   background-color: inherit;
@@ -251,13 +247,20 @@ body {
 
 /* Style the whole title, tag, template, and .MD file location */
 #j-main {
-  width: 80%;
-  margin: auto;
-  padding-left: 20px;
+  width: 70%;
+  padding-left: 80px;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#journal-title {
+  color: #fff;
 }
 
 #content {
   background-color: #2a2a2e;
+  color: #fff;
 }
 
 .header {
@@ -266,16 +269,15 @@ body {
 
 .code {
   background-color: #39393f;
+  color: #fff;
   margin-bottom: -20px;
 }
 
 #j-footer {
-  padding-top: 15%;
+  bottom: 5px;
+  padding-left: 80px;
+  color: #fff;
   margin-left: 10%;
-  font-size: 14px;
-  bottom: 0;
-  width: 100%;
-  color: #cbcbcb;
 }
 
 /* // // End of selected_journal_page styling // // */
