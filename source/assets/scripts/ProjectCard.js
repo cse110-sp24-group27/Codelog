@@ -26,7 +26,7 @@ class ProjectCard extends HTMLElement {
       }
 
        /* Style for project name */
-      h3.project-name {
+      a.project-name {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
@@ -45,13 +45,13 @@ class ProjectCard extends HTMLElement {
         margin-right: 5px;
       }
 
-       /* Style for project description */
+      /* Style for project description */
       p.project-description {
         font-size: 10px;
         margin: 0% 5% 10%;
       }
 
-       /* Style the drag button container */
+      /* Style the drag button container */
       .delete-btn-container {
         /* Use absolute position to place the button container correctly */
         position: absolute;
@@ -76,14 +76,14 @@ class ProjectCard extends HTMLElement {
         height: auto;
       }
 
-       /* Style the tags of each project */
+      /* Style the tags of each project */
       div.tags {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
       }
 
-       div.tags p {
+      div.tags p {
         border-radius: 2px;
         padding: 5px 10px;
         color: #cbcbcb;
@@ -153,26 +153,33 @@ class ProjectCard extends HTMLElement {
       console.error('Invalid project data provided to ProjectCard!')
       return
     }
+    this.setAttribute('draggable', 'true')
     const article = this.shadowRoot.querySelector('article')
-    article.setAttribute('draggable', 'true')
+    article.setAttribute('draggable', 'false')  // ensure that the whole project-card is dragged instead of the article only
     article.classList.add('project', 'is-idle')
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
     const words = data.description.split(' ')
     const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.description
     article.innerHTML = `
-    <div class="delete-btn-container" bis_skin_checked="1">
+    <div class="delete-btn-container" bis_skin_checked="1" draggable='false'>
       <button class="delete-btn" draggable='false'>
         <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
       </button>
     </div>
+<<<<<<< HEAD
     <a href="./source/reference/selected_project_page.html" onclick="loadProjectNameToLocalStorage(this)"><h3 class="project-name">${data.projectName}</h3></a>
     <p class="status">${data.privacy}</p>
     <p class="project-description">${truncatedDescription}</p>
     <div class="tags">${tagsHtml}</div>
+=======
+    <a class="project-name" href="http://127.0.0.1:5500/cse110-sp24-group27/source/reference/selected_project_page.html">${data.projectName}</a>
+    <p class="status" draggable='false'>${data.privacy}</p>
+    <p class="project-description" draggable='false'>${truncatedDescription}</p>
+    <div class="tags" draggable='false'>${tagsHtml}</div>
+>>>>>>> 2204344 (fixed dragging function and changed project name to a link to project page)
     `
-
-    // create an eventListener for the delete button of the project
+    
     const deleteButton = article.querySelector('.delete-btn')
     deleteButton.addEventListener('click', () => this.deletePopUp())
 

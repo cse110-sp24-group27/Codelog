@@ -69,56 +69,74 @@ function fetchProfileExamplejsonToStorage () {
     .catch(error => {
       console.error('Failed to fetch profile data:', error) // More specific error message
     })
- }
+}
 
 /**
- * Reads 'profile' from localStorage and returns an array of
- * user profile info. found (parsed, not in string form). If
- * nothing is found in localStorage for 'profile', an empty array
- * is returned.
- * @returns {Array<Object>} An array of projects found in localStorage
- */
+* Reads 'profile' from localStorage and returns an array of
+* user profile info. found (parsed, not in string form). If
+* nothing is found in localStorage for 'profile', an empty array
+* is returned.
+* @returns {Array<Object>} An array of projects found in localStorage
+*/
 function getProfileFromStorage () {
-  return JSON.parse(localStorage.getItem('user_profile')) || []
+ return JSON.parse(localStorage.getItem('user_profile')) || []
 }
 
 // Update the HTML page with the profile data
-function updateProfileOnPage (profile) {
-  document.getElementById('profile-picture').src = profile.profilePicture || 'https://via.placeholder.com/150'
-  document.getElementById('name').textContent = profile.username || 'Developer\'s Name'
-  // document.getElementById('username').textContent = profile.username || 'Username'
-  document.getElementById('pronoun').textContent = profile.pronouns
-  document.getElementById('description').textContent = profile.bio || 'User description'
-  // Update links if provided in the profile
-  if (profile.socialLinks.email) {
-    document.getElementById('link-email').href = `mailto:${profile.socialLinks.email}`
-  }
-  if (profile.socialLinks.linkedin) {
-    document.getElementById('link-linkedin').href = profile.socialLinks.linkedin
-  }
-  if (profile.socialLinks.github) {
-    document.getElementById('link-github').href = profile.socialLinks.github
-  }
+function updateProfileOnPage (user_profile) {
+ document.getElementById('profile-picture').src = user_profile.profilePicture || 'https://via.placeholder.com/150'
+ document.getElementById('name').textContent = user_profile.username || 'Developer\'s Name'
+ document.getElementById('pronoun').textContent = user_profile.pronouns
+ document.getElementById('description').textContent = user_profile.bio || 'User description'
+ // Update links if provided in the profile
+ console.log(user_profile)
+ if (user_profile.socialLinks.email) {
+   document.getElementById('link-email').href = `mailto:${user_profile.socialLinks.email}`
+ }
+ if (user_profile.socialLinks.linkedin) {
+   document.getElementById('link-linkedin').href = user_profile.socialLinks.linkedin
+ }
+ if (user_profile.socialLinks.github) {
+   document.getElementById('link-github').href = user_profile.socialLinks.github
+ }
+}
+
+
+/**
+* Fetches user_projects from .JSON file to localstorage.
+* Store the projects in localstorage as variable projects.
+*/
+function fetchExamplejsonToStorage () {
+ fetch('source/reference/datastructure.json') // Parse the response as JSON
+   .then(response => response.json())
+   .then(data => {
+     const projectsData = JSON.stringify(data.user_projects)
+     localStorage.setItem('user_projects', projectsData)
+     console.log('Projects successfully stored in localStorage')
+   }) // Store the parsed data
+   .catch(error => {
+     console.error('Failed to fetch project data:', error) // More specific error message
+   })
 }
 
 /**
- * Reads 'projects' from localStorage and returns an array of
- * all of the projects found (parsed, not in string form). If
- * nothing is found in localStorage for 'projects', an empty array
- * is returned.
- * @returns {Array<Object>} An array of projects found in localStorage
- */
+* Reads 'user_projects' from localStorage and returns an array of
+* all of the projects found (parsed, not in string form). If
+* nothing is found in localStorage for 'user_projects', an empty array
+* is returned.
+* @returns {Array<Object>} An array of projects found in localStorage
+*/
 function getProjectsFromStorage () {
-  return JSON.parse(localStorage.getItem('user_projects')) || []
+ return JSON.parse(localStorage.getItem('user_projects')) || []
 }
 
 /**
- * Takes in an array of projects and for each project creates a
- * new <project-card> element, adds the project data to that card
- * using element.data = {...}, and then appends that new project
- * to '.project-collection'
- * @param {Array<Object>} projects An array of projects
- */
+* Takes in an array of projects and for each project creates a
+* new <project-card> element, adds the project data to that card
+* using element.data = {...}, and then appends that new project
+* to '.project-collection'
+* @param {Array<Object>} projects An array of projects
+*/
 function addProjectsToDocument (projects) {
   // Get a reference to the <main> element
   const mainElement = document.querySelector('.projects')
