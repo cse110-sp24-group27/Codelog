@@ -71,4 +71,4 @@ function displayEntry () {
   // })
 }
 // displayEntry()
-window.addEventListener('load', displayEntry)
+window.addEventListener('load', displayEntry())
