@@ -53,6 +53,17 @@ body {
   font-size: 15px;
 }
 
+#save-bnt:active {
+  background-color: #53ad04;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 25px;
+  font-size: 15px;
+}
+
+
 /* Style for the plus button */
 #cancel-bnt {
   background-color: grey;

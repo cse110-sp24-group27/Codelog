@@ -87,6 +87,7 @@ function loadImage (event) {
 
 // Save the profile data to localStorage
 function save () {
+  const saveButton = document.getElementById('save-btn')
   const profile = getProfileFromStorage()
   const newProfile = {
     username: document.getElementById('name').value,
