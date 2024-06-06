@@ -226,3 +226,7 @@
 .delete-btn:hover {
   background-color: #d68888;
 }
+
+#tag-editor-popup {
+  display: none;
+}

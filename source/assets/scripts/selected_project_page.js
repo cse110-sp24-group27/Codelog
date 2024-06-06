@@ -447,6 +447,9 @@ function createEntry () {
   // Add the entry to localStorage and the page
   localStorage.setItem('user_projects', JSON.stringify(projects))
   populateEntries()
+
+  // Alert the user that the entry was created
+  alert('Entry created!')
 }
 
 // Add an event listener to the Create Entry button

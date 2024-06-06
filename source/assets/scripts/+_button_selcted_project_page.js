@@ -108,6 +108,7 @@ function createNewEntryObject () {
     publicity,
     content
   }
+  
   // console.log(newEntryObject)
   // saveNewEntryToLocalStorage(100, newEntryObject)  // testing for now, will move this out
   return newEntryObject
@@ -147,6 +148,8 @@ function saveNewEntryToLocalStorage (selectedProjectId, newEntry) {
     console.error('Error saving new entry to localStorage:', error)
   }
 }
+
+
 
 window.openPopup = openPopup
 window.closePopup = closePopup
