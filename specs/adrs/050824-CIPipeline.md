@@ -5,14 +5,15 @@
 ## Considered Options
 
 * Linter: Super-Linter
-* Code Quality: Codeclimate, Codacy
+* Code Quality: We chose Codacy as our method to check code quality and test coverage
+  * Codeclimate was not chosen
 * Documentation: JSDoc
 * Testing: parallel
 * End-to-End (E2E) Testing:
   * Puppeteer to operate the browser and Jest to perform the tests
-  * Playwright
-  * Selenium
-  * Cypress
+  * Playwright was not chosen
+  * Selenium was not chosen
+  * Cypress was not chosen
 
 
 ## Decision Outcome
