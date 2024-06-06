@@ -23,39 +23,19 @@
             <section id="journal-show">
                 <!-- Show Journal Title -->
                 <div class="wed" id="title">
-                    <h1 id="journal-title"></h1>
-                </div>
-                <!-- Show Template --->
-                <div class="wed" id="template">
-                    <h2 id="journal-template"></h2>
-                </div>
-                <!--Show tags --->
-                <div class="wed" id="tags">
+                    <h1 calss="titleName"></h1>
                 </div>
             </section>
 
+            
+
             <!--Showing the markdown that contains content -->
-            <section id="markdown-container">
-                <div id="codeblock">
-                    <pre>
-                    <code>
-static void reverseInPlace(int[] arr) { <br>
-    int[] tempArr = new int[arr.length]; <br>
-    for(int i = 0; i &lt; arr.length; i++) {<br>
-        tempArr[i] = arr[arr.Length -1 -i];<br>
-        arr[arr.lengh -1 - i] = tempArr[i];<br>
-    }
-    for(int i = 0; i &lt; arr.length; i++){
-        arr[i] = tempArr[i];
-    }
-}</code>
-        </pre>
-                </div>
-                <div id="text">
-
-                </div>
-
-
+            <section id="content">
+                <h2 class="header"></h2>
+                <pre>
+                    <p class="code"></p> 
+                </pre>
+                <p class="text"></p>
             </section>
         </main>
 
