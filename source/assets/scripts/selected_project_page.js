@@ -54,7 +54,6 @@ function getAllSelectedProjectEntries (projects, projectName) {
       currProjectEntries = project.selected_project_entries
     }
   })
-
   // If no project with the correct project_id found from above loop, console.log
   if (currProjectEntries) {
     return currProjectEntries
@@ -71,7 +70,6 @@ function populateEntries () {
   const currProjectName = localStorage.getItem('currDisplayedProject')
   const projects = JSON.parse(localStorage.getItem('user_projects'))
   const entries = getAllSelectedProjectEntries(projects, currProjectName)
-
   // Empty the journal entry container
   const journalEntryContainer = document.getElementById('journal-entries')
   journalEntryContainer.innerHTML = ''
@@ -89,7 +87,7 @@ function populateEntries () {
 
     entryElement.innerHTML = `
       <a href="selected_journal_page.html" onclick="loadEntryNameToLocalStorage(this)"><h2 class="entry-name" id=${entry.entryId}>${entry.titleName}</h2></a>
-      <p class="entry-text">${entry.content}</p>
+      <p class="entry-text">${entry.description}</p>
       <div class="drag-btn-container">
         <button class="drag-btn">
           <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
@@ -379,11 +377,11 @@ function cleanup () {
 dragAndDropSetup()
 
 // Show Popup Button //
-const showButton = document.getElementById('create-btn')
-const popup = document.getElementById('hidden-popup')
-showButton.addEventListener('click', function () {
-  popup.id = 'shown-popup'
-})
+// const showButton = document.getElementById('create-btn')
+// const popup = document.getElementById('hidden-popup')
+// showButton.addEventListener('click', function () {
+//   popup.id = 'shown-popup'
+// })
 
 // Fetch data from user input in pop-up after clicking "Create Entry" and put the data in localStorage
 // window.addEventListener('load', () => {
@@ -403,32 +401,48 @@ function createEntry () {
   // Get the project array and the current project object
   const projects = JSON.parse(localStorage.getItem('user_projects'))
   const currProject = getCurrProjectObject()
-
   // Get the current project's entries
   const entries = currProject.selected_project_entries
 
   // Get the values within the pop-up to use in the new entry
-  const entryTitle = document.getElementById('new-project-name').value
-  const entryContent = document.getElementById('new-project-content').value
+  const entryTitle = document.getElementById('new-entry-name').value
+  const entryDescription = document.getElementById('new-entry-description').value
   const entryPublicity = document.getElementById('publicity-select').value
 
   // Calculate the new entry ID and increment the current max entry ID
   const newEntryId = (parseInt(localStorage.getItem('currentMaxEntryId'))) + 1
   localStorage.setItem('currentMaxEntryId', newEntryId)
 
+  // Retrieve the content sections
+  const contentElements = document.querySelectorAll('#inputcontainer .input-group')
+  const allContent = Array.from(contentElements).map((inputGroup) => {
+    const input = inputGroup.querySelector('input')
+    const type = input.classList.contains('input-1') ? 'header' : input.classList.contains('input-2') ? 'code' : 'text'
+    return {
+      type,
+      content: input.value
+    }
+  })
+
   // Create the new entry object
   const entry = {
     entryId: newEntryId,
     titleName: entryTitle,
-    description: '',
+    description: entryDescription,
     tags: [],
     publicity: entryPublicity,
-    content: entryContent
+    content: allContent
   }
 
   // Push the entry to the project's entry array
   entries.push(entry)
   currProject.selected_project_entries = entries
+
+  for (let i = 0; i < projects.length; i++) {
+    if (projects[i].projectName === currProject.projectName) {
+      projects[i] = currProject
+    }
+  }
 
   // Add the entry to localStorage and the page
   localStorage.setItem('user_projects', JSON.stringify(projects))
