@@ -8,10 +8,10 @@ Introducing Codelog: a user-centric developer journal designed to illuminate and
 Additionally, users have the flexibility to toggle project visibility, choosing between public and private settings. Customize your profile, meticulously outline project specifications, and effortlessly craft beautifully formatted journal entries with our intuitive software.
 
 ## Usage
-We deployed our web app using GitHub Pages which you can access with this link: [deployed](https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html). This also means that the user will not have to install any dependencies to use the web app and will just initially need a functioning web browser to access it.
+We deployed our web app using GitHub Pages which you can access with this link: [Codelog](https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html). This also means that the user will not have to install any dependencies to use the web app and will just initially need a functioning web browser to access it.
 
 ### Demonstration Video
-[example video]()
+[![Demo Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
 
 ## Fetures
 - Project creation & deletion: Users can create a new project, add a brief description, as well as highlight its tech stack and publicity.
