@@ -36,24 +36,28 @@ function displayEntry () {
     let newElement
     // Create elements based on the type
     switch (item.type) {
-      case 'header':
+      case 'header': {
         newElement = document.createElement('h2')
         newElement.classList.add('header')
         newElement.textContent = item.content
         break
-      case 'code':
+      }
+      case 'code': {
         newElement = document.createElement('p')
         newElement.classList.add('code')
         newElement.textContent = item.content
         break
-      case 'text':
+      }
+      case 'text': {
         newElement = document.createElement('p')
         newElement.classList.add('text')
         newElement.textContent = item.content
         break
-      default:
+      }
+      default: {
         console.warn('Unknown content type:', item.type)
         return
+      }
     }
     journalPage.appendChild(newElement)
   })
