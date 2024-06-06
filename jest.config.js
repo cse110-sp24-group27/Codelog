@@ -5,7 +5,7 @@ const config = {
   collectCoverageFrom: [
     './source/assets/scripts/*.{js,jsx}'
   ],
-  coverageReporters: ['clover', 'json', 'lcov', ['text', { skipFull: true }]]
+  coverageReporters: ['clover']
 }
 
 module.exports = config
