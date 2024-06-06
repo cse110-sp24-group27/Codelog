@@ -1,11 +1,49 @@
 // Js for the functionality of the Selected Project Page //
 
 /**
+ * Returns the current project object stored in localStorage
+ * @returns Current project object
+ */
+function getCurrProjectObject () {
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
+  let currProject
+  projects.forEach(project => {
+    if (project.projectName === currProjectName) {
+      currProject = project
+    }
+  })
+  return currProject
+}
+
+/**
+ * Initializes the title, description, and entries of the project page
+ */
+function projectPageInit () {
+  // Get the current project object
+  const currProject = getCurrProjectObject()
+
+  // Update the project name
+  const projectName = document.getElementById('project-name')
+  projectName.innerHTML = currProject.projectName
+
+  // Update the project description
+  const projectDescription = document.getElementById('project-description')
+  projectDescription.innerHTML = currProject.description
+
+  // On load, populate the selected project's entries
+  populateEntries()
+}
+
+// On load, populate all necessary parts of the page
+window.addEventListener('load', projectPageInit)
+
+/**
  * Retrieve all entries of the selected project given the project id
  * @param projects - object `user_projects`
  * @param projectName - string, name of the project
  * @return the "selected_project_entries" array of that selected project
-*/
+ */
 function getAllSelectedProjectEntries (projects, projectName) {
   // TODO: return "selected_project_entries" array of the given project from localStorage
 
@@ -24,9 +62,6 @@ function getAllSelectedProjectEntries (projects, projectName) {
     console.log(`There's no project found with ${projectName}`)
   }
 }
-
-// On load, populate the selected project's entries
-window.addEventListener('load', populateEntries)
 
 /**
  * Adds the entries for the selected project onto the page
@@ -365,15 +400,9 @@ createEntryButton.addEventListener('click', createEntry)
  * Creates a journal entry and adds it to localStorage and the current project page
  */
 function createEntry () {
-  // Get the current project object
-  const currProjectName = localStorage.getItem('currDisplayedProject')
+  // Get the project array and the current project object
   const projects = JSON.parse(localStorage.getItem('user_projects'))
-  let currProject
-  projects.forEach(project => {
-    if (project.projectName === currProjectName) {
-      currProject = project
-    }
-  })
+  const currProject = getCurrProjectObject()
 
   // Get the current project's entries
   const entries = currProject.selected_project_entries
@@ -384,8 +413,8 @@ function createEntry () {
   const entryPublicity = document.getElementById('publicity-select').value
 
   // Calculate the new entry ID and increment the current max entry ID
-  const newEntryId = (parseInt(localStorage.getItem('current_max_entry_id'))) + 1
-  localStorage.setItem('current_max_entry_id', newEntryId)
+  const newEntryId = (parseInt(localStorage.getItem('currentMaxEntryId'))) + 1
+  localStorage.setItem('currentMaxEntryId', newEntryId)
 
   // Create the new entry object
   const entry = {

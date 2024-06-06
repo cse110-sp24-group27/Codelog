@@ -205,7 +205,7 @@ main {
 }
 
 #new-project-description,
-#new-entry {
+#new-project-name {
   width: 80%;
   padding: 10px;
   margin-bottom: 20px;
@@ -215,7 +215,6 @@ main {
   color: #cbcbcb;
 }
 
-#more-entry,
 #done {
   background-color: #666;
   color: white;
@@ -224,14 +223,6 @@ main {
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-#more-entry {
-  background-color: #5a5;
-}
-
-#done {
-  background-color: #5a5a5a;
   align-self: flex-end;
 }
 
