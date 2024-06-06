@@ -46,3 +46,5 @@ function displayEntry () {
     }
   })
 }
+
+displayEntry()
