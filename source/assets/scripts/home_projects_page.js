@@ -3,7 +3,7 @@
 // (1) home_projects_page functions //
 
 let selectedTags = []
-let deleteMode = false;
+let deleteMode = false
 
 /**
  * Get an unused Project Id
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addProjectToLocalStorage(newProject)
   }
 
-// Function to handle tag selection
+  // Function to handle tag selection
 function toggleTag(tagElement) {
   const tag = tagElement.textContent.trim();
   const selectedTagsContainer = document.getElementById('selected-tags');
@@ -108,13 +108,13 @@ function toggleTag(tagElement) {
     tagElement.style.fontWeight = 'normal';
 
     // Remove tag from selected tags display
-    const tagToRemove = Array.from(selectedTagsContainer.children).find(child => child.textContent.trim() === tag);
-    if (tagToRemove) {
-      selectedTagsContainer.removeChild(tagToRemove);
-    }
-  } else {
+    const tagToRemove = Array.from(selectedTagsContainer.children).find(child => child.textContent.trim() === tag)
+      if (tagToRemove) {
+        selectedTagsContainer.removeChild(tagToRemove)
+        }
+    } else {
     // Add tag to the selectedTags array
-    selectedTags.push(tag);
+      selectedTags.push(tag)
     tagElement.style.fontWeight = 'bold';
 
     // Add tag to selected tags display
