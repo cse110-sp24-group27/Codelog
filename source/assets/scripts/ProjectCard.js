@@ -26,7 +26,7 @@ class ProjectCard extends HTMLElement {
       }
 
        /* Style for project name */
-      a.project-name {
+      h3.project-name {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
@@ -167,7 +167,7 @@ class ProjectCard extends HTMLElement {
         <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img" draggable="false">
       </button>
     </div>
-    <a class="project-name" href="http://127.0.0.1:5504/source/reference/selected_project_page.html" draggable="false">${data.projectName}</a>
+    <a class="project-name" href="http://127.0.0.1:5504/source/reference/selected_project_page.html" draggable="false"><h3 class="project-name">${data.projectName}</h3></a>
     <p class="status" draggable="false">${data.privacy}</p>
     <p class="project-description" draggable="false">${truncatedDescription}</p>
     <div class="tags" draggable="false">${tagsHtml}</div>
@@ -188,6 +188,17 @@ class ProjectCard extends HTMLElement {
     if (data.imageUrl) {
       const imageHtml = `<img src="${data.imageUrl}" alt="Project Image">`
       article.innerHTML += imageHtml
+    }
+
+    const projectNameLink = article.querySelector('.project-name')
+    
+    projectNameLink.addEventListener('click', loadProjectNameToLocalStorage())
+
+    function loadProjectNameToLocalStorage() {
+        console.log("title was clicked")
+        const h3Element = projectNameLink.querySelector('h3')
+        const currDisplayedProject = h3Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+        localStorage.setItem('currDisplayedProject', currDisplayedProject)
     }
   }
 
