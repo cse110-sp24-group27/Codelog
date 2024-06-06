@@ -17,6 +17,22 @@ function init () {
   if (localStorage.getItem('user_profile') == null) {
     localStorage.setItem('user_profile')
   }
+  
+  // Check for errors if passed the limit
+  if (parseInt(localStorage.getItem('currentMaxProjectId')) === 1999) {
+    alert('Reached Max Project Limit')
+  }
+  if (parseInt(localStorage.getItem('currentMaxEntryId')) === 29999) {
+    alert('Reached Max Entry Limit')
+  }
+  if (parseInt(localStorage.getItem('currentMaxTagId')) === 30101) {
+    alert('Reached Max Entry Limit')
+  }
+
+  // Update the profile
+  // Get the profile from localStorage
+  const profile = getProfileFromStorage()
+  updateProfileOnPage(profile)
 
   // Update the profile
   const prevProfile = localStorage.getItem('user_profile')
