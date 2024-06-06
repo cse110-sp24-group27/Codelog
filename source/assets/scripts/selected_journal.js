@@ -13,7 +13,7 @@ function getCurrJournal () {
   // Iterate through project's entries and find the entry you want to display
   let entryToDisplay
   currProjectEntries.forEach(entry => {
-    if (entry.title - name === currEntryName) {
+    if (entry.titleName === currEntryName) {
       entryToDisplay = entry
     }
   })
@@ -24,8 +24,8 @@ function displayEntry () {
   const journalPage = document.getElementById('j-main')
   journalPage.innerHTML = ''
   console.log(entryToDisplay)
-  const textTitle = entryToDisplay.title - name
-  // document.querySelector('.title-name').innerHTML = textTitle
+  const textTitle = entryToDisplay.titleName
+  // document.querySelector('.textTitle').innerHTML = textTitle
   entryToDisplay.content.forEach(item => {
     let newElement
     // Create elements based on the type
