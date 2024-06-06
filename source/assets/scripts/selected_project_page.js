@@ -120,8 +120,6 @@ const dynamicContentList = document.getElementById('dynamic-content-list') // Ge
 function loadTableOfContents () {
   dynamicContentList.innerHTML = '' // clear contents
 
-// On load of script, load table of contents
-// loadTableOfContents()
   // Get an array of all entry names for the current project
   const currProject = getCurrProjectObject()
   const entries = currProject.selected_project_entries
