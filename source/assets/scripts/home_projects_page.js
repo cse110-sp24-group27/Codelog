@@ -1,6 +1,10 @@
 // import { addProjectToLocalStorage } from "./get_set_from_localStorage.js"
 
 // (1) home_projects_page functions //
+
+let selectedTags = []
+let deleteMode = false
+
 /**
  * Get an unused Project Id
  */
@@ -48,13 +52,11 @@ function addProjectToLocalStorage (projectToAdd) {
   // Add the user additions to the "user_projects" array.
   projectInArray.push(projectToAdd)
 
-  // Update to laocalStorage
+  // Update to localStorage
   localStorage.setItem('user_projects', JSON.stringify(projectInArray))
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  let selectedTags = []
-
   // Function to handle the new project form
   function newProject () {
     const form = document.querySelector('.new-project')
@@ -97,18 +99,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to handle tag selection
   function toggleTag (tagElement) {
-    const tag = tagElement.textContent
+    const tag = tagElement.textContent.trim()
+    const selectedTagsContainer = document.getElementById('selected-tags')
 
     if (selectedTags.includes(tag)) {
+    // Remove tag from the selectedTags array
       selectedTags = selectedTags.filter(t => t !== tag)
       tagElement.style.fontWeight = 'normal'
+
+      // Remove tag from selected tags display
+      const tagToRemove = Array.from(selectedTagsContainer.children).find(child => child.textContent.trim() === tag)
+      if (tagToRemove) {
+        selectedTagsContainer.removeChild(tagToRemove)
+      }
     } else {
+    // Add tag to the selectedTags array
       selectedTags.push(tag)
       tagElement.style.fontWeight = 'bold'
+
+      // Add tag to selected tags display
+      const newTag = document.createElement('div')
+      newTag.textContent = tag
+      newTag.classList.add('tag')
+      selectedTagsContainer.appendChild(newTag)
     }
   }
 
-  // // Function to handle privacy selection
+  // Function to handle privacy selection
   function selectPrivacy (option) {
     document.getElementById('public').classList.remove('bold')
     document.getElementById('private').classList.remove('bold')
@@ -123,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.tag').forEach(tag => { tag.style.fontWeight = 'normal' })
     document.getElementById('public').classList.remove('bold')
     document.getElementById('private').classList.remove('bold')
+    document.getElementById('selected-tags').innerHTML = ''
   }
 
   // Event listeners
@@ -148,6 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('tag-editor')
   const span = document.getElementsByClassName('close')[0]
   const addTagButton = document.getElementById('add-tag-btn')
+  const tagList = document.getElementById('tag-list')
+  const newTagNameInput = document.getElementById('new-tag-name')
 
   // Show the modal when the Add Tag button is clicked
   document.querySelector('.add-tag').addEventListener('click', function () {
@@ -175,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (tagName) {
       const tags = getTagsFromStorage()
       tags.push({ name: tagName, color: tagColor })
-      localStorage.setItem('tags', JSON.stringify(tags))
+      localStorage.setItem('user_tags', JSON.stringify(tags))
       loadTags()
       document.getElementById('new-tag-name').value = ''
       document.getElementById('new-tag-color').value = '#000000'
@@ -184,23 +204,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
+  // Toggle Delete Mode
+  document.getElementById('toggle-delete-mode').addEventListener('click', function () {
+    deleteMode = !deleteMode
+    this.textContent = `Delete Mode: ${deleteMode ? 'On' : 'Off'}`
+  })
+
   // Load tags from localStorage
   function loadTags () {
     const tags = getTagsFromStorage()
-    const tagList = document.getElementById('tag-list')
     tagList.innerHTML = ''
 
     tags.forEach(tag => {
       const tagItem = document.createElement('div')
-      tagItem.style.backgroundColor = tag.color
+      tagItem.style.backgroundColor = 'gray'
       tagItem.textContent = tag.name
+      tagItem.classList.add('tag-item')
+      tagItem.style.setProperty('--tag-color', tag.color)
+      tagItem.addEventListener('click', function () {
+        if (deleteMode) {
+          tagList.removeChild(tagItem)
+          const updatedTags = tags.filter(t => t.name !== tag.name)
+          localStorage.setItem('user_tags', JSON.stringify(updatedTags))
+          toggleTag(this)
+        } else {
+          toggleTag(this)
+        }
+      })
       tagList.appendChild(tagItem)
     })
   }
 
   // Get tags from localStorage
   function getTagsFromStorage () {
-    return JSON.parse(localStorage.getItem('tags')) || []
+    return JSON.parse(localStorage.getItem('user_tags')) || []
   }
 
   function addProjectsToDocument (projects) {
