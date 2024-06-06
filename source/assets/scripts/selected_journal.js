@@ -39,7 +39,7 @@ function displayEntry () {
         newElement = document.createElement('h2')
         newElement.classList.add('header')
         newElement.textContent = item.content
-        break;
+        break
       case 'code':
         const preElement = document.createElement('code')
         const codeElement = document.createElement('p')
@@ -47,15 +47,12 @@ function displayEntry () {
         codeElement.textContent = item.content
         preElement.appendChild(codeElement)
         newElement = preElement
-        break;
+        break
       case 'text':
         newElement = document.createElement('p')
         newElement.classList.add('text')
         newElement.textContent = item.content
-        break;
-      default:
-        console.warn('Unknown content type:', item.type)
-        return
+        break
     }
     journalPage.appendChild(newElement)
   })
