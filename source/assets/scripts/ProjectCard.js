@@ -191,14 +191,14 @@ class ProjectCard extends HTMLElement {
     }
 
     const projectNameLink = article.querySelector('.project-name')
-    
+
     projectNameLink.addEventListener('click', loadProjectNameToLocalStorage())
 
-    function loadProjectNameToLocalStorage() {
-        console.log("title was clicked")
-        const h3Element = projectNameLink.querySelector('h3')
-        const currDisplayedProject = h3Element.textContent.trim() // Get text content and remove any leading/trailing spaces
-        localStorage.setItem('currDisplayedProject', currDisplayedProject)
+    function loadProjectNameToLocalStorage () {
+      console.log('title was clicked')
+      const h3Element = projectNameLink.querySelector('h3')
+      const currDisplayedProject = h3Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+      localStorage.setItem('currDisplayedProject', currDisplayedProject)
     }
   }
 
