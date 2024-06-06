@@ -26,8 +26,6 @@ function getCurrJournal () {
 function displayEntry () {
   const entryToDisplay = getCurrJournal()
 
-  // TODO: use the elements inside entryToDisplay to display the necessary data in the selected_journal_page
-
   const journalPage = document.getElementById('journal-page')
   journalPage.innerHTML = ''
 
