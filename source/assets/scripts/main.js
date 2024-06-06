@@ -14,13 +14,18 @@ function init () {
     localStorage.setItem('currentMaxTagId', 30000)
   }
 
-  // Update the profile
-  const prevProfile = localStorage.getItem('user_profile')
-  // Check if the localStorage is already created for projects
-  if (prevProfile == null) {
-    fetchProfileExamplejsonToStorage()
+  // Check for errors if passed the limit
+  if (parseInt(localStorage.getItem('currentMaxProjectId')) === 1999) {
+    alert('Reached Max Project Limit')
+  }
+  if (parseInt(localStorage.getItem('currentMaxEntryId')) === 29999) {
+    alert('Reached Max Entry Limit')
+  }
+  if (parseInt(localStorage.getItem('currentMaxTagId')) === 30101) {
+    alert('Reached Max Entry Limit')
   }
 
+  // Update the profile
   // Get the profile from localStorage
   const profile = getProfileFromStorage()
   updateProfileOnPage(profile)
@@ -40,22 +45,6 @@ function init () {
   addProjectsToDocument(projects)
   // Add the event listeners to the form elements
   // initFormHandler()
-}
-
-/**
- * Fetches user_profile from .JSON file to localstorage.
- * Store the profile in localstorage as variable projects.
- */
-function fetchProfileExamplejsonToStorage () {
-  fetch('source/reference/datastructure.json') // Parse the response as JSON
-    .then(response => response.json())
-    .then(data => {
-      const profileData = JSON.stringify(data.user_profile)
-      localStorage.setItem('user_profile', profileData)
-    }) // Store the parsed data
-    .catch(error => {
-      console.error('Failed to fetch profile data:', error) // More specific error message
-    })
 }
 
 /**
