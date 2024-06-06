@@ -1,45 +1,48 @@
-// When clicked the arrow button, go back to last page
-function goBack () {
-  window.history.back()
+function getCurrJournal (){
+  const currProjectName = localStorage.getItem("currDisplayedProject")
+  const currEntryName = localStorage.getItem("currDisplayedEntry")
+  const userProjectsAsString = localStorage.getItem("user_projects")
+
+  const userProjects = JSON.parse(userProjectsAsString);
+  
+  // Iterate through projects, find the project with matching projectName
+  let currProjectEntries
+  userProjects.forEach(project => {
+    if (project.projectName === currProjectName) {
+      currProjectEntries = project.selected_project_entries
+    }
+  })
+
+  // Iterate through project's entries and find the entry you want to display
+  let entryToDisplay
+  currProjectEntries.forEach(entry => {
+    if(entry.titleName == currEntryName){
+      entryToDisplay = entry
+    }
+  })
+
+  return entryToDisplay  
 }
 
-// UNCOMMENT WHEN LOCAL STORAGE GETS IMPLEMENTED
-// Fetch Journal Data from localStorage (onLoad) & Display it in The Selected Journal Page //
-/*
-//Fetch journal title
-function getTitleToDisplay () {
-  // Fetch title from localStorage
-  var textTitle = localStorage.getItem("journal-title");
-  // Assign it to the selected journal page for display
-  document.getElementById("journal-title").innerHTML = "put the title here using textTitle"
-}
+function displayEntry () {
+  let entryToDisplay = getCurrJournal()
 
-// Fetch tags
-function getTagsToDisplay () {
-  // Fetch tags from localStorage
-  var tags = localStorage.getItem("tags");
-  // Assign it to the selected journal page for display
-  document.getElementById("tags").innerHTML = tags
-}
+  // TODO: use the elements inside entryToDisplay to display the necessary data in the selected_journal_page
 
-// Fetch journal template
-function getTitleToDisplay () {
-  // Fetch template from localStorage
-  var textTemplate = localStorage.getItem("template");
-  // Assign it to the selected journal page for display
-  document.getElementById("template").innerHTML = textTemplate
-}
+  const journalPage = document.getElementById("journal-page");
+  journalPage.innerHTML = '';
 
-// Fetch entry content
-function getEntryTextToDisplay () {
-  // Fetch entry text from localStorage
-  var entryText = localStorage.getItem("markdown");
-  // Assign it to the selected journal page for display
-  document.getElementById("text").innerHTML = entryText
+  var textTitle = entryToDisplay.getItem("titleName");
+  document.querySelector(".titleName").innerHTML = textTitle;
+
+
+  entryToDisplay.content.forEach(element => {
+    if (element.type === "header") {
+      document.querySelector(".header").innerHTML = element;
+    } else if (element.type === "code") {
+      document.querySelector(".code").innerHTML = element;
+    }else if (element.type === "text") {
+      document.querySelector(".text").innerHTML = element;
+    }
+  });
 }
-*/
-// Wait for the DOM content to be loaded before attaching the event listener to the back button
-document.addEventListener('DOMContentLoaded', function () {
-  // Attach an event listener to the go back button to execute the function go_back
-  document.getElementById('back-btn').addEventListener('click', goBack)
-})
