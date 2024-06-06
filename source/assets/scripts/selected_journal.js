@@ -13,7 +13,7 @@ function getCurrJournal () {
   // Iterate through project's entries and find the entry you want to display
   let entryToDisplay
   currProjectEntries.forEach(entry => {
-    if (entry.title-name === currEntryName) {
+    if (entry.title - name === currEntryName) {
       entryToDisplay = entry
     }
   })
@@ -24,35 +24,36 @@ function displayEntry () {
   const journalPage = document.getElementById('j-main')
   journalPage.innerHTML = ''
   console.log(entryToDisplay)
-  const textTitle = entryToDisplay.title-name
+  const textTitle = entryToDisplay.title - name
   // document.querySelector('.title-name').innerHTML = textTitle
   entryToDisplay.content.forEach(item => {
-    let newElement;
+    let newElement
     // Create elements based on the type
     switch (item.type) {
       case 'header':
-        newElement = document.createElement('h2');
-        newElement.classList.add('header');
-        newElement.textContent = item.content;
-        break;
+        newElement = document.createElement('h2')
+        newElement.classList.add('header')
+        newElement.textContent = item.content
+        break
       case 'code':
-        const preElement = document.createElement('code');
-        const codeElement = document.createElement('p');
-        codeElement.classList.add('code');
-        codeElement.textContent = item.content;
-        preElement.appendChild(codeElement);
-        newElement = preElement;
-        break;
+        const preElement = document.createElement('code')
+        const codeElement = document.createElement('p')
+        codeElement.classList.add('code')
+        codeElement.textContent = item.content
+        preElement.appendChild(codeElement)
+        newElement = preElement
+        break
       case 'text':
-        newElement = document.createElement('p');
-        newElement.classList.add('text');
-        newElement.textContent = item.content;
-        break;
+        newElement = document.createElement('p')
+        newElement.classList.add('text')
+        newElement.textContent = item.content
+        break
       default:
-        console.warn('Unknown content type:', item.type);
-        return;
+        console.warn('Unknown content type:', item.type)
+        return
     }
-    journalPage.appendChild(newElement)})
+    journalPage.appendChild(newElement)
+  })
   //   if (element.type === 'header') {
   //     document.querySelector('.header').innerHTML = element
   //   } else if (element.type === 'code') {
