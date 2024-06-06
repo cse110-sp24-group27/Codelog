@@ -167,7 +167,7 @@ class ProjectCard extends HTMLElement {
         <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img" draggable="false">
       </button>
     </div>
-    <a class="project-name" href="../source/reference/selected_project_page.html" draggable="false"><h3 class="project-name">${data.projectName}</h3></a>
+    <a class="project-name" href="./source/reference/selected_project_page.html" draggable="false"><h3 class="project-name">${data.projectName}</h3></a>
     <p class="status" draggable="false">${data.privacy}</p>
     <p class="project-description" draggable="false">${truncatedDescription}</p>
     <div class="tags" draggable="false">${tagsHtml}</div>
