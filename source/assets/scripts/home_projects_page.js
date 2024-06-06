@@ -2,7 +2,7 @@
 
 // (1) home_projects_page functions //
 
-let selectedTags = [];
+let selectedTags = []
 let deleteMode = false;
 
 /**
