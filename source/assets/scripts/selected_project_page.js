@@ -408,6 +408,7 @@ function createEntry () {
 
   updatelocalStorage(entry, true)
   populateEntries()
+  loadTableOfContents()
 }
 
 /**
