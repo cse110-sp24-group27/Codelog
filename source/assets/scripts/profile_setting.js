@@ -114,6 +114,7 @@ function save () {
     localStorage.setItem('user_profile', JSON.stringify(newProfile))
     console.log('profile updated without new image: ', newProfile)
   }
+  alert('Profile was saved!')
 }
 
 // Reset the profile form to previous state
