@@ -15,14 +15,14 @@ function init () {
   }
 
   // Check for errors if passed the limit
-  if (localStorage.getItem('currentMaxProjectId') == 1999) {
+  if (parseInt(localStorage.getItem('currentMaxProjectId')) === 1999) {
     alert('Reached Max Project Limit')
   }
-  if (localStorage.getItem('currentMaxEntryId') == 29999) {
+  if (parseInt(localStorage.getItem('currentMaxEntryId')) === 29999) {
     alert('Reached Max Entry Limit')
   }
-  if (localStorage.getItem('currentMaxTagId') == 30101) {
-    alert('Reached Max Entry Limit')    
+  if (parseInt(localStorage.getItem('currentMaxTagId')) === 30101) {
+    alert('Reached Max Entry Limit')
   }
 
   // Update the profile
