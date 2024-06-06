@@ -1,4 +1,4 @@
-/* popup button for Project Page styling and positioning */
+/* General styling for the pop-up */
 .pop-up {
   display: none;
   position: fixed;
@@ -6,31 +6,36 @@
   top: 50%;
   transform: translate(-50%, -50%);
   border: none;
-  padding: 70px;
+  padding: 20px;
   background-color: #2a2a2e;
   color: #fff;
-  max-width: 600px;
-  max-height: 80vh;
+  width: 500px;
   overflow-y: auto;
+  max-height: 70%;
   border-radius: 5px;
   font-family: Roboto, sans-serif;
+  box-sizing: border-box;
+  padding-right: 100px;
+  padding-left: 80px;
+  padding-bottom: 30px;
 }
 
-/* Style the form in the pop-up */
+/* Style for the form */
 .pop-up form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-left: 20px;
 }
 
-/* Styling and positioning for the "+" buttons */
+/* Style for buttons */
 .pop-up button {
   margin-top: 10px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 12px;
 }
 
-/* Style the create button */
+/* Style for + button */
 #create-btn {
   position: fixed;
   bottom: 20px;
@@ -44,90 +49,85 @@
   cursor: pointer;
 }
 
-/* Container for the done button in the pop-up */
+/* Styling and positioning for Create Entry button */
 .done-btn-position {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
 }
 
-/* Style the done button in the pop-up */
 #done-btn {
   background-color: #4a801b;
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 120px;
+  width: 88px;
   height: 35px;
-  font-size: 15px;
+  font-size: 12px;
   cursor: pointer;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
-/* Style the add tag button in the pop-up */
+/* Style for Add Tag button */
 #add-tag-btn {
   background-color: #4a801b;
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 90px;
-  height: 35px;
-  font-size: 15px;
+  width: 65px;
+  height: 30px;
+  font-size: 12px;
   cursor: pointer;
 }
 
-/* Style the back arrow button in the pop-up */
+/* Styling and positioning for back arrow button */
 #project-page-popup-back-btn {
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
   position: absolute;
-  top: 67px;
-  right: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 50%;
-  margin-top: 6px;
+  top: 25px;
+  left: 35px;
 }
 
-/* Style the back arrow image in the pop-up */
 #project-page-popup-back-btn img {
   width: 35px;
   height: 35px;
 }
 
-/* This is positioning and styling for entry title an desscription */
-#new-project-name {
-  flex-grow: 1;
+/* Style for entry title box */
+#new-entry-name {
   padding: 10px;
   border: 1px solid #fff;
   background-color: #2a2a2e;
-  color: grey;
-  width: 500px;
+  color: #fff;
+  width: 300px;
   max-width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
 }
 
-/* Style the entry content section of the form */
-#new-project-content {
+/* Style for description box */
+#new-entry-description {
   flex-grow: 1;
   padding: 10px;
   border: 1px solid #fff;
   background-color: #2a2a2e;
-  color: grey;
-  width: 500px;
+  color: #fff;
+  width: 300px;
   max-width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
-  height: 80px;
+  height: 60px;
 }
 
-/* Style the headers in the pop-up */
+/* Styling for headers */
 .pop-up h1 {
-  margin: 0;
-  font-size: 40px;
+  font-size: 25px;
+  margin-bottom: 10px;
 }
 
 .pop-up h3 {
@@ -135,17 +135,11 @@
   font-size: 15px;
 }
 
-/* Style for entry boxes and select dropdowns */
-.select-container {
-  display: flex;
-  gap: 30px;
-}
-
-/* Style the dropdown menus in the pop-up */
 .dropdown-group h3 {
   margin: 5px;
 }
 
+/* Stylring for publicity select */
 .dropdown-group select {
   background-color: #2a2a2e;
   border: 1px solid #fff;
@@ -154,4 +148,85 @@
   border-radius: 5px;
   padding-right: 30px;
   margin: 5px;
+}
+
+.entry-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Styling and positioning for add entry buttons */
+.buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.buttons button {
+  margin: 0 5px;
+  color: #fff;
+  background-color: grey;
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* Styling and positioning for entry boxes */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #fff;
+  background-color: #2a2a2e;
+  color: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.input-1 {
+  height: 70%;
+  width: 60%;
+}
+
+.input-2 {
+  height: 60px;
+  width: 300px;
+}
+
+.input-3 {
+  height: 60px;
+  width: 300px;
+}
+
+/* Styling for delete buttons */
+.delete-btn {
+  background-color: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  height: 30px;
+}
+
+.delete-btn:hover {
+  background-color: #d68888;
+}
+
+#tag-editor-popup {
+  display: none;
 }

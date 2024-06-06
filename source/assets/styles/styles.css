@@ -132,11 +132,12 @@ h2 {
 
 /* Style the entry name */
 .entry-name {
-  color: #b6b6b6;
+  color: #abcafa;
   width: 30vw;
+  text-decoration: none;
 }
 
-/* Style the entry template name */
+/* REDACTED but kept for localstorage reference
 .entry-template {
   color: #f24822;
   position: absolute;
@@ -144,6 +145,7 @@ h2 {
   right: 10px;
   width: 13vw;
 }
+*/
 
 /* Style the entry text */
 .entry-text {
@@ -191,6 +193,33 @@ h2 {
   min-width: 10px;
 }
 
+/* Style the delete button container */
+.entry-delete-btn-container {
+  /* Use absolute position to place the button container correctly */
+  position: absolute;
+  top: 10px;
+  right: 30px; /* Adjust the value to position the delete button properly */
+  width: auto;
+  height: auto;
+}
+
+/* Style the delete buttons within each journal entry */
+.entry-delete-btn {
+  cursor: pointer;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the delete button image */
+.delete-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 15px;
+  min-width: 10px;
+}
+
 /* Style the down arrow between entries */
 .down-arrow {
   width: auto;
@@ -198,6 +227,18 @@ h2 {
   margin-left: auto;
   margin-right: auto;
   margin-top: -20px;
+}
+
+#project-page-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 10%;
+  margin-left: 10%;
+  font-size: 14px;
+  width: 200px;
+  height: 60px;
 }
 
 /* Apply font colors small text */
@@ -215,9 +256,6 @@ li {
   font-family: Roboto, sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-top: 40px;
-  margin-left: 10%;
-  margin-right: 10%;
 }
 
 body {
@@ -227,7 +265,6 @@ body {
 /* Style the back button color */
 #back-btn {
   position: absolute;
-  top: 40px;
   left: 10%;
   cursor: pointer;
   background-color: inherit;
@@ -237,60 +274,37 @@ body {
 
 /* Style the whole title, tag, template, and .MD file location */
 #j-main {
-  width: 80%;
-  margin: auto;
-  padding-left: 20px;
+  width: 70%;
+  padding-left: 80px;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #journal-title {
   color: #fff;
 }
 
-#journal-template {
-  color: #ff7676;
-}
-
-#tags h3 {
-  color: #cbcbcb;
-}
-
-#dot1 {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: #9bbeda; /* change this as needed */
-  margin-right: -10px;
-  margin-top: 25px;
-}
-
-#dot2 {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: darkred; /* change this as needed */
-  margin-right: -10px;
-  margin-top: 25px;
-}
-
-/* If tags are more than one, put them side by side */
-#tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: -15px;
-}
-
-#markdown-container {
+#content {
   background-color: #2a2a2e;
   color: #fff;
 }
 
-#codeblock {
+.header {
+  margin-bottom: -20px;
+}
+
+.code {
   background-color: #39393f;
+  color: #fff;
+  margin-bottom: -20px;
 }
 
 #j-footer {
   bottom: 5px;
+  padding-left: 80px;
+  color: #fff;
+  margin-left: 10%;
 }
 
 /* // // End of selected_journal_page styling // // */

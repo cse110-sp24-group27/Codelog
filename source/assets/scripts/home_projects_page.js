@@ -1,17 +1,22 @@
-// import { addProjectToLocalStorage } from "./get_set_from_localStorage.js";
+// import { addProjectToLocalStorage } from "./get_set_from_localStorage.js"
+
 // (1) home_projects_page functions //
+
+let selectedTags = []
+let deleteMode = false
+
 /**
  * Get an unused Project Id
  */
 function getUnusedProjectId () {
   // Get the current max entry id
-  const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
+  const retrievedCurrMaxProjectId = localStorage.getItem('currentMaxProjectId')
 
   // Make it an int
   const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
 
   // set the "current_max_entry_id" to "entry_to_add.entry_id"
-  localStorage.setItem('current_max_project_id', (currMaxProjectId + 1))
+  localStorage.setItem('currentMaxProjectId', (currMaxProjectId + 1))
 
   return (currMaxProjectId + 1)
 }
@@ -19,7 +24,7 @@ function getUnusedProjectId () {
 /**
  * Add given project object to the "user_projects" array
  * @param projectToAdd - project object to be added.
- * Project object has the following elements:
+ * @description Project object has the following elements:
  *      "project_id": int starts with "current_max_project_id" + 1
  *      "projectName": "string"
  *      "description": "string"
@@ -39,7 +44,7 @@ function addProjectToLocalStorage (projectToAdd) {
   const unusedProjectId = getUnusedProjectId()
 
   // Set the entry id to current_max_entry_id + 1
-  projectToAdd.project_id = unusedProjectId
+  projectToAdd.projectId = unusedProjectId
 
   // Get the current "user_projects" array, or return an empty array if there is empty.
   const projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
@@ -47,13 +52,11 @@ function addProjectToLocalStorage (projectToAdd) {
   // Add the user additions to the "user_projects" array.
   projectInArray.push(projectToAdd)
 
-  // Update to laocalStorage
+  // Update to localStorage
   localStorage.setItem('user_projects', JSON.stringify(projectInArray))
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  let selectedTags = []
-
   // Function to handle the new project form
   function newProject () {
     const form = document.querySelector('.new-project')
@@ -63,19 +66,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Function to handle the addition of a new project
   function addProject () {
     // Gather Project Data
-    const projectName = document.querySelector('#new-project-description').value
-    const description = document.querySelector('#new-entry').value
+    const projectName = document.querySelector('#new-project-name').value
+    const description = document.querySelector('#new-project-description').value
     const selectedPrivacyOption = document.querySelector('.privacy-option.bold')
 
     // Ensure that a privacy option is selected
     if (!selectedPrivacyOption) {
+      console.log(selectedPrivacyOption)
       alert('Please select a privacy option.')
       return
     }
     const privacy = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
+    const projectId = -1
 
     // Create Project
     const newProject = {
+      projectId,
       projectName,
       description,
       privacy,
@@ -91,26 +97,31 @@ document.addEventListener('DOMContentLoaded', function () {
     addProjectToLocalStorage(newProject)
   }
 
-  // Function to handle adding more entry fields
-  function addEntry () {
-    const newEntry = document.createElement('input')
-    newEntry.type = 'text'
-    newEntry.placeholder = 'Enter Entry content.'
-    newEntry.id = 'new-entry'
-    const moreEntryButton = document.getElementById('more-entry')
-    moreEntryButton.insertAdjacentElement('beforebegin', newEntry)
-  }
-
   // Function to handle tag selection
   function toggleTag (tagElement) {
-    const tag = tagElement.textContent
+    const tag = tagElement.textContent.trim()
+    const selectedTagsContainer = document.getElementById('selected-tags')
 
     if (selectedTags.includes(tag)) {
+    // Remove tag from the selectedTags array
       selectedTags = selectedTags.filter(t => t !== tag)
       tagElement.style.fontWeight = 'normal'
+
+      // Remove tag from selected tags display
+      const tagToRemove = Array.from(selectedTagsContainer.children).find(child => child.textContent.trim() === tag)
+      if (tagToRemove) {
+        selectedTagsContainer.removeChild(tagToRemove)
+      }
     } else {
+    // Add tag to the selectedTags array
       selectedTags.push(tag)
       tagElement.style.fontWeight = 'bold'
+
+      // Add tag to selected tags display
+      const newTag = document.createElement('div')
+      newTag.textContent = tag
+      newTag.classList.add('tag')
+      selectedTagsContainer.appendChild(newTag)
     }
   }
 
@@ -123,18 +134,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to reset the form
   function resetForm () {
+    document.querySelector('#new-project-name').value = ''
     document.querySelector('#new-project-description').value = ''
-    document.querySelectorAll('#new-entry').forEach(entry => { entry.value = '' })
     selectedTags = []
     document.querySelectorAll('.tag').forEach(tag => { tag.style.fontWeight = 'normal' })
     document.getElementById('public').classList.remove('bold')
     document.getElementById('private').classList.remove('bold')
+    document.getElementById('selected-tags').innerHTML = ''
   }
 
   // Event listeners
   document.querySelector('#create-btn').addEventListener('click', newProject)
   document.querySelector('#done').addEventListener('click', addProject)
-  document.querySelector('#more-entry').addEventListener('click', addEntry)
 
   document.querySelectorAll('.tag').forEach(tag => {
     tag.addEventListener('click', function () {
@@ -155,6 +166,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('tag-editor')
   const span = document.getElementsByClassName('close')[0]
   const addTagButton = document.getElementById('add-tag-btn')
+  const tagList = document.getElementById('tag-list')
+  const newTagNameInput = document.getElementById('new-tag-name')
 
   // Show the modal when the Add Tag button is clicked
   document.querySelector('.add-tag').addEventListener('click', function () {
@@ -182,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (tagName) {
       const tags = getTagsFromStorage()
       tags.push({ name: tagName, color: tagColor })
-      localStorage.setItem('tags', JSON.stringify(tags))
+      localStorage.setItem('user_tags', JSON.stringify(tags))
       loadTags()
       document.getElementById('new-tag-name').value = ''
       document.getElementById('new-tag-color').value = '#000000'
@@ -191,23 +204,40 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
+  // Toggle Delete Mode
+  document.getElementById('toggle-delete-mode').addEventListener('click', function () {
+    deleteMode = !deleteMode
+    this.textContent = `Delete Mode: ${deleteMode ? 'On' : 'Off'}`
+  })
+
   // Load tags from localStorage
   function loadTags () {
     const tags = getTagsFromStorage()
-    const tagList = document.getElementById('tag-list')
     tagList.innerHTML = ''
 
     tags.forEach(tag => {
       const tagItem = document.createElement('div')
-      tagItem.style.backgroundColor = tag.color
+      tagItem.style.backgroundColor = 'gray'
       tagItem.textContent = tag.name
+      tagItem.classList.add('tag-item')
+      tagItem.style.setProperty('--tag-color', tag.color)
+      tagItem.addEventListener('click', function () {
+        if (deleteMode) {
+          tagList.removeChild(tagItem)
+          const updatedTags = tags.filter(t => t.name !== tag.name)
+          localStorage.setItem('user_tags', JSON.stringify(updatedTags))
+          toggleTag(this)
+        } else {
+          toggleTag(this)
+        }
+      })
       tagList.appendChild(tagItem)
     })
   }
 
   // Get tags from localStorage
   function getTagsFromStorage () {
-    return JSON.parse(localStorage.getItem('tags')) || []
+    return JSON.parse(localStorage.getItem('user_tags')) || []
   }
 
   function addProjectsToDocument (projects) {

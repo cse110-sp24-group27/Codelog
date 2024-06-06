@@ -12,7 +12,6 @@ class ProjectCard extends HTMLElement {
 
     // Create a style element - This will hold all of the styles for the Web Component
     const style = document.createElement('style')
-
     style.textContent = `
     article {
       margin-right: auto;
@@ -25,15 +24,17 @@ class ProjectCard extends HTMLElement {
       padding: 10px;
       cursor: move;
       }
-  
-      /* Style for project name */
+
+       /* Style for project name */
       h3.project-name {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
+        color: #eaeaea;
+        text-decoration: none;
       }
-  
-      /* Style for project status */
+
+       /* Style for project status */
       p.status {
         position: absolute;
         top: 20px;
@@ -43,13 +44,13 @@ class ProjectCard extends HTMLElement {
         margin-left: 5%;
         margin-right: 5px;
       }
-  
+
       /* Style for project description */
       p.project-description {
         font-size: 10px;
         margin: 0% 5% 10%;
       }
-  
+
       /* Style the drag button container */
       .delete-btn-container {
         /* Use absolute position to place the button container correctly */
@@ -59,7 +60,7 @@ class ProjectCard extends HTMLElement {
         width: 2vw;
         height: auto;
       }
-
+ 
       /* Style the drag buttons within each journal entry */
       .delete-btn {
         cursor: grab;
@@ -74,14 +75,14 @@ class ProjectCard extends HTMLElement {
         width: 10px;
         height: auto;
       }
-  
+
       /* Style the tags of each project */
       div.tags {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
       }
-  
+
       div.tags p {
         border-radius: 2px;
         padding: 5px 10px;
@@ -91,17 +92,13 @@ class ProjectCard extends HTMLElement {
         align-items: center;
         margin: 0;
       }
-  
-      p.dot {
+
+       p.dot {
         height: 15px;
         width: 15px;
         border-radius: 50%;
         background-color: darkred; /* change this as needed */
         margin-right: 5px;
-      }
-
-      .project.dragging {
-        opacity: 0;
       }
     `
 
@@ -125,15 +122,13 @@ class ProjectCard extends HTMLElement {
       // Remove the project data from localStorage if projectId is valid
       if (projectName) {
         // Fetch existing projects from localStorage
-        let projects = localStorage.getItem('projects')
+        let projects = localStorage.getItem('user_projects')
         projects = projects ? JSON.parse(projects) : []
-
         // Filter out the project to be deleted
         projects = projects.filter(project => project.projectName !== projectName)
-
         // Update localStorage with the new projects array
-        localStorage.setItem('projects', JSON.stringify(projects))
-        projects = localStorage.getItem('projects')
+        localStorage.setItem('user_projects', JSON.stringify(projects))
+        projects = localStorage.getItem('user_projects')
       } else {
         console.error('Project invalid')
       }
@@ -158,35 +153,31 @@ class ProjectCard extends HTMLElement {
       console.error('Invalid project data provided to ProjectCard!')
       return
     }
-    console.log(data.projectName)
+    this.setAttribute('draggable', 'false')
     const article = this.shadowRoot.querySelector('article')
-    article.setAttribute('draggable', 'true')
-    article.className = 'project'
+    article.setAttribute('draggable', 'false')
+    article.classList.add('project', 'is-idle')
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
-    console.log(data.description)
     const words = data.description.split(' ')
     const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.description
-
     article.innerHTML = `
-    <div class="delete-btn-container" bis_skin_checked="1">
+    <div class="delete-btn-container" bis_skin_checked="1" draggable='false'>
       <button class="delete-btn" draggable='false'>
-        <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
+        <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img" draggable="false">
       </button>
     </div>
-
-    <h3 class="project-name">${data.projectName}</h3>
-
-    <p class="status">${data.privacy}</p>
-
-    <p class="project-description">${truncatedDescription}</p>
-    
-    <div class="tags">${tagsHtml}</div>
+    <a class="project-name" href="http://127.0.0.1:5504/source/reference/selected_project_page.html" draggable="false"><h3 class="project-name">${data.projectName}</h3></a>
+    <p class="status" draggable="false">${data.privacy}</p>
+    <p class="project-description" draggable="false">${truncatedDescription}</p>
+    <div class="tags" draggable="false">${tagsHtml}</div>
     `
 
-    // create an eventListener for the delete button of the project
     const deleteButton = article.querySelector('.delete-btn')
-    deleteButton.addEventListener('click', () => this.deletePopUp())
+    deleteButton.addEventListener('click', (event) => {
+      event.stopPropagation()
+      this.deletePopUp()
+    })
 
     // Append or update the article (project) in shadow DOM
     if (!this.shadowRoot.contains(article)) {
@@ -197,6 +188,17 @@ class ProjectCard extends HTMLElement {
     if (data.imageUrl) {
       const imageHtml = `<img src="${data.imageUrl}" alt="Project Image">`
       article.innerHTML += imageHtml
+    }
+
+    const projectNameLink = article.querySelector('.project-name')
+
+    projectNameLink.addEventListener('click', loadProjectNameToLocalStorage())
+
+    function loadProjectNameToLocalStorage () {
+      console.log('title was clicked')
+      const h3Element = projectNameLink.querySelector('h3')
+      const currDisplayedProject = h3Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+      localStorage.setItem('currDisplayedProject', currDisplayedProject)
     }
   }
 

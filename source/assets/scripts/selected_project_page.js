@@ -1,50 +1,117 @@
-// Js for the functionality of the Selected Project Page // (Back button functionality is not here)
-// Table of Contents By Kristhian Ortiz //
-// const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
-// /**
-//  * Generates a dynamic table of contents.
-//  */
-// function loadTableOfContents () {
-//   dynamicContentList.innerHTML = '' // clear contents
+// Js for the functionality of the Selected Project Page //
 
-//   // Get all entries from local Storage (we receive a string representing an object)
-//   const entriesForListAsString = localStorage.getItem('entries')
-//   // Convert the string back into an object using JSON.parse
-//   const entriesForList = JSON.parse(entriesForListAsString)
+/**
+ * Returns the current project object stored in localStorage
+ * @returns Current project object
+ */
+function getCurrProjectObject () {
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
+  let currProject
+  projects.forEach(project => {
+    if (project.projectName === currProjectName) {
+      currProject = project
+    }
+  })
+  return currProject
+}
 
-//   /**
-//    * Each Entry Object in 'entries' will have:
-//    * Entry Name (Journal Title)
-//    * id (unique identifier for this entry)
-//    * Entry Template
-//    * Tags
-//    * Markdown File
-//    *
-//    * We only want the Entry Name (can be accessed using .)
-//    */
-//   entriesForList.forEach(entry => {
-//     // Fetch Project Entries' data
-//     const entryTitleName = entry.titleName
-//     const entryId = entry.id
+/**
+ * Initializes the title, description, and entries of the project page
+ */
+function projectPageInit () {
+  // Get the current project object
+  const currProject = getCurrProjectObject()
 
-//     // Create list item to be included in table of contents.
-//     const listContent = document.createElement('ul')
-//     // Create an anchor so that it can be linked
-//     const anchor = document.createElement('a')
+  // Update the project name
+  const projectName = document.getElementById('project-name')
+  projectName.innerHTML = currProject.projectName
 
-//     // Link entry in table of contents to actual entry in webpage
-//     anchor.href = `#${entryId}` // Link by id
-//     anchor.textContent = entryTitleName // String holding the link will be the title
+  // Update the project description
+  const projectDescription = document.getElementById('project-description')
+  projectDescription.innerHTML = currProject.description
 
-//     // Add anchor to listContent
-//     listContent.appendChild(anchor)
-//     // Add listContent to table of content list.
-//     dynamicContentList.appendChild(listContent)
-//   })
-// }
+  // On load, populate the selected project's entries
+  populateEntries()
 
-// On load of script, load table of contents
-// loadTableOfContents()
+  // On load, populate the table of contents
+  loadTableOfContents()
+}
+
+// On load, populate all necessary parts of the page
+window.addEventListener('load', projectPageInit)
+
+/**
+ * Retrieve all entries of the selected project given the project id
+ * @param projects - object `user_projects`
+ * @param projectName - string, name of the project
+ * @return the "selected_project_entries" array of that selected project
+ */
+function getAllSelectedProjectEntries (projects, projectName) {
+  // TODO: return "selected_project_entries" array of the given project from localStorage
+
+  // Iterate through projects, find the project with matching project_id, then return that project's entries
+  let currProjectEntries
+  projects.forEach(project => {
+    if (project.projectName === projectName) {
+      currProjectEntries = project.selected_project_entries
+    }
+  })
+  // If no project with the correct project_id found from above loop, console.log
+  if (currProjectEntries) {
+    return currProjectEntries
+  } else {
+    console.log(`There's no project found with ${projectName}`)
+  }
+}
+
+/**
+ * Adds the entries for the selected project onto the page
+ */
+function populateEntries () {
+  // Get the current project and its entries
+  const currProjectName = localStorage.getItem('currDisplayedProject')
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
+  const entries = getAllSelectedProjectEntries(projects, currProjectName)
+  // Empty the journal entry container
+  const journalEntryContainer = document.getElementById('journal-entries')
+  journalEntryContainer.innerHTML = ''
+
+  // If there are no entries, end the function
+  if (!entries) {
+    return
+  }
+
+  // For each entry, add its parts from localStorage
+  entries.forEach(entry => {
+    const entryElement = document.createElement('div')
+    entryElement.classList.add('journal-entry')
+    entryElement.classList.add('is-idle')
+
+    entryElement.innerHTML = `
+      <a href="selected_journal_page.html" onclick="loadEntryNameToLocalStorage(this)"><h2 class="entry-name" id=${entry.entryId}>${entry.titleName}</h2></a>
+      <p class="entry-text">${entry.description}</p>
+      <div class="drag-btn-container">
+        <button class="drag-btn">
+          <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+        </button>
+      </div>
+      <div class="entry-delete-btn-container">
+        <button class="entry-delete-btn">
+          <img src="../assets/images/delete-btn.png" alt="delete-btn" class="delete-btn-img"/>
+        </button>
+      </div>
+
+    `
+
+    // Append all the entries to the entry container
+    journalEntryContainer.appendChild(entryElement)
+
+    // Assuming entryElement is already appended to the DOM
+    const entryDeleteButton = entryElement.querySelector('.entry-delete-btn')
+    entryDeleteButton.addEventListener('click', deleteEntry)
+  })
+}
 
 // Drag Button By Devan //
 // Variables used in dragging and dropping functions
@@ -275,73 +342,103 @@ function cleanup () {
 // On load of script, set up dragging and dropping of journal entries
 dragAndDropSetup()
 
-// Show Popup Button //
-const showButton = document.getElementById('create-btn')
-const popup = document.getElementById('hidden-popup')
-showButton.addEventListener('click', function () {
-  popup.id = 'shown-popup'
-})
-
-// Fetch data from user input in pop-up after clicking "Create Entry" and put the data in localStorage
-window.addEventListener('load', () => {
-  if (localStorage.getItem('entries') == null) {
-    localStorage.setItem('entries', [])
-  }
-})
-
-// Add an event listener to the Create Entry button
-// TODO: createEntryButton is not defined in DevTools when testing; however, create_entry() function has been tested and works
+// Upon clicking the "add" button in the pop-up, create the new entry
 const createEntryButton = document.getElementById('done-btn')
 createEntryButton.addEventListener('click', createEntry)
 
-// TODO: add comments for JSDoc
-// On click, execute the create entry function
+/**
+ * Creates a journal entry and adds it to localStorage and the current project page
+ */
 function createEntry () {
-  // Get the current array of entries from the local storage
-  const entries = localStorage.getItem('entries') || []
-
-  // Fetch data from user input
-  const entryTitle = document.getElementById('new-project-name').value
-  const entryContent = document.getElementById('new-project-content').value
+  // Get the values within the pop-up to use in the new entry
+  const entryTitle = document.getElementById('new-entry-name').value
+  const entryDescription = document.getElementById('new-entry-description').value
   const entryPublicity = document.getElementById('publicity-select').value
-  const entryTemplate = document.getElementById('template-select').value
-  // TODO: Fetch Tags after its implemented
 
-  /* Create an entry object
-    * titleName
-    * id
-    * template
-    * tags
-    * publicity
-    * content
-    */
+  // Calculate the new entry ID and increment the current max entry ID
+  const newEntryId = (parseInt(localStorage.getItem('currentMaxEntryId'))) + 1
+  localStorage.setItem('currentMaxEntryId', newEntryId)
+
+  // Retrieve the content sections
+  const contentElements = document.querySelectorAll('#inputcontainer .input-group')
+  const allContent = Array.from(contentElements).map((inputGroup) => {
+    const input = inputGroup.querySelector('input')
+    const type = input.classList.contains('input-1') ? 'header' : input.classList.contains('input-2') ? 'code' : 'text'
+    return {
+      type,
+      content: input.value
+    }
+  })
+
+  // Create the new entry object
   const entry = {
+    entryId: newEntryId,
     titleName: entryTitle,
-    id: '10000',
-    template: entryTemplate,
-    tags: '',
+    description: entryDescription,
+    tags: [],
     publicity: entryPublicity,
-    content: entryContent
+    content: allContent
   }
 
-  // Add entry to the entries of this project
-  entries.push(entry)
-
-  // Add the updated entries array to the localStorage
-  localStorage.setItem('entries', JSON.stringify(entries))
+  updatelocalStorage(entry, true)
+  populateEntries()
 }
 
-// Fetch Entries corresponding to the project for display //
+/**
+ * Update localStorage with the given entry.
+ *
+ * @param {Object|string} targetEntry - The entry to add or delete. If adding, it should be an object. If deleting, it should be a string (the entry name).
+ * @param {boolean} ops - True to add the entry, False to delete the entry.
+ */
+function updatelocalStorage (targetEntry, ops) {
+  // Get the project array and the current project object
+  const projects = JSON.parse(localStorage.getItem('user_projects'))
 
-// On each entry, add an event listener to take you to its selected_journal_(entry)_page
+  // Get the current project object
+  const currProject = getCurrProjectObject()
 
-// Temporary JS just to outline behaviors we might want
+  // Get the current project's entries
+  let entries = currProject.selected_project_entries
 
-// Attach event listeners to each journal entry (replace with actual selector)
-// This code is temporary, just to see how hovering, single click, and doubleclick might function
-// const journalEntries = document.querySelectorAll('.journal-entry')
-// journalEntries.forEach(entry => {
-//   entry.addEventListener('mouseover', () => console.log('show preview')) // handleJournalEntryHover(entry)
-//   entry.addEventListener('click', () => console.log('expand journal entry')) // handleJournalEntryClick(entry)
-//   entry.addEventListener('dblclick', () => console.log('edit journal')) // handleJournalEntryDoubleClick(entry)
-// })
+  // Depending on the value of ops, add or delete the entry
+  if (ops) {
+    entries.push(targetEntry)
+  } else {
+    // Delete the entry if ops is false by filtering out the entry with the matching titleName
+    entries = entries.filter(entry => entry.titleName !== targetEntry)
+  }
+  // Update the current project's entries
+  currProject.selected_project_entries = entries
+
+  // Find the current project in the projects array and update it
+  for (let i = 0; i < projects.length; i++) {
+    if (projects[i].projectName === currProject.projectName) {
+      projects[i] = currProject
+    }
+  }
+
+  // update localStorage and the page
+  localStorage.setItem('user_projects', JSON.stringify(projects))
+}
+
+/**
+ * Delete an entry from the journal.
+ *
+ * @param {Event} event - The event object from the click event listener.
+ */
+function deleteEntry (event) {
+  if (confirm('Are you sure you want to delete this entry?')) {
+    // Get the entry element that the delete button belongs to
+    const entryElement = event.target.closest('.journal-entry')
+
+    // Get the entry name from the h2 element with the class 'entry-name'
+    const entryNameElement = entryElement.querySelector('.entry-name')
+    const entryName = entryNameElement.textContent || entryNameElement.innerText
+
+    // Call updateLocalStorage to remove the entry with the specified name from localStorage
+    updatelocalStorage(entryName, false)
+
+    // Refresh the list of entries displayed on the page to reflect the deletion
+    populateEntries()
+  }
+}

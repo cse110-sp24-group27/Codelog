@@ -20,7 +20,7 @@
             <!--Navbar at the top of the page-->
             <div id="navbar">
                 <!--Logo for the website-->
-                <img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/>
+                <a href="../../home_projects_page.html"><img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/></a>
                 <h1 id="codelog">CodeLog</h1>
 
                 <div class="but">
@@ -59,7 +59,8 @@
                 <p id="project-description">Project Description</p>
                 <nav id="dynamic-table-of-contents">
                     <h2>Table of Contents:</h2>
-                    <ul id="dynamic-content-list"></ul> <h3 id="entry1-table-of-contents">Entry 1 Title Name</h3>
+                    <ul id="dynamic-content-list">
+                    </ul>
                     <!--Note: id "entry1" is already taken by the journal entry 1 name-->
                 </nav>
             </div>
@@ -72,38 +73,6 @@
                 <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
                 <!--Journal entries can be added/deleted using a JS function-->
                 <div class="journal-entry is-idle" id="entry1-container">
-                    <h2 class="entry-name" id="entry1">Journal entry name</h2>
-                    <h4 class="entry-template">Journal entry template</h4>
-                    <p class="entry-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
-                        dolor rhoncus malesuada dapibus ut nisi. Nullam eu felis ut erat efficitur vehicula 
-                        quis ut turpis. Donec nisi diam, efficitur in aliquet ultricies, mollis sed dui. 
-                        Cras nulla libero, fermentum vitae sem at, efficitur blandit velit. Pellentesque 
-                        habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                        Donec fermentum arcu et purus ornare, vel feugiat ex pulvinar. Suspendisse ornare 
-                        risus vel tellus egestas, auctor tristique risus porta. Duis a fermentum orci. 
-                        Proin molestie risus vitae sem tincidunt malesuada. Phasellus laoreet urna vel 
-                        facilisis rutrum. Phasellus finibus mi sit amet felis congue imperdiet. Aliquam 
-                        vehicula ante eu nibh molestie feugiat. Sed sodales est nunc, at scelerisque mauris 
-                        ultrices sit amet. Aliquam dapibus nibh sit amet urna fringilla egestas. Integer 
-                        facilisis mauris dui. Morbi venenatis venenatis erat, nec tristique lectus eleifend 
-                        quis. Morbi sit amet facilisis velit, et eleifend purus. Interdum et malesuada 
-                        fames ac ante ipsum primis in faucibus. Phasellus ligula lorem, dignissim non 
-                        vestibulum at, pellentesque eget magna. In et vulputate sapien. Curabitur finibus 
-                        convallis maximus. Aliquam erat volutpat.
-                    </p>
-                    <!--Drag button to reorder the projects-->
-                    <!--Need to implement JS function drag_project()-->
-                    <div class="drag-btn-container">
-                        <button class="drag-btn">
-                            <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
-                        </button>
-                    </div>
-                    <!--Journal entry tags-->
-                    <div class="entry-tags">
-                        <p>Tag 1</p>
-                        <p>Tag 2</p>
-                    </div>
                 </div>
 
                 <!--Down arrow between journal entries-->
@@ -159,18 +128,17 @@
             <!--JOURNAL project creation-->
             <button id="create-btn" onclick="openPopup('hidden-popup')">+</button>
 
-            <!--Hide this until the + button is clicked-->
+            <!-- This will hide until the + button is clicked -->
             <div id="hidden-popup" class="pop-up">
-                <form id="new-project">
-                    <!--Button to go back to the project homepage-->
+                <form id="new-entry" class="entry-container">
                     <button type="button" id="project-page-popup-back-btn" onclick="closePopup('hidden-popup')">
                         <img src="../assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
                     </button>
                     <h1>Create a new entry</h1>
                     <h3>Entry Title</h3>
-                    <input type="text" id="new-project-name" placeholder="Enter New Project Name">
-                    <h3>Content</h3>
-                    <input type="text" id="new-project-content" placeholder="Enter New Project Content">
+                    <input type="text" id="new-entry-name" placeholder="Enter New Entry Name">
+                    <h3>Description</h3>
+                    <input type="text" id="new-entry-description" placeholder="Enter New Entry Description">
                     <div class="select-container">
                         <div class="dropdown-group">
                             <h3>Publicity</h3>
@@ -179,43 +147,59 @@
                                 <option value="Private">Private</option>
                             </select>
                         </div>
-                        <div class="dropdown-group">
-                            <h3>Template</h3>
-                            <select id="template-select">
-                                <option value="Template1">Bug Fix</option>
-                                <option value="Template2">Template 2</option>
-                                <option value="Template3">Template 3</option>
-                                <option value="Template4">Template 4</option>
-                            </select>
-                        </div>
-                    </div> 
+                    </div>
                     <div id="tag-editor-popup" class="tag-container">
                         <h3>Tags</h3>
+                        <div class="tag" data-tag-id="3000" data-tag-color="red">HTML</div> <!-- example data for testing, will be removed-->
+                        <div class="tag" data-tag-id="3001" data-tag-color="green">CSS</div> <!-- example data for testing, will be removed-->
                         <button type="button" id="add-tag-btn">Add Tag</button>
+                      </div>
+        
+                    <div class="entry-container">
+                        <div class="input-container" id="inputcontainer">
+                            <div class="input-group">
+                                <input type="text" placeholder="Header/Section" class="input-1">
+                                <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Code" class="input-2">
+                                <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Insert Text Here" class="input-3">
+                                <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button type="button" onclick="addInput(1)">New Section</button>
+                            <button type="button" onclick="addInput(2)">Add Code Entry</button>
+                            <button type="button" onclick="addInput(3)">Add Text Entry</button>
+                        </div>
                     </div>
-
+        
                     <div class="done-btn-position">
-                        <button type="button" id="done-btn">Create Entry</button>
+                        <button type="button" id="done-btn" onclick="createNewEntryObject()">Create Entry</button>
                     </div>
-                    <!-- <script defer>
-                        const createEntryButton = document.getElementById('done-btn');
-                        createEntryButton.addEventListener('click', create_entry);
-                    </script> -->
                 </form>
             </div>
-
-            <!--Button to add a new journal entry-->
-            <!--Need to implement JS function new_journal_entry()-->
-            <!-- <button id="entry-create-btn" onclick="openPopup()">+</button> -->
         </main>
 
         <!--Footer for copyright-->
-        <footer>
+        <footer id="project-page-footer">
             <p>@ 2024 CodeLog</p>
         </footer>
         
         <!-- Link to script -->
         <script type="text/javascript" src="../assets/scripts/+_button_selcted_project_page.js"></script>
         <script type="text/javascript" src="../assets/scripts/selected_project_page.js"></script>
+        <!-- Navigating between pages script -->
+        <script>
+            function loadEntryNameToLocalStorage(anchorElement) {
+                console.log("entry name was clicked")
+                const h2Element = anchorElement.querySelector('h2')
+                const currDisplayedEntry = h2Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+                localStorage.setItem('currDisplayedEntry', currDisplayedEntry)
+            }
+        </script>
     </body>
 </html>
