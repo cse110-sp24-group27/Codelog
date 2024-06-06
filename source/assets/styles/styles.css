@@ -303,7 +303,12 @@ body {
 }
 
 #j-footer {
-  bottom: 5px;
+  padding-top: 15%;
+  margin-left: 10%;
+  font-size: 14px;
+  bottom: 0;
+  width: 100%;
+  color: #cbcbcb;
 }
 
 /* // // End of selected_journal_page styling // // */
