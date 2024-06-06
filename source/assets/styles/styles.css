@@ -192,6 +192,32 @@ h2 {
   max-width: 15px;
   min-width: 10px;
 }
+/* Style the delete button container */
+.entry-delete-btn-container {
+  /* Use absolute position to place the button container correctly */
+  position: absolute;
+  top: 10px;
+  right: 30px; /* Adjust the value to position the delete button properly */
+  width: auto;
+  height: auto;
+}
+
+/* Style the delete buttons within each journal entry */
+.entry-delete-btn {
+  cursor: pointer;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the delete button image */
+.delete-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 15px;
+  min-width: 10px;
+}
 
 /* Style the down arrow between entries */
 .down-arrow {

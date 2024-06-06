@@ -93,7 +93,12 @@ function populateEntries () {
           <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
         </button>
       </div>
-      <button class="entry-delete-btn">Delete</button>
+      <div class="entry-delete-btn-container">
+        <button class="entry-delete-btn">
+          <img src="../assets/images/delete-btn.png" alt="delete-btn" class="delete-btn-img"/>
+        </button>
+      </div>
+
     `
 
     // Append all the entries to the entry container
@@ -437,16 +442,18 @@ function updatelocalStorage (targetEntry, ops) {
  * @param {Event} event - The event object from the click event listener.
  */
 function deleteEntry (event) {
-  // Get the entry element that the delete button belongs to
-  const entryElement = event.target.closest('.journal-entry')
+  if (confirm('Are you sure you want to delete this entry?')) {
+    // Get the entry element that the delete button belongs to
+    const entryElement = event.target.closest('.journal-entry')
 
-  // Get the entry name from the h2 element with the class 'entry-name'
-  const entryNameElement = entryElement.querySelector('.entry-name')
-  const entryName = entryNameElement.textContent || entryNameElement.innerText
+    // Get the entry name from the h2 element with the class 'entry-name'
+    const entryNameElement = entryElement.querySelector('.entry-name')
+    const entryName = entryNameElement.textContent || entryNameElement.innerText
 
-  // Call updateLocalStorage to remove the entry with the specified name from localStorage
-  updatelocalStorage(entryName, false)
+    // Call updateLocalStorage to remove the entry with the specified name from localStorage
+    updatelocalStorage(entryName, false)
 
-  // Refresh the list of entries displayed on the page to reflect the deletion
-  populateEntries()
+    // Refresh the list of entries displayed on the page to reflect the deletion
+    populateEntries()
+  }
 }
