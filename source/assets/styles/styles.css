@@ -134,6 +134,7 @@ h2 {
 .entry-name {
   color: #abcafa;
   width: 30vw;
+  text-decoration: none;
 }
 
 /* REDACTED but kept for localstorage reference

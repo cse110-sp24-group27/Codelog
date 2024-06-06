@@ -30,6 +30,8 @@ class ProjectCard extends HTMLElement {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
+        color: #eaeaea;
+        text-decoration: none;
       }
 
        /* Style for project status */

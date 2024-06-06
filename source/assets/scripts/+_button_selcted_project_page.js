@@ -108,7 +108,7 @@ function createNewEntryObject () {
     publicity,
     content
   }
-  console.log(newEntryObject)
+  // console.log(newEntryObject)
   // saveNewEntryToLocalStorage(100, newEntryObject)  // testing for now, will move this out
   return newEntryObject
 }
