@@ -50,7 +50,7 @@ function getAllSelectedProjectEntries (projects, projectName) {
   // Iterate through projects, find the project with matching project_id, then return that project's entries
   let currProjectEntries
   projects.forEach(project => {
-    if (project.projectName == projectName) {
+    if (project.projectName === projectName) {
       currProjectEntries = project.selected_project_entries
     }
   })
@@ -415,7 +415,7 @@ function createEntry () {
 
   // Retrieve the content sections
   const contentElements = document.querySelectorAll('#inputcontainer .input-group')
-  const content = Array.from(contentElements).map((inputGroup) => {
+  const allContent = Array.from(contentElements).map((inputGroup) => {
     const input = inputGroup.querySelector('input')
     const type = input.classList.contains('input-1') ? 'header' : input.classList.contains('input-2') ? 'code' : 'text'
     return {
@@ -431,16 +431,16 @@ function createEntry () {
     description: entryDescription,
     tags: [],
     publicity: entryPublicity,
-    content: content
+    content: allContent
   }
 
   // Push the entry to the project's entry array
   entries.push(entry)
   currProject.selected_project_entries = entries
 
-  for (let i=0;i<projects.length;i++) {
-    if (projects[i].projectName == currProject.projectName) {
-      projects[i]= currProject
+  for (let i = 0; i < projects.length; i++) {
+    if (projects[i].projectName === currProject.projectName) {
+      projects[i] = currProject
     }
   }
 
