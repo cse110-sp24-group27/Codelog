@@ -126,5 +126,5 @@ function addProjectsToDocument (projects) {
   }
 }
 
-// export functions for testing
+// export functions for our testing
 module.exports = getProjectsFromStorage
