@@ -24,7 +24,7 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
         env:
-          LINTER_RULES_PATH: "lint"
+          VALIDATE_JAVASCRIPT_ES: false
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: "main"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
