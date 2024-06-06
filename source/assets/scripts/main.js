@@ -17,7 +17,7 @@ function init () {
   if (localStorage.getItem('user_profile') == null) {
     localStorage.setItem('user_profile')
   }
-  
+
   // Check for errors if passed the limit
   if (parseInt(localStorage.getItem('currentMaxProjectId')) === 1999) {
     alert('Reached Max Project Limit')
@@ -41,8 +41,8 @@ function init () {
     fetchProfileExamplejsonToStorage()
   } else {
     // Get the profile from localStorage
-    const user_profile = getProfileFromStorage()
-    updateProfileOnPage(user_profile)
+    const userProfile = getProfileFromStorage()
+    updateProfileOnPage(userProfile)
   }
 
   // Update the projects
@@ -79,44 +79,26 @@ function fetchProfileExamplejsonToStorage () {
 * @returns {Array<Object>} An array of projects found in localStorage
 */
 function getProfileFromStorage () {
- return JSON.parse(localStorage.getItem('user_profile')) || []
+  return JSON.parse(localStorage.getItem('user_profile')) || []
 }
 
 // Update the HTML page with the profile data
-function updateProfileOnPage (user_profile) {
- document.getElementById('profile-picture').src = user_profile.profilePicture || 'https://via.placeholder.com/150'
- document.getElementById('name').textContent = user_profile.username || 'Developer\'s Name'
- document.getElementById('pronoun').textContent = user_profile.pronouns
- document.getElementById('description').textContent = user_profile.bio || 'User description'
- // Update links if provided in the profile
- console.log(user_profile)
- if (user_profile.socialLinks.email) {
-   document.getElementById('link-email').href = `mailto:${user_profile.socialLinks.email}`
- }
- if (user_profile.socialLinks.linkedin) {
-   document.getElementById('link-linkedin').href = user_profile.socialLinks.linkedin
- }
- if (user_profile.socialLinks.github) {
-   document.getElementById('link-github').href = user_profile.socialLinks.github
- }
-}
-
-
-/**
-* Fetches user_projects from .JSON file to localstorage.
-* Store the projects in localstorage as variable projects.
-*/
-function fetchExamplejsonToStorage () {
- fetch('source/reference/datastructure.json') // Parse the response as JSON
-   .then(response => response.json())
-   .then(data => {
-     const projectsData = JSON.stringify(data.user_projects)
-     localStorage.setItem('user_projects', projectsData)
-     console.log('Projects successfully stored in localStorage')
-   }) // Store the parsed data
-   .catch(error => {
-     console.error('Failed to fetch project data:', error) // More specific error message
-   })
+function updateProfileOnPage (userProfile) {
+  document.getElementById('profile-picture').src = userProfile.profilePicture || 'https://via.placeholder.com/150'
+  document.getElementById('name').textContent = userProfile.username || 'Developer\'s Name'
+  document.getElementById('pronoun').textContent = userProfile.pronouns
+  document.getElementById('description').textContent = userProfile.bio || 'User description'
+  // Update links if provided in the profile
+  console.log(userProfile)
+  if (userProfile.socialLinks.email) {
+    document.getElementById('link-email').href = `mailto:${userProfile.socialLinks.email}`
+  }
+  if (userProfile.socialLinks.linkedin) {
+    document.getElementById('link-linkedin').href = userProfile.socialLinks.linkedin
+  }
+  if (userProfile.socialLinks.github) {
+    document.getElementById('link-github').href = userProfile.socialLinks.github
+  }
 }
 
 /**
@@ -229,9 +211,9 @@ function getAllItems () {
  * that are not being dragged
  */
 function getIdleItems () {
-  let filteredItem = []
+  const filteredItem = []
   const items = getAllItems()
-  items.forEach (item => {
+  items.forEach(item => {
     const article = item.shadowRoot.querySelector('.project')
     if (article.classList.contains('is-idle')) {
       filteredItem.push(item)
@@ -354,7 +336,7 @@ function applyNewItemsOrder () {
     const article = item.shadowRoot.querySelector('.project')
     console.log(article.querySelector('.project-name').textContent)
     const projectName = article.querySelector('.project-name').textContent
-    const matchingProject = oldProjectLocalstorage.find(project => project.projectName === projectName);
+    const matchingProject = oldProjectLocalstorage.find(project => project.projectName === projectName)
     console.log(matchingProject)
     newProjectLocalstorage.push(matchingProject)
   })
