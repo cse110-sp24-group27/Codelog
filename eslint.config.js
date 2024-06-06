@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "no-unused-vars": [
+      "error", {
+        "vars": "local"
+      }
+    ]
+  }
+}
