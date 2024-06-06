@@ -33,6 +33,9 @@ function projectPageInit () {
 
   // On load, populate the selected project's entries
   populateEntries()
+
+  // On load, populate the table of contents
+  loadTableOfContents()
 }
 
 // On load, populate all necessary parts of the page
@@ -347,12 +350,6 @@ createEntryButton.addEventListener('click', createEntry)
  * Creates a journal entry and adds it to localStorage and the current project page
  */
 function createEntry () {
-  // // Get the project array and the current project object
-  // const projects = JSON.parse(localStorage.getItem('user_projects'))
-  // const currProject = getCurrProjectObject()
-  // // Get the current project's entries
-  // const entries = currProject.selected_project_entries
-
   // Get the values within the pop-up to use in the new entry
   const entryTitle = document.getElementById('new-entry-name').value
   const entryDescription = document.getElementById('new-entry-description').value
@@ -383,18 +380,6 @@ function createEntry () {
     content: allContent
   }
 
-  // // Push the entry to the project's entry array
-  // entries.push(entry)
-  // currProject.selected_project_entries = entries
-
-  // for (let i = 0; i < projects.length; i++) {
-  //   if (projects[i].projectName === currProject.projectName) {
-  //     projects[i] = currProject
-  //   }
-  // }
-
-  // // Add the entry to localStorage and the page
-  // localStorage.setItem('user_projects', JSON.stringify(projects))
   updatelocalStorage(entry, true)
   populateEntries()
 }
