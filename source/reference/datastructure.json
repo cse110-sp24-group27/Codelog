@@ -12,7 +12,7 @@
             "linkedin": "string linkd",
             "github": "wayfare.git.io"
         },
-        "profilePicture": "../assets/images/userPlaceholder.png"
+        "profilePicture": "https://via.placeholder.com/150"
     },
     "user_projects" : [
         {

@@ -155,7 +155,7 @@ class ProjectCard extends HTMLElement {
     }
     const article = this.shadowRoot.querySelector('article')
     article.setAttribute('draggable', 'true')
-    article.className = 'project'
+    article.classList.add('project', 'is-idle')
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
     const words = data.description.split(' ')
