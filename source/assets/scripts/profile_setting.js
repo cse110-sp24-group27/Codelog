@@ -4,9 +4,27 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  const profile = getProfileFromStorage()
-  console.log(profile)
-  updateProfileOnPage(profile)
+  const prevProfile = localStorage.getItem('user_profile')
+  if (prevProfile == null) {
+    fetchExamplejsonToStorage()
+  } else {
+    // Get the projects from localStorage
+    const profile = getProfileFromStorage()
+    console.log(profile)
+    updateProfileOnPage(profile)
+  }
+}
+
+function fetchExamplejsonToStorage () {
+  fetch('../reference/datastructure.json') // Parse the response as JSON
+    .then(response => response.json())
+    .then(data => {
+      const profileData = JSON.stringify(data.user_profile)
+      localStorage.setItem('user_profile', profileData)
+    }) // Store the parsed data
+    .catch(error => {
+      console.error('Failed to fetch profile data:', error) // More specific error message
+    })
 }
 
 /**

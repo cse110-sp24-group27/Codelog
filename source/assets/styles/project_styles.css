@@ -135,14 +135,14 @@ main {
 /* Style the class contains all projects */
 .projects {
   position: static;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   width: auto;
   height: auto;
   margin-bottom: 100px;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* Style the class of creating new project */
