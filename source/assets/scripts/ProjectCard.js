@@ -12,18 +12,6 @@ class ProjectCard extends HTMLElement {
 
     // Create a style element - This will hold all of the styles for the Web Component
     const style = document.createElement('style')
-
-    // fetch style from source/styles/styles.css. copy everything inide the <style> tag
-    // fetch('source/assets/styles/styles.css')
-    //   .then(response => response.text())
-    //   .then(cssText => {
-    //     style.textContent = cssText
-    //     console.log(cssText);
-    //   })
-    //   .catch(error => {
-    //     console.error('Failed to fetch project card styles:', error)
-    //   })
-
     style.textContent = `
     article {
       margin-right: auto;
@@ -34,16 +22,17 @@ class ProjectCard extends HTMLElement {
       border-radius: 10px;
       position: relative;
       padding: 10px;
+      cursor: move;
       }
-  
-      /* Style for project name */
+
+       /* Style for project name */
       h3.project-name {
         margin-left: 5%;
         margin-right: 5px;
         font-size: 18px;
       }
-  
-      /* Style for project status */
+
+       /* Style for project status */
       p.status {
         position: absolute;
         top: 20px;
@@ -53,15 +42,15 @@ class ProjectCard extends HTMLElement {
         margin-left: 5%;
         margin-right: 5px;
       }
-  
-      /* Style for project description */
+
+       /* Style for project description */
       p.project-description {
         font-size: 10px;
         margin: 0% 5% 10%;
       }
-  
-      /* Style the drag button container */
-      .drag-btn-container {
+
+       /* Style the drag button container */
+      .delete-btn-container {
         /* Use absolute position to place the button container correctly */
         position: absolute;
         top: 10px;
@@ -69,9 +58,9 @@ class ProjectCard extends HTMLElement {
         width: 2vw;
         height: auto;
       }
-
+ 
       /* Style the drag buttons within each journal entry */
-      .drag-btn {
+      .delete-btn {
         cursor: grab;
         background-color: inherit;
         appearance: none;
@@ -79,20 +68,20 @@ class ProjectCard extends HTMLElement {
       }
 
       /* Style the drag button image */
-      .drag-btn-img {
+      .delete-btn-img {
         position: relative;
         width: 10px;
         height: auto;
       }
-  
-      /* Style the tags of each project */
+
+       /* Style the tags of each project */
       div.tags {
         display: flex;
         flex-wrap: wrap;
         gap: 5px;
       }
-  
-      div.tags p {
+
+       div.tags p {
         border-radius: 2px;
         padding: 5px 10px;
         color: #cbcbcb;
@@ -101,8 +90,8 @@ class ProjectCard extends HTMLElement {
         align-items: center;
         margin: 0;
       }
-  
-      p.dot {
+
+       p.dot {
         height: 15px;
         width: 15px;
         border-radius: 50%;
@@ -116,12 +105,43 @@ class ProjectCard extends HTMLElement {
   }
 
   /**
+   * This function deletes the selected project from
+   * the page and localstorage.
+   * Clicking on the button shows a pop-up asking if
+   * the user wants to delete the clicked project.
+   * If yes, the project will be deleted.
+   */
+  deletePopUp () {
+    if (confirm('Are you sure you want to delete this project?')) {
+      console.log('Deleting project...')
+      this.remove()
+      const projectName = this.shadowRoot.querySelector('.project').querySelector('.project-name').textContent
+
+      // Remove the project data from localStorage if projectId is valid
+      if (projectName) {
+        // Fetch existing projects from localStorage
+        let projects = localStorage.getItem('user_projects')
+        projects = projects ? JSON.parse(projects) : []
+        // Filter out the project to be deleted
+        projects = projects.filter(project => project.projectName !== projectName)
+        // Update localStorage with the new projects array
+        localStorage.setItem('user_projects', JSON.stringify(projects))
+        projects = localStorage.getItem('user_projects')
+      } else {
+        console.error('Project invalid')
+      }
+    }
+    // TODO: Delete this project from the .JSON file as well
+    // (or maybe not if the .JSON file is always updating according to the localstorage)
+  }
+
+  /**
   * @param {Object} data - the data to pass into the <project-card> should be of the following format:
   {
-  "projectId": 1, // Unique identifier for the project //number
+  "project_id": 1, // Unique identifier for the project //number
   "projectName": "Project Name", //string
-  "projectDescription": "A short description of the project.", //string
-  "status": "Public" | "Private", // Visibility of the project //string
+  "description": "A short description of the project.", //string
+  "privacy": "Public" | "Private", // Visibility of the project //string
   "tags": ["Tag 1", "Tag 2", ...], // Array of project tags //array of strings
   "imageUrl": "URL of the project image" // Optional: URL for a project image //string
   },... //could use innerHTML like lab 7, but this seems to give less bugs, and easier to edit in future
@@ -131,71 +151,39 @@ class ProjectCard extends HTMLElement {
       console.error('Invalid project data provided to ProjectCard!')
       return
     }
-
     const article = this.shadowRoot.querySelector('article')
+    article.setAttribute('draggable', 'true')
+    article.className = 'project'
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
-    const words = data.projectDescription.split(' ')
-    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.projectDescription
-
+    const words = data.description.split(' ')
+    const truncatedDescription = words.length > maxWords ? words.slice(0, maxWords).join(' ') + '...' : data.description
     article.innerHTML = `
-    <div class="drag-btn-container" bis_skin_checked="1">
-      <button class="drag-btn" onclick="dragProject()">
-        <img src="source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img">
+    <div class="delete-btn-container" bis_skin_checked="1">
+      <button class="delete-btn" draggable='false'>
+        <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
       </button>
     </div>
-
-    <h3 class="project-name">${data.projectName}</h3>
-
-    <p class="status">${data.status}</p>
-
+    <a href="./source/reference/selected_project_page.html" onclick="loadProjectNameToLocalStorage(this)"><h3 class="project-name">${data.projectName}</h3></a>
+    <p class="status">${data.privacy}</p>
     <p class="project-description">${truncatedDescription}</p>
-    
     <div class="tags">${tagsHtml}</div>
     `
+
+    // create an eventListener for the delete button of the project
+    const deleteButton = article.querySelector('.delete-btn')
+    deleteButton.addEventListener('click', () => this.deletePopUp())
+
+    // Append or update the article (project) in shadow DOM
+    if (!this.shadowRoot.contains(article)) {
+      this.shadowRoot.appendChild(article)
+    }
 
     // Optional: handle project impage if provided
     if (data.imageUrl) {
       const imageHtml = `<img src="${data.imageUrl}" alt="Project Image">`
       article.innerHTML += imageHtml
     }
-    // //   Select the <article> we added to the Shadow DOM in the constructor
-    // const article = this.shadowRoot.querySelector('article')
-    // const projectName = document.createElement('h3')
-    // projectName.id = 'project-name' // Set the ID as suggested in the template
-    // projectName.textContent = data.projectName
-    // article.appendChild(projectName)
-
-    // // status
-    // const projectStatus = document.createElement('p')
-    // projectStatus.id = 'status'
-    // projectStatus.textContent = data.status
-    // article.appendChild(projectStatus)
-
-    // // Project Description (truncate if too long)
-    // const projectDescription = document.createElement('p')
-    // projectDescription.id = 'project-description'
-    // projectDescription.textContent = data.projectDescription.substring(0, 100) // Truncate to 100 characters
-    // article.appendChild(projectDescription)
-
-    // // Project Tags (Conditional)
-    // if (data.tags && data.tags.length > 0) {
-    //   const tagsContainer = document.createElement('div')
-    //   tagsContainer.classList.add('tags')
-    //   data.tags.forEach(tag => {
-    //     const tagElement = document.createElement('p')
-    //     tagElement.textContent = tag
-    //     tagsContainer.appendChild(tagElement)
-    //   })
-    //   article.appendChild(tagsContainer)
-    // }
-
-    // // Optional: Project Image
-    // if (data.imageUrl) {
-    //   const projectImage = document.createElement('img')
-    //   projectImage.src = data.imageUrl
-    //   article.appendChild(projectImage)
-    // }
   }
 
   get data () {

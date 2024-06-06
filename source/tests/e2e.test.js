@@ -1,10 +1,19 @@
 // Tests that cover basic User interactions
-
-// Test Example
-test('example test', () => {
-  expect(1 + 2).toBe(3)
+const puppeteer = require('puppeteer')
+// First visit journal webpoage
+describe('Basic user flow for Website', () => {
+  beforeAll(async () => {
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    await page.goto('https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html')
+    // close browser
+    await browser.close()
+  }, 10000) // timeout of 10 seconds
+  // Test Example
+  test('example test', () => {
+    expect(1 + 2).toBe(3)
+  })
 })
-
 // Journal Entries
 // 1. Add journal entry
 // 2. Edit journal entry
@@ -31,11 +40,6 @@ test('example test', () => {
 
 // Refresh
 // 13. Refresh and test change in data
-
-// Templates
-// 14. Add template
-// 15. Edit template
-// 16. Delete template
 
 // Toggle public and private
 // 17. Toggle public and private entry
@@ -108,3 +112,5 @@ test('example test', () => {
 // Test Multiple Tags
 // 18. Test adding multiple tags to entries
 // Add multiple tags to journal entries and verify they are correctly assigned.
+
+// Templates Removed

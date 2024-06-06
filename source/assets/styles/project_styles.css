@@ -9,6 +9,7 @@ body {
   font-style: normal;
   width: 100%;
   height: 100%;
+  padding: 0;
 }
 
 /* Style the header section */
@@ -57,6 +58,9 @@ main {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
+  padding: center;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Style the user profile */
@@ -71,7 +75,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 100%;
+  width: 250px;
 }
 
 /* Style the profile name */
@@ -116,101 +120,29 @@ main {
 .project-collection {
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-direction: column;
   align-items: flex-start;
   width: auto;
   margin-left: 5%;
 }
 
-/* Style the Project title above the projects */
 #proj-title {
-  font-size: 40px;
+  font-size: 58px;
   color: #fff;
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
-/* Style each specific project */
-.project {
-  margin-right: auto;
-  margin-bottom: 20px;
-  width: 45%;
-  border: solid #434345;
-  border-radius: 10px;
-  position: relative;
-  padding: 20px;
-}
-
-/* Style for both project name and public/ private status */
-#project-name,
-#status {
-  display: inline-block;
-  gap: 50px;
-}
-
-/* Style for project name */
-#project-name {
-  margin-left: 5%;
-  margin-right: 5px;
-  font-size: 18px;
-}
-
-/* Style for project status */
-#status {
-  color: #eaeaea;
-  font-size: 10px;
-  margin-left: 5%;
-  margin-right: 5px;
-}
-
-/* Style for project description */
-#project-description {
-  font-size: 10px;
-  margin: 0 5% 10%;
-}
-
-/* Style the drag button */
-#drag-btn {
-  position: absolute;
-  display: flex;
-  background: none;
-  top: 5%;
-  right: 5%;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  padding: 0;
-  border-radius: 5px;
-}
-
-#drag-btn:hover {
-  background-color: grey;
-}
-
-/* Style the tags of each project */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.tags p {
-  border-radius: 2px;
-  padding: 5px 10px;
-  color: #cbcbcb;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
-
-/* Style the dot for the tags */
-.dot {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  background-color: darkred; /* change this as needed */
-  margin-right: 5px;
+/* Style the class contains all projects */
+.projects {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  margin-bottom: 100px;
+  gap: 100px;
 }
 
 /* Style the class of creating new project */
@@ -273,7 +205,7 @@ main {
 }
 
 #new-project-description,
-#new-entry {
+#new-project-name {
   width: 80%;
   padding: 10px;
   margin-bottom: 20px;
@@ -283,7 +215,6 @@ main {
   color: #cbcbcb;
 }
 
-#more-entry,
 #done {
   background-color: #666;
   color: white;
@@ -292,14 +223,6 @@ main {
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
-}
-
-#more-entry {
-  background-color: #5a5;
-}
-
-#done {
-  background-color: #5a5a5a;
   align-self: flex-end;
 }
 
@@ -316,11 +239,14 @@ main {
 
 /* Style the copyright footer */
 #footer {
-  padding-top: 25%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 10%;
   margin-left: 10%;
   font-size: 14px;
-  bottom: 0;
-  width: 100%;
+  width: 200px;
   height: 60px;
 }
 

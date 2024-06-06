@@ -1,3 +1,57 @@
+// import { addProjectToLocalStorage } from "./get_set_from_localStorage.js"
+
+// (1) home_projects_page functions //
+/**
+ * Get an unused Project Id
+ */
+function getUnusedProjectId () {
+  // Get the current max entry id
+  const retrievedCurrMaxProjectId = localStorage.getItem('currentMaxProjectId')
+
+  // Make it an int
+  const currMaxProjectId = parseInt(retrievedCurrMaxProjectId)
+
+  // set the "current_max_entry_id" to "entry_to_add.entry_id"
+  localStorage.setItem('currentMaxProjectId', (currMaxProjectId + 1))
+
+  return (currMaxProjectId + 1)
+}
+
+/**
+ * Add given project object to the "user_projects" array
+ * @param projectToAdd - project object to be added.
+ * @description Project object has the following elements:
+ *      "project_id": int starts with "current_max_project_id" + 1
+ *      "projectName": "string"
+ *      "description": "string"
+ *      "privacy": "string"
+ *      "tags": [
+ *          {
+ *              "tag_id": int that starts with ("current_max_tag_id" + 1),
+ *              "tag_name": "HTML",
+ *              "color": "red"
+ *          }]
+ *      "selected_project_entries": {
+ *          // contains all the entries shown below (!!) //
+ *      }
+*/
+function addProjectToLocalStorage (projectToAdd) {
+  // TODO: Add given project to the "user_projects" array in localStorage
+  const unusedProjectId = getUnusedProjectId()
+
+  // Set the entry id to current_max_entry_id + 1
+  projectToAdd.projectId = unusedProjectId
+
+  // Get the current "user_projects" array, or return an empty array if there is empty.
+  const projectInArray = JSON.parse(localStorage.getItem('user_projects') || '[]')
+
+  // Add the user additions to the "user_projects" array.
+  projectInArray.push(projectToAdd)
+
+  // Update to laocalStorage
+  localStorage.setItem('user_projects', JSON.stringify(projectInArray))
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   let selectedTags = []
 
@@ -7,54 +61,38 @@ document.addEventListener('DOMContentLoaded', function () {
     form.style.display = (form.style.display === 'flex' ? 'none' : 'flex')
   }
 
-  // Function to get a new project ID based on the number of projects in local storage
-  function getNewProjectId (projects) {
-    const maxId = projects.reduce((max, project) => Math.max(max, project.projectId), 0)
-    return maxId + 1
-  }
-
   // Function to handle the addition of a new project
   function addProject () {
-    const projectName = document.querySelector('#new-project-description').value
-    const projectDescription = document.querySelector('#new-entry').value
+    // Gather Project Data
+    const projectName = document.querySelector('#new-project-name').value
+    const description = document.querySelector('#new-project-description').value
     const selectedPrivacyOption = document.querySelector('.privacy-option.bold')
 
     // Ensure that a privacy option is selected
     if (!selectedPrivacyOption) {
+      console.log(selectedPrivacyOption)
       alert('Please select a privacy option.')
       return
     }
+    const privacy = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
+    const projectId = -1
 
-    const status = selectedPrivacyOption.id === 'private' ? 'Private' : 'Public'
-
-    const projects = getProjectsFromStorage()
-    const projectId = getNewProjectId(projects)
-
+    // Create Project
     const newProject = {
       projectId,
       projectName,
-      projectDescription,
-      status,
+      description,
+      privacy,
       tags: selectedTags,
-      journals: []
+      selected_project_entries: []
     }
-
-    projects.push(newProject)
-    localStorage.setItem('projects', JSON.stringify(projects))
-
     document.querySelector('.new-project').style.display = 'none'
     resetForm()
-    addProjectsToDocument([newProject])
-  }
 
-  // Function to handle adding more entry fields
-  function addEntry () {
-    const newEntry = document.createElement('input')
-    newEntry.type = 'text'
-    newEntry.placeholder = 'Enter Entry content.'
-    newEntry.id = 'new-entry'
-    const moreEntryButton = document.getElementById('more-entry')
-    moreEntryButton.insertAdjacentElement('beforebegin', newEntry)
+    // Add project to home page
+    addProjectsToDocument([newProject])
+    // Add project to localStorage
+    addProjectToLocalStorage(newProject)
   }
 
   // Function to handle tag selection
@@ -70,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // Function to handle privacy selection
+  // // Function to handle privacy selection
   function selectPrivacy (option) {
     document.getElementById('public').classList.remove('bold')
     document.getElementById('private').classList.remove('bold')
@@ -79,8 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Function to reset the form
   function resetForm () {
+    document.querySelector('#new-project-name').value = ''
     document.querySelector('#new-project-description').value = ''
-    document.querySelectorAll('#new-entry').forEach(entry => { entry.value = '' })
     selectedTags = []
     document.querySelectorAll('.tag').forEach(tag => { tag.style.fontWeight = 'normal' })
     document.getElementById('public').classList.remove('bold')
@@ -90,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Event listeners
   document.querySelector('#create-btn').addEventListener('click', newProject)
   document.querySelector('#done').addEventListener('click', addProject)
-  document.querySelector('#more-entry').addEventListener('click', addEntry)
 
   document.querySelectorAll('.tag').forEach(tag => {
     tag.addEventListener('click', function () {
@@ -164,11 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get tags from localStorage
   function getTagsFromStorage () {
     return JSON.parse(localStorage.getItem('tags')) || []
-  }
-
-  // Ensure getProjectsFromStorage and addProjectsToDocument are available
-  function getProjectsFromStorage () {
-    return JSON.parse(localStorage.getItem('projects')) || []
   }
 
   function addProjectsToDocument (projects) {
