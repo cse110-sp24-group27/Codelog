@@ -430,6 +430,9 @@ function createEntry () {
   // Add the entry to localStorage and the page
   localStorage.setItem('user_projects', JSON.stringify(projects))
   populateEntries()
+
+  // Repopulate the table of contents
+  loadTableOfContents()
 }
 
 // Add an event listener to the Create Entry button
