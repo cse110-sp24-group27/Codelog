@@ -42,12 +42,9 @@ function displayEntry () {
         newElement.textContent = item.content
         break
       case 'code':
-        const preElement = document.createElement('code')
-        const codeElement = document.createElement('p')
-        codeElement.classList.add('code')
-        codeElement.textContent = item.content
-        preElement.appendChild(codeElement)
-        newElement = preElement
+        newElement = document.createElement('p')
+        newElement.classList.add('code')
+        newElement.textContent = item.content
         break
       case 'text':
         newElement = document.createElement('p')
