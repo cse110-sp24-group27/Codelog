@@ -406,6 +406,7 @@ function createEntry () {
     content: allContent
   }
 
+  // Update localStorage, repopulate entries, and reload table of contents
   updatelocalStorage(entry, true)
   populateEntries()
   loadTableOfContents()
@@ -467,5 +468,8 @@ function deleteEntry (event) {
 
     // Refresh the list of entries displayed on the page to reflect the deletion
     populateEntries()
+
+    // Repopulate the table of contents
+    loadTableOfContents()
   }
 }
