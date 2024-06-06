@@ -153,7 +153,7 @@ class ProjectCard extends HTMLElement {
       console.error('Invalid project data provided to ProjectCard!')
       return
     }
-    this.setAttribute('draggable', 'true')
+    this.setAttribute('draggable', 'false')
     const article = this.shadowRoot.querySelector('article')
     article.setAttribute('draggable', 'false')
     article.classList.add('project', 'is-idle')
@@ -164,17 +164,20 @@ class ProjectCard extends HTMLElement {
     article.innerHTML = `
     <div class="delete-btn-container" bis_skin_checked="1" draggable='false'>
       <button class="delete-btn" draggable='false'>
-        <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
+        <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img" draggable="false">
       </button>
     </div>
-    <a class="project-name" href="http://127.0.0.1:5500/cse110-sp24-group27/source/reference/selected_project_page.html">${data.projectName}</a>
-    <p class="status" draggable='false'>${data.privacy}</p>
-    <p class="project-description" draggable='false'>${truncatedDescription}</p>
-    <div class="tags" draggable='false'>${tagsHtml}</div>
+    <a class="project-name" href="http://127.0.0.1:5504/source/reference/selected_project_page.html" draggable="false">${data.projectName}</a>
+    <p class="status" draggable="false">${data.privacy}</p>
+    <p class="project-description" draggable="false">${truncatedDescription}</p>
+    <div class="tags" draggable="false">${tagsHtml}</div>
     `
 
     const deleteButton = article.querySelector('.delete-btn')
-    deleteButton.addEventListener('click', () => this.deletePopUp())
+    deleteButton.addEventListener('click', (event) => {
+      event.stopPropagation()
+      this.deletePopUp()
+    })
 
     // Append or update the article (project) in shadow DOM
     if (!this.shadowRoot.contains(article)) {
