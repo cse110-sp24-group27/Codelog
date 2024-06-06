@@ -147,7 +147,6 @@ function saveNewEntryToLocalStorage (selectedProjectId, newEntry) {
     console.error('Error saving new entry to localStorage:', error)
   }
 }
-
 window.openPopup = openPopup
 window.closePopup = closePopup
 window.addInput = addInput
