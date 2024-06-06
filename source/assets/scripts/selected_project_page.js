@@ -33,6 +33,9 @@ function projectPageInit () {
 
   // On load, populate the selected project's entries
   populateEntries()
+
+  // On load, populate the table of contents
+  loadTableOfContents()
 }
 
 // On load, populate all necessary parts of the page
@@ -101,51 +104,31 @@ function populateEntries () {
 }
 
 // Table of Contents By Kristhian Ortiz //
-// const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
-// /**
-//  * Generates a dynamic table of contents.
-//  */
-// function loadTableOfContents () {
-//   dynamicContentList.innerHTML = '' // clear contents
+const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
+/**
+ * Generates a dynamic table of contents.
+ */
+function loadTableOfContents () {
+  dynamicContentList.innerHTML = '' // clear contents
 
-//   // Get all entries from local Storage (we receive a string representing an object)
-//   const entriesForListAsString = localStorage.getItem('entries')
-//   // Convert the string back into an object using JSON.parse
-//   const entriesForList = JSON.parse(entriesForListAsString)
+  // Get an array of all entry names for the current project
+  const currProject = getCurrProjectObject()
+  const entries = currProject.selected_project_entries
+  const entryNames = []
+  for (let i = 0; i < entries.length; i++) {
+    const entryName = entries[i].titleName
+    entryNames.push(entryName)
+  }
 
-//   /**
-//    * Each Entry Object in 'entries' will have:
-//    * Entry Name (Journal Title)
-//    * id (unique identifier for this entry)
-//    * Entry Template
-//    * Tags
-//    * Markdown File
-//    *
-//    * We only want the Entry Name (can be accessed using .)
-//    */
-//   entriesForList.forEach(entry => {
-//     // Fetch Project Entries' data
-//     const entryTitleName = entry.titleName
-//     const entryId = entry.id
-
-//     // Create list item to be included in table of contents.
-//     const listContent = document.createElement('ul')
-//     // Create an anchor so that it can be linked
-//     const anchor = document.createElement('a')
-
-//     // Link entry in table of contents to actual entry in webpage
-//     anchor.href = `#${entryId}` // Link by id
-//     anchor.textContent = entryTitleName // String holding the link will be the title
-
-//     // Add anchor to listContent
-//     listContent.appendChild(anchor)
-//     // Add listContent to table of content list.
-//     dynamicContentList.appendChild(listContent)
-//   })
-// }
-
-// On load of script, load table of contents
-// loadTableOfContents()
+  // Add necessary HTML elements to the table of contents
+  for (let i = 0; i < entryNames.length; i++) {
+    const entryListItem = document.createElement('li')
+    const entryTitle = document.createElement('h3')
+    entryTitle.innerHTML = entryNames[i]
+    entryListItem.appendChild(entryTitle)
+    dynamicContentList.appendChild(entryListItem)
+  }
+}
 
 // Drag Button By Devan //
 // Variables used in dragging and dropping functions
