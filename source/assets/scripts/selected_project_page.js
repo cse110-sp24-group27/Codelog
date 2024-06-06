@@ -113,6 +113,34 @@ function populateEntries () {
   })
 }
 
+const dynamicContentList = document.getElementById('dynamic-content-list') // Get table of contents' list
+/**
+ * Generates a dynamic table of contents.
+ */
+function loadTableOfContents () {
+  dynamicContentList.innerHTML = '' // clear contents
+
+// On load of script, load table of contents
+// loadTableOfContents()
+  // Get an array of all entry names for the current project
+  const currProject = getCurrProjectObject()
+  const entries = currProject.selected_project_entries
+  const entryNames = []
+  for (let i = 0; i < entries.length; i++) {
+    const entryName = entries[i].titleName
+    entryNames.push(entryName)
+  }
+
+  // Add necessary HTML elements to the table of contents
+  for (let i = 0; i < entryNames.length; i++) {
+    const entryListItem = document.createElement('li')
+    const entryTitle = document.createElement('h3')
+    entryTitle.innerHTML = entryNames[i]
+    entryListItem.appendChild(entryTitle)
+    dynamicContentList.appendChild(entryListItem)
+  }
+}
+
 // Drag Button By Devan //
 // Variables used in dragging and dropping functions
 let listContainer
