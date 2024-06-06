@@ -1,4 +1,4 @@
-function getCurrJournal (){
+function getCurrJournal () {
   const currProjectName = localStorage.getItem("currDisplayedProject")
   const currEntryName = localStorage.getItem("currDisplayedEntry")
   const userProjectsAsString = localStorage.getItem("user_projects")
