@@ -4,29 +4,9 @@ window.addEventListener('DOMContentLoaded', init)
 // Starts the program, all function calls trace back here
 function init () {
   // Update this to asynchronous
-  const prevProfile = localStorage.getItem('user_profile')
-
-  if (prevProfile == null) {
-    fetchExamplejsonToStorage()
-  } else {
-    // Get the projects from localStorage
-    const profile = getProfileFromStorage()
-    console.log(profile)
-    updateProfileOnPage(profile)
-  }
-}
-
-// fetch datastructure.json to localstorage
-function fetchExamplejsonToStorage () {
-  fetch('../reference/datastructure.json') // Parse the response as JSON
-    .then(response => response.json())
-    .then(data => {
-      const profileData = JSON.stringify(data.user_profile)
-      localStorage.setItem('user_profile', profileData)
-    }) // Store the parsed data
-    .catch(error => {
-      console.error('Failed to fetch profile data:', error) // More specific error message
-    })
+  const profile = getProfileFromStorage()
+  console.log(profile)
+  updateProfileOnPage(profile)
 }
 
 /**
@@ -114,6 +94,7 @@ function save () {
     localStorage.setItem('user_profile', JSON.stringify(newProfile))
     console.log('profile updated without new image: ', newProfile)
   }
+  alert('Profile was saved!')
 }
 
 // Reset the profile form to previous state
