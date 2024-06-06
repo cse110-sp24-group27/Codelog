@@ -155,7 +155,7 @@ class ProjectCard extends HTMLElement {
     }
     this.setAttribute('draggable', 'true')
     const article = this.shadowRoot.querySelector('article')
-    article.setAttribute('draggable', 'false')  // ensure that the whole project-card is dragged instead of the article only
+    article.setAttribute('draggable', 'false')
     article.classList.add('project', 'is-idle')
     const tagsHtml = data.tags.map(tag => `<p><span class="dot"></span>${tag}</p>`).join('')
     const maxWords = 30
@@ -167,19 +167,12 @@ class ProjectCard extends HTMLElement {
         <img src="source/assets/images/drag-button.png" alt="delete-btn" class="delete-btn-img">
       </button>
     </div>
-<<<<<<< HEAD
-    <a href="./source/reference/selected_project_page.html" onclick="loadProjectNameToLocalStorage(this)"><h3 class="project-name">${data.projectName}</h3></a>
-    <p class="status">${data.privacy}</p>
-    <p class="project-description">${truncatedDescription}</p>
-    <div class="tags">${tagsHtml}</div>
-=======
     <a class="project-name" href="http://127.0.0.1:5500/cse110-sp24-group27/source/reference/selected_project_page.html">${data.projectName}</a>
     <p class="status" draggable='false'>${data.privacy}</p>
     <p class="project-description" draggable='false'>${truncatedDescription}</p>
     <div class="tags" draggable='false'>${tagsHtml}</div>
->>>>>>> 2204344 (fixed dragging function and changed project name to a link to project page)
     `
-    
+
     const deleteButton = article.querySelector('.delete-btn')
     deleteButton.addEventListener('click', () => this.deletePopUp())
 

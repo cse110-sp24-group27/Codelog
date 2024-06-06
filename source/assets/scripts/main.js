@@ -109,7 +109,7 @@ function updateProfileOnPage (userProfile) {
 * @returns {Array<Object>} An array of projects found in localStorage
 */
 function getProjectsFromStorage () {
- return JSON.parse(localStorage.getItem('user_projects')) || []
+  return JSON.parse(localStorage.getItem('user_projects')) || []
 }
 
 /**
