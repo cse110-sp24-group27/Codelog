@@ -9,9 +9,9 @@
   padding: 20px;
   background-color: #2a2a2e;
   color: #fff;
-  width: 700px;
+  width: 50%;
   overflow-y: auto;
-  max-height: 1000px;
+  max-height: 70%;
   border-radius: 5px;
   font-family: Roboto, sans-serif;
   box-sizing: border-box;
@@ -32,7 +32,7 @@
 .pop-up button {
   margin-top: 10px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 /* Style for + button */
@@ -63,9 +63,9 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 120px;
+  width: 88px;
   height: 35px;
-  font-size: 15px;
+  font-size: 12px;
   cursor: pointer;
   align-items: flex-end;
 }
@@ -76,9 +76,9 @@
   color: #fff;
   border: none;
   border-radius: 5px;
-  width: 90px;
-  height: 35px;
-  font-size: 15px;
+  width: 65px;
+  height: 30px;
+  font-size: 12px;
   cursor: pointer;
 }
 
@@ -89,13 +89,13 @@
   cursor: pointer;
   padding: 0;
   position: absolute;
-  top: 35px;
-  left: 30px;
+  top: 25px;
+  left: 35px;
 }
 
 #project-page-popup-back-btn img {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 /* Style for entry title box */
@@ -104,7 +104,7 @@
   border: 1px solid #fff;
   background-color: #2a2a2e;
   color: #fff;
-  width: 500px;
+  width: 300px;
   max-width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
@@ -117,22 +117,22 @@
   border: 1px solid #fff;
   background-color: #2a2a2e;
   color: #fff;
-  width: 500px;
+  width: 300px;
   max-width: 100%;
   border-radius: 5px;
   box-sizing: border-box;
-  height: 80px;
+  height: 60px;
 }
 
 /* Styling for headers */
 .pop-up h1 {
-  font-size: 35px;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 
 .pop-up h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .dropdown-group h3 {
@@ -168,9 +168,9 @@
   background-color: grey;
   border: none;
   border-radius: 5px;
-  width: 130px;
-  height: 35px;
-  font-size: 15px;
+  width: 100px;
+  height: 30px;
+  font-size: 11px;
   cursor: pointer;
 }
 
@@ -198,18 +198,18 @@
 }
 
 .input-1 {
-  height: 50px;
-  width: 200px;
+  height: 70%;
+  width: 60%;
 }
 
 .input-2 {
   height: 60px;
-  width: 490px;
+  width: 300px;
 }
 
 .input-3 {
-  height: 100px;
-  width: 490px;
+  height: 60px;
+  width: 300px;
 }
 
 /* Styling for delete buttons */
@@ -220,7 +220,7 @@
   cursor: pointer;
   border-radius: 5px;
   margin-left: 10px;
-  height: 40px;
+  height: 30px;
 }
 
 .delete-btn:hover {
