@@ -25,9 +25,9 @@ function displayEntry () {
   journalPage.innerHTML = ''
   console.log(entryToDisplay)
   const currEntryName = localStorage.getItem('currDisplayedEntry')
-  let newTitle = document.createElement('h1');
-  newTitle.classList.add('titleName');
-  newTitle.textContent = currEntryName;
+  let newTitle = document.createElement('h1')
+  newTitle.classList.add('titleName')
+  newTitle.textContent = currEntryName
   journalPage.appendChild(newTitle)
 
   // document.querySelector('.titleName').innerHTML = textTitle
@@ -36,26 +36,26 @@ function displayEntry () {
     // Create elements based on the type
     switch (item.type) {
       case 'header':
-        newElement = document.createElement('h2');
-        newElement.classList.add('header');
-        newElement.textContent = item.content;
-        break;
+        newElement = document.createElement('h2')
+        newElement.classList.add('header')
+        newElement.textContent = item.content
+        break
       case 'code':
-        const preElement = document.createElement('code');
-        const codeElement = document.createElement('p');
-        codeElement.classList.add('code');
-        codeElement.textContent = item.content;
-        preElement.appendChild(codeElement);
-        newElement = preElement;
-        break;
+        const preElement = document.createElement('code')
+        const codeElement = document.createElement('p')
+        codeElement.classList.add('code')
+        codeElement.textContent = item.content
+        preElement.appendChild(codeElement)
+        newElement = preElement
+        break
       case 'text':
-        newElement = document.createElement('p');
-        newElement.classList.add('text');
-        newElement.textContent = item.content;
-        break;
+        newElement = document.createElement('p')
+        newElement.classList.add('text')
+        newElement.textContent = item.content
+        break
       default:
-        console.warn('Unknown content type:', item.type);
-        return;
+        console.warn('Unknown content type:', item.type)
+        return
     }
     journalPage.appendChild(newElement)})
   //   if (element.type === 'header') {
