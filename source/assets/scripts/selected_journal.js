@@ -23,10 +23,11 @@ function displayEntry () {
   const entryToDisplay = getCurrJournal()
   const journalPage = document.getElementById('j-main')
   journalPage.innerHTML = ''
+
   console.log(entryToDisplay)
   const currEntryName = localStorage.getItem('currDisplayedEntry')
   const newTitle = document.createElement('h1')
-  newTitle.classList.add('titleName')
+  newTitle.classList.add('journal-title')
   newTitle.textContent = currEntryName
   journalPage.appendChild(newTitle)
 
@@ -53,6 +54,9 @@ function displayEntry () {
         newElement.classList.add('text')
         newElement.textContent = item.content
         break
+      default:
+        console.warn('Unknown content type:', item.type)
+        return
     }
     journalPage.appendChild(newElement)
   })
