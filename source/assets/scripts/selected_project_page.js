@@ -431,6 +431,9 @@ function createEntry () {
   localStorage.setItem('user_projects', JSON.stringify(projects))
   populateEntries()
 
+  // Alert the user that the entry was created
+  alert('Entry created!')
+
   // Repopulate the table of contents
   loadTableOfContents()
 }
