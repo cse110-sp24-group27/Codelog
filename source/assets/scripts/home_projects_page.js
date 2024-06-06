@@ -1,5 +1,5 @@
 // import { addProjectToLocalStorage } from "./get_set_from_localStorage.js"
- 
+
 // (1) home_projects_page functions //
 
 let selectedTags = [];
