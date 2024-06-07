@@ -89,27 +89,28 @@
 
             <!-- The + button to add new project -->
             <button id="create-btn">+</button>
+
+            <!-- Manual project creation -->
+            <!-- Hide this until the + button is clicked -->
+            <div class="new-project" style="display: none;">
+                <h2>Create New Project</h2>
+                <input type="text" id="new-project-name" placeholder="Enter Project Title">
+                <input type="text" id="new-project-description" placeholder="Enter Project Description">
+                <div class="tag-privacy-row">
+                    <div class="tags">
+                        <button class="tag add-tag">Edit Tags</button>
+                        <div id="selected-tags" class="selected-tags"></div>
+                    </div>
+                    <div class="privacy">
+                        <button class="privacy-option" id="public">Public</button>
+                        <button class="privacy-option" id="private">Private</button>
+                    </div>
+                </div>
+                <button id="done">Create Project</button>
+            </div>
         </div>
     </main>
-    <!-- Manual project creation -->
-    <!-- Hide this until the + button is clicked -->
-    <div class="new-project" style="display: none;">
-        <h2>Create New Project</h2>
-        <input type="text" id="new-project-name" placeholder="Enter Project Title">
-        <input type="text" id="new-project-description" placeholder="Enter Project Description">
-        <div class="tag-privacy-row">
-            <div class="tags">
-                <button class="tag add-tag">Edit Tags</button>
-                <div id="selected-tags" class="selected-tags"></div>
-            </div>
-            <div class="privacy">
-                <button class="privacy-option" id="public">Public</button>
-                <button class="privacy-option" id="private">Private</button>
-            </div>
-        </div>
-        <button id="done">Create Project</button>
-    </div>
-    
+
     <!-- Tag Editor Modal -->
     <div id="tag-editor" class="modal" style="display:none;">
         <div class="modal-content">
