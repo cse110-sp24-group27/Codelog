@@ -72,3 +72,6 @@ function displayEntry () {
 }
 // displayEntry()
 window.addEventListener('load', displayEntry())
+
+// export functions for testing
+module.exports = { getCurrJournal, displayEntry }
