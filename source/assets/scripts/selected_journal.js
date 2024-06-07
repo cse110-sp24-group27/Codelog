@@ -2,6 +2,7 @@ function getCurrJournal () {
   const currProjectName = localStorage.getItem('currDisplayedProject')
   const currEntryName = localStorage.getItem('currDisplayedEntry')
   const userProjectsAsString = localStorage.getItem('user_projects')
+  console.log(userProjectsAsString)
   const userProjects = JSON.parse(userProjectsAsString)
   // Iterate through projects, find the project with matching projectName
   let currProjectEntries
@@ -72,3 +73,6 @@ function displayEntry () {
 }
 // displayEntry()
 window.addEventListener('load', displayEntry())
+
+// export functions for testing
+module.exports = { getCurrJournal, displayEntry }
