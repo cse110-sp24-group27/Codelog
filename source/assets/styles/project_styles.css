@@ -59,8 +59,6 @@ main {
   margin-right: 10%;
   margin-top: 5%;
   padding: center;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Style the user profile */
@@ -124,6 +122,11 @@ main {
   align-items: flex-start;
   width: auto;
   margin-left: 5%;
+  width: 100%;
+}
+
+* {
+  border: solid red;
 }
 
 #proj-title {
@@ -148,13 +151,16 @@ main {
 /* Style the class of creating new project */
 .new-project {
   display: none;
+  position: absolute;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 50%;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-top: 20px;
+  margin-top: 60px;
+  left: 50%;
+  transform: translate(-25%, -50%);
 }
 
 .new-project h2 {
@@ -239,7 +245,7 @@ main {
 
 /* Style the copyright footer */
 #footer {
-  position: absolute;
+  position: sticky;
   margin-left: 10%;
   font-size: 14px;
   width: 200px;

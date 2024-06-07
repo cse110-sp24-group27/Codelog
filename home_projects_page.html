@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,12 @@
 </head>
 <script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
 <script src="source/assets/scripts/home_projects_page.js" type="module"></script>
+
 <body>
     <header>
         <!--Logo for the website-->
-        <a href="../../home_projects_page.html"><img id="codelog-pic" src="admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/></a>
+        <a href="../../home_projects_page.html"><img id="codelog-pic" src="admin/branding/CodeLog_logo.png" width="100"
+                alt="CodeLog logo" /></a>
         <h1 id="codelog">CodeLog</h1>
 
         <div class="but">
@@ -47,7 +50,7 @@
         <!--User's profile-->
         <!--Delete this class after implementing the JS function to load user's profile (from the database or somewhere else)-->
         <div class="profile">
-            <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture"/>
+            <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture" />
             <h2 id="name">Developer's Name</h2>
             <div class="user-info">
                 <!--p id="username">Username</p-->
@@ -68,7 +71,7 @@
                     <i class="fa-brands fa-linkedin"></i>
                     <a id="link-linkedin" href="https://www.linkedin.com/feed/">Link to LinkedIn</a>
                 </div>
-                
+
                 <div class="github">
                     <i class="fa-brands fa-github"></i>
                     <a id="link-github" href="https://github.com/">Link to Github</a> <br>
@@ -86,28 +89,27 @@
 
             <!-- The + button to add new project -->
             <button id="create-btn">+</button>
-
-            <!-- Manual project creation -->
-            <!-- Hide this until the + button is clicked -->
-            <div class="new-project" style="display: none;">
-                <h2>Create New Project</h2>
-                <input type="text" id="new-project-name" placeholder="Enter Project Title">
-                <input type="text" id="new-project-description" placeholder="Enter Project Description">
-                <div class="tag-privacy-row">
-                    <div class="tags">
-                        <button class="tag add-tag">Edit Tags</button>
-                        <div id="selected-tags" class="selected-tags"></div>
-                    </div>
-                    <div class="privacy">
-                        <button class="privacy-option" id="public">Public</button>
-                        <button class="privacy-option" id="private">Private</button>
-                    </div>
-                </div>
-                <button id="done">Create Project</button>
-            </div>            
         </div>
     </main>
-
+    <!-- Manual project creation -->
+    <!-- Hide this until the + button is clicked -->
+    <div class="new-project" style="display: none;">
+        <h2>Create New Project</h2>
+        <input type="text" id="new-project-name" placeholder="Enter Project Title">
+        <input type="text" id="new-project-description" placeholder="Enter Project Description">
+        <div class="tag-privacy-row">
+            <div class="tags">
+                <button class="tag add-tag">Edit Tags</button>
+                <div id="selected-tags" class="selected-tags"></div>
+            </div>
+            <div class="privacy">
+                <button class="privacy-option" id="public">Public</button>
+                <button class="privacy-option" id="private">Private</button>
+            </div>
+        </div>
+        <button id="done">Create Project</button>
+    </div>
+    
     <!-- Tag Editor Modal -->
     <div id="tag-editor" class="modal" style="display:none;">
         <div class="modal-content">
@@ -139,4 +141,5 @@
         }
     </script> -->
 </body>
+
 </html>
