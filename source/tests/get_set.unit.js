@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { getUnusedProjectId, addProjectToLocalStorage, getAllUserProjects } = require('../assets/scripts/get_set_from_localStorage.js')
+const { getUnusedProjectId, addProjectToLocalStorage, getAllUserProjects, addEntry } = require('../assets/scripts/get_set_from_localStorage.js')
 const ele1 = document.createElement('div')
 const ele2 = document.createElement('div')
 const container = document.createElement('div')
@@ -48,5 +48,19 @@ describe('Testing addProjectToLocalStorage and getAllUserProjects...', () => {
   })
   test('Testing if output array objects are correct...', () => {
     expect(array[0].project_id).toEqual(id + 1)
+  })
+})
+
+describe('Testing addEntry...', () => {
+  const id = 1
+  window.localStorage.setItem('current_max_entry_id', JSON.stringify(id))
+  addEntry({ selected_project_entries: [] }, {})
+  const storage = JSON.parse(window.localStorage.getItem('selected_project'))
+  const entry_id = JSON.parse(window.localStorage.getItem('current_max_entry_id'))
+  test('Testing if current_max_entry_id is increased...', () => {
+    expect(entry_id).toEqual(id + 1)
+  })
+  test('Testing if project is in localStorage...', () => {
+    expect(storage).toEqual({ selected_project_entries: [{ entry_id: 2 }] })
   })
 })
