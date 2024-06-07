@@ -56,9 +56,6 @@ function addProjectToLocalStorage (projectToAdd) {
   localStorage.setItem('user_projects', JSON.stringify(projectInArray))
 }
 
-// export functions for testing
-module.exports = { getUnusedProjectId, addProjectToLocalStorage }
-
 document.addEventListener('DOMContentLoaded', function () {
   // Function to handle the new project form
   function newProject () {
@@ -253,3 +250,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 })
+
+// export functions for testing
+module.exports = { getUnusedProjectId, addProjectToLocalStorage }
