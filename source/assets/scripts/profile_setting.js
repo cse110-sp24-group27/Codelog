@@ -159,3 +159,6 @@ function checkURL (url, type) {
 window.loadImage = loadImage
 window.save = save
 window.cancel = cancel
+
+// export functions for testing
+module.exports = { getProfileFromStorage, updateProfileOnPage, loadImage, save, cancel, checkURL }

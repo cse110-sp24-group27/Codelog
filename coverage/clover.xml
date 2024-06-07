@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1717751116152" clover="3.2.0">
-  <project timestamp="1717751116152" name="All files">
-    <metrics statements="549" coveredstatements="69" conditionals="192" coveredconditionals="17" methods="114" coveredmethods="13" elements="855" coveredelements="99" complexity="0" loc="549" ncloc="549" packages="1" files="8" classes="8"/>
+<coverage generated="1717751795581" clover="3.2.0">
+  <project timestamp="1717751795581" name="All files">
+    <metrics statements="550" coveredstatements="69" conditionals="192" coveredconditionals="17" methods="114" coveredmethods="13" elements="856" coveredelements="99" complexity="0" loc="550" ncloc="550" packages="1" files="8" classes="8"/>
     <file name="+_button_selcted_project_page.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\+_button_selcted_project_page.js">
       <metrics statements="48" coveredstatements="23" conditionals="16" coveredconditionals="1" methods="10" coveredmethods="4"/>
       <line num="3" count="1" type="stmt"/>
@@ -249,7 +249,7 @@
     </file>
     <file name="main.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\main.js">
       <metrics statements="44" coveredstatements="15" conditionals="30" coveredconditionals="11" methods="9" coveredmethods="3"/>
-      <line num="2" count="1" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
       <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="8" count="0" type="stmt"/>
       <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -274,28 +274,28 @@
       <line num="57" count="0" type="stmt"/>
       <line num="58" count="0" type="stmt"/>
       <line num="61" count="0" type="stmt"/>
-      <line num="73" count="1" type="cond" truecount="2" falsecount="0"/>
-      <line num="78" count="1" type="cond" truecount="2" falsecount="0"/>
-      <line num="79" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="80" count="1" type="stmt"/>
-      <line num="81" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="83" count="1" type="stmt"/>
-      <line num="84" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="85" count="1" type="stmt"/>
-      <line num="87" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="88" count="1" type="stmt"/>
-      <line num="90" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="91" count="1" type="stmt"/>
+      <line num="73" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="78" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="79" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="80" count="2" type="stmt"/>
+      <line num="81" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="83" count="2" type="stmt"/>
+      <line num="84" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="85" count="2" type="stmt"/>
+      <line num="87" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="88" count="2" type="stmt"/>
+      <line num="90" count="2" type="cond" truecount="1" falsecount="1"/>
+      <line num="91" count="2" type="stmt"/>
       <line num="103" count="1" type="cond" truecount="2" falsecount="0"/>
       <line num="115" count="0" type="stmt"/>
       <line num="116" count="0" type="stmt"/>
       <line num="117" count="0" type="stmt"/>
       <line num="118" count="0" type="stmt"/>
       <line num="119" count="0" type="stmt"/>
-      <line num="124" count="1" type="stmt"/>
+      <line num="124" count="2" type="stmt"/>
     </file>
     <file name="profile_setting.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\profile_setting.js">
-      <metrics statements="68" coveredstatements="0" conditionals="36" coveredconditionals="0" methods="12" coveredmethods="0"/>
+      <metrics statements="69" coveredstatements="0" conditionals="36" coveredconditionals="0" methods="12" coveredmethods="0"/>
       <line num="2" count="0" type="stmt"/>
       <line num="7" count="0" type="stmt"/>
       <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -364,6 +364,7 @@
       <line num="159" count="0" type="stmt"/>
       <line num="160" count="0" type="stmt"/>
       <line num="161" count="0" type="stmt"/>
+      <line num="164" count="0" type="stmt"/>
     </file>
     <file name="selected_journal.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\selected_journal.js">
       <metrics statements="38" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="0"/>

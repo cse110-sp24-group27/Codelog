@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { getProjectsFromStorage, getProfileFromStorage, updateProfileOnPage } = require('../assets/scripts/main.js')
+const { getProfileFromStorage, updateProfileOnPage } = require('../assets/scripts/main.js')
 
 // Setting up Dom for testing
 const image = document.createElement('img')
@@ -26,13 +26,16 @@ document.body.appendChild(description)
 document.body.appendChild(email)
 document.body.appendChild(linkedin)
 document.body.appendChild(github)
-
-describe('Testing getProjectsFromStorage...', () => {
-  const projectArr = getProjectsFromStorage()
-  test('Testing get projects when no project...', () => {
-    expect(projectArr.length).toEqual(0)
-  })
-})
+const userProfile = {
+  username: 'David',
+  pronouns: 'He/Him',
+  bio: 'desc',
+  socialLinks: {
+    email: 'https://via.placeholder.com/1140',
+    linkedin: 'https://via.placeholder.com/1160',
+    github: 'https://via.placeholder.com/1170'
+  }
+}
 
 describe('Testing getProfileFromStorage...', () => {
   const profileArr = getProfileFromStorage()
@@ -42,16 +45,6 @@ describe('Testing getProfileFromStorage...', () => {
 })
 
 describe('Testing updateProfileOnPage...', () => {
-  const userProfile = {
-    username: 'David',
-    pronouns: 'He/Him',
-    bio: 'desc',
-    socialLinks: {
-      email: 'https://via.placeholder.com/1140',
-      linkedin: 'https://via.placeholder.com/1160',
-      github: 'https://via.placeholder.com/1170'
-    }
-  }
   updateProfileOnPage(userProfile)
   test('Testing pfp source...', () => {
     expect(image.src).toEqual('https://via.placeholder.com/150')
