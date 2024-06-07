@@ -153,4 +153,4 @@ window.addInput = addInput
 window.deleteInput = deleteInput
 
 // export functions for testing
-module.exports = { openPopup, closePopup, deleteInput }
+module.exports = { openPopup, closePopup, addInput, deleteInput, createNewEntryObject, saveNewEntryToLocalStorage }
