@@ -3,20 +3,6 @@
  */
 
 const { getUnusedProjectId, addProjectToLocalStorage, getAllUserProjects, addEntry } = require('../assets/scripts/get_set_from_localStorage.js')
-const ele1 = document.createElement('div')
-const ele2 = document.createElement('div')
-const container = document.createElement('div')
-const container2 = document.createElement('div')
-const button = document.createElement('button')
-ele1.setAttribute('id', 'test1')
-ele2.setAttribute('id', 'test2')
-container.setAttribute('id', 'inputcontainer')
-container2.setAttribute('id', 'inputcontainer2')
-container2.appendChild(button)
-document.body.appendChild(ele1)
-document.body.appendChild(ele2)
-document.body.appendChild(container)
-document.body.appendChild(container2)
 
 describe('Testing getUnusedProjectId...', () => {
   const id = 1
@@ -56,9 +42,9 @@ describe('Testing addEntry...', () => {
   window.localStorage.setItem('current_max_entry_id', JSON.stringify(id))
   addEntry({ selected_project_entries: [] }, {})
   const storage = JSON.parse(window.localStorage.getItem('selected_project'))
-  const entry_id = JSON.parse(window.localStorage.getItem('current_max_entry_id'))
+  const entryId = JSON.parse(window.localStorage.getItem('current_max_entry_id'))
   test('Testing if current_max_entry_id is increased...', () => {
-    expect(entry_id).toEqual(id + 1)
+    expect(entryId).toEqual(id + 1)
   })
   test('Testing if project is in localStorage...', () => {
     expect(storage).toEqual({ selected_project_entries: [{ entry_id: 2 }] })

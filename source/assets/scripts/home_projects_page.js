@@ -249,3 +249,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   }
 })
+
+// export functions for testing
+module.exports = { getUnusedProjectId, addProjectToLocalStorage }
