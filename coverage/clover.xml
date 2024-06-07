@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1717760912608" clover="3.2.0">
-  <project timestamp="1717760912608" name="All files">
+<coverage generated="1717761434157" clover="3.2.0">
+  <project timestamp="1717761434157" name="All files">
     <metrics statements="553" coveredstatements="202" conditionals="192" coveredconditionals="50" methods="114" coveredmethods="31" elements="859" coveredelements="283" complexity="0" loc="553" ncloc="553" packages="1" files="8" classes="8"/>
     <file name="+_button_selcted_project_page.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\+_button_selcted_project_page.js">
       <metrics statements="48" coveredstatements="23" conditionals="16" coveredconditionals="1" methods="10" coveredmethods="4"/>

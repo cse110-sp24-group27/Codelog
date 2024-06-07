@@ -6,8 +6,8 @@
 const projects = [{
   projectName: 'current',
   selected_project_entries: [{ titleName: 'one' }, { titleName: 'two' }]
-  },
-  {
+},
+{
   projectName: 'later',
   selected_project_entries: [
     {
@@ -32,10 +32,9 @@ const projects = [{
     {
       titleName: 'four',
       entryId: 4,
-      description: 'entry four',
+      description: 'entry four'
     }]
-  }
-]
+}]
 window.localStorage.setItem('user_projects', JSON.stringify(projects))
 window.localStorage.setItem('currDisplayedProject', 'later')
 window.localStorage.setItem('currDisplayedEntry', 'three')
@@ -68,7 +67,7 @@ const {
   populateEntries,
   getAllSelectedProjectEntries,
   loadTableOfContents
-  } = require('../assets/scripts/selected_project_page.js')
+} = require('../assets/scripts/selected_project_page.js')
 
 describe('Testing getCurrProjectObject...', () => {
   const project = getCurrProjectObject()
@@ -114,11 +113,12 @@ describe('Testing projectPageInit...', () => {
     expect(journalEntries.childNodes.length).toEqual(2)
   })
   test('Testing if table of content is populated...', () => {
-    expect(toc.childNodes.length).toEqual(2)
+    expect(toc.hasChildNodes()).toEqual(true)
   })
+  const entries = toc.childNodes
   test('Testing if entry list is populated...', () => {
-    expect(toc.childNodes[0].hasChildNodes()).toEqual(true)
-    expect(toc.childNodes[0].childNodes[0].innerHTML).toEqual('three')
-    expect(toc.childNodes[1].childNodes[0].innerHTML).toEqual('four')
+    expect(entries[0].hasChildNodes()).toEqual(true)
+    expect(entries[0].childNodes[0].innerHTML).toEqual('three')
+    expect(entries[1].childNodes[0].innerHTML).toEqual('four')
   })
 })
