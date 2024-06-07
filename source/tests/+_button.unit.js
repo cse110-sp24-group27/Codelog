@@ -3,8 +3,8 @@
  */
 
 const { openPopup, closePopup } = require('../assets/scripts/+_button_selcted_project_page.js')
-let ele1 = document.createElement('div')
-let ele2 = document.createElement('div')
+const ele1 = document.createElement('div')
+const ele2 = document.createElement('div')
 ele1.setAttribute('id', 'test1')
 ele2.setAttribute('id', 'test2')
 document.body.appendChild(ele1)
