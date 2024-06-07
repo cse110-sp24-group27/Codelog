@@ -21,12 +21,12 @@
 - [Attendance](#attendance)
 - [Content Overview](#content-overview)
 - [Content](#content)
-  - [-Ilities](#ilities)
+  - [Ilities](#ilities)
   - [Potential Improvements](#potential-improvements)
 
 ## Content
 
-### -Ilities
+### Ilities
 - We prioritized functionality over everything; we wanted to get everything working seemlessly
 - Since we kept everything simple in our design, our performance efficiency is decent
 - Our maintainability is not bad; the code is mostly documented and understandable
