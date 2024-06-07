@@ -66,7 +66,13 @@ const {
   projectPageInit,
   populateEntries,
   getAllSelectedProjectEntries,
-  loadTableOfContents
+  loadTableOfContents,
+  getAllItems,
+  getIdleItems,
+  isItemAbove,
+  isItemToggled,
+  unsetItemState,
+  updatelocalStorage
 } = require('../assets/scripts/selected_project_page.js')
 
 describe('Testing getCurrProjectObject...', () => {
@@ -120,5 +126,56 @@ describe('Testing projectPageInit...', () => {
     expect(entries[0].hasChildNodes()).toEqual(true)
     expect(entries[0].childNodes[0].innerHTML).toEqual('three')
     expect(entries[1].childNodes[0].innerHTML).toEqual('four')
+  })
+})
+
+describe('Testing getAllItems...', () => {
+  const items = getAllItems()
+  test('Testing if all entries are retrieved...', () => {
+    expect(items.length).toEqual(2)
+  })
+})
+
+describe('Testing getIdleItems...', () => {
+  const items = getIdleItems()
+  test('Testing when all items are idle...', () => {
+    expect(items.length).toEqual(2)
+  })
+})
+
+describe('Testing isItemAbove...', () => {
+  const items = getIdleItems()
+  const item = isItemAbove(items[0])
+  test('Testing when items are idle...', () => {
+    expect(item).toEqual(false)
+  })
+})
+
+describe('Testing isItemToggled...', () => {
+  const items = getIdleItems()
+  const item = isItemToggled(items[0])
+  test('Testing when all items are idle...', () => {
+    expect(item).toEqual(false)
+  })
+})
+
+describe('Testing unsetItemState...', () => {
+  unsetItemState()
+  const items = getIdleItems()
+  test('Testing item should not have isToggled attribute...', () => {
+    expect(isItemToggled(items[0])).toEqual(false)
+  })
+  test('Testing item should not have isAbove attribute...', () => {
+    expect(isItemAbove(items[0])).toEqual(false)
+  })
+})
+
+describe('Testing updatelocalStorage...', () => {
+  updatelocalStorage('four', false)
+  const updatedProject = JSON.parse(window.localStorage.getItem('user_projects'))
+  test('Testing if localStorage is updated after deleting entry...', () => {
+    expect(updatedProject[1].selected_project_entries.length).toEqual(1)
+    expect(updatedProject[0].selected_project_entries.length).toEqual(2)
+    expect(updatedProject[1].selected_project_entries[0].titleName).toEqual('three')
   })
 })

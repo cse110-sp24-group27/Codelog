@@ -475,4 +475,16 @@ function deleteEntry (event) {
 }
 
 // export functions for testing
-module.exports = { getCurrProjectObject, projectPageInit, populateEntries, getAllSelectedProjectEntries, loadTableOfContents }
+module.exports = {
+  getCurrProjectObject,
+  projectPageInit,
+  populateEntries,
+  getAllSelectedProjectEntries,
+  loadTableOfContents,
+  getAllItems,
+  getIdleItems,
+  isItemAbove,
+  isItemToggled,
+  unsetItemState,
+  updatelocalStorage
+}
