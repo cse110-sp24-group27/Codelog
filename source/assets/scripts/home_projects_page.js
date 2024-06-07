@@ -56,6 +56,9 @@ function addProjectToLocalStorage (projectToAdd) {
   localStorage.setItem('user_projects', JSON.stringify(projectInArray))
 }
 
+// export functions for testing
+module.exports = { getUnusedProjectId, addProjectToLocalStorage }
+
 document.addEventListener('DOMContentLoaded', function () {
   // Function to handle the new project form
   function newProject () {
@@ -168,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const addTagButton = document.getElementById('add-tag-btn')
   const tagList = document.getElementById('tag-list')
   const newTagNameInput = document.getElementById('new-tag-name')
+  console.log(`newTageNameInput: ${newTagNameInput} is not used!`)
 
   // Show the modal when the Add Tag button is clicked
   document.querySelector('.add-tag').addEventListener('click', function () {

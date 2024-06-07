@@ -7,7 +7,7 @@
 /**
  * Get an unused Project Id
  */
-export function getUnusedProjectId () {
+function getUnusedProjectId () {
   // Get the current max entry id
   const retrievedCurrMaxProjectId = localStorage.getItem('current_max_project_id')
 
@@ -39,7 +39,7 @@ export function getUnusedProjectId () {
  *          // contains all the entries shown below (!!) //
  *      }
 */
-export function addProjectToLocalStorage (projectToAdd) {
+function addProjectToLocalStorage (projectToAdd) {
   // TODO: Add given project to the "user_projects" array in localStorage
   const unusedProjectId = getUnusedProjectId()
 
@@ -60,7 +60,7 @@ export function addProjectToLocalStorage (projectToAdd) {
  * Retrieve all user projects
  * @return {Array<Object>} the array "user_projects"
 */
-export function getAllUserProjects () {
+function getAllUserProjects () {
   // TODO: return "user_projects" array object from localStorage
 
   // Get "user_projects" array object from localStorage
@@ -105,7 +105,7 @@ export function getAllUserProjects () {
  *              "content": "text content"
  *          }]
 */
-export function addEntry (selectedProject, entryToAdd) {
+function addEntry (selectedProject, entryToAdd) {
   // TODO: Add given entry to the "selected_project_entries" array of corresponding project in localStorage
   // get the max entry id
   const retrievedCurrMaxEntryId = localStorage.getItem('current_max_entry_id')
@@ -130,7 +130,7 @@ export function addEntry (selectedProject, entryToAdd) {
  * @param projectId - int, id of the project
  * @return the "selected_project_entries" array of that selected project
 */
-export function getAllSelectedProjectEntries (projects, projectId) {
+function getAllSelectedProjectEntries (projects, projectId) {
   // TODO: return "selected_project_entries" array of the given project from localStorage
 
   // Iterate through projects, find the project with matching project_id, then return that project's entries
@@ -150,7 +150,7 @@ export function getAllSelectedProjectEntries (projects, projectId) {
  * @param entryId - the id of the entry we want to display in selected_journal_page.js
  * @return entry given an id
 */
-export function getSelectedEntry (selectedProject, entryId) {
+function getSelectedEntry (selectedProject, entryId) {
   // TODO: return the specific entry of the given project from localStorage
   const entries = selectedProject.selected_project_entries
   entries.forEach(entry => {
@@ -160,3 +160,6 @@ export function getSelectedEntry (selectedProject, entryId) {
   })
   console.log(`No entry with entry_id ${entryId} found in selected_project`)
 }
+
+// export functions to module for testing
+module.exports = { getUnusedProjectId, addProjectToLocalStorage, getAllUserProjects, addEntry, getAllSelectedProjectEntries, getSelectedEntry }
