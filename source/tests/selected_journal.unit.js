@@ -3,26 +3,26 @@
  */
 
 // Set up localStorage
-window.localStorage.setItem('user_projects', JSON.stringify([{ 
+window.localStorage.setItem('user_projects', JSON.stringify([{
   projectName: 'current',
   selected_project_entries: [{ titleName: 'one' }, { titleName: 'two' }]
 }, {
   projectName: 'later',
   selected_project_entries: [
-    { 
-      titleName: 'three', 
-      "content": [
+    {
+      titleName: 'three',
+      content: [
         {
-          "type": "header",
-          "content": "Render this text with white background and bigger black font"
+          type: 'header',
+          content: 'Render this text with white background and bigger black font'
         },
         {
-          "type": "code",
-          "content": "Render this text with a dark gray background and light gray font"
+          type: 'code',
+          content: 'Render this text with a dark gray background and light gray font'
         },
         {
-          "type": "text",
-          "content":"render this text with white background and black font"
+          type: 'text',
+          content: 'render this text with white background and black font'
         }
       ]
     }, { titleName: 'four' }]
