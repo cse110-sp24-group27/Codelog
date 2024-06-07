@@ -1,9 +1,11 @@
 # Project Core Features
 
 ## Deciding on the planned main features of the project
+The main point of discussion was that given the timeframe, which features were likely to be implemented within the scope of this quarter.
 
 ## Considered Options
-
+* VSCode widget tool to directly send code to web app
+* Security (login, public/private)
 
 ## Decision Outcome
 
