@@ -12,15 +12,21 @@ Additionally, users have the flexibility to toggle project visibility, choosing 
 ## Usage
 We deployed our web app using GitHub Pages which you can access with this link: [Codelog](https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html). This also means that the user will not have to install any dependencies to use the web app and will just initially need a functioning web browser to access it.
 
-### Demonstration Video
-[![Demo Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
+### Demonstration Video(s)
+[![Class Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
+[![Final Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
 
 ## Fetures
 - Project creation & deletion: Users can create a new project, add a brief description, as well as highlight its tech stack and publicity.
 - Customization of user profile: Users can change their display name, pronouns, profile description, and personal links.
 - Journal entry creation & deletion: Users can create and delete new journal entries within each project, including subheaders, code blocks, and large descriptions.
 - View journal entries: Users and recruiters can view a neatly formatted journal entry to understand the development process.
-- Reordering of projects and journal entries: Users can reorder projects and journals as they see fit.
+- Reordering of journal entries: Users can reorder journals as they see fit.
 
 ## Team
 27 Wayfarers consists of ten members from a variety of backgrounds. You can learn more about us here: [Team Markdown](admin/team.md).
+
+You can find the team's documentation, as well as other aspects of the planning process within the /admin directory. Furthermore, most of our other documentation can be found in /specs.
+
+We used JIRA for project management. Here is our link: [JIRA](https://27wayfarers.atlassian.net/jira/software/projects/KAN/boards/1?atlOrigin=eyJpIjoiMWNiZTc3NWZjOGIyNDFjZDkxMDAwMTQ3YjEyZDVlMDYiLCJwIjoiaiJ9)
+
