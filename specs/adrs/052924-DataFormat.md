@@ -13,7 +13,7 @@ We need to decide on how to store projects, journal entries.
    2. Each journal object contains journal content, tags, and other information.
 
 Example:
-```
+```JS
 "projects" : [
         {
             "projectId": 1,
@@ -69,7 +69,7 @@ Example:
    2. Each journal object contains tags, content, and other information.
 
 Example:
-```
+```JS
 "user_projects" : [
         {
             "project_id": 1,
