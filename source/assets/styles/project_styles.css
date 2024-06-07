@@ -59,8 +59,6 @@ main {
   margin-right: 10%;
   margin-top: 5%;
   padding: center;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Style the user profile */
@@ -142,19 +140,20 @@ main {
   width: auto;
   height: auto;
   margin-bottom: 100px;
+  margin-top: 10px;
   gap: 20px;
 }
 
 /* Style the class of creating new project */
 .new-project {
   display: none;
+  position: sticky;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin-top: 20px;
 }
 
 .new-project h2 {
@@ -239,7 +238,7 @@ main {
 
 /* Style the copyright footer */
 #footer {
-  position: absolute;
+  position: sticky;
   margin-left: 10%;
   font-size: 14px;
   width: 200px;
