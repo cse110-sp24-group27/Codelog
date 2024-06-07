@@ -151,3 +151,6 @@ window.openPopup = openPopup
 window.closePopup = closePopup
 window.addInput = addInput
 window.deleteInput = deleteInput
+
+// export functions for testing
+module.exports = { openPopup, closePopup, deleteInput }
