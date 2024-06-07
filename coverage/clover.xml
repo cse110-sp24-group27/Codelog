@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1717753577692" clover="3.2.0">
-  <project timestamp="1717753577692" name="All files">
-    <metrics statements="550" coveredstatements="103" conditionals="192" coveredconditionals="31" methods="114" coveredmethods="17" elements="856" coveredelements="151" complexity="0" loc="550" ncloc="550" packages="1" files="8" classes="8"/>
+<coverage generated="1717754334823" clover="3.2.0">
+  <project timestamp="1717754334823" name="All files">
+    <metrics statements="550" coveredstatements="108" conditionals="192" coveredconditionals="36" methods="114" coveredmethods="17" elements="856" coveredelements="161" complexity="0" loc="550" ncloc="550" packages="1" files="8" classes="8"/>
     <file name="+_button_selcted_project_page.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\+_button_selcted_project_page.js">
       <metrics statements="48" coveredstatements="23" conditionals="16" coveredconditionals="1" methods="10" coveredmethods="4"/>
       <line num="3" count="1" type="stmt"/>
@@ -295,7 +295,7 @@
       <line num="124" count="1" type="stmt"/>
     </file>
     <file name="profile_setting.js" path="C:\CSE\CSE 110\cse110-sp24-group27\source\assets\scripts\profile_setting.js">
-      <metrics statements="69" coveredstatements="34" conditionals="36" coveredconditionals="14" methods="12" coveredmethods="4"/>
+      <metrics statements="69" coveredstatements="39" conditionals="36" coveredconditionals="19" methods="12" coveredmethods="4"/>
       <line num="2" count="1" type="stmt"/>
       <line num="7" count="0" type="stmt"/>
       <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -346,21 +346,21 @@
       <line num="121" count="0" type="stmt"/>
       <line num="122" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="123" count="0" type="stmt"/>
-      <line num="128" count="2" type="cond" truecount="1" falsecount="1"/>
-      <line num="129" count="0" type="stmt"/>
-      <line num="131" count="2" type="cond" truecount="3" falsecount="1"/>
-      <line num="133" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="134" count="0" type="stmt"/>
+      <line num="128" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="129" count="1" type="stmt"/>
+      <line num="131" count="5" type="cond" truecount="4" falsecount="0"/>
+      <line num="133" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="134" count="1" type="stmt"/>
       <line num="136" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="137" count="0" type="stmt"/>
       <line num="139" count="0" type="cond" truecount="0" falsecount="2"/>
       <line num="141" count="0" type="stmt"/>
       <line num="144" count="0" type="stmt"/>
-      <line num="147" count="2" type="cond" truecount="1" falsecount="1"/>
-      <line num="148" count="0" type="cond" truecount="0" falsecount="2"/>
-      <line num="150" count="0" type="stmt"/>
+      <line num="147" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="148" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="150" count="1" type="stmt"/>
       <line num="153" count="0" type="stmt"/>
-      <line num="156" count="2" type="stmt"/>
+      <line num="156" count="3" type="stmt"/>
       <line num="159" count="1" type="stmt"/>
       <line num="160" count="1" type="stmt"/>
       <line num="161" count="1" type="stmt"/>

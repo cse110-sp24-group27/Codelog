@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { getProfileFromStorage, updateProfileOnPage, save } = require('../assets/scripts/profile_setting.js')
+const { getProfileFromStorage, updateProfileOnPage, save, checkURL } = require('../assets/scripts/profile_setting.js')
 
 // Setting up Dom for testing
 const image = document.createElement('img')
@@ -77,5 +77,20 @@ describe('Testing updateProfileOnPage...', () => {
   const storage = JSON.parse(window.localStorage.getItem('user_profile'))
   test('Testing if profile is saved to localStorage...', () => {
     expect(storage).toEqual(userProfile)
+  })
+})
+
+describe('Testing checkURL...', () => {
+  test('Testing with empty url...', () => {
+    expect(checkURL('', '')).toEqual('')
+  })
+  test('Testing with linkedin url...', () => {
+    expect(checkURL('https://www.linkedin.com/in/david-liu-ruipeng/', 'linkedin')).toEqual('https://www.linkedin.com/in/david-liu-ruipeng/')
+  })
+  test('Testing with insecure url...', () => {
+    expect(checkURL('http://www.linkedin.com/in/david-liu-ruipeng/', 'linkedin')).toEqual('https://www.linkedin.com/in/david-liu-ruipeng/')
+  })
+  test('Testing with other types of url...', () => {
+    expect(checkURL('http://via.placeholder.com/1170', 'placeholder')).toEqual('https://via.placeholder.com/1170')
   })
 })
