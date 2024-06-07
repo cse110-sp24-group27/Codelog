@@ -47,7 +47,7 @@ describe('Testing getCurrJournal...', () => {
 
 describe('Testing displayEntry...', () => {
   displayEntry()
-  test('Testing if jounnal page contains the entry...', () => {
+  test('Testing if journal page contains the entry...', () => {
     expect(journal.hasChildNodes()).toEqual(true)
     expect(journal.childNodes.length).toEqual(4)
   })

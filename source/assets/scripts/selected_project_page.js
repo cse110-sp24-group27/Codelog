@@ -473,3 +473,6 @@ function deleteEntry (event) {
     loadTableOfContents()
   }
 }
+
+// export functions for testing
+module.exports = { getCurrProjectObject, projectPageInit, populateEntries, getAllSelectedProjectEntries, loadTableOfContents }
