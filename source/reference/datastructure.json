@@ -1,0 +1,182 @@
+{
+    "currentMaxProjectId":0,
+    "currentMaxEntryId":2000,
+    "currentMaxEagId":30000,
+
+    "user_profile": {
+        "username": "wayfarers",
+        "pronouns": "they/them",
+        "bio": "SE at UCSD",
+        "socialLinks": {
+            "email": "string@str.str",
+            "linkedin": "string linkd",
+            "github": "wayfare.git.io"
+        },
+        "profilePicture": "https://via.placeholder.com/150"
+    },
+    "user_projects" : [
+        {
+            "projectId": 1,
+            "projectName": "Name of the first project here",
+            "description": "Project description here",
+            "privacy": "Private",
+            "tags": [
+                {
+                    "tagId": 30001,
+                    "tagName": "HTML",
+                    "color": "red"                
+                },
+                {
+                    "tagId": 30002,
+                    "tagName": "CSS",
+                    "color": "blue"                
+                },
+                {
+                    "tagId": 30003,
+                    "tagName": "JavaScript",
+                    "color": "Yellow"                
+                }
+            ], 
+            "selected_project_entries": [
+                {
+                    "entryId": 2001,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tagId": 30004,
+                            "tagName": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tagId": 30005,
+                            "tagName": "CSS",
+                            "color": "blue"                
+                        },
+                        {
+                            "tagId": 30006,
+                            "tagName": "JavaScript",
+                            "color": "Yellow"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                }
+            ] 
+        },
+        {
+            "projectId": 2,
+            "projectName": "Name of the first project here",
+            "description": "Project description here",
+            "privacy": "Private",
+            "tags": [
+                {
+                    "tagId": 30008,
+                    "tagName": "HTML",
+                    "color": "red"                
+                },
+                {
+                    "tagId": 30009,
+                    "tagName": "CSS",
+                    "color": "blue"                
+                },
+                {
+                    "tagId": 30010,
+                    "tagName": "JavaScript",
+                    "color": "Yellow"                
+                }
+            ], 
+            "selected_project_entries": [
+                {
+                    "entryId": 2002,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tagId": 30011,
+                            "tagName": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tagId": 30012,
+                            "tagName": "CSS",
+                            "color": "blue"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                },
+                {
+                    "entryId": 2003,
+                    "titleName": "Entry 1 Name",
+                    "description": "Project description here",
+                    "tags": [
+                        {
+                            "tagId": 30013,
+                            "tagName": "HTML",
+                            "color": "red"                
+                        },
+                        {
+                            "tagId": 30014,
+                            "tagName": "CSS",
+                            "color": "blue"                
+                        }
+                    ], 
+                    "publicity": "Private",
+                    "content": [
+                        {
+                            "type": "header",
+                            "content": "Render this text with white background and bigger black font"
+                        },
+                        {
+                            "type": "code",
+                            "content": "Render this text with a dark gray background and light gray font"
+                        },
+                        {
+                            "type": "text",
+                            "content":"render this text with white background and black font"
+                        }
+                    ]
+                }
+            ] 
+        }               
+    ],
+    "user_tags": [
+        {
+            "tagId": 30001,
+            "tagName": "HTML",
+            "color": "red"                
+        },
+        {
+            "tagId": 30002,
+            "tagName": "CSS",
+            "color": "blue"                
+        }
+    ] 
+}

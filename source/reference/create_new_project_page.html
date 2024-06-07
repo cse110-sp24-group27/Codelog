@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation Page</title>
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+</head>
+<body id="creation-page">
+    <head id="c-template">
+        <h1 id="tpn">Template: <i id="project-name">Project Name</i></h1>
+    </head>
+    
+    <main id="c-main">
+        <section id="top">
+
+            <div id="c-tages">
+                <h3 class="c-tag">Tage 1</h3>
+                <h3 class="c-tag">Tage 2</h3>
+                <button class="c-btn" id="add-btn">Add +</button>
+            </div>
+        
+            <div id="privacy">
+            <h3 class="pub">Publlic</h3>
+            <h3 class="pri">Private</h3>
+            </div>
+        </section>
+
+        <section id="type">
+            <textarea class="text" placeholder="Enter Project Description: Briefly describe what this is about."></textarea><br>
+            <textarea class="text" placeholder="Enter Entry 1 content"></textarea><br>
+            <button class="c-btn" id="more-entries-btn" onclick="more_entries()">+</button>
+        </section>
+    </main>
+    <section>
+        <button class="c-btn" id="done-btn" onclick="done()">Done</button>
+    </section>
+    <footer>
+        <p>@ 2024 CodeLog</p>
+    </footer>
+</body>
+</html>
+
+<script>
+    function more_entries() {
+        console.log('add one entries');
+    }
+    function done() {
+        console.log('save the entries');
+    }
+</script>

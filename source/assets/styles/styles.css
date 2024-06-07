@@ -1,0 +1,406 @@
+/* CSS for the individual project page */
+
+/* TODO:
+ * 1. Continue resizing elements based on window size
+ */
+
+/* Style the whole selected_project_page */
+#individual-project {
+  background-color: #2a2a2e;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Style the nav bar at the top of the page */
+#navbar {
+  width: auto;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5%;
+}
+
+/* Style the CodeLog title */
+#codelog {
+  font-size: 64px;
+  color: #9bbeda;
+  font-family: Merriweather, serif;
+}
+
+/* Style the menu buttons in the header section */
+.but {
+  margin-left: auto;
+  margin-right: 5%;
+  display: flex;
+  gap: 100px;
+}
+
+/* Style the buttons in the header section */
+.but button {
+  background: none;
+  border: none;
+  color: #cbcbcb;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Position the project header in the top-left */
+.project-header {
+  margin-left: 10%;
+  margin-top: -20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 20vw;
+}
+
+/* Apply font colors to project header headings */
+.project-header h1,
+h2 {
+  color: white;
+}
+
+/* Style the project description */
+#project-description {
+  margin-top: -10px;
+}
+
+/* Style the table of contents */
+#project-nav {
+  margin-top: 10px;
+}
+
+/* List within table of contents */
+#table-of-contents {
+  width: 15vw;
+  height: 30vh;
+}
+
+/* Style the back button */
+#project-page-back-btn {
+  position: absolute;
+  left: 5%;
+  cursor: pointer;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the back arrow image */
+#back-arrow {
+  position: relative;
+  width: 3.5vw;
+  max-width: 40px;
+  min-width: 15px;
+}
+
+/* Center the main elements */
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+/* Display the journal entries in a column using a flex container */
+#journal-entries {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
+  margin-right: 10%;
+}
+
+/* Style each individual journal entry */
+.journal-entry {
+  position: relative;
+  margin-bottom: 20px;
+  border: solid #434345;
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: 36.5vh;
+}
+
+/* Style the entry name */
+.entry-name {
+  color: #abcafa;
+  width: 30vw;
+  text-decoration: none;
+}
+
+/* REDACTED but kept for localstorage reference
+.entry-template {
+  color: #f24822;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  width: 13vw;
+}
+*/
+
+/* Style the entry text */
+.entry-text {
+  height: 15vh;
+  overflow-y: scroll; /* If the text exceeds the max height, allow scrolling */
+}
+
+/* Style the entry tag container */
+.entry-tags {
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* Style the entry tag text */
+.entry-tags p {
+  display: inline-block;
+  padding-right: 15px;
+}
+
+/* Style the drag button container */
+.drag-btn-container {
+  /* Use absolute position to place the button container correctly */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 2vw;
+  height: auto;
+}
+
+/* Style the drag buttons within each journal entry */
+.drag-btn {
+  cursor: grab;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the drag button image */
+.drag-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 15px;
+  min-width: 10px;
+}
+
+/* Style the delete button container */
+.entry-delete-btn-container {
+  /* Use absolute position to place the button container correctly */
+  position: absolute;
+  top: 10px;
+  right: 30px; /* Adjust the value to position the delete button properly */
+  width: auto;
+  height: auto;
+}
+
+/* Style the delete buttons within each journal entry */
+.entry-delete-btn {
+  cursor: pointer;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the delete button image */
+.delete-btn-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 15px;
+  min-width: 10px;
+}
+
+/* Style the down arrow between entries */
+.down-arrow {
+  width: auto;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+}
+
+#project-page-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-top: 10%;
+  margin-left: 10%;
+  font-size: 14px;
+  width: 200px;
+  height: 60px;
+}
+
+/* Apply font colors small text */
+#individual-project p,
+li {
+  color: #cbcbcb;
+}
+
+/* // // End of selected_project_page styling // // */
+
+/* Style the whole selected_journal_page */
+#journal-page {
+  background-color: #2a2a2e;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  height: 100%;
+}
+
+/* Style the back button color */
+#back-btn {
+  position: absolute;
+  left: 10%;
+  cursor: pointer;
+  background-color: inherit;
+  appearance: none;
+  border: none;
+}
+
+/* Style the whole title, tag, template, and .MD file location */
+#j-main {
+  width: 70%;
+  padding-left: 80px;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.journal-title {
+  color: #fff;
+}
+
+#content {
+  background-color: #2a2a2e;
+  color: #fff;
+}
+
+.code {
+  background-color: #39393f;
+  color: #fff;
+}
+
+#j-footer {
+  bottom: 5px;
+  padding-left: 80px;
+  color: #fff;
+  margin-left: 10%;
+}
+
+/* // // End of selected_journal_page styling // // */
+
+/* Style the whole create_new_project_page */
+#creation-page {
+  background-color: #2a2a2e;
+  color: #9bbeda;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 40px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Style the "Template: Project Name" in center */
+#tpn {
+  text-align: center;
+}
+
+/* Style the tag, privacy, and text location */
+#top {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* If tags are more than one, put them side by side */
+#c-tages {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  padding-right: 25%;
+  position: relative;
+}
+
+/* Make places between each tags */
+.c-tag {
+  padding-left: 20px;
+}
+
+/* Style all button */
+.c-btn {
+  background-color: #9bbeda;
+  color: #fff;
+  position: relative;
+}
+
+/* Style all button hover color and active */
+.c-btn:hover {
+  background-color: #426d96;
+}
+
+.c-btn:active {
+  box-shadow: 2px 2px 5px #9bbeda;
+}
+
+/* Style add button location and size */
+#add-btn {
+  left: 30px;
+  width: 55px;
+  height: 25px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+/* Style privacy location */
+#privacy {
+  position: absolute;
+  right: 10%;
+}
+
+.pub:active {
+  color: #4a801b;
+}
+
+.pri:active {
+  color: #4a801b;
+}
+
+/* Style all text box size */
+.text {
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  margin-bottom: 20px;
+}
+
+/* Style more entries button location and size */
+#more-entries-btn {
+  left: 50%;
+  width: 30px;
+  height: 25px;
+}
+
+/* Style done button location and size */
+#done-btn {
+  left: 95%;
+  width: 50px;
+  height: 25px;
+  margin-top: 20px;
+}
+
+/* // // // End of create_new_project_page styling // // */

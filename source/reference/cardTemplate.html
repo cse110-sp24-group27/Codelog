@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<!--Display project as a box-->
+<article class="project">
+    <!--The drag button to reorder the projects-->
+    <!--Need to implement JS function drag_project()-->
+    <div class="drag-btn-container" bis_skin_checked="1">
+        <button class="drag-btn" onclick="dragProject()">
+          <img src="source/assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img">
+        </button>
+    </div>
+
+    <!--Project details-->
+    <!--Delete this after implementing "importing project details" function-->
+
+    <!--Name of the project-->
+    <h3 class="project-name">Project Name</h3>
+
+    <!--Public/ private status of the project-->
+    <p class="status">Public</p>
+    
+    <!-- <select id="privacy">
+        <option value="Public">Public</option>
+        <option value="Private">Private</option>
+    </select> -->
+
+    <!--Description for the project-->
+    <p class="project-description">Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description Project Description</p>
+    
+
+    <!--Class for tags-->
+    <div class="tags">
+        <p><span class="dot"></span> Tag 1</p>
+        <p><span class="dot"></span> Tag 2</p>
+        <p><span class="dot"></span> Tag 3</p>
+    </div>
+</article>
+
+<!-- Styles -->
+<style>
+    /* Style each specific project */
+    article {
+      margin-right: auto;
+      margin-bottom: 20px;
+      width: 350px;
+      height: 150px;
+      border: solid #434345;
+      border-radius: 10px;
+      position: relative;
+      padding: 10px;
+      }
+  
+      /* Style for project name */
+      h3.project-name {
+        margin-left: 5%;
+        margin-right: 5px;
+        font-size: 18px;
+      }
+  
+      /* Style for project status */
+      p.status {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+        color: #eaeaea;
+        font-size: 10px;
+        margin-left: 5%;
+        margin-right: 5px;
+      }
+  
+      /* Style for project description */
+      p.project-description {
+        font-size: 10px;
+        margin: 0% 5% 10%;
+      }
+  
+      /* Style the drag button container */
+      .drag-btn-container {
+        /* Use absolute position to place the button container correctly */
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 2vw;
+        height: auto;
+      }
+
+      /* Style the drag buttons within each journal entry */
+      .drag-btn {
+        cursor: grab;
+        background-color: inherit;
+        appearance: none;
+        border: none;
+      }
+
+      /* Style the drag button image */
+      .drag-btn-img {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+  
+      /* Style the tags of each project */
+      div.tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+  
+      div.tags p {
+        border-radius: 2px;
+        padding: 5px 10px;
+        color: #cbcbcb;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
+  
+      p.dot {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: darkred; /* change this as needed */
+        margin-right: 5px;
+      }
+</style>
