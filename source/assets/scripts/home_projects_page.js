@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Function to handle tag selection
-  function toggleTag (tagElement) {
+  function toggleTag (tagElement, toDelete=false) {
     const tag = tagElement.textContent.trim()
     const selectedTagsContainer = document.getElementById('selected-tags')
 
@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function () {
       if (tagToRemove) {
         selectedTagsContainer.removeChild(tagToRemove)
       }
-    } else {
-    // Add tag to the selectedTags array
+    } else if (!toDelete) {
+      // Add tag to the selectedTags array
       selectedTags.push(tag)
       tagElement.style.fontWeight = 'bold'
 
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
           tagList.removeChild(tagItem)
           const updatedTags = tags.filter(t => t.name !== tag.name)
           localStorage.setItem('user_tags', JSON.stringify(updatedTags))
-          toggleTag(this)
+          toggleTag(this, true)
         } else {
           toggleTag(this)
         }
