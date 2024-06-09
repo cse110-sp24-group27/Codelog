@@ -22,7 +22,6 @@ class ProjectCard extends HTMLElement {
       border-radius: 10px;
       position: relative;
       padding: 10px;
-      cursor: move;
       }
 
        /* Style for project name */
