@@ -13,7 +13,7 @@
   },
   "scripts": {
     "unit-tests": "jest --testMatch=**/*.unit.js --config=jest.config.js --coverage",
-    "e2e-tests": "jest e2e.test.js --config=jest-puppeteer.config.js"
+    "e2e-tests": "jest e2e.test.js --config=jest-puppeteer.config.js --detectOpenHandles"
   },
   "jest": {
     "preset": "jest-puppeteer",
