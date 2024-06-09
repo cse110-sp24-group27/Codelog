@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Function to handle tag selection
-  function toggleTag (tagElement, toDelete=false) {
+  function toggleTag (tagElement, toDelete = false) {
     const tag = tagElement.textContent.trim()
     const selectedTagsContainer = document.getElementById('selected-tags')
 
