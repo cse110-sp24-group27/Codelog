@@ -11,6 +11,21 @@ function delay (time) {
   })
 }
 
+// Function to click on the first project card and verify navigation
+async function clickFirstProjectCard (page) {
+  // Click on the first project card using shadow DOM traversal
+  const projectCard = await page.$('project-card')
+  const shadowRoot = await projectCard.evaluateHandle(card => card.shadowRoot)
+  const projectLink = await shadowRoot.$('a.project-name')
+  await projectLink.click()
+
+  await delay(3000)
+
+  // Verify that the navigation was successful
+  const projectPageURL = await page.url()
+  expect(projectPageURL).toContain('selected_project_page.html')
+}
+
 describe('Basic user flow for Website', () => {
   // Navigate to the journal webpage for initial setup
   beforeAll(async () => {
@@ -173,14 +188,7 @@ describe('Basic user flow for Website', () => {
     expect(projects[0].privacy).toBe('Public')
 
     // Click on the first project card using shadow DOM traversal
-    const projectLink = await (await (await page.$('project-card')).evaluateHandle(card => card.shadowRoot)).$('a.project-name')
-    await projectLink.click()
-
-    await delay(3000)
-
-    // Verify that the navigation was successful
-    const projectPageURL = await page.url()
-    expect(projectPageURL).toContain('selected_project_page.html')
+    await clickFirstProjectCard(page)
 
     // Create a new journal entry
     await page.click('button#create-btn') // Adjust the selector as necessary
@@ -210,14 +218,7 @@ describe('Basic user flow for Website', () => {
     await page.click('button#home')
 
     // Click on the first project card using shadow DOM traversal
-    const projectLink = await (await (await page.$('project-card')).evaluateHandle(card => card.shadowRoot)).$('a.project-name')
-    await projectLink.click()
-
-    await delay(3000)
-
-    // Verify that the navigation was successful
-    const projectPageURL = await page.url()
-    expect(projectPageURL).toContain('selected_project_page.html')
+    await clickFirstProjectCard(page)
 
     // Access the journal entry delete button
     const deleteButton = await page.$('.entry-delete-btn') // Adjust the selector as necessary
