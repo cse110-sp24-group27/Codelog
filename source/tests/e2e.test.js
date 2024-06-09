@@ -173,9 +173,7 @@ describe('Basic user flow for Website', () => {
     expect(projects[0].privacy).toBe('Public')
 
     // Click on the first project card using shadow DOM traversal
-    const projectCard = await page.$('project-card')
-    const shadowRoot = await projectCard.evaluateHandle(card => card.shadowRoot)
-    const projectLink = await shadowRoot.$('a.project-name')
+    const projectLink = await (await (await page.$('project-card')).evaluateHandle(card => card.shadowRoot)).$('a.project-name')
     await projectLink.click()
 
     await delay(3000)
@@ -212,9 +210,7 @@ describe('Basic user flow for Website', () => {
     await page.click('button#home')
 
     // Click on the first project card using shadow DOM traversal
-    const projectCard = await page.$('project-card')
-    const shadowRoot = await projectCard.evaluateHandle(card => card.shadowRoot)
-    const projectLink = await shadowRoot.$('a.project-name')
+    const projectLink = await (await (await page.$('project-card')).evaluateHandle(card => card.shadowRoot)).$('a.project-name')
     await projectLink.click()
 
     await delay(3000)
