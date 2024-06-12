@@ -13,7 +13,8 @@ Additionally, users have the flexibility to toggle project visibility, choosing 
 We deployed our web app using GitHub Pages which you can access with this link: [Codelog](https://cse110-sp24-group27.github.io/cse110-sp24-group27/home_projects_page.html). This also means that the user will not have to install any dependencies to use the web app and will just initially need a functioning web browser to access it.
 
 ### Demonstration Video(s)
-[![Class Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
+[![Class Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://youtu.be/_yhPSU3toQw)
+
 [![Final Video](<img width="367" alt="Final Thumbnail" src="https://github.com/cse110-sp24-group27/cse110-sp24-group27/assets/147196544/fa237cb7-3081-4891-882a-4f29b3d32f4f">
 )](https://youtu.be/-ylLBAyZa2s?si=w0tTnYiTGUgxx65f)
 
