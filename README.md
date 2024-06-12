@@ -15,7 +15,7 @@ We deployed our web app using GitHub Pages which you can access with this link: 
 ### Demonstration Video(s)
 [![Class Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID)
 [![Final Video](<img width="367" alt="Final Thumbnail" src="https://github.com/cse110-sp24-group27/cse110-sp24-group27/assets/147196544/fa237cb7-3081-4891-882a-4f29b3d32f4f">
-)](https://youtu.be/-ylLBAyZa2s?si=ntj7PeUesJI6Jhvk)
+)](https://youtu.be/-ylLBAyZa2s?si=w0tTnYiTGUgxx65f)
 
 ## Fetures
 - Project creation & deletion: Users can create a new project, add a brief description, as well as highlight its tech stack and publicity.
