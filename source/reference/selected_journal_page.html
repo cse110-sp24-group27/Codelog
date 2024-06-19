@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--This HTML file is a page for an individual project.-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Journal Page</title>
+        <link rel="stylesheet" href="../assets/styles/styles.css">
+    </head>
+    <body id="journal-page">
+        <header>
+            <!--Navbar at the top of the page-->
+            <div id="navbar">
+                <!--Logo for the website-->
+                <a href="../../home_projects_page.html"><img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/></a>
+                <h1 id="codelog">CodeLog</h1>
+                <div class="but">
+                    <!--Button to go the the Project Home Page-->
+                    <button onclick="location.href" id="home">Home</button>
+                    <script type="text/javascript">
+                        document.getElementById("home").onclick = function () {
+                            location.href = "../../home_projects_page.html";
+                        };
+                    </script>
+                    <!--Button to go to setting and edit user's profile-->
+                    <button id="setting">Setting</button>
+                    <script type="text/javascript">
+                        document.getElementById("setting").onclick = function () {
+                            location.href = "project_setting.html";
+                        };
+                    </script>
+                </div>
+            </div>
+        </header>
+        <!-- Start of Journal Page -->
+        <section id="bcak">
+            <!--Button to go back to the project homepage-->
+            <button id="back-btn">
+                <a href="selected_project_page.html">
+                    <img src="../assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+                </a>
+            </button>
+        </section>
+        <main id="j-main">
+            <section id="journal-show">
+                <!-- Show Journal Title -->
+                <div class="wed" id="title">
+                    <h1 class="title-name"></h1>
+                </div>
+            </section>
+            <!--Showing the markdown that contains content -->
+            <section id="content">
+                <h2 class="header"></h2>
+                <pre>
+                    <p class="code"></p>
+                </pre>
+                <p class="text"></p>
+            </section>
+        </main>
+        <!-- Journal js file -->
+        <script src="../assets/scripts/selected_journal.js"></script>
+        <!--Footer for copyright-->
+        <footer id="j-footer">
+            <p>@ 2024 CodeLog</p>
+        </footer>
+    </body>
+</html>

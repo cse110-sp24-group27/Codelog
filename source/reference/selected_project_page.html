@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--This HTML file is a page for an individual project.-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Page</title>
+        <link rel="stylesheet" href="../assets/styles/styles.css">
+        <link rel="stylesheet" href="../assets/styles/+_button_selcted_project_page.css">
+        <link rel="icon" type="image/x-icon" href="../assets/images/icons/logo.ico">
+        <style>
+            /* Hide the Popup page by Default (until user clicks the + button) */
+            .pop-up {
+              display: none;
+            }
+        </style>
+    </head>
+    <body id="individual-project">
+        <header>
+            <!--Navbar at the top of the page-->
+            <div id="navbar">
+                <!--Logo for the website-->
+                <a href="../../home_projects_page.html"><img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/></a>
+                <h1 id="codelog">CodeLog</h1>
+
+                <div class="but">
+                    <!--Buttons to jump to other pages-->
+
+                    <!--Button to go the the Project Home Page-->
+                    <button onclick="location.href" id="home">Home</button>
+
+                    <script type="text/javascript">
+                        document.getElementById("home").onclick = function () {
+                            location.href = "../../home_projects_page.html";
+                        };
+                    </script>
+
+                    <!--Button to go to setting and edit user's profile-->
+                    <button id="setting">Setting</button>
+
+                    <script type="text/javascript">
+                        document.getElementById("setting").onclick = function () {
+                            location.href = "project_setting.html";
+                        };
+                    </script>
+                </div>
+            </div>
+
+            <!--Button to go back to the project homepage-->
+            <button id="project-page-back-btn">
+                <a href="../../home_projects_page.html">
+                    <img src="../assets/images/back-arrow.png" alt="back" id="back-arrow"/>
+                </a>
+            </button>
+          
+            <!-- Project header; includes project name, description, and a dynamic table of contents -->
+            <div class="project-header">
+                <h1 id="project-name">Project Name</h1>
+                <p id="project-description">Project Description</p>
+                <nav id="dynamic-table-of-contents">
+                    <h2>Table of Contents:</h2>
+                    <ul id="dynamic-content-list">
+                    </ul>
+                    <!--Note: id "entry1" is already taken by the journal entry 1 name-->
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <!--Section for journal entries-->
+            <section id="journal-entries">
+                <!--Display each journal entry in a box-->
+                <!--Each journal entry has a name, tag(s), and text (could add more parts to entries)-->
+                <!--Journal entries can be added/deleted using a JS function-->
+                <div class="journal-entry is-idle" id="entry1-container">
+                </div>
+
+                <!--Down arrow between journal entries-->
+                <!--
+                <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
+                <div class="journal-entry is-idle" id="entry2-container">
+                    <h2 class="entry-name" id="entry2">Journal entry name 2</h2>
+                    <h4 class="entry-template">Template</h4>
+                    <p class="entry-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis nunc eget 
+                        dolor rhoncus malesuada dapibus ut nisi. Nullam eu felis ut erat efficitur vehicula 
+                        quis ut turpis. Donec nisi diam, efficitur in aliquet ultricies, mollis sed dui. 
+                        Cras nulla libero, fermentum vitae sem at, efficitur blandit velit.
+                    </p>
+                    <div class="drag-btn-container">
+                        <button class="drag-btn">
+                            <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+
+                <img src="../assets/images/down-arrow.png" alt="down-arrow" class="down-arrow" />
+
+                <div class="journal-entry is-idle" id="entry3-container">
+                    <h2 class="entry-name" id="entry3">Journal entry name 3</h2>
+                    <h4 class="entry-template">Template</h4>
+                    <p class="entry-text">
+                        Ut ultrices justo a nibh egestas, sit 
+                        amet porttitor risus pulvinar. Phasellus non lacus a magna aliquam placerat. 
+                        Pellentesque a metus sed risus ultricies interdum. Phasellus et risus et odio 
+                        varius mollis id eu nisl. Maecenas vitae massa id massa pellentesque convallis. Ut 
+                        vel elit ut quam tincidunt fringilla. Donec et nulla lectus.
+                    </p>
+                    <div class="drag-btn-container">
+                        <button class="drag-btn">
+                            <img src="../assets/images/drag-button.png" alt="drag-btn" class="drag-btn-img"/>
+                        </button>
+                    </div>
+                    <div class="entry-tags">
+                        <p>Tag 1</p>
+                        <p>Tag 2</p>
+                    </div>
+                </div>
+                -->
+            </section>
+
+            <!-- Pop Up (Hidden by default) Screen -->
+            <!--JOURNAL project creation-->
+            <button id="create-btn" onclick="openPopup('hidden-popup')">+</button>
+
+            <!-- This will hide until the + button is clicked -->
+            <div id="hidden-popup" class="pop-up">
+                <form id="new-entry" class="entry-container">
+                    <button type="button" id="project-page-popup-back-btn" onclick="closePopup('hidden-popup')">
+                        <img src="../assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
+                    </button>
+                    <h1>Create a new entry</h1>
+                    <h3>Entry Title</h3>
+                    <input type="text" id="new-entry-name" placeholder="Enter New Entry Name">
+                    <h3>Description</h3>
+                    <input type="text" id="new-entry-description" placeholder="Enter New Entry Description">
+                    <div class="select-container">
+                        <div class="dropdown-group">
+                            <h3>Publicity</h3>
+                            <select id="publicity-select">
+                                <option value="Public">Public</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="tag-editor-popup" class="tag-container">
+                        <h3>Tags</h3>
+                        <div class="tag" data-tag-id="3000" data-tag-color="red">HTML</div> <!-- example data for testing, will be removed-->
+                        <div class="tag" data-tag-id="3001" data-tag-color="green">CSS</div> <!-- example data for testing, will be removed-->
+                        <button type="button" id="add-tag-btn">Add Tag</button>
+                      </div>
+        
+                    <div class="entry-container">
+                        <div class="input-container" id="inputcontainer">
+                            <div class="input-group">
+                                <input type="text" placeholder="Header/Section" class="input-1">
+                                <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Code" class="input-2">
+                                <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Insert Text Here" class="input-3">
+                                <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                            </div>
+                        </div>
+                        <div class="buttons">
+                            <button type="button" onclick="addInput(1)">New Section</button>
+                            <button type="button" onclick="addInput(2)">Add Code Entry</button>
+                            <button type="button" onclick="addInput(3)">Add Text Entry</button>
+                        </div>
+                    </div>
+        
+                    <div class="done-btn-position">
+                        <button type="button" id="done-btn" onclick="createNewEntryObject()">Create Entry</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <!--Footer for copyright-->
+        <footer id="project-page-footer">
+            <p>@ 2024 CodeLog</p>
+        </footer>
+        
+        <!-- Link to script -->
+        <script type="text/javascript" src="../assets/scripts/+_button_selcted_project_page.js"></script>
+        <script type="text/javascript" src="../assets/scripts/selected_project_page.js"></script>
+        <!-- Navigating between pages script -->
+        <script>
+            function loadEntryNameToLocalStorage(anchorElement) {
+                console.log("entry name was clicked")
+                const h2Element = anchorElement.querySelector('h2')
+                const currDisplayedEntry = h2Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+                localStorage.setItem('currDisplayedEntry', currDisplayedEntry)
+            }
+        </script>
+    </body>
+</html>

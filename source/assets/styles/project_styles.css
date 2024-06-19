@@ -1,0 +1,346 @@
+/* CSS for the project home page */
+
+/* Style the whole project home page */
+body {
+  background-color: #2a2a2e;
+  color: #cbcbcb;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+/* Style the header section */
+header {
+  width: auto;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style the CodeLog title */
+#codelog {
+  font-size: 64px;
+  color: #9bbeda;
+  font-family: Merriweather, serif;
+}
+
+/* Style the menu buttons in the header section */
+.but {
+  margin-left: auto;
+  margin-right: 5%;
+  display: flex;
+  gap: 100px;
+}
+
+/* Style the buttons in the header section */
+.but button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Style the main body */
+main {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  padding: center;
+}
+
+/* Style the user profile */
+.profile {
+  width: auto;
+  height: auto;
+}
+
+/* Style the profile picture */
+#profile-picture {
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 250px;
+}
+
+/* Style the profile name */
+#name {
+  margin-top: 5%;
+  margin-bottom: 0;
+  color: white;
+  font-weight: 600;
+  font-size: 32px;
+  white-space: nowrap;
+}
+
+/* Style for username and pronoun */
+.user-info {
+  display: flex;
+  gap: 10px;
+  font-size: 24px;
+  color: #797979;
+  margin-bottom: 0;
+}
+
+/* Style the user description */
+#description {
+  font-size: 20px;
+  margin-top: 0;
+  height: auto;
+}
+
+/* Style the sublinks */
+.sublinks {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sublinks a {
+  color: #cbcbcb;
+  text-decoration: none;
+}
+
+/* Style the whole project-collection class */
+.project-collection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: auto;
+  margin-left: 5%;
+}
+
+#proj-title {
+  font-size: 58px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Style the class contains all projects */
+.projects {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
+  margin-bottom: 100px;
+  margin-top: 10px;
+  gap: 20px;
+}
+
+/* Style the class of creating new project */
+.new-project {
+  display: none;
+  position: sticky;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.new-project h2 {
+  font-size: 32px;
+  color: #cbcbcb;
+  margin-bottom: 20px;
+}
+
+.tag-privacy-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tags,
+.privacy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag,
+.add-tag,
+.privacy-option {
+  background-color: #c0c0c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.add-tag {
+  background-color: #5a5;
+}
+
+#public {
+  color: green;
+}
+
+#private {
+  color: blue;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#new-project-description,
+#new-project-name {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #333;
+  color: #cbcbcb;
+}
+
+#done {
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+#create-btn {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: lightskyblue;
+  font-size: x-large;
+  right: 20px;
+  bottom: 20px;
+}
+
+/* Style the copyright footer */
+#footer {
+  position: sticky;
+  margin-left: 10%;
+  font-size: 14px;
+  width: 200px;
+  height: 60px;
+}
+
+/* Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: gray;
+  opacity: 0.9;
+  padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #2a2a2e;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 50%;
+  color: #cbcbcb;
+}
+
+/* Close Button */
+.close {
+  color: #cbcbcb;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Tag Editor Styles */
+#tag-editor h2 {
+  font-size: 32px;
+  color: #cbcbcb;
+  margin-bottom: 20px;
+}
+
+#tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #333;
+  color: #cbcbcb;
+  cursor: pointer;
+}
+
+.tag-item::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--tag-color);
+  margin-right: 5px;
+}
+
+#new-tag-name,
+#new-tag-color {
+  width: calc(50% - 10px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #333;
+  color: #cbcbcb;
+}
+
+#new-tag-color {
+  width: auto;
+}
+
+#add-tag-btn {
+  background-color: #5a5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}

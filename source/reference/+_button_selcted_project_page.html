@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entry Creator Popup</title>
+    <link rel="stylesheet" href="../assets/styles/+_button_selcted_project_page.css">
+</head>
+<body>
+
+<main>
+    <!-- Journal Entry Creator Popup -->
+    <button id="create-btn" onclick="openPopup('hidden-popup')">+</button>
+
+    <!-- This will hide until the + button is clicked -->
+    <div id="hidden-popup" class="pop-up">
+        <form id="new-entry" class="entry-container">
+            <button type="button" id="project-page-popup-back-btn" onclick="closePopup('hidden-popup')">
+                <img src="../assets/images/back-arrow.png" alt="Cancel" id="cancel-img">
+            </button>
+            <h1>Create a new entry</h1>
+            <h3>Entry Title</h3>
+            <input type="text" id="new-entry-name" placeholder="Enter New Entry Name">
+            <h3>Description</h3>
+            <input type="text" id="new-entry-description" placeholder="Enter New Entry Description">
+            <div class="select-container">
+                <div class="dropdown-group">
+                    <h3>Publicity</h3>
+                    <select id="publicity-select">
+                        <option value="Public">Public</option>
+                        <option value="Private">Private</option>
+                    </select>
+                </div>
+            </div>
+            <div id="tag-editor-popup" class="tag-container">
+                <h3>Tags</h3>
+                <div class="tag" data-tag-id="3000" data-tag-color="red">HTML</div> <!-- example data for testing, will be removed-->
+                <div class="tag" data-tag-id="3001" data-tag-color="green">CSS</div> <!-- example data for testing, will be removed-->
+                <button type="button" id="add-tag-btn">Add Tag</button>
+              </div>
+
+            <div class="entry-container">
+                <div class="input-container" id="inputcontainer">
+                    <div class="input-group">
+                        <input type="text" placeholder="Header/Section" class="input-1">
+                        <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Code" class="input-2">
+                        <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Insert Text Here" class="input-3">
+                        <button class="delete-btn" onclick="deleteInput(this)">Delete</button>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="button" onclick="addInput(1)">New Section</button>
+                    <button type="button" onclick="addInput(2)">Add Code Entry</button>
+                    <button type="button" onclick="addInput(3)">Add Text Entry</button>
+                </div>
+            </div>
+
+            <div class="done-btn-position">
+                <button type="button" id="done-btn" onclick="createNewEntryObject()">Create Entry</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script src="../assets/scripts/+_button_selcted_project_page.js"></script>
+
+</body>
+</html>

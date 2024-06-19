@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Home Page</title>
+    <link rel="stylesheet" href="source/assets/styles/project_styles.css">
+    <!-- Project Card Custom Element -->
+    <script src="source/assets/scripts/ProjectCard.js" type="module"></script>
+
+    <!-- Main Stylesheets & Scripts -->
+    <script src="source/assets/scripts/main.js" type="module"></script>
+
+    <!--Profile Setting script to load localStorage-->
+    <script src="source/assets/scripts/profile_setting.js" type="module"></script>
+</head>
+<script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
+<script src="source/assets/scripts/home_projects_page.js" type="module"></script>
+
+<body>
+    <header>
+        <!--Logo for the website-->
+        <a href="./home_projects_page.html"><img id="codelog-pic" src="admin/branding/CodeLog_logo.png" width="100"
+                alt="CodeLog logo" /></a>
+        <h1 id="codelog">CodeLog</h1>
+
+        <div class="but">
+            <!--Buttons to jump to other pages-->
+
+            <!--Button to go to the Project Home Page-->
+            <button onclick="location.href" id="home">Home</button>
+
+            <script type="text/javascript">
+                document.getElementById("home").onclick = function () {
+                    location.href = "home_projects_page.html";
+                };
+            </script>
+
+            <!--Button to go to setting and edit user's profile-->
+            <button onclick="location.href" id="setting">Setting</button>
+            <script type="text/javascript">
+                document.getElementById("setting").onclick = function () {
+                    location.href = "source/reference/project_setting.html";
+                };
+            </script>
+        </div>
+    </header>
+    <main>
+        <!--User's profile-->
+        <!--Delete this class after implementing the JS function to load user's profile (from the database or somewhere else)-->
+        <div class="profile">
+            <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture" />
+            <h2 id="name">Developer's Name</h2>
+            <div class="user-info">
+                <!--p id="username">Username</p-->
+                <!--p>•</p-->
+                <p id="pronoun">Pronoun</p>
+            </div>
+            <p id="description">User description</p>
+
+            <!--User's sublinks-->
+            <div class="sublinks">
+
+                <div class="email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a id="link-email" href="mailto:user@email.com">Link to Email</a>
+                </div>
+
+                <div class="linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a id="link-linkedin" href="https://www.linkedin.com/feed/">Link to LinkedIn</a>
+                </div>
+
+                <div class="github">
+                    <i class="fa-brands fa-github"></i>
+                    <a id="link-github" href="https://github.com/">Link to Github</a> <br>
+                </div>
+                <!--Add line to add more links-->
+            </div>
+        </div>
+
+        <!-- Projects section -->
+        <div class="project-collection">
+            <h1 id="proj-title">Projects</h1>
+
+            <!-- Class of all project boxes -->
+            <div class="projects"></div>
+
+            <!-- The + button to add new project -->
+            <button id="create-btn">+</button>
+
+            <!-- Manual project creation -->
+            <!-- Hide this until the + button is clicked -->
+            <div class="new-project" style="display: none;">
+                <h2>Create New Project</h2>
+                <input type="text" id="new-project-name" placeholder="Enter Project Title">
+                <input type="text" id="new-project-description" placeholder="Enter Project Description">
+                <div class="tag-privacy-row">
+                    <div class="tags">
+                        <button class="tag add-tag">Edit Tags</button>
+                        <div id="selected-tags" class="selected-tags"></div>
+                    </div>
+                    <div class="privacy">
+                        <button class="privacy-option" id="public">Public</button>
+                        <button class="privacy-option" id="private">Private</button>
+                    </div>
+                </div>
+                <button id="done">Create Project</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tag Editor Modal -->
+    <div id="tag-editor" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tag Editor</h2>
+            <div id="tag-list"></div>
+            <input type="text" id="new-tag-name" placeholder="Enter tag name">
+            <input type="color" id="new-tag-color">
+            <button id="add-tag-btn">Add Tag</button>
+            <button id="toggle-delete-mode">Delete Mode: Off</button>
+        </div>
+    </div>
+
+    <!--Footer for copyright-->
+    <footer id="footer">
+        <p>@ 2024 CodeLog</p>
+    </footer>
+
+    <!-- Local Storage Script -->
+    <script src="source/assets/scripts/get_set_from_localStorage.js" type="module"></script>
+
+    <!-- Navigating between pages script -->
+    <!-- <script>
+        function loadProjectNameToLocalStorage(anchorElement) {
+            console.log("title was clicked")
+            const h3Element = anchorElement.querySelector('h3')
+            const currDisplayedProject = h3Element.textContent.trim() // Get text content and remove any leading/trailing spaces
+            localStorage.setItem('currDisplayedProject', currDisplayedProject)
+        }
+    </script> -->
+</body>
+
+</html>

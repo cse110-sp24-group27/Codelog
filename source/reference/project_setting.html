@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <!-- <link rel="stylesheet" href="/source/assets/styles/project_styles.css"> -->
+    <link rel="stylesheet" href="../assets/styles/project_setting.css">
+
+    <!--Profile Setting script to laod localStorage-->
+    <script src="../assets/scripts/profile_setting.js" type="module"></script>
+</head>
+    <!-- FontAwesome for icons -->
+<script src="https://kit.fontawesome.com/306a08d434.js" crossorigin="anonymous"></script>
+
+<body>
+    <header>
+        <!--Logo for the website-->
+        <a href="../../home_projects_page.html"><img id="codelog-pic" src="../../admin/branding/CodeLog_logo.png" width="100" alt="CodeLog logo"/></a>
+        <h1 id="codelog">CodeLog</h1>
+
+        <div class="but">
+            <!--Button to go to the Project Home Page-->
+            <button onclick="location.href" id="home">Home</button>
+
+            <script type="text/javascript">
+                document.getElementById("home").onclick = function () {
+                    location.href = "../../home_projects_page.html";
+                };
+            </script>
+             
+
+            <!--Button to go to setting and edit user's profile-->
+            <button onclick="location.href" id="setting">Setting</button>
+            <script type="text/javascript">
+                document.getElementById("setting").onclick = function () {
+                    location.href = "project_setting.html";
+                };
+            </script>
+        </div>
+    </header>
+
+    <main>
+        <h1 id="title" >Profile Settings</h1>
+        <!--User's profile settings form-->
+        <div class="profile">
+            <!-- Profile Picture with hover effect to change avatar -->
+            <div>
+                <label for="profile-picture-upload">
+                 <img id="profile-picture" src="https://via.placeholder.com/150" alt="Profile Picture" title="Change your avatar" />
+                </label>
+                <input type="file" id="profile-picture-upload" style="display: none;" onchange="loadImage(event)"/>
+            </div>
+            
+              <!-- Profile Picture Change Text -->
+              <div id="change-avatar-text" style="display: none;">Change your avatar</div>
+            
+
+            <!-- Form for User Information -->
+            <form id="profile-form">
+                <!-- Name Input -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Developer's Name">
+                </div>
+
+                <!-- Pronouns Input -->
+                <div class="form-group">
+                    <label for="pronoun">Pronouns</label>
+                    <input type="text" id="pronoun" placeholder="they/them">
+                </div>
+
+                <!-- Bio Input -->
+                <div class="form-group">
+                    <label for="description">Bio</label>
+                    <input type="text" id="description" placeholder="Bio - ex. Software Engineer at UCSD">
+                </div>
+
+                <!-- Social Accounts Section -->
+                <div class="form-group">
+                    <label for="link-email"><i class="fa-solid fa-envelope"></i> Email</label>
+                    <input type="email" id="link-email" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <label for="link-linkedin"><i class="fa-brands fa-linkedin"></i> LinkedIn</label>
+                    <input type="text" id="link-linkedin" placeholder="LinkedIn">
+                </div>
+
+                <div class="form-group">
+                    <label for="link-github"><i class="fa-brands fa-github"></i> GitHub</label>
+                    <input type="text" id="link-github" placeholder="GitHub">
+                </div>
+
+                <!-- Buttons -->
+                <button type="button" id="save-bnt" onclick="save()">Save</button>
+                <button type="button" id="cancel-bnt" onclick="cancel()">Cancel</button>
+            </form>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <p>@ 2024 CodeLog</p>
+    </footer>
+
+    <script>
+        document.getElementById('profile-picture').addEventListener('mouseover', function () {
+            document.getElementById('change-avatar-text').style.display = 'block';
+            console.log('hover over'); // debug line
+        });
+
+        document.getElementById('profile-picture').addEventListener('mouseout', function () {
+            document.getElementById('change-avatar-text').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
